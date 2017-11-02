@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)http://www.cnblogs.com/linjiqin/p/3431835.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jQuery Validate验证框架详解 - Ruthless - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/bundle-sea.css">
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/bundle-sea-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/linjiqin/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/linjiqin/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/linjiqin/wlwmanifest.xml">
+<script async="" src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/analytics.js.下载"></script><script type="text/javascript" src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/encoder.js.下载"></script><script src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/jquery.js.下载" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'linjiqin', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+<!--PageBeginHtml Block Begin-->
+<div align="center"><a href="http://www.amazingcounter.com/"><img border="0" src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/counter.php" alt="track website visits"></a><br><a href="http://www.allonlinecoupons.com/">MCM</a> <a href="http://www.allonlinecoupons.com/st/mcm-electronics/">Discount Promos</a></div>
+<!--PageBeginHtml Block End-->
+
+<!--done-->
+<div id="header">
+	
+<!--done-->
+<div class="header">
+	<div class="headerText">
+		<a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/linjiqin/">Ruthless</a><br>
+		J2EE+ANDROID+jQuery交流群: 158560018
+	</div>
+</div>
+
+</div>
+
+<div id="mytopmenu">
+	
+		<div id="mylinks"><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a> &nbsp;
+<a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/linjiqin/">首页</a> &nbsp;
+<a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a> &nbsp;
+<a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/Ruthless">联系</a> &nbsp;
+<a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/linjiqin/rss">订阅</a><a id="blog_nav_rss_image" href="http://www.cnblogs.com/linjiqin/rss"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/xml.gif" alt="订阅"></a>&nbsp;
+<a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a>
+</div>
+		<div id="mystats"><div id="blog_stats">
+随笔-842&nbsp;
+评论-770&nbsp;
+文章-0&nbsp;
+<!--trackbacks-0-->
+</div></div>
+	
+</div>
+<div id="centercontent">
+	
+<div id="post_detail">
+<div class="post">
+	<h1 class="postTitle"><a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/linjiqin/p/3431835.html">jQuery Validate验证框架详解</a></h1>
+	<div id="cnblogs_post_body"><p>jQuery校验官网地址：<a href="http://bassistance.de/jquery-plugins/jquery-plugin-validation" target="_blank">http://bassistance.de/jquery-plugins/jquery-plugin-validation</a></p>
+<p><strong>一、导入js库</strong></p>
+<div class="cnblogs_code">
+<pre>&lt;script type="text/javascript" src="&lt;%=path %&gt;/validate/jquery-1.6.2.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="&lt;%=path %&gt;/validate/jquery.validate.min.js"&gt;&lt;/script&gt;</pre>
+</div>
+<p>注：&lt;%=request.getContextPath() %&gt;返回web项目的根路径。</p>
+<p><strong>二、默认校验规则</strong></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre>(1)、required:<span style="color: #0000ff;">true</span><span style="color: #000000;">               必输字段
+(</span>2)、remote:"remote-valid.jsp"   使用ajax方法调用remote-<span style="color: #000000;">valid.jsp验证输入值
+(</span>3)、email:<span style="color: #0000ff;">true</span><span style="color: #000000;">                  必须输入正确格式的电子邮件
+(</span>4)、url:<span style="color: #0000ff;">true</span><span style="color: #000000;">                    必须输入正确格式的网址
+(</span>5)、date:<span style="color: #0000ff;">true</span><span style="color: #000000;">                   必须输入正确格式的日期，日期校验ie6出错，慎用
+(</span>6)、dateISO:<span style="color: #0000ff;">true</span>                必须输入正确格式的日期(ISO)，例如：2009-06-23，1998/01/22<span style="color: #000000;"> 只验证格式，不验证有效性
+(</span>7)、number:<span style="color: #0000ff;">true</span><span style="color: #000000;">                 必须输入合法的数字(负数，小数)
+(</span>8)、digits:<span style="color: #0000ff;">true</span><span style="color: #000000;">                 必须输入整数
+(</span>9)、creditcard:<span style="color: #0000ff;">true</span><span style="color: #000000;">             必须输入合法的信用卡号
+(</span>10)、equalTo:"#password"<span style="color: #000000;">        输入值必须和#password相同
+(</span>11<span style="color: #000000;">)、accept:                    输入拥有合法后缀名的字符串（上传文件的后缀）
+(</span>12)、maxlength:5<span style="color: #000000;">                输入长度最多是5的字符串(汉字算一个字符)
+(</span>13)、minlength:10<span style="color: #000000;">               输入长度最小是10的字符串(汉字算一个字符)
+(</span>14)、rangelength:[5,10]         输入长度必须介于 5 和 10 之间的字符串"<span style="color: #000000;">)(汉字算一个字符)
+(15)、range:[5,10]               输入值必须介于 5 和 10 之间
+(16)、max:5                      输入值不能大于5
+(17)、min:10                     输入值不能小于10</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><strong>三、默认的提示</strong></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #000000;">messages: {
+required: </span>"This field is required."<span style="color: #000000;">,
+remote: </span>"Please fix this field."<span style="color: #000000;">,
+email: </span>"Please enter a valid email address."<span style="color: #000000;">,
+url: </span>"Please enter a valid URL."<span style="color: #000000;">,
+date: </span>"Please enter a valid date."<span style="color: #000000;">,
+dateISO: </span>"Please enter a valid date (ISO)."<span style="color: #000000;">,
+dateDE: </span>"Bitte geben Sie ein g眉ltiges Datum ein."<span style="color: #000000;">,
+number: </span>"Please enter a valid number."<span style="color: #000000;">,
+numberDE: </span>"Bitte geben Sie eine Nummer ein."<span style="color: #000000;">,
+digits: </span>"Please enter only digits"<span style="color: #000000;">,
+creditcard: </span>"Please enter a valid credit card number."<span style="color: #000000;">,
+equalTo: </span>"Please enter the same value again."<span style="color: #000000;">,
+accept: </span>"Please enter a value with a valid extension."<span style="color: #000000;">,
+maxlength: $.validator.format(</span>"Please enter no more than {0} characters."<span style="color: #000000;">),
+minlength: $.validator.format(</span>"Please enter at least {0} characters."<span style="color: #000000;">),
+rangelength: $.validator.format(</span>"Please enter a value between {0} and {1} characters long."<span style="color: #000000;">),
+range: $.validator.format(</span>"Please enter a value between {0} and {1}."<span style="color: #000000;">),
+max: $.validator.format(</span>"Please enter a value less than or equal to {0}."<span style="color: #000000;">),
+min: $.validator.format(</span>"Please enter a value greater than or equal to {0}."<span style="color: #000000;">)
+},</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>如需要修改，可在js代码中加入：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #000000;">$.extend($.validator.messages, {
+    required: </span>"必选字段"<span style="color: #000000;">,
+    remote: </span>"请修正该字段"<span style="color: #000000;">,
+    email: </span>"请输入正确格式的电子邮件"<span style="color: #000000;">,
+    url: </span>"请输入合法的网址"<span style="color: #000000;">,
+    date: </span>"请输入合法的日期"<span style="color: #000000;">,
+    dateISO: </span>"请输入合法的日期 (ISO)."<span style="color: #000000;">,
+    number: </span>"请输入合法的数字"<span style="color: #000000;">,
+    digits: </span>"只能输入整数"<span style="color: #000000;">,
+    creditcard: </span>"请输入合法的信用卡号"<span style="color: #000000;">,
+    equalTo: </span>"请再次输入相同的值"<span style="color: #000000;">,
+    accept: </span>"请输入拥有合法后缀名的字符串"<span style="color: #000000;">,
+    maxlength: $.validator.format(</span>"请输入一个长度最多是 {0} 的字符串"<span style="color: #000000;">),
+    minlength: $.validator.format(</span>"请输入一个长度最少是 {0} 的字符串"<span style="color: #000000;">),
+    rangelength: $.validator.format(</span>"请输入一个长度介于 {0} 和 {1} 之间的字符串"<span style="color: #000000;">),
+    range: $.validator.format(</span>"请输入一个介于 {0} 和 {1} 之间的值"<span style="color: #000000;">),
+    max: $.validator.format(</span>"请输入一个最大为 {0} 的值"<span style="color: #000000;">),
+    min: $.validator.format(</span>"请输入一个最小为 {0} 的值"<span style="color: #000000;">)
+});</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>推荐做法，将此文件放入messages_cn.js中，在页面中引入</p>
+<div class="cnblogs_code">
+<pre>&lt;script type="text/javascript" src="&lt;%=path %&gt;/validate/messages_cn.js"&gt;&lt;/script&gt;</pre>
+</div>
+<p><strong>四、使用方式</strong><br><span style="color: #ff0000;">1、metadata用法，将校验规则写到控件中</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="background-color: #ffff00; color: #000000;">&lt;%</span><span style="background-color: #f5f5f5; color: #000000;">@ page language</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #800000;">java</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #000000;"> import</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #800000;">java.util.*</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #000000;"> pageEncoding</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #800000;">UTF-8</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #ffff00; color: #000000;">%&gt;</span>
+<span style="background-color: #ffff00; color: #000000;">&lt;%</span>
+    <span style="background-color: #f5f5f5; color: #0000ff;">String</span><span style="background-color: #f5f5f5; color: #000000;"> path </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> request.getContextPath();
+    </span><span style="background-color: #f5f5f5; color: #0000ff;">String</span><span style="background-color: #f5f5f5; color: #000000;"> basePath </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> request.getScheme() </span><span style="background-color: #f5f5f5; color: #000000;">+</span> <span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #800000;">://</span><span style="background-color: #f5f5f5; color: #800000;">"</span> <span style="background-color: #f5f5f5; color: #000000;">+</span><span style="background-color: #f5f5f5; color: #000000;"> request.getServerName() </span><span style="background-color: #f5f5f5; color: #000000;">+</span> <span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #800000;">:</span><span style="background-color: #f5f5f5; color: #800000;">"</span>
+            <span style="background-color: #f5f5f5; color: #000000;">+</span><span style="background-color: #f5f5f5; color: #000000;"> request.getServerPort() </span><span style="background-color: #f5f5f5; color: #000000;">+</span><span style="background-color: #f5f5f5; color: #000000;"> path </span><span style="background-color: #f5f5f5; color: #000000;">+</span> <span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #800000;">/</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #000000;">;
+</span><span style="background-color: #ffff00; color: #000000;">%&gt;</span>
+
+<span style="color: #0000ff;">&lt;!</span><span style="color: #ff00ff;">DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">base </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="&lt;%=basePath%&gt;"</span><span style="color: #0000ff;">&gt;</span>
+
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>jQuery Validate验证框架详解-metadata用法<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>
+
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">="pragma"</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">="no-cache"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">="cache-control"</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">="no-cache"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">="expires"</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">="0"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">="keywords"</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">="keyword1,keyword2,keyword3"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">="description"</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">="This is my page"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #ff0000;"> src</span><span style="color: #0000ff;">="&lt;%=request.getContextPath()%&gt;/validate/jquery-1.6.2.min.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #ff0000;"> src</span><span style="color: #0000ff;">="&lt;%=request.getContextPath()%&gt;/validate/jquery.validate.min.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #ff0000;"> src</span><span style="color: #0000ff;">="&lt;%=request.getContextPath()%&gt;/validate/jquery.metadata.min.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #ff0000;"> src</span><span style="color: #0000ff;">="&lt;%=request.getContextPath()%&gt;/validate/messages_zh.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #0000ff;">&gt;</span><span style="background-color: #f5f5f5; color: #000000;">
+        $(</span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(){
+            $(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">#myform</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">).validate();
+        });
+        </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">form </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="myform"</span><span style="color: #ff0000;"> method</span><span style="color: #0000ff;">="post"</span><span style="color: #ff0000;"> action</span><span style="color: #0000ff;">=""</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">for</span><span style="color: #0000ff;">="myname"</span><span style="color: #0000ff;">&gt;</span>用户名：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> id和name最好同时写上 </span><span style="color: #008000;">--&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="myname"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="myname"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="required"</span> <span style="color: #0000ff;">/&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">for</span><span style="color: #0000ff;">="email"</span><span style="color: #0000ff;">&gt;</span>E-Mail：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="email"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="email"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="required email"</span> <span style="color: #0000ff;">/&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">for</span><span style="color: #0000ff;">="password"</span><span style="color: #0000ff;">&gt;</span>登陆密码：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="password"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="password"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="password"</span><span style="color: #ff0000;">
+                    class</span><span style="color: #0000ff;">="{required:true,minlength:5}"</span> <span style="color: #0000ff;">/&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">for</span><span style="color: #0000ff;">="confirm_password"</span><span style="color: #0000ff;">&gt;</span>确认密码：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="confirm_password"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="confirm_password"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="password"</span><span style="color: #ff0000;">
+                    class</span><span style="color: #0000ff;">="{required:true,minlength:5,equalTo:'#password'}"</span> <span style="color: #0000ff;">/&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">for</span><span style="color: #0000ff;">="confirm_password"</span><span style="color: #0000ff;">&gt;</span>性别：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> 表示必须选中一个 </span><span style="color: #008000;">--&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input  </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="radio"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="gender_male"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="m"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="gender"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="{required:true}"</span> <span style="color: #0000ff;">/&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input  </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="radio"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="gender_female"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="f"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="gender"</span><span style="color: #0000ff;">/&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">for</span><span style="color: #0000ff;">="confirm_password"</span><span style="color: #0000ff;">&gt;</span>爱好：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> checkbox的minlength表示必须选中的最小个数,maxlength表示最大的选中个数,rangelength:[2,3]表示选中个数区间  </span><span style="color: #008000;">--&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="checkbox"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="spam_email"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="email"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="spam[]"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="{required:true, minlength:2}"</span> <span style="color: #0000ff;">/&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="checkbox"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="spam_phone"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="phone"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="spam[]"</span> <span style="color: #0000ff;">/&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="checkbox"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="spam_mail"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="mail"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="spam[]"</span> <span style="color: #0000ff;">/&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">for</span><span style="color: #0000ff;">="confirm_password"</span><span style="color: #0000ff;">&gt;</span>城市：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">select </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="jungle"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="jungle"</span><span style="color: #ff0000;"> title</span><span style="color: #0000ff;">="Please select something!"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="{required:true}"</span><span style="color: #0000ff;">&gt;</span>
+                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=""</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="1"</span><span style="color: #0000ff;">&gt;</span>厦门<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+                    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="2"</span><span style="color: #0000ff;">&gt;</span>泉州<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="3"</span><span style="color: #0000ff;">&gt;</span>Oi<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">select</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="submit"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="submit"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="立即注册"</span> <span style="color: #0000ff;">/&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">form</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/19171935-1657707d69f346c1b82934ccd7b7b34f.png" alt=""></p>
+<p>使用class="{}"的方式，必须引入包：jquery.metadata.js；<br>可以使用如下的方法，修改提示内容：class="{required:true,minlength:5,messages:{required:'请输入内容'}}"；<br>在使用equalTo关键字时，后面的内容必须加上引号，如下代码：class="{required:true,minlength:5,equalTo:'#password'}"。</p>
+<p><span style="color: #ff0000;">2、将校验规则写到js代码中</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="background-color: #ffff00; color: #000000;">&lt;%</span><span style="background-color: #f5f5f5; color: #000000;">@ page language</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #800000;">java</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #000000;"> import</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #800000;">java.util.*</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #000000;"> pageEncoding</span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #800000;">UTF-8</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #ffff00; color: #000000;">%&gt;</span>
+<span style="background-color: #ffff00; color: #000000;">&lt;%</span>
+    <span style="background-color: #f5f5f5; color: #0000ff;">String</span><span style="background-color: #f5f5f5; color: #000000;"> path </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> request.getContextPath();
+    </span><span style="background-color: #f5f5f5; color: #0000ff;">String</span><span style="background-color: #f5f5f5; color: #000000;"> basePath </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> request.getScheme() </span><span style="background-color: #f5f5f5; color: #000000;">+</span> <span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #800000;">://</span><span style="background-color: #f5f5f5; color: #800000;">"</span> <span style="background-color: #f5f5f5; color: #000000;">+</span><span style="background-color: #f5f5f5; color: #000000;"> request.getServerName() </span><span style="background-color: #f5f5f5; color: #000000;">+</span> <span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #800000;">:</span><span style="background-color: #f5f5f5; color: #800000;">"</span>
+            <span style="background-color: #f5f5f5; color: #000000;">+</span><span style="background-color: #f5f5f5; color: #000000;"> request.getServerPort() </span><span style="background-color: #f5f5f5; color: #000000;">+</span><span style="background-color: #f5f5f5; color: #000000;"> path </span><span style="background-color: #f5f5f5; color: #000000;">+</span> <span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #800000;">/</span><span style="background-color: #f5f5f5; color: #800000;">"</span><span style="background-color: #f5f5f5; color: #000000;">;
+</span><span style="background-color: #ffff00; color: #000000;">%&gt;</span>
+
+<span style="color: #0000ff;">&lt;!</span><span style="color: #ff00ff;">DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">base </span><span style="color: #ff0000;">href</span><span style="color: #0000ff;">="&lt;%=basePath%&gt;"</span><span style="color: #0000ff;">&gt;</span>
+
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>jQuery Validate验证框架详解<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">title</span><span style="color: #0000ff;">&gt;</span>
+
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">="pragma"</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">="no-cache"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">="cache-control"</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">="no-cache"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">="expires"</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">="0"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">="keywords"</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">="keyword1,keyword2,keyword3"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">meta </span><span style="color: #ff0000;">http-equiv</span><span style="color: #0000ff;">="description"</span><span style="color: #ff0000;"> content</span><span style="color: #0000ff;">="This is my page"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #ff0000;"> src</span><span style="color: #0000ff;">="&lt;%=request.getContextPath()%&gt;/validate/jquery-1.6.2.min.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #ff0000;"> src</span><span style="color: #0000ff;">="&lt;%=request.getContextPath()%&gt;/validate/jquery.validate.min.js"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="text/javascript"</span><span style="color: #0000ff;">&gt;</span><span style="background-color: #f5f5f5; color: #000000;">
+        $(</span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(){
+            </span><span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> validate </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> $(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">#myform</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">).validate({
+                debug: </span><span style="background-color: #f5f5f5; color: #0000ff;">true</span><span style="background-color: #f5f5f5; color: #000000;">, </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">调试模式取消submit的默认提交功能   </span>
+                <span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">errorClass: "label.error", //默认为错误的样式类为：error   </span>
+<span style="background-color: #f5f5f5; color: #000000;">                focusInvalid: </span><span style="background-color: #f5f5f5; color: #0000ff;">false</span><span style="background-color: #f5f5f5; color: #000000;">, </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">当为false时，验证无效时，没有焦点响应  </span>
+<span style="background-color: #f5f5f5; color: #000000;">                onkeyup: </span><span style="background-color: #f5f5f5; color: #0000ff;">false</span><span style="background-color: #f5f5f5; color: #000000;">,   
+                submitHandler: </span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(form){   </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">表单提交句柄,为一回调函数，带一个参数：form   </span>
+<span style="background-color: #f5f5f5; color: #000000;">                    alert(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">提交表单</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">);   
+                    form.submit();   </span><span style="background-color: #f5f5f5; color: #008000;">//</span><span style="background-color: #f5f5f5; color: #008000;">提交表单   </span>
+<span style="background-color: #f5f5f5; color: #000000;">                },   
+                
+                rules:{
+                    myname:{
+                        required:</span><span style="background-color: #f5f5f5; color: #0000ff;">true</span><span style="background-color: #f5f5f5; color: #000000;">
+                    },
+                    email:{
+                        required:</span><span style="background-color: #f5f5f5; color: #0000ff;">true</span><span style="background-color: #f5f5f5; color: #000000;">,
+                        email:</span><span style="background-color: #f5f5f5; color: #0000ff;">true</span><span style="background-color: #f5f5f5; color: #000000;">
+                    },
+                    password:{
+                        required:</span><span style="background-color: #f5f5f5; color: #0000ff;">true</span><span style="background-color: #f5f5f5; color: #000000;">,
+                        rangelength:[</span><span style="background-color: #f5f5f5; color: #000000;">3</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #000000;">10</span><span style="background-color: #f5f5f5; color: #000000;">]
+                    },
+                    confirm_password:{
+                        equalTo:</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">#password</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">
+                    }                    
+                },
+                messages:{
+                    myname:{
+                        required:</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">必填</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">
+                    },
+                    email:{
+                        required:</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">必填</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">,
+                        email:</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">E-Mail格式不正确</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">
+                    },
+                    password:{
+                        required: </span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">不能为空</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">,
+                        rangelength: $.format(</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">密码最小长度:{0}, 最大长度:{1}。</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">)
+                    },
+                    confirm_password:{
+                        equalTo:</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">两次密码输入不一致</span><span style="background-color: #f5f5f5; color: #000000;">"</span><span style="background-color: #f5f5f5; color: #000000;">
+                    }                                    
+                }
+                          
+            });    
+    
+        });
+        </span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">head</span><span style="color: #0000ff;">&gt;</span>
+
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">form </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="myform"</span><span style="color: #ff0000;"> method</span><span style="color: #0000ff;">="post"</span><span style="color: #ff0000;"> action</span><span style="color: #0000ff;">=""</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">for</span><span style="color: #0000ff;">="myname"</span><span style="color: #0000ff;">&gt;</span>用户名：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #008000;">&lt;!--</span><span style="color: #008000;"> id和name最好同时写上 </span><span style="color: #008000;">--&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="myname"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="myname"</span> <span style="color: #0000ff;">/&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">for</span><span style="color: #0000ff;">="email"</span><span style="color: #0000ff;">&gt;</span>E-Mail：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="email"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="email"</span> <span style="color: #0000ff;">/&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">for</span><span style="color: #0000ff;">="password"</span><span style="color: #0000ff;">&gt;</span>登陆密码：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="password"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="password"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="password"</span> <span style="color: #0000ff;">/&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">for</span><span style="color: #0000ff;">="confirm_password"</span><span style="color: #0000ff;">&gt;</span>确认密码：<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="confirm_password"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="confirm_password"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="password"</span> <span style="color: #0000ff;">/&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+                <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="submit"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="submit"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="立即注册"</span> <span style="color: #0000ff;">/&gt;</span>
+            <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">form</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">html</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/19172014-be797f6a44484e25ac97ea13073da148.png" alt=""></p>
+<p><strong>五、常用方法及注意问题</strong><br><span style="color: #ff0000;">1、用其他方式替代默认的submit</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #000000;">$(function(){
+   $("#signupForm").validate({
+        submitHandler:function(form){
+            alert("submit!");   
+            form.submit();
+        }    
+    });
+});</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>可以设置validate的默认值，写法如下：<br>$.validator.setDefaults({<br>    submitHandler: function(form) { alert("submit!"); form.submit(); }<br>});</p>
+<p>如果想提交表单，需要使用form.submit()，而不要使用$(form).submit()</p>
+<p><span style="color: #ff0000;">2、debug，只验证不提交表单</span><br>如果这个参数为true，那么表单不会提交，只进行检查，调试时十分方便</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">$(function(){
+    $("#signupForm").validate({
+        debug:true
+    });
+});</span></pre>
+</div>
+<p>如果一个页面中有多个表单都想设置成为debug，用<br>$.validator.setDefaults({<br>   debug: true<br>})</p>
+<p><span style="color: #ff0000;">3、ignore：忽略某些元素不验证</span><br>ignore: ".ignore"</p>
+<p><span style="color: #ff0000;">4、更改错误信息显示的位置</span><br>errorPlacement：Callback </p>
+<p>Default: 把错误信息放在验证的元素后面 <br>指明错误放置的位置，默认情况是：error.appendTo(element.parent());即把错误信息放在验证的元素后面 <br>errorPlacement: function(error, element) {  <br>&nbsp; &nbsp; &nbsp;error.appendTo(element.parent());  <br>}</p>
+<p>//示例</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="label"</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="lfirstname"</span><span style="color: #ff0000;"> for</span><span style="color: #0000ff;">="firstname"</span><span style="color: #0000ff;">&gt;</span>First Name<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="field"</span><span style="color: #0000ff;">&gt;&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="firstname"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="firstname"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="text"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">=""</span><span style="color: #ff0000;"> maxlength</span><span style="color: #0000ff;">="100"</span> <span style="color: #0000ff;">/&gt;&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="status"</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="padding-right: 5px;"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="dateformat_eu"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="dateformat"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="radio"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="0"</span> <span style="color: #0000ff;">/&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="ldateformat_eu"</span><span style="color: #ff0000;"> for</span><span style="color: #0000ff;">="dateformat_eu"</span><span style="color: #0000ff;">&gt;</span>14/02/07<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">style</span><span style="color: #0000ff;">="padding-left: 5px;"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="dateformat_am"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="dateformat"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="radio"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="1"</span>  <span style="color: #0000ff;">/&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="ldateformat_am"</span><span style="color: #ff0000;"> for</span><span style="color: #0000ff;">="dateformat_am"</span><span style="color: #0000ff;">&gt;</span>02/14/07<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="label"</span><span style="color: #0000ff;">&gt;</span><span style="color: #ff0000;">&amp;nbsp;</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">td </span><span style="color: #ff0000;">class</span><span style="color: #0000ff;">="field"</span><span style="color: #ff0000;"> colspan</span><span style="color: #0000ff;">="2"</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="termswrap"</span><span style="color: #0000ff;">&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="terms"</span><span style="color: #ff0000;"> type</span><span style="color: #0000ff;">="checkbox"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="terms"</span> <span style="color: #0000ff;">/&gt;</span>
+            <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">label </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="lterms"</span><span style="color: #ff0000;"> for</span><span style="color: #0000ff;">="terms"</span><span style="color: #0000ff;">&gt;</span>I have read and accept the Terms of Use.<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">label</span><span style="color: #0000ff;">&gt;</span>
+        <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">td</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">tr</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+
+errorPlacement: function(error, element) {
+    if (element.is(":radio"))
+        error.appendTo(element.parent().next().next());
+    else if (element.is(":checkbox"))
+        error.appendTo(element.next());
+    else
+        error.appendTo(element.parent().next());
+}</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>代码的作用是：一般情况下把错误信息显示在&lt;td class="status"&gt;&lt;/td&gt;中，如果是radio显示在&lt;td&gt;&lt;/td&gt;中，如果是checkbox显示在内容的后面</p>
+<p>errorClass：String Default: "error" <br>指定错误提示的css类名，可以自定义错误提示的样式</p>
+<p>errorElement：String  Default: "label" <br>用什么标签标记错误，默认的是label你可以改成em</p>
+<p>errorContainer：Selector <br>显示或者隐藏验证信息，可以自动实现有错误信息出现时把容器属性变为显示，无错误时隐藏，用处不大<br>errorContainer: "#messageBox1, #messageBox2"</p>
+<p>errorLabelContainer：Selector<br>把错误信息统一放在一个容器里面。</p>
+<p>wrapper：String<br>用什么标签再把上边的errorELement包起来</p>
+<p>一般这三个属性同时使用，实现在一个容器内显示所有错误提示的功能，并且没有信息时自动隐藏<br>errorContainer: "div.error",<br>errorLabelContainer: $("#signupForm div.error"),<br>wrapper: "li"</p>
+<p><span style="color: #ff0000;">5、更改错误信息显示的样式</span><br>设置错误提示的样式，可以增加图标显示，在该系统中已经建立了一个validation.css专门用于维护校验文件的样式</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #000000;">input.error { border: 1px solid red; }
+label.error {
+    background:url("./demo/images/unchecked.gif") no-repeat 0px 0px;
+    padding-left: 16px;
+    padding-bottom: 2px;
+    font-weight: bold;
+    color: #EA5200;
+}
+label.checked {
+    background:url("./demo/images/checked.gif") no-repeat 0px 0px;
+}</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="color: #ff0000;">6、每个字段验证通过执行函数</span><br>success：String,Callback</p>
+<p>要验证的元素通过验证后的动作，如果跟一个字符串，会当做一个css类，也可跟一个函数</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">success: function(label) {
+    // set </span><span style="color: #ff0000;">&amp;nbsp;</span><span style="color: #000000;"> as text for IE
+    label.html("</span><span style="color: #ff0000;">&amp;nbsp;</span><span style="color: #000000;">").addClass("checked");
+    //label.addClass("valid").text("Ok!")
+}</span></pre>
+</div>
+<p>添加"valid"到验证元素, 在CSS中定义的样式&lt;style&gt;label.valid {}&lt;/style&gt;<br>success: "valid"</p>
+<p><span style="color: #ff0000;">7、验证的触发方式修改</span><br>下面的虽然是boolean型的，但建议除非要改为false,否则别乱添加。<br>a.onsubmit：Boolean  Default: true <br>提交时验证. 设置唯false就用其他方法去验证<br>b.onfocusout：Boolean  Default: true <br>失去焦点是验证(不包括checkboxes/radio buttons)<br>c.onkeyup：Boolean  Default: true <br>在keyup时验证.<br>d.onclick：Boolean  Default: true <br>在checkboxes 和 radio 点击时验证<br>e.focusInvalid：Boolean  Default: true <br>提交表单后，未通过验证的表单(第一个或提交之前获得焦点的未通过验证的表单)会获得焦点<br>f.focusCleanup：Boolean  Default: false <br>如果是true那么当未通过验证的元素获得焦点时，移除错误提示。避免和focusInvalid一起用</p>
+<p><span style="color: #ff0000;">8、异步验证</span><br>remote：URL<br>使用ajax方式进行验证，默认会提交当前验证的值到远程地址，如果需要提交其他的值，可以使用data选项</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #000000;">示例一：
+remote: </span>"check-email.php"<span style="color: #000000;">
+示例二：
+remote: {
+    url: </span>"check-email.php",     <span style="color: #008000;">//</span><span style="color: #008000;">后台处理程序</span>
+    type: "post",               <span style="color: #008000;">//</span><span style="color: #008000;">数据发送方式</span>
+    dataType: "json",           <span style="color: #008000;">//</span><span style="color: #008000;">接受数据格式   </span>
+    data: {                     <span style="color: #008000;">//</span><span style="color: #008000;">要传递的数据</span>
+        username: <span style="color: #0000ff;">function</span><span style="color: #000000;">() {
+            </span><span style="color: #0000ff;">return</span> $("#username"<span style="color: #000000;">).val();
+        }
+    }
+}</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>远程地址只能输出"true"或"false"，不能有其它输出。</p>
+<p><span style="color: #ff0000;">9、添加自定义校验</span><br>addMethod：name, method, message<br>自定义验证方法</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">//</span><span style="color: #008000;"> 中文字两个字节</span>
+<span style="color: #000000;">jQuery.validator.addMethod(
+    </span>"byteRangeLength"<span style="color: #000000;">, 
+    </span><span style="color: #0000ff;">function</span><span style="color: #000000;">(value, element, param) {
+        </span><span style="color: #0000ff;">var</span> length =<span style="color: #000000;"> value.length;
+        </span><span style="color: #0000ff;">for</span>(<span style="color: #0000ff;">var</span> i = 0; i &lt; value.length; i++<span style="color: #000000;">){
+            </span><span style="color: #0000ff;">if</span>(value.charCodeAt(i) &gt; 127<span style="color: #000000;">){
+                length</span>++<span style="color: #000000;">;
+            }
+        }
+        </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">this</span>.optional(element) || (length &gt;= param[0] &amp;&amp; length &lt;= param[1<span style="color: #000000;">]);   
+    }, 
+    $.validator.format(</span>"请确保输入的值在{0}-{1}个字节之间(一个中文字算2个字节)"<span style="color: #000000;">)
+);
+
+</span><span style="color: #008000;">//</span><span style="color: #008000;"> 邮政编码验证   </span>
+jQuery.validator.addMethod("isZipCode", <span style="color: #0000ff;">function</span><span style="color: #000000;">(value, element) {   
+    </span><span style="color: #0000ff;">var</span> tel = /^[0-9]{6}$/<span style="color: #000000;">;
+    </span><span style="color: #0000ff;">return</span> <span style="color: #0000ff;">this</span>.optional(element) ||<span style="color: #000000;"> (tel.test(value));
+}, </span>"请正确填写您的邮政编码");</pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="color: #0000ff;">1.要在additional-methods.js文件中添加或者在jquery.validate.js添加</span><br><span style="color: #0000ff;">建议一般写在additional-methods.js文件中</span></p>
+<p><span style="color: #0000ff;">2.在messages_cn.js文件添加：isZipCode: "只能包括中文字、英文字母、数字和下划线",</span><br><span style="color: #0000ff;">调用前要添加对additional-methods.js文件的引用。</span></p>
+<p><span style="color: #ff0000;">10、radio和checkbox、select的验证</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #000000;">1.radio的required表示必须选中一个
+</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input  </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="radio"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="gender_male"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="m"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="gender"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="{required:true}"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input  </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="radio"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="gender_female"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="f"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="gender"</span><span style="color: #0000ff;">/&gt;</span><span style="color: #000000;">
+
+2.checkbox的required表示必须选中
+</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="checkbox"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="checkbox"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="agree"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="agree"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="{required:true}"</span> <span style="color: #0000ff;">/&gt;</span><span style="color: #000000;">
+
+checkbox的minlength表示必须选中的最小个数,maxlength表示最大的选中个数,rangelength:[2,3]表示选中个数区间
+</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="checkbox"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="spam_email"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="email"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="spam[]"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="{required:true, minlength:2}"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="checkbox"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="spam_phone"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="phone"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="spam[]"</span> <span style="color: #0000ff;">/&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">input </span><span style="color: #ff0000;">type</span><span style="color: #0000ff;">="checkbox"</span><span style="color: #ff0000;"> id</span><span style="color: #0000ff;">="spam_mail"</span><span style="color: #ff0000;"> value</span><span style="color: #0000ff;">="mail"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="spam[]"</span> <span style="color: #0000ff;">/&gt;</span><span style="color: #000000;">
+
+3.select的required表示选中的value不能为空
+</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">select </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="jungle"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="jungle"</span><span style="color: #ff0000;"> title</span><span style="color: #0000ff;">="Please select something!"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="{required:true}"</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">=""</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="1"</span><span style="color: #0000ff;">&gt;</span>Buga<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="2"</span><span style="color: #0000ff;">&gt;</span>Baga<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="3"</span><span style="color: #0000ff;">&gt;</span>Oi<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">select</span><span style="color: #0000ff;">&gt;</span><span style="color: #000000;">
+ 
+select的minlength表示选中的最小个数（可多选的select）,maxlength表示最大的选中个 数,rangelength:[2,3]表示选中个数区间
+</span><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">select </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="fruit"</span><span style="color: #ff0000;"> name</span><span style="color: #0000ff;">="fruit"</span><span style="color: #ff0000;"> title</span><span style="color: #0000ff;">="Please select at least two fruits"</span><span style="color: #ff0000;"> class</span><span style="color: #0000ff;">="{required:true, minlength:2}"</span><span style="color: #ff0000;"> multiple</span><span style="color: #0000ff;">="multiple"</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="b"</span><span style="color: #0000ff;">&gt;</span>Banana<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="a"</span><span style="color: #0000ff;">&gt;</span>Apple<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="p"</span><span style="color: #0000ff;">&gt;</span>Peach<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">option </span><span style="color: #ff0000;">value</span><span style="color: #0000ff;">="t"</span><span style="color: #0000ff;">&gt;</span>Turtle<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">option</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">select</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>---------------------------------------------------------------------------------<br>Blog：http://www.cnblogs.com/linjiqin/<br>Hadoop交流群(250363249)、Java+Oracle交流群(158560018)</p>
+<p>题外话：<br>本人来自铁观音的发源地——泉州安溪，有需要正宗安溪铁观音的友友欢迎Q我:416501600。</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/linjiqin/category/283835.html" target="_blank">jQuery</a></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/linjiqin/tag/jQuery%20validate/">jQuery validate</a>, <a href="http://www.cnblogs.com/linjiqin/tag/jQuery%E9%AA%8C%E8%AF%81%E6%A1%86%E6%9E%B6/">jQuery验证框架</a>, <a href="http://www.cnblogs.com/linjiqin/tag/jQuery%E8%A1%A8%E5%8D%95%E9%AA%8C%E8%AF%81%E6%A1%86%E6%9E%B6/">jQuery表单验证框架</a>, <a href="http://www.cnblogs.com/linjiqin/tag/jQuery%E9%AA%8C%E8%AF%81%E6%8F%92%E4%BB%B6/">jQuery验证插件</a>, <a href="http://www.cnblogs.com/linjiqin/tag/jQuery%E6%A0%A1%E9%AA%8C%E6%A1%86%E6%9E%B6/">jQuery校验框架</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(3431835,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;a6448c44-d92c-e011-ac81-842b2b196315&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/linjiqin/" target="_blank"><img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/20160913065424.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/linjiqin/">Ruthless</a><br>
+            <a href="http://home.cnblogs.com/u/linjiqin/followees">关注 - 27</a><br>
+            <a href="http://home.cnblogs.com/u/linjiqin/followers">粉丝 - 2744</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;a6448c44-d92c-e011-ac81-842b2b196315&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(3431835,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">28</span>
+    </div>
+    <div class="buryit" onclick="votePost(3431835,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/linjiqin/p/3429919.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/linjiqin/p/3429919.html" title="发布于2013-11-18 17:50">史上最全JS表单验证封装类</a><br><a href="http://www.cnblogs.com/linjiqin/p/3433635.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/linjiqin/p/3433635.html" title="发布于2013-11-20 15:08">封装jQuery Validate扩展验证方法</a><br></div>
+</div>
+
+
+	<div class="postDesc">posted on <span id="post-date">2013-11-19 17:17</span> <a href="http://www.cnblogs.com/linjiqin/">Ruthless</a> 阅读(<span id="post_view_count">262487</span>) 评论(<span id="post_comment_count">17</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=3431835" rel="nofollow">编辑</a> <a href="http://www.cnblogs.com/linjiqin/p/3431835.html#" onclick="AddToWz(3431835);return false;">收藏</a></div>
+</div>
+<script type="text/javascript">var allowComments=true,cb_blogId=83240,cb_entryId=3431835,cb_blogApp=currentBlogApp,cb_blogUserGuid='a6448c44-d92c-e011-ac81-842b2b196315',cb_entryCreatedDate='2013/11/19 17:17:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+
+</div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<!--done-->
+<br>
+<b>评论:</b>
+<div class="feedbackNoItems"></div>
+	
+
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<a href="http://www.cnblogs.com/linjiqin/p/3431835.html#3197882" class="layer">#1楼</a><a name="3197882" id="comment_anchor_3197882"></a>
+				 <span class="comment_date">2015-06-01 17:17</span> | <a id="a_comment_author_3197882" href="http://home.cnblogs.com/u/676116/" target="_blank">走在四季</a> <a href="http://msg.cnblogs.com/send/%E8%B5%B0%E5%9C%A8%E5%9B%9B%E5%AD%A3" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><br>
+				<div align="left"><div id="comment_body_3197882" class="blog_comment_body">赞一个</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3197882,&#39;Digg&#39;,this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3197882,&#39;Bury&#39;,this)">反对(0)</a></div>&nbsp;&nbsp;<span class="comment_actions"></span></div>
+			</div>
+			
+			
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<a href="http://www.cnblogs.com/linjiqin/p/3431835.html#3199421" class="layer">#2楼</a><a name="3199421" id="comment_anchor_3199421"></a>
+				 <span class="comment_date">2015-06-03 15:50</span> | <a id="a_comment_author_3199421" href="http://www.cnblogs.com/clyen/" target="_blank">IvanLiang</a> <a href="http://msg.cnblogs.com/send/IvanLiang" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><br>
+				<div align="left"><div id="comment_body_3199421" class="blog_comment_body">够详细的!!!!!</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3199421,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3199421,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3199421_avatar" style="display:none;">http://pic.cnblogs.com/face/461593/20141128090745.png</span>&nbsp;&nbsp;<span class="comment_actions"></span></div>
+			</div>
+			
+			
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<a href="http://www.cnblogs.com/linjiqin/p/3431835.html#3235156" class="layer">#3楼</a><a name="3235156" id="comment_anchor_3235156"></a>
+				 <span class="comment_date">2015-07-25 16:04</span> | <a id="a_comment_author_3235156" href="http://home.cnblogs.com/u/734632/" target="_blank">荀翦一亮</a> <a href="http://msg.cnblogs.com/send/%E8%8D%80%E7%BF%A6%E4%B8%80%E4%BA%AE" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><br>
+				<div align="left"><div id="comment_body_3235156" class="blog_comment_body">不错,够细</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3235156,&#39;Digg&#39;,this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3235156,&#39;Bury&#39;,this)">反对(0)</a></div>&nbsp;&nbsp;<span class="comment_actions"></span></div>
+			</div>
+			
+			
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<a href="http://www.cnblogs.com/linjiqin/p/3431835.html#3242502" class="layer">#4楼</a><a name="3242502" id="comment_anchor_3242502"></a>
+				 <span class="comment_date">2015-08-06 15:47</span> | <a id="a_comment_author_3242502" href="http://www.cnblogs.com/zouxml/" target="_blank">ziokai</a> <a href="http://msg.cnblogs.com/send/ziokai" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><br>
+				<div align="left"><div id="comment_body_3242502" class="blog_comment_body">十分感谢，很解惑。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3242502,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3242502,&#39;Bury&#39;,this)">反对(0)</a></div>&nbsp;&nbsp;<span class="comment_actions"></span></div>
+			</div>
+			
+			
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<a href="http://www.cnblogs.com/linjiqin/p/3431835.html#3247758" class="layer">#5楼</a><a name="3247758" id="comment_anchor_3247758"></a>
+				 <span class="comment_date">2015-08-14 11:41</span> | <a id="a_comment_author_3247758" href="http://www.cnblogs.com/zhh-bky/" target="_blank">海培</a> <a href="http://msg.cnblogs.com/send/%E6%B5%B7%E5%9F%B9" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><br>
+				<div align="left"><div id="comment_body_3247758" class="blog_comment_body">很受益,谢谢！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3247758,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3247758,&#39;Bury&#39;,this)">反对(0)</a></div>&nbsp;&nbsp;<span class="comment_actions"></span></div>
+			</div>
+			
+			
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<a href="http://www.cnblogs.com/linjiqin/p/3431835.html#3255874" class="layer">#6楼</a><a name="3255874" id="comment_anchor_3255874"></a>
+				 <span class="comment_date">2015-08-28 09:38</span> | <a id="a_comment_author_3255874" href="http://www.cnblogs.com/gentoo/" target="_blank">Gentoo</a> <a href="http://msg.cnblogs.com/send/Gentoo" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><br>
+				<div align="left"><div id="comment_body_3255874" class="blog_comment_body">同时泉州的，不得不给你赞一个~</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3255874,&#39;Digg&#39;,this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3255874,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3255874_avatar" style="display:none;">http://pic.cnblogs.com/face/u356374.jpg?id=05152226</span>&nbsp;&nbsp;<span class="comment_actions"></span></div>
+			</div>
+			
+			
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<a href="http://www.cnblogs.com/linjiqin/p/3431835.html#3327005" class="layer">#7楼</a><a name="3327005" id="comment_anchor_3327005"></a>
+				 <span class="comment_date">2015-12-14 21:05</span> | <a id="a_comment_author_3327005" href="http://home.cnblogs.com/u/857117/" target="_blank">权飞虎</a> <a href="http://msg.cnblogs.com/send/%E6%9D%83%E9%A3%9E%E8%99%8E" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><br>
+				<div align="left"><div id="comment_body_3327005" class="blog_comment_body">真的很不错,这是我看过写的最好的!</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3327005,&#39;Digg&#39;,this)">支持(1)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3327005,&#39;Bury&#39;,this)">反对(1)</a></div>&nbsp;&nbsp;<span class="comment_actions"></span></div>
+			</div>
+			
+			
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<a href="http://www.cnblogs.com/linjiqin/p/3431835.html#3450756" class="layer">#8楼</a><a name="3450756" id="comment_anchor_3450756"></a>
+				 <span class="comment_date">2016-06-12 21:33</span> | <a id="a_comment_author_3450756" href="http://www.cnblogs.com/fxck/" target="_blank">有时很认真</a> <a href="http://msg.cnblogs.com/send/%E6%9C%89%E6%97%B6%E5%BE%88%E8%AE%A4%E7%9C%9F" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><br>
+				<div align="left"><div id="comment_body_3450756" class="blog_comment_body">谢谢， Remote 的那个找了一个多小时终于在你这里找到了。</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3450756,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3450756,&#39;Bury&#39;,this)">反对(0)</a></div>&nbsp;&nbsp;<span class="comment_actions"></span></div>
+			</div>
+			
+			
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<a href="http://www.cnblogs.com/linjiqin/p/3431835.html#3495046" class="layer">#9楼</a><a name="3495046" id="comment_anchor_3495046"></a>
+				 <span class="comment_date">2016-08-24 00:18</span> | <a id="a_comment_author_3495046" href="http://www.cnblogs.com/heyuchi-2013/" target="_blank">圆梦TH</a> <a href="http://msg.cnblogs.com/send/%E5%9C%86%E6%A2%A6TH" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><br>
+				<div align="left"><div id="comment_body_3495046" class="blog_comment_body">请问下，我使用“1、metadata用法，将校验规则写到控件中”，对于“class="{required:true,minlength:5}"”的形式报错。<img src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/475418-20160824001742214-327545110.jpg" alt="" border="0" "=""><br><br>请问该怎么解决</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3495046,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3495046,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3495046_avatar" style="display:none;">http://pic.cnblogs.com/face/475418/20140120211615.png</span>&nbsp;&nbsp;<span class="comment_actions"></span></div>
+			</div>
+			
+			
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<a href="http://www.cnblogs.com/linjiqin/p/3431835.html#3565019" class="layer">#10楼</a><a name="3565019" id="comment_anchor_3565019"></a>
+				 <span class="comment_date">2016-11-25 11:38</span> | <a id="a_comment_author_3565019" href="http://home.cnblogs.com/u/1048708/" target="_blank">转角人生</a> <a href="http://msg.cnblogs.com/send/%E8%BD%AC%E8%A7%92%E4%BA%BA%E7%94%9F" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><br>
+				<div align="left"><div id="comment_body_3565019" class="blog_comment_body">太厉害了，非常详细</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3565019,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3565019,&#39;Bury&#39;,this)">反对(0)</a></div>&nbsp;&nbsp;<span class="comment_actions"></span></div>
+			</div>
+			
+			
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<a href="http://www.cnblogs.com/linjiqin/p/3431835.html#3575985" class="layer">#11楼</a><a name="3575985" id="comment_anchor_3575985"></a>
+				 <span class="comment_date">2016-12-08 17:20</span> | <a id="a_comment_author_3575985" href="http://home.cnblogs.com/u/1068355/" target="_blank">贺峰</a> <a href="http://msg.cnblogs.com/send/%E8%B4%BA%E5%B3%B0" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><br>
+				<div align="left"><div id="comment_body_3575985" class="blog_comment_body">楼主盗菜鸟教程的东西也不注明吗？</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3575985,&#39;Digg&#39;,this)">支持(2)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3575985,&#39;Bury&#39;,this)">反对(0)</a></div>&nbsp;&nbsp;<span class="comment_actions"></span></div>
+			</div>
+			
+			
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<a href="http://www.cnblogs.com/linjiqin/p/3431835.html#3607367" class="layer">#12楼</a><a name="3607367" id="comment_anchor_3607367"></a>
+				 <span class="comment_date">2017-01-20 10:11</span> | <a id="a_comment_author_3607367" href="http://www.cnblogs.com/liangliang-cocoa/" target="_blank">袈裟cocoa</a> <a href="http://msg.cnblogs.com/send/%E8%A2%88%E8%A3%9Fcocoa" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><br>
+				<div align="left"><div id="comment_body_3607367" class="blog_comment_body">厉害！</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3607367,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3607367,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3607367_avatar" style="display:none;">http://pic.cnblogs.com/face/958200/20160530101011.png</span>&nbsp;&nbsp;<span class="comment_actions"></span></div>
+			</div>
+			
+			
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<a href="http://www.cnblogs.com/linjiqin/p/3431835.html#3647126" class="layer">#13楼</a><a name="3647126" id="comment_anchor_3647126"></a>
+				 <span class="comment_date">2017-03-21 10:42</span> | <a id="a_comment_author_3647126" href="http://home.cnblogs.com/u/1130644/" target="_blank">jplyue</a> <a href="http://msg.cnblogs.com/send/jplyue" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><br>
+				<div align="left"><div id="comment_body_3647126" class="blog_comment_body">专门注册了来给你点赞~哈哈，总结的很棒</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3647126,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3647126,&#39;Bury&#39;,this)">反对(0)</a></div>&nbsp;&nbsp;<span class="comment_actions"></span></div>
+			</div>
+			
+			
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<a href="http://www.cnblogs.com/linjiqin/p/3431835.html#3709642" class="layer">#14楼</a><a name="3709642" id="comment_anchor_3709642"></a>
+				 <span class="comment_date">2017-06-08 09:52</span> | <a id="a_comment_author_3709642" href="http://www.cnblogs.com/renguiyouzhi/" target="_blank">人贵有志</a> <a href="http://msg.cnblogs.com/send/%E4%BA%BA%E8%B4%B5%E6%9C%89%E5%BF%97" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><br>
+				<div align="left"><div id="comment_body_3709642" class="blog_comment_body">上班了，打个标记，下班看</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3709642,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3709642,&#39;Bury&#39;,this)">反对(0)</a></div>&nbsp;&nbsp;<span class="comment_actions"></span></div>
+			</div>
+			
+			
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<a href="http://www.cnblogs.com/linjiqin/p/3431835.html#3721518" class="layer">#15楼</a><a name="3721518" id="comment_anchor_3721518"></a>
+				 <span class="comment_date">2017-06-23 15:58</span> | <a id="a_comment_author_3721518" href="http://www.cnblogs.com/hyywaq/" target="_blank">waq儿</a> <a href="http://msg.cnblogs.com/send/waq%E5%84%BF" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><br>
+				<div align="left"><div id="comment_body_3721518" class="blog_comment_body">超级棒！介绍的很全面</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3721518,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3721518,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3721518_avatar" style="display:none;">http://pic.cnblogs.com/face/u415252.jpg?id=14111315</span>&nbsp;&nbsp;<span class="comment_actions"></span></div>
+			</div>
+			
+			
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<a href="http://www.cnblogs.com/linjiqin/p/3431835.html#3744043" class="layer">#16楼</a><a name="3744043" id="comment_anchor_3744043"></a>
+				 <span class="comment_date">2017-07-26 17:36</span> | <a id="a_comment_author_3744043" href="http://home.cnblogs.com/u/1207609/" target="_blank">unknown_by</a> <a href="http://msg.cnblogs.com/send/unknown_by" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><br>
+				<div align="left"><div id="comment_body_3744043" class="blog_comment_body">Java的话推荐一款比较好用的  github.com/devefx/validator-web</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3744043,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3744043,&#39;Bury&#39;,this)">反对(0)</a></div>&nbsp;&nbsp;<span class="comment_actions"></span></div>
+			</div>
+			
+			
+		</div>
+	
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+			<a href="http://www.cnblogs.com/linjiqin/p/3431835.html#3744044" class="layer">#17楼</a><a name="3744044" id="comment_anchor_3744044"></a><span id="comment-maxId" style="display:none;">3744044</span><span id="comment-maxDate" style="display:none;">2017/7/26 17:36:51</span>
+				 <span class="comment_date">2017-07-26 17:36</span> | <a id="a_comment_author_3744044" href="http://home.cnblogs.com/u/1207609/" target="_blank">unknown_by</a> <a href="http://msg.cnblogs.com/send/unknown_by" title="发送站内短消息" class="sendMsg2This">&nbsp;</a><br>
+				<div align="left"><div id="comment_body_3744044" class="blog_comment_body">Java的话推荐一款比较好用的 https冒号//github.com/devefx/validator-web</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3744044,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3744044,&#39;Bury&#39;,this)">反对(0)</a></div>&nbsp;&nbsp;<span class="comment_actions"></span></div>
+			</div>
+			
+			
+		</div>
+	
+
+
+
+<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="http://www.cnblogs.com/linjiqin/p/3431835.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/linjiqin/p/3431835.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="https://group.cnblogs.com/topic/77995.html" target="_blank">【活动】阿里云双11活动开始预热 云服务器限时2折起</a><br><a href="http://click.aliyun.com/m/33696/" target="_blank">【调查】有奖调研即刻参与，你竟然是酱紫程序猿！</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="http://www.gcpowertools.com.cn/products/activereports_overview.htm?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=AR&amp;utm_campaign=community" target="_blank"><img width="300" height="250" src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/24442-20171031213643701-1551350337.jpg" alt="葡萄城"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/581603/" target="_blank">苏宁进军汽车制造业，与BYTON汽车两次会晤，要改变传统汽车销售</a><br> ·  <a href="http://news.cnblogs.com/n/581601/" target="_blank">开发者最讨厌的编程语言：PHP、Ruby 中枪</a><br> ·  <a href="http://news.cnblogs.com/n/581602/" target="_blank">多名韩星入驻，快手还是原来草根的快手吗？</a><br> ·  <a href="http://news.cnblogs.com/n/581600/" target="_blank">VS Code公布2018路线图：生态改进 快乐编码</a><br> ·  <a href="http://news.cnblogs.com/n/581599/" target="_blank">OpenAI提出层级强化学习，给长序列动作学习带来新的曙光</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/32986/" target="_blank"><img width="468" height="60" src="./jQuery Validate验证框架详解 - Ruthless - 博客园_files/24442-20171027070203758-1397753435.jpg" alt="阿里云双11"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/578502/" target="_blank">为什么你参加了那么多培训，却依然表现平平？</a><br> ·  <a href="http://kb.cnblogs.com/page/579832/" target="_blank">写给初学前端工程师的一封信</a><br> ·  <a href="http://kb.cnblogs.com/page/579480/" target="_blank">实用VPC虚拟私有云设计原则</a><br> ·  <a href="http://kb.cnblogs.com/page/576251/" target="_blank">如何阅读计算机科学类的书</a><br> ·  <a href="http://kb.cnblogs.com/page/578103/" target="_blank">Google 及其云智慧</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+</div>
+<div id="leftcontent">
+	
+		<div id="leftcontentcontainer">
+			
+<!--done-->
+<div class="newsItem">
+	<div id="blog-news"><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/linjiqin/">Ruthless</a><br>园龄：<a href="http://home.cnblogs.com/u/linjiqin/" title="入园时间：2011-01-31">6年9个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/linjiqin/followers/">2744</a><br>关注：<a href="http://home.cnblogs.com/u/linjiqin/followees/">27</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;a6448c44-d92c-e011-ac81-842b2b196315&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="日历">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2017/10/01&#39;);return false;">&lt;</a></td><td align="center">2017年11月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2017/12/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td align="center">1</td><td class="CalTodayDay" align="center">2</td><td align="center">3</td><td class="CalWeekendDay" align="center">4</td></tr><tr><td class="CalWeekendDay" align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td align="center">9</td><td align="center">10</td><td class="CalWeekendDay" align="center">11</td></tr><tr><td class="CalWeekendDay" align="center">12</td><td align="center">13</td><td align="center">14</td><td align="center">15</td><td align="center">16</td><td align="center">17</td><td class="CalWeekendDay" align="center">18</td></tr><tr><td class="CalWeekendDay" align="center">19</td><td align="center">20</td><td align="center">21</td><td align="center">22</td><td align="center">23</td><td align="center">24</td><td class="CalWeekendDay" align="center">25</td></tr><tr><td class="CalWeekendDay" align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td align="center">30</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td></tr><tr><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td><td class="CalOtherMonthDay" align="center">9</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script><br>
+			<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/linjiqin/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/linjiqin/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/linjiqin/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/linjiqin/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/linjiqin/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+
+</div></div><div id="sidebar_toptags" class="sidebar-block">
+<h3 class="catListTitle">我的标签</h3>
+<div id="MyTag">
+<ul>
+<li><a href="http://www.cnblogs.com/linjiqin/tag/java%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/">java 多线程</a>(22)</li><li><a href="http://www.cnblogs.com/linjiqin/tag/JAVA/">JAVA</a>(12)</li><li><a href="http://www.cnblogs.com/linjiqin/tag/android/">android</a>(12)</li><li><a href="http://www.cnblogs.com/linjiqin/tag/redis/">redis</a>(11)</li><li><a href="http://www.cnblogs.com/linjiqin/tag/nginx/">nginx</a>(8)</li><li><a href="http://www.cnblogs.com/linjiqin/tag/OSCache/">OSCache</a>(7)</li><li><a href="http://www.cnblogs.com/linjiqin/tag/jQuery/">jQuery</a>(6)</li><li><a href="http://www.cnblogs.com/linjiqin/tag/jpa/">jpa</a>(5)</li><li><a href="http://www.cnblogs.com/linjiqin/tag/oracle%E7%B3%BB%E7%BB%9F%E5%8C%85/">oracle系统包</a>(5)</li><li><a href="http://www.cnblogs.com/linjiqin/tag/oracle%20%E5%87%BD%E6%95%B0/">oracle 函数</a>(4)</li><li><a href="http://www.cnblogs.com/linjiqin/tag/">更多</a></li>
+</ul>
+</div></div><div id="sidebar_categories">
+		<h3 class="catListTitle">随笔分类</h3>
+		
+				<ul class="catList">
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_0" class="listitem" href="http://www.cnblogs.com/linjiqin/category/486898.html">ActiveMQ(7)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_1" class="listitem" href="http://www.cnblogs.com/linjiqin/category/284844.html">android菜单与对话框(8)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_2" class="listitem" href="http://www.cnblogs.com/linjiqin/category/284058.html">android常用控件(16)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_3" class="listitem" href="http://www.cnblogs.com/linjiqin/category/283833.html">android高级应用(51)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_4" class="listitem" href="http://www.cnblogs.com/linjiqin/category/282012.html">android基础知识(17)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_5" class="listitem" href="http://www.cnblogs.com/linjiqin/category/784542.html">APP(8)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_6" class="listitem" href="http://www.cnblogs.com/linjiqin/category/558364.html">Backbone(5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_7" class="listitem" href="http://www.cnblogs.com/linjiqin/category/553534.html">Bootstrap 教程(7)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_8" class="listitem" href="http://www.cnblogs.com/linjiqin/category/294976.html">css(3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_9" class="listitem" href="http://www.cnblogs.com/linjiqin/category/559235.html">django(14)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_10" class="listitem" href="http://www.cnblogs.com/linjiqin/category/765727.html">dubbo(5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_11" class="listitem" href="http://www.cnblogs.com/linjiqin/category/305982.html">ext(9)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_12" class="listitem" href="http://www.cnblogs.com/linjiqin/category/527513.html">freemarker(3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_13" class="listitem" href="http://www.cnblogs.com/linjiqin/category/288914.html">ftp(1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_14" class="listitem" href="http://www.cnblogs.com/linjiqin/category/455961.html">Hadoop(8)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_15" class="listitem" href="http://www.cnblogs.com/linjiqin/category/494384.html">hadoop源码分析(1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_16" class="listitem" href="http://www.cnblogs.com/linjiqin/category/455962.html">Hbase(4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_17" class="listitem" href="http://www.cnblogs.com/linjiqin/category/455965.html">HDFS(1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_18" class="listitem" href="http://www.cnblogs.com/linjiqin/category/283834.html">hibernate(2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_19" class="listitem" href="http://www.cnblogs.com/linjiqin/category/455963.html">Hive(3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_20" class="listitem" href="http://www.cnblogs.com/linjiqin/category/294295.html">html5(3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_21" class="listitem" href="http://www.cnblogs.com/linjiqin/category/383867.html">ibatis(2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_22" class="listitem" href="http://www.cnblogs.com/linjiqin/category/283832.html">j2ee案例(71)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_23" class="listitem" href="http://www.cnblogs.com/linjiqin/category/290928.html">javascript(14)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_24" class="listitem" href="http://www.cnblogs.com/linjiqin/category/499574.html">Java多线程编程(40)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_25" class="listitem" href="http://www.cnblogs.com/linjiqin/category/282013.html">java高级特性(44)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_26" class="listitem" href="http://www.cnblogs.com/linjiqin/category/549715.html">Java后端架构(11)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_27" class="listitem" href="http://www.cnblogs.com/linjiqin/category/499597.html">Java网络编程(2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_28" class="listitem" href="http://www.cnblogs.com/linjiqin/category/282011.html">JPA(6)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_29" class="listitem" href="http://www.cnblogs.com/linjiqin/category/283835.html">jQuery(53)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_30" class="listitem" href="http://www.cnblogs.com/linjiqin/category/310475.html">jQueryMobile(1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_31" class="listitem" href="http://www.cnblogs.com/linjiqin/category/492306.html">jsoup、xpath(1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_32" class="listitem" href="http://www.cnblogs.com/linjiqin/category/283839.html">linux(25)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_33" class="listitem" href="http://www.cnblogs.com/linjiqin/category/491263.html">linux shell(15)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_34" class="listitem" href="http://www.cnblogs.com/linjiqin/category/491254.html">linux安装(10)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_35" class="listitem" href="http://www.cnblogs.com/linjiqin/category/290952.html">Lucene(7)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_36" class="listitem" href="http://www.cnblogs.com/linjiqin/category/553905.html">MACD(1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_37" class="listitem" href="http://www.cnblogs.com/linjiqin/category/455967.html">Mahout(1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_38" class="listitem" href="http://www.cnblogs.com/linjiqin/category/695697.html">maven(8)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_39" class="listitem" href="http://www.cnblogs.com/linjiqin/category/497964.html">MongoDB(3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_40" class="listitem" href="http://www.cnblogs.com/linjiqin/category/695698.html">mybatis(1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_41" class="listitem" href="http://www.cnblogs.com/linjiqin/category/283837.html">Mysql(19)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_42" class="listitem" href="http://www.cnblogs.com/linjiqin/category/691604.html">Mysql优化(1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_43" class="listitem" href="http://www.cnblogs.com/linjiqin/category/808798.html">Nginx(19)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_44" class="listitem" href="http://www.cnblogs.com/linjiqin/category/584717.html">nodejs(4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_45" class="listitem" href="http://www.cnblogs.com/linjiqin/category/283838.html">oracle(21)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_46" class="listitem" href="http://www.cnblogs.com/linjiqin/category/349946.html">oracle案例(25)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_47" class="listitem" href="http://www.cnblogs.com/linjiqin/category/349944.html">oracle初级系列教程(29)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_48" class="listitem" href="http://www.cnblogs.com/linjiqin/category/369420.html">oracle分析函数(3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_49" class="listitem" href="http://www.cnblogs.com/linjiqin/category/349945.html">oracle高级系列教程(1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_50" class="listitem" href="http://www.cnblogs.com/linjiqin/category/339133.html">oracle中级系列教程(11)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_51" class="listitem" href="http://www.cnblogs.com/linjiqin/category/502896.html">OSCache(7)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_52" class="listitem" href="http://www.cnblogs.com/linjiqin/category/455964.html">Pig(3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_53" class="listitem" href="http://www.cnblogs.com/linjiqin/category/310160.html">powerderigner(5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_54" class="listitem" href="http://www.cnblogs.com/linjiqin/category/557318.html">Python(21)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_55" class="listitem" href="http://www.cnblogs.com/linjiqin/category/483911.html">redis(31)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_56" class="listitem" href="http://www.cnblogs.com/linjiqin/category/535413.html">Spring MVC(11)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_57" class="listitem" href="http://www.cnblogs.com/linjiqin/category/282010.html">spring3(15)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_58" class="listitem" href="http://www.cnblogs.com/linjiqin/category/499598.html">Spring源码解析</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_59" class="listitem" href="http://www.cnblogs.com/linjiqin/category/478422.html">SQL注入(3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_60" class="listitem" href="http://www.cnblogs.com/linjiqin/category/484107.html">storm(4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_61" class="listitem" href="http://www.cnblogs.com/linjiqin/category/282009.html">struts2(15)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_62" class="listitem" href="http://www.cnblogs.com/linjiqin/category/679248.html">Tomcat(9)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_63" class="listitem" href="http://www.cnblogs.com/linjiqin/category/560520.html">ubuntu(15)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_64" class="listitem" href="http://www.cnblogs.com/linjiqin/category/288252.html">weblogic(1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_65" class="listitem" href="http://www.cnblogs.com/linjiqin/category/373109.html">webservice(1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_66" class="listitem" href="http://www.cnblogs.com/linjiqin/category/455968.html">Zookeeper(9)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_67" class="listitem" href="http://www.cnblogs.com/linjiqin/category/760937.html">并发编程(7)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_68" class="listitem" href="http://www.cnblogs.com/linjiqin/category/515379.html">待人处事(9)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_69" class="listitem" href="http://www.cnblogs.com/linjiqin/category/528807.html">电子商务(3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_70" class="listitem" href="http://www.cnblogs.com/linjiqin/category/996466.html">服务器运维(3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_71" class="listitem" href="http://www.cnblogs.com/linjiqin/category/455970.html">工具类(4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_72" class="listitem" href="http://www.cnblogs.com/linjiqin/category/578515.html">股票(11)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_73" class="listitem" href="http://www.cnblogs.com/linjiqin/category/488767.html">管理与感悟(4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_74" class="listitem" href="http://www.cnblogs.com/linjiqin/category/455969.html">互联网金融(5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_75" class="listitem" href="http://www.cnblogs.com/linjiqin/category/553903.html">均线(1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_76" class="listitem" href="http://www.cnblogs.com/linjiqin/category/282729.html">其他(11)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_77" class="listitem" href="http://www.cnblogs.com/linjiqin/category/739048.html">通达信(25)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_78" class="listitem" href="http://www.cnblogs.com/linjiqin/category/477998.html">网络安全(3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_79" class="listitem" href="http://www.cnblogs.com/linjiqin/category/558365.html">消息队列(7)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_80" class="listitem" href="http://www.cnblogs.com/linjiqin/category/349403.html">小故事大智慧(6)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_81" class="listitem" href="http://www.cnblogs.com/linjiqin/category/578159.html">养生保健(2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_82" class="listitem" href="http://www.cnblogs.com/linjiqin/category/304377.html">移动web开发(2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_83" class="listitem" href="http://www.cnblogs.com/linjiqin/category/455966.html">指标综合实战(5)</a></li>
+			
+				</ul>
+			
+	
+		<h3 class="catListTitle">随笔档案</h3>
+		
+				<ul class="catList">
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_0" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2017/10.html">2017年10月 (6)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_1" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2017/09.html">2017年9月 (10)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_2" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2017/08.html">2017年8月 (16)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_3" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2017/07.html">2017年7月 (9)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_4" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2017/06.html">2017年6月 (11)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_5" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2017/05.html">2017年5月 (14)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_6" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2017/04.html">2017年4月 (4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_7" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2017/03.html">2017年3月 (12)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_8" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2017/02.html">2017年2月 (13)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_9" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2017/01.html">2017年1月 (8)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_10" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2016/12.html">2016年12月 (5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_11" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2016/11.html">2016年11月 (8)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_12" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2016/10.html">2016年10月 (4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_13" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2016/09.html">2016年9月 (7)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_14" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2016/08.html">2016年8月 (6)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_15" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2016/07.html">2016年7月 (3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_16" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2016/06.html">2016年6月 (4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_17" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2016/05.html">2016年5月 (16)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_18" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2016/04.html">2016年4月 (3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_19" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2016/03.html">2016年3月 (8)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_20" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2016/02.html">2016年2月 (2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_21" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2016/01.html">2016年1月 (14)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_22" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2015/12.html">2015年12月 (8)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_23" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2015/10.html">2015年10月 (8)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_24" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2015/09.html">2015年9月 (10)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_25" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2015/08.html">2015年8月 (3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_26" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2015/07.html">2015年7月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_27" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2015/06.html">2015年6月 (3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_28" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2015/05.html">2015年5月 (10)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_29" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2015/04.html">2015年4月 (5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_30" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2015/03.html">2015年3月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_31" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2015/02.html">2015年2月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_32" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2015/01.html">2015年1月 (3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_33" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2014/12.html">2014年12月 (2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_34" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2014/11.html">2014年11月 (2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_35" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2014/09.html">2014年9月 (7)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_36" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2014/08.html">2014年8月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_37" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2014/07.html">2014年7月 (5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_38" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2014/06.html">2014年6月 (7)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_39" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2014/05.html">2014年5月 (16)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_40" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2014/04.html">2014年4月 (8)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_41" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2014/03.html">2014年3月 (20)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_42" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2014/02.html">2014年2月 (28)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_43" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2014/01.html">2014年1月 (8)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_44" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2013/12.html">2013年12月 (2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_45" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2013/11.html">2013年11月 (28)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_46" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2013/10.html">2013年10月 (7)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_47" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2013/09.html">2013年9月 (5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_48" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2013/08.html">2013年8月 (6)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_49" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2013/07.html">2013年7月 (38)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_50" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2013/06.html">2013年6月 (84)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_51" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2013/05.html">2013年5月 (21)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_52" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2013/04.html">2013年4月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_53" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2013/03.html">2013年3月 (25)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_54" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2012/06.html">2012年6月 (4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_55" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2012/05.html">2012年5月 (5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_56" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2012/04.html">2012年4月 (8)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_57" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2012/03.html">2012年3月 (5)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_58" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2012/02.html">2012年2月 (26)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_59" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2012/01.html">2012年1月 (8)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_60" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2011/12.html">2011年12月 (14)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_61" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2011/11.html">2011年11月 (11)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_62" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2011/10.html">2011年10月 (4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_63" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2011/09.html">2011年9月 (9)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_64" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2011/08.html">2011年8月 (12)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_65" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2011/07.html">2011年7月 (19)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_66" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2011/06.html">2011年6月 (24)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_67" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2011/05.html">2011年5月 (17)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_68" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2011/04.html">2011年4月 (24)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_69" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2011/03.html">2011年3月 (49)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_70" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2011/02.html">2011年2月 (45)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_1_Link_71" class="listitem" href="http://www.cnblogs.com/linjiqin/archive/2011/01.html">2011年1月 (1)</a></li>
+			
+				</ul>
+			
+	
+</div><div id="sidebar_scorerank" class="sidebar-block">
+<h3>积分与排名</h3>
+<ul>
+	<li>
+		积分 -
+		1239863
+	</li><li>
+		排名 -
+		46
+	</li>
+</ul>
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<h3 class="catListTitle">最新评论</h3>
+<div class="RecentComment" id="RecentComments">
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/linjiqin/p/3178452.html#3818912">1. Re:cron表达式详解</a></li>
+        <li class="recent_comment_body">DayofWeek:可出现", - * / ? L C #"四个字符 ———— 这不是8个字符吗？</li>
+        <li class="recent_comment_author">--Ideasex</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/linjiqin/archive/2012/04/01/2429144.html#3818202">2. Re:二十九、oracle 触发器</a></li>
+        <li class="recent_comment_body">非常好，我理解了触发器，谢谢楼主分享</li>
+        <li class="recent_comment_author">--小緈</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/linjiqin/p/3566066.html#3816658">3. Re:js获取上一个月、下一个月</a></li>
+        <li class="recent_comment_body">@vdonkey我也说么，我看了他的函数开始怀疑人生了。...</li>
+        <li class="recent_comment_author">--hotalice</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/linjiqin/p/3556497.html#3813364">4. Re:CSS padding margin border属性详解</a></li>
+        <li class="recent_comment_body">@叶十一少，可以看看...</li>
+        <li class="recent_comment_author">--靖_Life</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/linjiqin/p/3556497.html#3813348">5. Re:CSS padding margin border属性详解</a></li>
+        <li class="recent_comment_body">看了好几篇有关博客文章，综合之下，终于完全理解了，谢谢各位大佬分享</li>
+        <li class="recent_comment_author">--靖_Life</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<h3 class="catListTitle">阅读排行榜</h3>
+<div class="RecentComment" id="TopViewPosts"> 
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/linjiqin/p/3431835.html">1. jQuery Validate验证框架详解(262469)</a></li><li><a href="http://www.cnblogs.com/linjiqin/p/3544472.html">2. Linux启动/停止/重启Mysql数据库的方法(222755)</a></li><li><a href="http://www.cnblogs.com/linjiqin/archive/2011/02/11/1951632.html">3. java枚举使用详解(210622)</a></li><li><a href="http://www.cnblogs.com/linjiqin/archive/2011/04/27/2030115.html">4. java.lang.OutOfMemoryError: Java heap space解决方法(170209)</a></li><li><a href="http://www.cnblogs.com/linjiqin/p/3765772.html">5. nodejs npm常用命令(164878)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<h3 class="catListTitle">评论排行榜</h3>
+<div class="RecentComment" id="TopCommentsPosts">
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/linjiqin/archive/2011/06/03/2071956.html">1. 二十二、startActivityForResult用法详解(35)</a></li><li><a href="http://www.cnblogs.com/linjiqin/archive/2012/04/01/2428695.html">2. 数据库设计三大范式(29)</a></li><li><a href="http://www.cnblogs.com/linjiqin/p/3431835.html">3. jQuery Validate验证框架详解(17)</a></li><li><a href="http://www.cnblogs.com/linjiqin/p/3559800.html">4. Bootstrap 栅格系统(16)</a></li><li><a href="http://www.cnblogs.com/linjiqin/archive/2011/02/12/1952904.html">5. jpa+spring配置多数据源(15)</a></li></ul></div>
+</div></div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/linjiqin/archive/2012/04/01/2428695.html">1. 数据库设计三大范式(52)</a></li><li><a href="http://www.cnblogs.com/linjiqin/archive/2011/06/03/2071956.html">2. 二十二、startActivityForResult用法详解(30)</a></li><li><a href="http://www.cnblogs.com/linjiqin/p/3431835.html">3. jQuery Validate验证框架详解(28)</a></li><li><a href="http://www.cnblogs.com/linjiqin/archive/2011/05/28/2061396.html">4. 十二、ContentProvider和Uri详解(25)</a></li><li><a href="http://www.cnblogs.com/linjiqin/archive/2011/02/11/1951632.html">5. java枚举使用详解(25)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script></div>
+	
+</div>
+
+<!--done-->
+<div class="footer">
+	Powered by: <a href="http://www.cnblogs.com/">博客园</a>	模板提供：<a href="http://blog.hjenglish.com/">沪江博客</a>
+	Copyright ©2017 Ruthless
+</div>
+
+
+
+
+
+<div style="position: static; display: none; width: 0px; height: 0px; border: none; padding: 0px; margin: 0px;"><div id="trans-tooltip"><div id="tip-left-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-top.png&quot;);"></div><div id="tip-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-top.png&quot;) repeat-x;"></div><div id="tip-right-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-top.png&quot;);"></div><div id="tip-right" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right.png&quot;) repeat-y;"></div><div id="tip-right-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-bottom.png&quot;);"></div><div id="tip-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-bottom.png&quot;) repeat-x;"></div><div id="tip-left-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-bottom.png&quot;);"></div><div id="tip-left" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left.png&quot;);"></div><div id="trans-content"></div></div><div id="tip-arrow-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-bottom.png&quot;);"></div><div id="tip-arrow-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-top.png&quot;);"></div></div></body></html>
