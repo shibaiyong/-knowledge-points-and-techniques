@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)http://www.cnblogs.com/jiaoyu121/p/7078445.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vue 进阶教程之：详解 v-model - 狙击手+ - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./Vue 进阶教程之：详解 v-model - 狙击手+ - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./Vue 进阶教程之：详解 v-model - 狙击手+ - 博客园_files/bundle-Autumn.css">
+<link id="mobile-style" media="only screen and (max-width: 768px)" type="text/css" rel="stylesheet" href="./Vue 进阶教程之：详解 v-model - 狙击手+ - 博客园_files/bundle-Autumn-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/jiaoyu121/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/jiaoyu121/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/jiaoyu121/wlwmanifest.xml">
+<script async="" src="./Vue 进阶教程之：详解 v-model - 狙击手+ - 博客园_files/analytics.js.下载"></script><script src="./Vue 进阶教程之：详解 v-model - 狙击手+ - 博客园_files/jquery.js.下载" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'jiaoyu121', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./Vue 进阶教程之：详解 v-model - 狙击手+ - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<table id="blog_header" cellspacing="0" cellpadding="0" width="100%" border="0" class="banner" height="250" background="./Vue 进阶教程之：详解 v-model - 狙击手+ - 博客园_files/bg_banner.jpg">
+        <tbody><tr>
+            <td width="61">
+                &nbsp;
+            </td>
+            <td width="236" align="center">
+                
+<br><br><br><br><br><br><br>
+<div id="header">
+	<span>
+		<a id="Header1_HeaderTitle" href="http://www.cnblogs.com/jiaoyu121/">狙击手</a><br><br>
+		
+	</span>
+</div>
+            </td>
+            <td style="padding-bottom: 30px" align="center" valign="bottom">
+                &nbsp;
+            </td>
+        </tr>
+</tbody></table>
+<table align="center" width="100%" cellspacing="0" cellpadding="0" border="0">
+    <tbody><tr>
+        <td width="60">
+            &nbsp;
+        </td>
+        <td id="sidebar" valign="top" s="">
+            <table align="center" width="100%" height="1400" cellspacing="0" cellpadding="5" border="0" bgcolor="white">
+                <tbody><tr>
+                    <td class="banner" valign="top" style="padding-top: 0px">
+                        
+                            
+<div class="news"><div id="blog-news"><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/jiaoyu121/">狙击手+</a><br>园龄：<a href="http://home.cnblogs.com/u/jiaoyu121/" title="入园时间：2017-06-01">5个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/jiaoyu121/followers/">57</a><br>关注：<a href="http://home.cnblogs.com/u/jiaoyu121/followees/">0</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;9e736032-6d13-48b9-da0c-08d49c352df2&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script></div>
+
+                            <div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/jiaoyu121/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/jiaoyu121/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/jiaoyu121/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/jiaoyu121/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/jiaoyu121/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+
+</div></div><div id="sidebar_toptags" class="sidebar-block"></div><div id="sidebar_categories">
+		<h1 class="listtitle">随笔分类</h1>
+		
+				<ul class="list">
+			
+				<li class="listitem"><a id="CatList_LinkList_0_Link_0" class="listitem" href="http://www.cnblogs.com/jiaoyu121/category/1013665.html">c++(7)</a> </li>
+			
+				<li class="listitem"><a id="CatList_LinkList_0_Link_1" class="listitem" href="http://www.cnblogs.com/jiaoyu121/category/1013664.html">Python(23)</a> </li>
+			
+				<li class="listitem"><a id="CatList_LinkList_0_Link_2" class="listitem" href="http://www.cnblogs.com/jiaoyu121/category/1015830.html">前端网页JS(69)</a> </li>
+			
+				</ul>
+			
+	
+		<h1 class="listtitle">随笔档案</h1>
+		
+				<ul class="list">
+			
+				<li class="listitem"><a id="CatList_LinkList_1_Link_0" class="listitem" href="http://www.cnblogs.com/jiaoyu121/archive/2017/07.html">2017年7月 (2)</a> </li>
+			
+				<li class="listitem"><a id="CatList_LinkList_1_Link_1" class="listitem" href="http://www.cnblogs.com/jiaoyu121/archive/2017/06.html">2017年6月 (97)</a> </li>
+			
+				</ul>
+			
+	
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<h3 class="catListTitle">最新评论</h3>
+<div class="RecentComment" id="RecentComments">
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/jiaoyu121/p/7078445.html#3808217">1. Re:Vue 进阶教程之：详解 v-model</a></li>
+        <li class="recent_comment_body">厉害了<br><a href="http://www.cnblogs.com/jiaoyu121/p/7078445.html" target="_blank"></a></li>
+        <li class="recent_comment_author">--一千年以后我的代码</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/jiaoyu121/p/6965230.html#3768228">2. Re:初学者学习Javascript很吃力怎么办？到底该如何学习Js？</a></li>
+        <li class="recent_comment_body">挺有用<br>前端库：<a href="http://www.cnblogs.com/jiaoyu121/p/7078445.html" target="_blank"></a></li>
+        <li class="recent_comment_author">--今天我过生</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/jiaoyu121/p/7071935.html#3761986">3. Re:Python实现好友全头像的拼接</a></li>
+        <li class="recent_comment_body">OSError: cannot write mode RGBA as JPEG<br>将文中'RGBA'  改成'RGB'即可</li>
+        <li class="recent_comment_author">--root-</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/jiaoyu121/p/6979547.html#3736971">4. Re:学web前端一定要这样学，不然学完找不到工作哭都来不及！</a></li>
+        <li class="recent_comment_body">我根据这个路线学习的   教程也很全面  希望能找到工作<br>www.itbluer.com/web.html</li>
+        <li class="recent_comment_author">--遇见你很高兴</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/jiaoyu121/p/6965230.html#3735087">5. Re:初学者学习Javascript很吃力怎么办？到底该如何学习Js？</a></li>
+        <li class="recent_comment_body">真是有耐心，献上膝盖</li>
+        <li class="recent_comment_author">--张little杰</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<h3 class="catListTitle">阅读排行榜</h3>
+<div class="RecentComment" id="TopViewPosts"> 
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/jiaoyu121/p/6944398.html">1. 用Python玩微信（非常详细）(9732)</a></li><li><a href="http://www.cnblogs.com/jiaoyu121/p/6965230.html">2. 初学者学习Javascript很吃力怎么办？到底该如何学习Js？(3468)</a></li><li><a href="http://www.cnblogs.com/jiaoyu121/p/6992814.html">3. Python抓取花瓣网高清美图(3221)</a></li><li><a href="http://www.cnblogs.com/jiaoyu121/p/7078445.html">4. Vue 进阶教程之：详解 v-model(3150)</a></li><li><a href="http://www.cnblogs.com/jiaoyu121/p/6947309.html">5. C语言集成开发环境vs2017的使用技巧之修改快捷键(2012)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<h3 class="catListTitle">评论排行榜</h3>
+<div class="RecentComment" id="TopCommentsPosts">
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/jiaoyu121/p/6965230.html">1. 初学者学习Javascript很吃力怎么办？到底该如何学习Js？(5)</a></li><li><a href="http://www.cnblogs.com/jiaoyu121/p/6944398.html">2. 用Python玩微信（非常详细）(4)</a></li><li><a href="http://www.cnblogs.com/jiaoyu121/p/6992730.html">3. JavaScript实现Fly Bird小游戏(2)</a></li><li><a href="http://www.cnblogs.com/jiaoyu121/p/6986785.html">4. 前端面试的一道算法题(2)</a></li><li><a href="http://www.cnblogs.com/jiaoyu121/p/6979547.html">5. 学web前端一定要这样学，不然学完找不到工作哭都来不及！(2)</a></li></ul></div>
+</div></div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/jiaoyu121/p/6965230.html">1. 初学者学习Javascript很吃力怎么办？到底该如何学习Js？(6)</a></li><li><a href="http://www.cnblogs.com/jiaoyu121/p/6944398.html">2. 用Python玩微信（非常详细）(4)</a></li><li><a href="http://www.cnblogs.com/jiaoyu121/p/6979547.html">3. 学web前端一定要这样学，不然学完找不到工作哭都来不及！(4)</a></li><li><a href="http://www.cnblogs.com/jiaoyu121/p/6992814.html">4. Python抓取花瓣网高清美图(4)</a></li><li><a href="http://www.cnblogs.com/jiaoyu121/p/6995178.html">5. html打造动画【系列3】- 小猫笑脸动画(2)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+                        
+                        <br>
+                        <center>
+                            Powered by <a href="http://www.cnblogs.com/">博客园</a>
+                        </center>
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+        <td valign="top" style="padding: 0">
+            <table align="center" width="100%" height="1400" cellspacing="0" cellpadding="5" border="0" bgcolor="white" class="index">
+                <tbody><tr>
+                    <td class="banner" valign="top">
+                        <center>
+                            <a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a> <span id="sitehome_link_split">|</span> 
+<a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/jiaoyu121/">首页</a> <span id="bloghome_link_split">|</span> 
+<a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a> <span id="newpost_link_split">|</span> 
+<!--<a id="MyLinks1_NewArticleLink" class="menu" href="/EnterMyBlog.aspx?NewArticle=1">发新文章</a> | -->
+<a id="blog_nav_contact" accesskey="9" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E7%8B%99%E5%87%BB%E6%89%8B%2B">联系</a> <span id="contact_link_split">|</span>  
+<a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/jiaoyu121/rss">订阅</a><a id="blog_nav_rss_image" href="http://www.cnblogs.com/jiaoyu121/rss"><img src="./Vue 进阶教程之：详解 v-model - 狙击手+ - 博客园_files/xml.gif" alt="订阅"></a> <span id="rss_link_split">|</span> 
+<a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a>
+
+                        </center>
+                        
+<div id="post_detail">
+<div class="block">
+	<h1 class="block_title"><a id="cb_post_title_url" href="http://www.cnblogs.com/jiaoyu121/p/7078445.html">Vue 进阶教程之：详解 v-model</a></h1>
+	<div class="post">
+		<div class="postcontent">
+			<div id="cnblogs_post_body"><p>分享</p>
+<p>Vue 官网教程上关于&nbsp;<code>v-model</code>&nbsp;的讲解不是十分的详细，写这篇文章的目的就是详细的剖析一下， 并介绍 Vue 2.2&nbsp;<code>v-model</code>改进的地方，然后穿插的再说点 Vue 的小知识。</p>
+<p>在 Vue 中，有许多方法和 Angular 相似，这主要是因为 Angular 是 Vue 早期开发的灵感来源。然而，Augular 中存在许多问题，在 Vue 中已经得到解决。</p>
+<hr>
+<h3>v-model 用在 input 元素上时</h3>
+<p><code>v-model</code>虽然很像使用了双向数据绑定的 Angular 的&nbsp;<code>ng-model</code>，但是 Vue 是单项数据流，<code>v-model</code>&nbsp;只是语法糖而已：↓</p>
+<pre class="hljs hsp"><code class="hsp">&lt;<span class="hljs-keyword">input v-model=<span class="hljs-string">"sth" /&gt;
+&lt;<span class="hljs-keyword">input v-bind:value=<span class="hljs-string">"sth" v-<span class="hljs-keyword">on:<span class="hljs-keyword">input=<span class="hljs-string">"sth = $event.target.value" /&gt;</span></span></span></span></span></span></span></code></pre>
+<p>第一行的代码其实只是第二行的语法糖。然后第二行代码还能简写成这样：↓</p>
+<pre class="hljs ceylon"><code class="ceylon">&lt;input :<span class="hljs-keyword">value=<span class="hljs-string">"sth" <span class="hljs-meta">@input=<span class="hljs-string">"sth = $event.target.value" /&gt;</span></span></span></span></code></pre>
+<p>要理解这行代码，首先你要知道&nbsp;<code>input</code>&nbsp;元素本身有个&nbsp;<a href="http://www.runoob.com/jsref/event-oninput.html" target="_blank">oninput</a>&nbsp;事件，这是 HTML5 新增加的，类似&nbsp;<code>onchange</code>&nbsp;，每当输入框内容发生变化，就会触发&nbsp;<code>oninput</code>&nbsp;，把最新的<code>value</code>传递给&nbsp;<code>sth</code>。<br>如果你不知道&nbsp;<a href="https://cn.vuejs.org/v2/guide/events.html" target="_blank">$event</a>&nbsp;是从哪来的，那你需要点击它再复习一下文档。</p>
+<p>我们仔细观察语法糖和原始语法那两行代码，可以得出一个结论：</p>
+<p>在给 &lt;input /&gt; 元素添加 v-model 属性时，默认会把 value 作为元素的属性，然后把 'input' 事件作为实时传递 value 的触发事件</p>
+<hr>
+<h3>v-model 用在组件上时</h3>
+<p><code>v-model</code>&nbsp;不仅仅能在&nbsp;<code>input</code>上用，在组件上也能使用，下面是一个和 Vue 官网教程类似的例子（在看这个例子时我们要考虑两个问题）：</p>
+<div class="image-package"><iframe id="iframe_0.7245872701522476" src="./Vue 进阶教程之：详解 v-model - 狙击手+ - 博客园_files/saved_resource.html" style="border: none; width: 320px; height: 46px;" frameborder="0" scrolling="no"></iframe><br>
+<div class="image-caption">实例演示.gif</div>
+
+</div>
+<p>父组件的&nbsp;<code>price</code>&nbsp;的初始值是 100，更改子组件的值能实时更新父组件的&nbsp;<code>price</code></p>
+<pre class="hljs django"><code class="django"><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">div <span class="hljs-attr">id=<span class="hljs-string">"demo"&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">currency-input <span class="hljs-attr">v-model=<span class="hljs-string">"price"&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">currentcy-input&gt;
+  <span class="hljs-tag">&lt;<span class="hljs-name">span&gt;<span class="hljs-template-variable">{{price}}<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">span&gt;
+<span class="hljs-tag">&lt;/<span class="hljs-name">div&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">script <span class="hljs-attr">src=<span class="hljs-string">"https://cdn.bootcss.com/vue/2.3.0/vue.js"&gt;<span class="undefined"><span class="hljs-tag">&lt;/<span class="hljs-name">script&gt;
+<span class="hljs-tag">&lt;<span class="hljs-name">script&gt;<span class="actionscript">
+Vue.component(<span class="hljs-string">'currency-input', {
+  template: `
+    &lt;span&gt;
+      &lt;input
+        ref=<span class="hljs-string">"input"
+        :value=<span class="hljs-string">"value"
+        &lt;!--为什么这里把 <span class="hljs-string">'input' 作为触发事件的事件名？`input` 在哪定义的？--&gt;
+        @input=<span class="hljs-string">"$emit('input', $event.target.value)"
+      &gt;
+    &lt;/span&gt;
+  `,
+  props: [<span class="hljs-string">'value'],<span class="hljs-comment">// 为什么这里要用 value 属性，value在哪里定义的？貌似没找到啊？
+})
+
+<span class="hljs-keyword">var demo = <span class="hljs-keyword">new Vue({
+  el: <span class="hljs-string">'#demo',
+  data: {
+    price: <span class="hljs-number">100,
+  }
+})
+<span class="hljs-tag">&lt;/<span class="hljs-name">script&gt;</span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></code></pre>
+<hr>
+<p>如果你知道这两个问题的答案，那么恭喜你真正掌握了&nbsp;<code>v-model</code>，如果你没明白，那么可以看下这段代码：↓</p>
+<pre class="hljs xml"><code class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">currency-input <span class="hljs-attr">v-model=<span class="hljs-string">"price"&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">currentcy-input&gt;
+<span class="hljs-comment">&lt;!--上行代码是下行的语法糖
+  &lt;currency-input :value="price" @input="price = arguments[0]"&gt;&lt;/currency-input&gt;
+--&gt;</span></span></span></span></span></span></span></code></pre>
+<p>现在你知道&nbsp;<code>value</code>&nbsp;和&nbsp;<code>input</code>&nbsp;从哪来的了吧。与上面总结的类似：</p>
+<p>给组件添加 v-model 属性时，默认会把 value 作为组件的属性，然后把 'input' 值作为给组件绑定事件时的事件名</p>
+<hr>
+<h3>v-model 的缺点和解决办法</h3>
+<p>在创建类似复选框或者单选框的常见组件时，<code>v-model</code>就不好用了。</p>
+<pre class="hljs fsharp"><code class="fsharp">&lt;input <span class="hljs-class"><span class="hljs-keyword">type=<span class="hljs-string">"checkbox" v-model=<span class="hljs-string">"sth" /&gt;</span></span></span></span></code></pre>
+<p><code>v-model</code>&nbsp;给我们提供好了&nbsp;<code>value</code>&nbsp;属性和&nbsp;<code>oninput</code>&nbsp;事件，但是，我们需要的不是&nbsp;<code>value</code>&nbsp;属性，而是&nbsp;<code>checked</code>&nbsp;属性，并且当你点击这个单选框的时候不会触发&nbsp;<code>oninput</code>&nbsp;事件，它只会触发&nbsp;<code>onchange</code>&nbsp;事件。这就尴尬了😓</p>
+<p>因为&nbsp;<code>v-model</code>&nbsp;只是用到了 input 元素上，所以这种情况好解决：↓</p>
+<pre class="hljs julia"><code class="julia">&lt;input <span class="hljs-keyword">type=<span class="hljs-string">"checkbox" :checked=<span class="hljs-string">"status" <span class="hljs-meta">@change=<span class="hljs-string">"status = <span class="hljs-variable">$event.target.checked" /&gt;</span></span></span></span></span></span></code></pre>
+<p>当&nbsp;<code>v-model</code>&nbsp;用到组件上时：↓</p>
+<pre class="hljs bash"><code class="bash">&lt;my-checkbox v-model=<span class="hljs-string">"foo"&gt;&lt;/my-checkbox&gt;
+
+Vue.component(<span class="hljs-string">'my-checkbox', {
+  tempalte: `&lt;input 
+               <span class="hljs-built_in">type=<span class="hljs-string">"checkbox"
+               @change=<span class="hljs-string">"<span class="hljs-variable">$emit('input', <span class="hljs-variable">$event.target.checked)"
+               :checked=<span class="hljs-string">"value"
+             /&gt;`
+  props: [<span class="hljs-string">'value'],
+})</span></span></span></span></span></span></span></span></span></code></pre>
+<hr>
+<p>在 Vue 2.2 版本，你可以在定义组件时通过 mode l选项的方式来定制 prop/event：↓</p>
+<pre class="hljs vim"><code class="vim">&lt;my-checkbox v-model=<span class="hljs-string">"foo"&gt;&lt;/my-checkbox&gt;
+
+Vue.component(<span class="hljs-string">'my-checkbox', {
+  tempalte: `&lt;<span class="hljs-built_in">input 
+               <span class="hljs-built_in">type=<span class="hljs-string">"checkbox"
+               &lt;!--这里就不用 <span class="hljs-built_in">input 了，而是 balabala--&gt;
+               @change=<span class="hljs-string">"$emit('balabala', $event.target.checked)"
+               :checked=<span class="hljs-string">"value"
+             /&gt;`
+  prop<span class="hljs-variable">s: [<span class="hljs-string">'checked'], //这里就不用 value 了，而是 checked
+  <span class="hljs-keyword">mode<span class="hljs-variable">l: {
+    prop: <span class="hljs-string">'checked',
+    even<span class="hljs-variable">t: <span class="hljs-string">'balabala'
+  },
+})。<br></span></span></span></span></span></span></span></span></span></span></span></span></span></span></span></code></pre>
+<p><br>学习过程中遇到什么问题或者想获取学习资源的话，欢迎加入学习交流群<br>343599877，我们一起学前端！</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/jiaoyu121/category/1015830.html" target="_blank">前端网页JS</a></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(7078445,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;9e736032-6d13-48b9-da0c-08d49c352df2&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./Vue 进阶教程之：详解 v-model - 狙击手+ - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./Vue 进阶教程之：详解 v-model - 狙击手+ - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/jiaoyu121/" target="_blank"><img src="./Vue 进阶教程之：详解 v-model - 狙击手+ - 博客园_files/20170601234112.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/jiaoyu121/">狙击手+</a><br>
+            <a href="http://home.cnblogs.com/u/jiaoyu121/followees">关注 - 0</a><br>
+            <a href="http://home.cnblogs.com/u/jiaoyu121/followers">粉丝 - 57</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;9e736032-6d13-48b9-da0c-08d49c352df2&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(7078445,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">2</span>
+    </div>
+    <div class="buryit" onclick="votePost(7078445,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/jiaoyu121/p/7078429.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/jiaoyu121/p/7078429.html" title="发布于2017-06-25 23:06">JavaScript 常用单词整理</a><br><a href="http://www.cnblogs.com/jiaoyu121/p/7123404.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/jiaoyu121/p/7123404.html" title="发布于2017-07-05 20:53">一个完整的学院网站实现过程</a><br></div>
+</div>
+
+
+		</div>
+		<div class="itemdesc">
+			发表于 <span id="post-date">2017-06-25 23:10</span> <a href="http://www.cnblogs.com/jiaoyu121/">狙击手+</a> 阅读(<span id="post_view_count">3151</span>) 评论(<span id="post_comment_count">1</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=7078445" rel="nofollow">编辑</a> <a href="http://www.cnblogs.com/jiaoyu121/p/7078445.html#" onclick="AddToWz(7078445);return false;">收藏</a>
+		</div>
+	</div>
+	<div class="seperator">&nbsp;</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=359025,cb_entryId=7078445,cb_blogApp=currentBlogApp,cb_blogUserGuid='9e736032-6d13-48b9-da0c-08d49c352df2',cb_entryCreatedDate='2017/6/25 23:10:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<div class="post">
+<a name="评论"></a>
+<div class="moreinfo">
+	<div class="moreinfotitle">
+		评论
+	</div>
+	
+	
+			<div class="comments">
+		
+			<div class="comment">
+				<div class="comment_title">
+					<a href="http://www.cnblogs.com/jiaoyu121/p/7078445.html#3808217" class="layer">#1楼</a><a name="3808217" id="comment_anchor_3808217"></a><span id="comment-maxId" style="display:none;">3808217</span><span id="comment-maxDate" style="display:none;">2017/10/12 11:39:36</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<div class="comment_content"><div id="comment_body_3808217" class="blog_comment_body">厉害了<br><a href="http://t.cn/RKSsoCW" target="_blank">http://t.cn/RKSsoCW</a></div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3808217,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3808217,&#39;Bury&#39;,this)">反对(0)</a></div></div>
+				<div class="comment_footer"><a id="a_comment_author_3808217" href="http://home.cnblogs.com/u/1244518/" target="_blank">一千年以后我的代码</a> <a href="http://msg.cnblogs.com/send/%E4%B8%80%E5%8D%83%E5%B9%B4%E4%BB%A5%E5%90%8E%E6%88%91%E7%9A%84%E4%BB%A3%E7%A0%81" title="发送站内短消息" class="sendMsg2This">&nbsp;</a> 评论于  <span class="comment_date">2017-10-12 11:39</span></div>
+			</div>
+		
+			</div>
+		
+</div>
+</div>
+<div class="seperator">&nbsp;</div>
+<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="http://www.cnblogs.com/jiaoyu121/p/7078445.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/jiaoyu121/p/7078445.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="https://group.cnblogs.com/topic/77995.html" target="_blank">【活动】阿里云双11活动开始预热 云服务器限时2折起</a><br><a href="http://click.aliyun.com/m/33696/" target="_blank">【调查】有奖调研即刻参与，你竟然是酱紫程序猿！</a><br><a href="http://xc.hubwiz.com/course/592ee9b2b343f27b0ae1ba99?affid=cnblogs" target="_blank">【推荐】Vue.js 2.x 快速入门，大量高效实战示例</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="http://www.gcpowertools.com.cn/products/activereports_overview.htm?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=AR&amp;utm_campaign=community" target="_blank"><img width="300" height="250" src="./Vue 进阶教程之：详解 v-model - 狙击手+ - 博客园_files/24442-20171031213643701-1551350337.jpg" alt="葡萄城"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/581879/" target="_blank">40次套现、218亿港币，马化腾的钱去哪了？</a><br> ·  <a href="http://news.cnblogs.com/n/581875/" target="_blank">ofo联合创始人张巳丁：从0到3200万，ofo的热爱与疯狂</a><br> ·  <a href="http://news.cnblogs.com/n/581876/" target="_blank">腾讯加入OpenStack基金会成为黄金会员 每年最高交20万美元</a><br> ·  <a href="http://news.cnblogs.com/n/581874/" target="_blank">新浪微博上线新产品“酷燃”，解决“办证”问题</a><br> ·  <a href="http://news.cnblogs.com/n/581880/" target="_blank">饿了么独家代理商痛诉：投资百万血本无归，拿我们当炮灰！</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/32986/" target="_blank"><img width="468" height="60" src="./Vue 进阶教程之：详解 v-model - 狙击手+ - 博客园_files/24442-20171027070203758-1397753435.jpg" alt="阿里云双11"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/581467/" target="_blank">改善程序员生活质量的 3+10 习惯</a><br> ·  <a href="http://kb.cnblogs.com/page/568841/" target="_blank">NASA的10条代码编写原则</a><br> ·  <a href="http://kb.cnblogs.com/page/578502/" target="_blank">为什么你参加了那么多培训，却依然表现平平？</a><br> ·  <a href="http://kb.cnblogs.com/page/579832/" target="_blank">写给初学前端工程师的一封信</a><br> ·  <a href="http://kb.cnblogs.com/page/579480/" target="_blank">实用VPC虚拟私有云设计原则</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+                    </div></td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody></table>
+
+
+
+<div style="position: static; display: none; width: 0px; height: 0px; border: none; padding: 0px; margin: 0px;"><div id="trans-tooltip"><div id="tip-left-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-top.png&quot;);"></div><div id="tip-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-top.png&quot;) repeat-x;"></div><div id="tip-right-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-top.png&quot;);"></div><div id="tip-right" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right.png&quot;) repeat-y;"></div><div id="tip-right-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-bottom.png&quot;);"></div><div id="tip-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-bottom.png&quot;) repeat-x;"></div><div id="tip-left-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-bottom.png&quot;);"></div><div id="tip-left" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left.png&quot;);"></div><div id="trans-content"></div></div><div id="tip-arrow-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-bottom.png&quot;);"></div><div id="tip-arrow-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-top.png&quot;);"></div></div></body></html>
