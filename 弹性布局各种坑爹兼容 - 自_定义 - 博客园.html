@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)https://www.cnblogs.com/yangjie-space/p/4856109.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>弹性布局各种坑爹兼容 - 自_定义 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/bundle-CodingLife.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/bundle-CodingLife-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/yangjie-space/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/yangjie-space/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/yangjie-space/wlwmanifest.xml">
+<script async="" src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/analytics.js.下载"></script><script type="text/javascript" src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/encoder.js.下载"></script><script src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/jquery.js.下载" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'yangjie-space', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/yangjie-space/"><img id="blogLogo" src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/yangjie-space/">自_定义</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/yangjie-space/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E8%87%AA_%E5%AE%9A%E4%B9%89">联系</a></li>
+<li><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/yangjie-space/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/yangjie-space/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<span id="stats_post_count">随笔 - 14&nbsp; </span>
+<span id="stats_article_count">文章 - 1&nbsp; </span>
+<span id="stats-comment_count">评论 - 1</span>
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/yangjie-space/p/4856109.html">弹性布局各种坑爹兼容</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body"><p>当然也看到过遇到flexbox布局的属性将所有的新的老的前缀都加上的，这样省事啊 谁闲着没事整天研究那几个属性的兼容，更可况前端发展这么快说不定有更牛逼的样式出现</p>
+<p>但是想在移动端用好这个布局摸透这个属性 我还是一个个都探究下吧，在此先说下各浏览器PC端最新版本情况目前：IE最新版本是ie11， FF最新版本是ff41.0， Chrome最新版本是chrome45.0， Safira最新版本8.0.3， opera最新版本是31 然而这些最新版本对我们来说并没什么卵用 只是个标准 没有谁电脑装的都是最新版浏览器，好吧 看下各个属性兼容</p>
+<p><span style="color: #000000;"><strong>display:box/flexbox/flex </strong></span>先看这个定义弹性布局盒子 附上兼容图</p>
+<p><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/809522-20151002235717168-14350605.jpg" alt=""></p>
+<p>还是比较直观对此属性做兼容只需如下</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">    display:-webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;</span></pre>
+</div>
+<p><strong>定义子元素排列</strong></p>
+<p>目前有两种新的写法flex-direction和旧的写法box-orient+box-direction，</p>
+<p>新写法flex-direction的兼容</p>
+<p><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/809522-20151003005356527-957851214.png" alt=""></p>
+<p>旧写法box-orient和box-direction兼容一样的</p>
+<p><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/809522-20151003005516136-1341454015.png" alt=""></p>
+<p>可以看出，ie11下版本还是不支持方向这属性，其他浏览器要加前缀，所以当要定义方向时这个兼容可以写成</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #000000;">    -webkit-box-orient:vertical;
+    -webkit-box-direction:normal;
+    -moz-box-orient:vertical;
+    -moz-box-direction:normal;
+    flex-direction:column;
+    -webkit-flex-direction:column;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>用box-orient:horizontal + box-direction:normal/reverse可以达到flex-direction:row/row-reverse效果</p>
+<p>用box-orient:vertical + box-direction:normal/reverse可以达到flex-direction:column/column-reverse效果</p>
+<p>&nbsp;</p>
+<p><strong>定义子元素换行情况</strong></p>
+<p>新写法flex-wrap 兼容如下</p>
+<p><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/809522-20151003013339027-210725231.png" alt=""></p>
+<p>旧写法box-lines:single/multiple 默认single &nbsp;兼容如下</p>
+<p><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/809522-20151003013654121-1416532055.png" alt=""></p>
+<p>ie11下还是不支持此属性，上面firefox不支持但在25版本后是支持的，还是要用flex加-moz, 比较直观所以定义子元素换行时 可以如下写法</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">　　-webkit-flex-wrap:wrap;
+    -webkit-box-lines:multiple;
+    -moz-flex-wrap:wrap;
+    flex-wrap:wrap;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><strong>flex-flow</strong></p>
+<p>这个是上面两个属性的合写</p>
+<p>flex-flow兼容</p>
+<p><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/809522-20151003022527011-1962892767.png" alt=""></p>
+<p>为了兼容到旧的浏览器就需要用到box-orient+box-lines配合&nbsp;故兼容可以如下写</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #000000;">    -webkit-flex-flow:row wrap;
+    -webkit-box-orient:horizontal;
+    -webkit-box-lines:multiple;<br>　　-moz-flex-flow:row wrap;
+    box-orient:horizontal;
+    box-lines:multiple;
+    flex-flow:row wrap;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><strong>横向排列布局</strong></p>
+<p>新版本justify-content的兼容情况</p>
+<p><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/809522-20151005195129065-1520466330.png" alt=""></p>
+<p>旧版本box-pack的兼容情况</p>
+<p><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/809522-20151005201055940-1202937112.png" alt=""></p>
+<p>故兼容可写成：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">-webkit-justify-content:center;
+justify-content:center;
+-moz-box-pack:center;
+-webkit--moz-box-pack:center;
+box-pack:center;</span></pre>
+</div>
+<p><strong>竖向排列布局</strong></p>
+<p>新版本align-items兼容情况</p>
+<p><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/809522-20151005201606987-1369112938.png" alt=""></p>
+<p>旧版本box-align的兼容情况</p>
+<p><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/809522-20151005201647628-82364626.png" alt=""></p>
+<p>故兼容性可写成：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">align-items:center;
+-webkit-align-items:center;
+box-align:center;
+-moz-box-align:center;
+-webkit-box-align:center;</span></pre>
+</div>
+<p><strong>伸缩盒子布局兼容</strong></p>
+<p>新版本flex:num兼容</p>
+<p><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/809522-20151006012613440-4247698.png" alt=""></p>
+<p>旧版本box-flex兼容</p>
+<p><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/809522-20151006012655549-664079926.png" alt=""></p>
+<p>故兼容性可写成</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">box-flex:num;
+-webkit-box-flex:num;
+-moz-box-flex:num;
+flex:num;
+-webkit-flex:num;</span></pre>
+</div>
+<p>&nbsp;<strong>元素出现顺序</strong></p>
+<p>新版本order:num兼容<img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/809522-20151006013315862-1983553031.png" alt=""></p>
+<p>旧版本border-order:num兼容</p>
+<p><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/809522-20151006013424878-1211275384.png" alt=""></p>
+<p>故兼容性可写成</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">box-order:num;
+-webkit-box-order:num;
+-moz-box-order:num;
+order:num;
+-webkit-order:num;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p>。。。哎 也是醉了 这玩意这么多属性 一个个研究兼容 可能有些会不全面但大部分是这样 还有个就是ie兼容可能写的不够全 有的是在旧版本多加个-ms 不是不支持这个属性么 也不知道加上有什么意思， 醉人的布局 &nbsp;强大是没的说 问题也是一大堆啊！！！</p>
+<p>&nbsp;</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag"></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(4856109,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;4670d787-8757-e511-b908-9dcfd8948a71&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/yangjie-space/" target="_blank"><img src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/20150910150211.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/yangjie-space/">自_定义</a><br>
+            <a href="http://home.cnblogs.com/u/yangjie-space/followees">关注 - 6</a><br>
+            <a href="http://home.cnblogs.com/u/yangjie-space/followers">粉丝 - 9</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;4670d787-8757-e511-b908-9dcfd8948a71&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(4856109,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">1</span>
+    </div>
+    <div class="buryit" onclick="votePost(4856109,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/yangjie-space/p/4852251.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/yangjie-space/p/4852251.html" title="发布于2015-10-02 15:08">弹性布局flex</a><br><a href="http://www.cnblogs.com/yangjie-space/p/4857390.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/yangjie-space/p/4857390.html" title="发布于2015-10-06 17:15">diplay:table-cell和伪元素：after方法让图片居中</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2015-10-05 18:58</span> <a href="http://www.cnblogs.com/yangjie-space/">自_定义</a> 阅读(<span id="post_view_count">15578</span>) 评论(<span id="post_comment_count">1</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=4856109" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/yangjie-space/p/4856109.html#" onclick="AddToWz(4856109);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=244174,cb_entryId=4856109,cb_blogApp=currentBlogApp,cb_blogUserGuid='4670d787-8757-e511-b908-9dcfd8948a71',cb_entryCreatedDate='2015/10/5 18:58:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"><div id="comments_pager_top"></div>
+<br>
+<div class="feedback_area_title">评论列表</div>
+<div class="feedbackNoItems"></div>	
+
+		<div class="feedbackItem">
+			<div class="feedbackListSubtitle">
+				<div class="feedbackManage">
+					&nbsp;&nbsp;<span class="comment_actions"></span>
+				</div>
+				<a href="https://www.cnblogs.com/yangjie-space/p/4856109.html#3728632" class="layer">#1楼</a><a name="3728632" id="comment_anchor_3728632"></a><span id="comment-maxId" style="display:none;">3728632</span><span id="comment-maxDate" style="display:none;">2017/7/5 8:52:31</span>  <span class="comment_date">2017-07-05 08:52</span> <a id="a_comment_author_3728632" href="http://www.cnblogs.com/Bouger/" target="_blank">Sugata</a> <a href="http://msg.cnblogs.com/send/Sugata" title="发送站内短消息" class="sendMsg2This">&nbsp;</a>
+			</div>
+			<div class="feedbackCon">
+				<div id="comment_body_3728632" class="blog_comment_body">楼主，文中的浏览器适配图是在哪里看的</div><div class="comment_vote"><a href="javascript:void(0);" class="comment_digg" onclick="return voteComment(3728632,&#39;Digg&#39;,this)">支持(0)</a><a href="javascript:void(0);" class="comment_bury" onclick="return voteComment(3728632,&#39;Bury&#39;,this)">反对(0)</a></div><span id="comment_3728632_avatar" style="display:none;">http://pic.cnblogs.com/face/u478953.png?id=13094338</span>
+			</div>
+		</div>
+	<div id="comments_pager_bottom"></div></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/yangjie-space/p/4856109.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/yangjie-space/p/4856109.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="http://click.aliyun.com/m/33696/" target="_blank">【调查】有奖调研即刻参与，你竟然是酱紫程序猿！</a><br><a href="http://xc.hubwiz.com/course/592ee9b2b343f27b0ae1ba99?affid=cnblogs" target="_blank">【推荐】Vue.js 2.x 快速入门，大量高效实战示例</a><br><a href="https://cloud.tencent.com/act/campus?fromSource=gwzcw.613398.613398.613398" target="_blank">【活动】腾讯云 学生专属优惠套餐 多规格选择</a><br><a href="https://cloud.tencent.com/community/article/303682?fromSource=gwzcw.614532.614532.614532" target="_blank">【活动】释放技术的想象-解码腾讯云软件架构与应用</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="http://www.grapecity.com.cn/enterprise-solutions/huozige/?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=huozige&amp;utm_campaign=community" target="_blank"><img width="300" height="250" src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/24442-20171114102259156-1700577248.png" alt="葡萄城1114"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/582595/" target="_blank">菜鸟开启“回箱计划” 每捐赠10个纸箱就种一棵树</a><br> ·  <a href="http://news.cnblogs.com/n/582594/" target="_blank">骨灰级SEO高手做线下：58速运董事长陈小华的新挑战</a><br> ·  <a href="http://news.cnblogs.com/n/582593/" target="_blank">宜人贷三季度营收2.28亿美元，净利4554万美元</a><br> ·  <a href="http://news.cnblogs.com/n/582592/" target="_blank">外媒看FAST：刘慈欣说的黑暗森林法则成立吗</a><br> ·  <a href="http://news.cnblogs.com/n/582591/" target="_blank">出售代工业务、甩卖工厂，HTC的处境像极了诺基亚</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/34771/" target="_blank"><img width="468" height="60" src="./弹性布局各种坑爹兼容 - 自_定义 - 博客园_files/24442-20171113120112796-634832761.jpg" alt="阿里云1113"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/563790/" target="_blank">关于编程，你的练习是不是有效的？</a><br> ·  <a href="http://kb.cnblogs.com/page/581467/" target="_blank">改善程序员生活质量的 3+10 习惯</a><br> ·  <a href="http://kb.cnblogs.com/page/568841/" target="_blank">NASA的10条代码编写原则</a><br> ·  <a href="http://kb.cnblogs.com/page/578502/" target="_blank">为什么你参加了那么多培训，却依然表现平平？</a><br> ·  <a href="http://kb.cnblogs.com/page/579832/" target="_blank">写给初学前端工程师的一封信</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/yangjie-space/">自_定义</a><br>园龄：<a href="http://home.cnblogs.com/u/yangjie-space/" title="入园时间：2015-09-10">2年2个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/yangjie-space/followers/">9</a><br>关注：<a href="http://home.cnblogs.com/u/yangjie-space/followees/">6</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;4670d787-8757-e511-b908-9dcfd8948a71&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="日历">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2017/10/01&#39;);return false;">&lt;</a></td><td align="center">2017年11月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2017/12/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">29</td><td class="CalOtherMonthDay" align="center">30</td><td class="CalOtherMonthDay" align="center">31</td><td align="center">1</td><td align="center">2</td><td align="center">3</td><td class="CalWeekendDay" align="center">4</td></tr><tr><td class="CalWeekendDay" align="center">5</td><td align="center">6</td><td align="center">7</td><td align="center">8</td><td align="center">9</td><td align="center">10</td><td class="CalWeekendDay" align="center">11</td></tr><tr><td class="CalWeekendDay" align="center">12</td><td align="center">13</td><td align="center">14</td><td class="CalTodayDay" align="center">15</td><td align="center">16</td><td align="center">17</td><td class="CalWeekendDay" align="center">18</td></tr><tr><td class="CalWeekendDay" align="center">19</td><td align="center">20</td><td align="center">21</td><td align="center">22</td><td align="center">23</td><td align="center">24</td><td class="CalWeekendDay" align="center">25</td></tr><tr><td class="CalWeekendDay" align="center">26</td><td align="center">27</td><td align="center">28</td><td align="center">29</td><td align="center">30</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td></tr><tr><td class="CalOtherMonthDay" align="center">3</td><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td><td class="CalOtherMonthDay" align="center">9</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/yangjie-space/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/yangjie-space/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/yangjie-space/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/yangjie-space/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/yangjie-space/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block"></div><div id="sidebar_categories">
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/yangjie-space/archive/2015/12.html">2015年12月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/yangjie-space/archive/2015/11.html">2015年11月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/yangjie-space/archive/2015/10.html">2015年10月 (8)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/yangjie-space/archive/2015/09.html">2015年9月 (4)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/yangjie-space/p/4856109.html#3728632">1. Re:弹性布局各种坑爹兼容</a></li>
+        <li class="recent_comment_body">楼主，文中的浏览器适配图是在哪里看的</li>
+        <li class="recent_comment_author">--Sugata</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/yangjie-space/p/4856109.html">1. 弹性布局各种坑爹兼容(15570)</a></li><li><a href="http://www.cnblogs.com/yangjie-space/p/4816279.html">2. html5shiv.js和respond.min.js(13973)</a></li><li><a href="http://www.cnblogs.com/yangjie-space/p/4857654.html">3. display:none,overflow:hidden,visibility:hidden之间的区别(3320)</a></li><li><a href="http://www.cnblogs.com/yangjie-space/p/4858132.html">4. 深入理解line-height(3304)</a></li><li><a href="http://www.cnblogs.com/yangjie-space/p/4817738.html">5. px,em,rem,vw单位在网页和移动端的应用(1606)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/yangjie-space/p/4856109.html">1. 弹性布局各种坑爹兼容(1)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/yangjie-space/p/4816279.html">1. html5shiv.js和respond.min.js(1)</a></li><li><a href="http://www.cnblogs.com/yangjie-space/p/4858132.html">2. 深入理解line-height(1)</a></li><li><a href="http://www.cnblogs.com/yangjie-space/p/4857654.html">3. display:none,overflow:hidden,visibility:hidden之间的区别(1)</a></li><li><a href="http://www.cnblogs.com/yangjie-space/p/4856109.html">4. 弹性布局各种坑爹兼容(1)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2017 自_定义
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+<div style="position: static; display: none; width: 0px; height: 0px; border: none; padding: 0px; margin: 0px;"><div id="trans-tooltip"><div id="tip-left-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-top.png&quot;);"></div><div id="tip-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-top.png&quot;) repeat-x;"></div><div id="tip-right-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-top.png&quot;);"></div><div id="tip-right" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right.png&quot;) repeat-y;"></div><div id="tip-right-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-bottom.png&quot;);"></div><div id="tip-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-bottom.png&quot;) repeat-x;"></div><div id="tip-left-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-bottom.png&quot;);"></div><div id="tip-left" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left.png&quot;);"></div><div id="trans-content"></div></div><div id="tip-arrow-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-bottom.png&quot;);"></div><div id="tip-arrow-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-top.png&quot;);"></div></div></body></html>
