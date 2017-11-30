@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)http://www.cnblogs.com/sloong/p/5857303.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Git基本操作和GtHub 特殊技巧 - sloong - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./Git基本操作和GtHub 特殊技巧 - sloong - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./Git基本操作和GtHub 特殊技巧 - sloong - 博客园_files/bundle-BlackLowKey.css">
+<link type="text/css" rel="stylesheet" href="./Git基本操作和GtHub 特殊技巧 - sloong - 博客园_files/213598.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./Git基本操作和GtHub 特殊技巧 - sloong - 博客园_files/bundle-BlackLowKey-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/sloong/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/sloong/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/sloong/wlwmanifest.xml">
+<script async="" src="./Git基本操作和GtHub 特殊技巧 - sloong - 博客园_files/analytics.js.下载"></script><script src="./Git基本操作和GtHub 特殊技巧 - sloong - 博客园_files/jquery.js.下载" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'sloong', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./Git基本操作和GtHub 特殊技巧 - sloong - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+</head>
+<body style="position: static;">
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/sloong/"><img id="blogLogo" src="./Git基本操作和GtHub 特殊技巧 - sloong - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/sloong/">sloong</a></h1>
+<h2>https://github.com/ifengkou</h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/sloong/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li></li>
+<li>
+<!----></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/sloong/p/5857303.html">Git基本操作和GtHub 特殊技巧</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="cnblogs-markdown"><p>《GitHub 入门与实践》 笔记</p>
+<h2 id="了解github">了解GitHub</h2>
+<h3 id="git-和-github-的区别">Git 和 GitHub 的区别</h3>
+<p>在Git中，开发者将源代码存入名为“Git仓库”的资料库中，并加以使用。而GitHub则是在网络上提供Git仓库的<strong>一项服务</strong>。这也就是说Github上公开的软件源代码都是有Git进行管理。</p>
+<h3 id="社会化编程">社会化编程</h3>
+<p>SOCIAL CODING.随着GitHub的出现,让所有人都平等的拥有了更改源代码的权利,软件开发者们才真正意义上拥有了源代码.</p>
+<h2 id="git-操作">Git 操作</h2>
+<h3 id="git-基本操作">Git 基本操作</h3>
+<ul>
+<li>git init ——初始化仓库</li>
+<li>git status ——查看仓库状态</li>
+<li>git add ——向暂存区添加文件</li>
+<li>git commit ——保存仓库的历史记录,.可以将当前暂存区中的文件实际保存到仓库的历史记录中.通过这些记录,我们可以在工作树中复原文件
+<ul>
+<li><strong>-m参数</strong>:参数后为提交信息的概述(单行)</li>
+<li><p>如果想要记述得更加详细,不加-m,执行后编辑器会启动，格式如下</p>
+<pre><code class="hljs">第一行:用一行文字简述提交的更改内容
+第二行:空行
+第三行以后:记述更改的原因和详细内容</code></pre></li>
+</ul></li>
+<li>git log —— 查看提交日志
+<ul>
+<li>只显示提交信息的第一行 git log --pretty=short</li>
+<li>只显示指定目录/文件的日志 git log README.md</li>
+<li>显示文件前后的改动 git log -p README.md</li>
+</ul></li>
+<li>git diff —— 查看更改前后的差别
+<ul>
+<li>查看工作树和暂存区的差别 git diff</li>
+<li>查看工作树和最新提交的差别 git diff HEAD.(<strong>不妨养成这样一个好习惯：在执行git commit前，执行git diff HEAD命令，查看本次提交和上次提交的差别，确认后再提交）</strong></li>
+</ul></li>
+</ul>
+<p><strong>其他常用操作</strong></p>
+<pre><code class="hljs sql">#（项目在github上）直接clone 远程仓库
+git clone git@github.com:michaelliao/gitskills.git
+#（本地已有项目）上传本地文件到远程仓库
+git init
+git remote add origin git@xxxx.git
+git add .
+git <span class="hljs-keyword">commit</span> -<span class="hljs-keyword">m</span> <span class="hljs-string">'something'</span>
+git push origin <span class="hljs-keyword">master</span>
+git <span class="hljs-keyword">status</span>
+#可以丢弃工作区的修改 (<span class="hljs-keyword">commit</span> 之前
+git checkout <span class="hljs-comment">-- file</span>
+#把暂存区的修改撤销掉（unstage），重新放回工作区
+git <span class="hljs-keyword">reset</span> <span class="hljs-keyword">HEAD</span> <span class="hljs-keyword">file</span>
+#从远程仓库更新最新代码
+git pull origin <span class="hljs-keyword">master</span>
+#清除提交缓存，然后可以重新添加
+git rm -r <span class="hljs-comment">--cached .  /或者指定文件 </span></code></pre>
+<p><strong>分支操作</strong></p>
+<pre><code class="hljs perl"><span class="hljs-comment">#创建新分支，并且切换到新分支</span>
+git checkout -b dev
+<span class="hljs-comment"># 查看当前分支</span>
+git branch
+<span class="hljs-comment"># 提交到当前分支</span>
+git <span class="hljs-keyword">push</span> origin dev
+<span class="hljs-comment"># 合并到主分支,先切换到 主分支,再merge</span>
+git checkout master
+git merge dev
+<span class="hljs-comment">#合并后，还需要再push一次</span>
+git <span class="hljs-keyword">push</span> origin master
+<span class="hljs-comment">#删除分支</span>
+git branch -d dev
+git <span class="hljs-keyword">push</span> origin :dev</code></pre>
+<p><strong>tag 操作</strong></p>
+<pre><code class="hljs perl">git tag -a v1.<span class="hljs-number">0</span> -<span class="hljs-keyword">m</span> <span class="hljs-string">'some message'</span>
+git show v1.<span class="hljs-number">0</span>
+git <span class="hljs-keyword">push</span> origin v1.<span class="hljs-number">0</span>
+<span class="hljs-comment"># 删除 tag</span>
+git tag
+git tag -d v1.<span class="hljs-number">1</span>
+git <span class="hljs-keyword">push</span> origin --<span class="hljs-keyword">delete</span> tag v1.<span class="hljs-number">1</span></code></pre>
+<h3 id="git-分支操作">Git： 分支操作</h3>
+<ul>
+<li>git branch —— 显示分支一览表</li>
+<li>git checkout -b —— 创建、切换分支
+<ul>
+<li><p>创建分支，并切换到分支，并提交</p>
+<pre><code class="hljs smalltalk"><span class="hljs-string">$ </span>git checkout -b feature-<span class="hljs-type">A</span>
+<span class="hljs-type">Switched</span> to a new branch <span class="hljs-string">'feature-A'</span> 
+//实际上等同于下面两条命令
+<span class="hljs-string">$ </span>git branch feature-<span class="hljs-type">A</span>
+<span class="hljs-string">$ </span>git checkout feature-<span class="hljs-type">A</span></code></pre></li>
+<li>切回到master， git checkout master</li>
+<li><p>切回到上一个分支，git checkout - , 用"-" 可以代替分支名</p></li>
+</ul></li>
+<li>特性分支：是集中实现单一特性（主题），初次之外不进行任何作业的分支。</li>
+<li>主干分支：可以发布软件的稳定分支。有时可以用标签Tag等创建版本信息，同时管理多个版本的发布。</li>
+<li>git merge ——合并分支
+<ul>
+<li><p>假设 feature-A 已经开发完，先需要将它合并到master。</p>
+<pre><code class="hljs sql">$ git checkout master
+$ git <span class="hljs-keyword">merge</span> <span class="hljs-comment">--no--ff feature-A</span>
+// 为了在历史记录中明确记录本次分支合并，我们需要创建合并提交。因此需要加上 <span class="hljs-comment">--no--ff 参数</span></code></pre></li>
+</ul></li>
+<li><strong>git log --graph</strong> —— 以图表的形式查看分支。*该命令可以用图表形式输出提交日志，非常直观</li>
+</ul>
+<h3 id="更改提交的操作">更改提交的操作</h3>
+<ul>
+<li>git reset ——回溯历史版本
+<ul>
+<li>要让仓库的HEAD、暂存区、当前工作树回溯到指定状态，需要用到git reset --head 命令。只需要提供hash值，就可以完全恢复至该时间点的状态</li>
+<li>git log 只能查看当前状态为终点的历史日志。用<strong>git reflog </strong>可以查看当前仓库的操作日志。通过log查找hash值，通过reset --hard 命令恢复到回溯历史前的状态</li>
+</ul></li>
+<li><strong>消除冲突</strong>
+<ul>
+<li><p>解决冲突后，执行git add 和git commit命令</p>
+<pre><code class="hljs matlab">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+   -feature-A
+=======
+   -<span class="hljs-built_in">fix</span>-B
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; <span class="hljs-built_in">fix</span>-B</code></pre></li>
+</ul></li>
+<li>git commit --amend ——修改提交的comment （上一条），执行命令后，会启动编辑器。执行 git log --graph 可以查看是否修改成功。</li>
+<li><strong>git rebase -i </strong> —— 压缩历史日志。
+<ul>
+<li><p>git rebase -i HEAD~2 : 可以选定当前分支中包含HEAD（最新提交）在内的两个最新历史记录对象，并在编辑器中打开</p>
+<pre><code class="hljs sql">pick 7a33333 Add feature-C
+pick 6f11111 Fix typo
+
+#p,pick = <span class="hljs-keyword">use</span> <span class="hljs-keyword">commit</span>
+#r,reword = <span class="hljs-keyword">use</span> <span class="hljs-keyword">commit</span>,but edit the <span class="hljs-keyword">commit</span> message
+#<span class="hljs-keyword">e</span>,edit = <span class="hljs-keyword">use</span> <span class="hljs-keyword">commit</span>,but <span class="hljs-keyword">stop</span> <span class="hljs-keyword">for</span> emending
+#s,squash = <span class="hljs-keyword">use</span> <span class="hljs-keyword">commit</span>, but meld <span class="hljs-keyword">into</span> previous <span class="hljs-keyword">commit</span>
+#<span class="hljs-keyword">f</span>,fixup = <span class="hljs-keyword">like</span> <span class="hljs-string">'squash'</span>,but discard this <span class="hljs-keyword">commit</span><span class="hljs-string">`s log message
+#x,exec = run command (the rest of the line) using shell
+
+//将6f11111 Fix typo的历史记录，压缩到7a33333的Add feature-C里。将pick删除，改写为fixup
+pick 7a33333 Add feature-C
+fixup 6f11111 Fix typo</span></code></pre></li>
+</ul></li>
+</ul>
+<h3 id="远程仓库操作">远程仓库操作</h3>
+<ul>
+<li><p>git remote add ——添加远程仓库</p>
+<pre><code class="hljs groovy">$ git remote add origin git<span class="hljs-meta">@github</span>.<span class="hljs-string">com:</span>github-book/git-tutorial.git</code></pre></li>
+<li><p>git push —— 推送至远程仓库</p></li>
+<li>git clone —— 获取远程仓库
+<ul>
+<li>执行clone 命令后，默认处于master分支</li>
+<li>git check -b feature -D origin/feature-D</li>
+</ul></li>
+<li><p>git pull —— 获取最新的远程仓库分支</p></li>
+</ul>
+<p><strong>如果两人同时修改了统一部分源代码，push时就很容易发生冲突。所以多名开发者在同一个分支中进行作业时，为减少冲突情况发生，建议频繁地进行push和pull操作</strong></p>
+<h2 id="github-特殊技巧">GITHUB 特殊技巧</h2>
+<h3 id="搜索文件">搜索文件</h3>
+<p>在仓库页面按 ‘t’键，然后输入要找的目录或者文件的部分名称，筛选器会在仓库目录和文件中进行筛选，搜索出要找的文件。这种方式比一级级查看目录和文件要快得多。</p>
+<h3 id="查看差别">查看差别</h3>
+<p>在github上，直接修改URL就可以让用户以多种形式查看差别。</p>
+<p><strong>查看分支之间的差异</strong></p>
+<pre><code class="hljs dts"><span class="hljs-symbol">https:</span><span class="hljs-comment">//github.com/rails/rails/compare/4-0-stable...5-0-stable</span></code></pre>
+<p>这样就可以查看两个分支之间的差异了。上面的网页可以看到，两个版本之间提交有上万次，Files changed 有3315....</p>
+<p><strong>查看与几天前的差别</strong></p>
+<pre><code class="hljs dts"><span class="hljs-symbol">https:</span><span class="hljs-comment">//github.com/rails/rails/compare/master@{7.day.ago}...master</span></code></pre>
+<p>这样就可以查看这段期间内的差别。day 还有其他几种形式。</p>
+<ul>
+<li>day</li>
+<li>week</li>
+<li>month</li>
+<li>year</li>
+</ul>
+<p><strong>查看与指定日期之间的差异</strong></p>
+<pre><code class="hljs dts"><span class="hljs-symbol">https:</span><span class="hljs-comment">//github.com/rails/rails/compare/master@{2016-09-01}...master</span></code></pre>
+<p>这样便可以查看与指定日期之间的差别。</p>
+<p>由于可以从多种角度查看差别，所以github也称得上是一款优秀的源代码查看器。善于利用上述技巧，能节省不少时间。</p>
+<h3 id="gmf-语法特殊用法">GMF 语法特殊用法</h3>
+<p>GMF github-flavored-markdown.MD语法不做过多介绍，只介绍其中一些特性。</p>
+<p><strong>语法高亮</strong></p>
+<div class="sourceCode"><pre class="sourceCode ruby"><code class="sourceCode ruby hljs"><span class="kw"><span class="hljs-function"><span class="hljs-keyword">def</span></span></span><span class="hljs-function"> <span class="hljs-title">hello_world</span></span>
+    puts <span class="st"><span class="hljs-string">'hello world'</span></span>
+<span class="kw"><span class="hljs-keyword">end</span></span></code></pre></div>
+<p>这样一来，代码就会被添加语法高亮，变得直观易读。</p>
+<p><strong>TaskList 语法</strong></p>
+<pre><code class="hljs markdown">//本月计划的任务
+<span class="hljs-bullet">- </span>[ ] 完成ES6语法改造
+<span class="hljs-bullet">- </span>[ ] 完成非正常单词改造
+<span class="hljs-bullet">- </span>[x]  学完GITHUB特殊技巧</code></pre>
+<ul>
+<li>[ ] 完成ES6语法改造</li>
+<li>[ ] 完成非正常单词改造</li>
+<li>[x] 学完GITHUB特殊技巧</li>
+</ul>
+<p>这样一来 ，这段文字就会标记成复选列表的样式。这个复选样式可以直接勾选或者取消。不必打开编辑器重新编辑，非常方便</p>
+<p><strong>在评论中应用表情</strong></p>
+<p>在评论中输入 ":" 便会启动表情自动补全功能。只需要输入几个与表情相关的字母，系统就会为您筛选自动补全的对象。具体表情见：<a href="http://www.emoji-cheat-sheet.com/" class="uri">http://www.emoji-cheat-sheet.com</a></p>
+<h3 id="issue-技巧">Issue 技巧</h3>
+<p><strong>在相关Issue中显示提交信息</strong></p>
+<p>在Issue一览表中，可以看到，每个Issue的标题下面都带了诸如 “#21” 的编号。这样只要在提交信息时，带上 "#21" 就可以在Issue中看到该提交信息，使关联的提交一幕了然</p>
+<p><strong>Close Issue</strong></p>
+<p>在提交信息中以下列任一一种格式描述提交信息，对应的Issure就会被close。</p>
+<ul>
+<li>fix #21</li>
+<li>fixes #21</li>
+<li>fixed #21</li>
+<li>close #21</li>
+<li>closes #21</li>
+<li>closed #21</li>
+<li>resolve #21</li>
+<li>resolves #21</li>
+<li>resolved #21</li>
+</ul>
+<p>利用该方式，每次提交并且push后，就不必大费周章到GitHub的Issue中寻找相应的Issue 再手动Close。</p>
+<h2 id="github-的其他功能">GitHub 的其他功能</h2>
+<h3 id="github-pages">GitHub Pages</h3>
+<p><a href="https://pages.github.com/">Github pages</a> 主要用于在Github上托管静态HTML，以便发布项目的Web页。</p>
+<p>由于可以绑定独立的域名，人们也经常利用结合这个功能的<a href="http://octopress.org/">Octopress</a> 来搭建博客</p>
+<h3 id="github-jobs">Github Jobs</h3>
+<p>面向全世界招聘程序员的职位公告板。<a href="https://jobs.github.com/">Jobs</a></p>
+<h3 id="github-enterprise">Github Enterprise</h3>
+<p>企业版</p>
+<h3 id="github-api">Github API</h3>
+<p>GitHub 面向开发者公开了API。 具体见 <a href="https://developer.github.com/" class="uri">https://developer.github.com</a></p>
+<h2 id="pull-request">Pull Request</h2>
+<p>按部就班地创建GitHub账号并公开自己的源码并不是什么难事。Pull Request 是社会化编程的象征，可以说给开源开发世界带来了一场革命。不会用这个功能，就等于不会用GitHub。。。（作者吹得有点过。。）</p>
+<p>Pull Request 是GitHub的核心功能</p>
+<h3 id="conversation">Conversation</h3>
+<p>（以下技巧同样可以应用在其他评论中，如Issue）</p>
+<p><strong>在评论中应用表情</strong></p>
+<p>（同样应用在其他评论中，如Issue）在评论中输入 ":" 便会启动表情自动补全功能。只需要输入几个与表情相关的字母，系统就会为您筛选自动补全的对象。具体表情见：<a href="http://www.emoji-cheat-sheet.com/" class="uri">http://www.emoji-cheat-sheet.com</a></p>
+<p><strong>引用评论</strong></p>
+<p>只要选中需要引用的语句，然后按“R键”便会自动以引用的形式添加到评论栏，这样一来就可以轻松便捷地引用评论了</p>
+<h3 id="让pull-request-更加有效的方法">让Pull Request 更加有效的方法</h3>
+<p><strong>在开发过程中发送Pull Request进行讨论</strong></p>
+<p>避免一个功能在开发完成后才收到来自设计或者实现方面的指正，导致代码需要大幅更改或者重新实现</p>
+<p><strong>明确标出 “正在开发过程中” </strong></p>
+<p>为了防止开发到一半的Pull Request 被合并，一般在标题前加上 “[WIP]” 字样，WIP 是 Work In Progress的简称</p>
+<p><strong>不进行Fork 直接从分支发送Pull Request</strong></p>
+<p>一般来说，在Github上修改对方的代码时，需要先将仓库Fork到本地，然后再修改代码，发送Pull Request。</p>
+<p>但是，如果用户对该仓库有编辑权限，则可以直接创建分支，从分支发送 Pull Request</p>
+</div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory">分类: <a href="http://www.cnblogs.com/sloong/category/796958.html" target="_blank">架构</a></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/sloong/tag/git/">git</a>, <a href="http://www.cnblogs.com/sloong/tag/github/">github</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(5857303,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;bca36423-eca5-e411-b908-9dcfd8948a71&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./Git基本操作和GtHub 特殊技巧 - sloong - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./Git基本操作和GtHub 特殊技巧 - sloong - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/sloong/" target="_blank"><img src="./Git基本操作和GtHub 特殊技巧 - sloong - 博客园_files/20151215111415.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/sloong/">sloong</a><br>
+            <a href="http://home.cnblogs.com/u/sloong/followees">关注 - 1</a><br>
+            <a href="http://home.cnblogs.com/u/sloong/followers">粉丝 - 47</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;bca36423-eca5-e411-b908-9dcfd8948a71&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(5857303,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(5857303,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/sloong/p/5826859.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/sloong/p/5826859.html" title="发布于2016-09-05 15:22">webpack+gulp实现自动构建部署</a><br><a href="http://www.cnblogs.com/sloong/p/5868292.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/sloong/p/5868292.html" title="发布于2016-09-14 09:47">GitHub Flow  &amp; Git Flow  基于Git 的两种协作开发模式</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2016-09-09 17:04</span> <a href="http://www.cnblogs.com/sloong/">sloong</a> 阅读(<span id="post_view_count">552</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=5857303" rel="nofollow">编辑</a> <a href="http://www.cnblogs.com/sloong/p/5857303.html#" onclick="AddToWz(5857303);return false;">收藏</a></div>
+	</div>
+	<script src="./Git基本操作和GtHub 特殊技巧 - sloong - 博客园_files/highlight.min.js.下载"></script><script>markdown_highlight();</script><script type="text/javascript">var allowComments=true,cb_blogId=213598,cb_entryId=5857303,cb_blogApp=currentBlogApp,cb_blogUserGuid='bca36423-eca5-e411-b908-9dcfd8948a71',cb_entryCreatedDate='2016/9/9 17:04:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="http://www.cnblogs.com/sloong/p/5857303.html#" onclick="return RefreshPage();">刷新页面</a><a href="http://www.cnblogs.com/sloong/p/5857303.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】50万行VC++源码: 大型组态工控、电力仿真CAD与GIS源码库</a><br><a href="https://news.cnblogs.com/n/582971/" target="_blank">【新闻】H3 BPM体验平台全面上线</a><br><a href="http://www.hubwiz.com/course/?type=Vue.js&amp;affid=cnblogs" target="_blank">【推荐】Vue.js 2.x 快速入门，大量高效实战示例</a><br><a href="https://cloud.tencent.com/developer/labs?fromSource=gwzcw.632116.632116.632116" target="_blank">【推荐】腾讯云免费实验室，1小时搭建人工智能应用</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="http://www.grapecity.com.cn/enterprise-solutions/huozige/?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=huozige&amp;utm_campaign=community" target="_blank"><img width="300" height="250" src="./Git基本操作和GtHub 特殊技巧 - sloong - 博客园_files/24442-20171114102259156-1700577248.png" alt="葡萄城1114"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="http://news.cnblogs.com/n/583801/" target="_blank">海尔发布智慧家庭行业首个人工智能解决方案</a><br> ·  <a href="http://news.cnblogs.com/n/583800/" target="_blank">惠普回应“间谍软件”指控：称“经用户同意”匿名收集</a><br> ·  <a href="http://news.cnblogs.com/n/583799/" target="_blank">马斯克：旗下Boring Company将竞标芝加哥高速铁路</a><br> ·  <a href="http://news.cnblogs.com/n/583798/" target="_blank">谷歌看到的比你想象得多</a><br> ·  <a href="http://news.cnblogs.com/n/583797/" target="_blank">SpaceX可重用火箭迎大考 12月份再访国际空间站</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/34771/" target="_blank"><img width="468" height="60" src="./Git基本操作和GtHub 特殊技巧 - sloong - 博客园_files/24442-20171113120112796-634832761.jpg" alt="阿里云1113"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/531409/" target="_blank">以操作系统的角度述说线程与进程</a><br> ·  <a href="http://kb.cnblogs.com/page/141729/" target="_blank">软件测试转型之路</a><br> ·  <a href="http://kb.cnblogs.com/page/177402/" target="_blank">门内门外看招聘</a><br> ·  <a href="http://kb.cnblogs.com/page/112506/" target="_blank">大道至简，职场上做人做事做管理</a><br> ·  <a href="http://kb.cnblogs.com/page/563790/" target="_blank">关于编程，你的练习是不是有效的？</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="blog-news">
+<a title="查看sloong的博客园资料" target="_blank" href="http://home.cnblogs.com/u/sloong/">
+<img class="img_avatar" src="./Git基本操作和GtHub 特殊技巧 - sloong - 博客园_files/20151215111415(1).png" alt="sloong的头像">
+</a>
+<div>
+<br><br>
+<span>&nbsp;</span>
+
+<a style="text-decoration: none" title="查看sloong的GitHub" href="http://www.github.com/ifengkou/" target="_blank"><span style="font: 80% Arial"><img class="aligncenter" style="vertical-align: middle" width="22" title="查看sloong的GitHub" src="./Git基本操作和GtHub 特殊技巧 - sloong - 博客园_files/github.png">&nbsp;&nbsp;GitHub</span></a>
+
+<span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+<a style="text-decoration: none" title="查看sloong的LinkedIn资料" target="_blank" href="https://cn.linkedin.com/in/ifengkou"><span style="font: 80% Arial"><img style="vertical-align: middle" src="./Git基本操作和GtHub 特殊技巧 - sloong - 博客园_files/btn_in_20x15.png" width="25" height="" title="查看sloong的LinkedIn资料" border="0">&nbsp;LinkedIn</span></a>
+
+</div>
+
+<br><br>
+
+<div>
+
+</div>
+<br><br>
+
+</div><div id="profile_block">昵称：<a href="http://home.cnblogs.com/u/sloong/">sloong</a><br>园龄：<a href="http://home.cnblogs.com/u/sloong/" title="入园时间：2015-01-27">2年10个月</a><br>粉丝：<a href="http://home.cnblogs.com/u/sloong/followers/">47</a><br>关注：<a href="http://home.cnblogs.com/u/sloong/followees/">1</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;bca36423-eca5-e411-b908-9dcfd8948a71&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block"></div><div id="sidebar_categories">
+<div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+<h3 class="catListTitle">随笔分类</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/sloong/category/811078.html">Web应用服务(10)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_1" href="http://www.cnblogs.com/sloong/category/992388.html">基础(1)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_2" href="http://www.cnblogs.com/sloong/category/796958.html">架构(10)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_3" href="http://www.cnblogs.com/sloong/category/769479.html">前端架构(12)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_4" href="http://www.cnblogs.com/sloong/category/812337.html">数据&amp;缓存(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_5" href="http://www.cnblogs.com/sloong/category/767341.html">通信技术(2)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_6" href="http://www.cnblogs.com/sloong/category/767321.html">移动开发(6)</a> </li>
+
+<li><a id="CatList_LinkList_0_Link_7" href="http://www.cnblogs.com/sloong/category/767403.html">异常记录(3)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/sloong/archive/2017/04.html">2017年4月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="http://www.cnblogs.com/sloong/archive/2017/03.html">2017年3月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="http://www.cnblogs.com/sloong/archive/2016/12.html">2016年12月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="http://www.cnblogs.com/sloong/archive/2016/09.html">2016年9月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_4" href="http://www.cnblogs.com/sloong/archive/2016/08.html">2016年8月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_5" href="http://www.cnblogs.com/sloong/archive/2016/07.html">2016年7月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_6" href="http://www.cnblogs.com/sloong/archive/2016/06.html">2016年6月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_7" href="http://www.cnblogs.com/sloong/archive/2016/05.html">2016年5月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_8" href="http://www.cnblogs.com/sloong/archive/2016/04.html">2016年4月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_9" href="http://www.cnblogs.com/sloong/archive/2016/03.html">2016年3月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_10" href="http://www.cnblogs.com/sloong/archive/2016/02.html">2016年2月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_11" href="http://www.cnblogs.com/sloong/archive/2016/01.html">2016年1月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_12" href="http://www.cnblogs.com/sloong/archive/2015/12.html">2015年12月 (5)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/sloong/p/cors.html#3830019">1. Re:CORS 跨域 实现思路及相关解决方案</a></li>
+        <li class="recent_comment_body">写的不错，给个赞</li>
+        <li class="recent_comment_author">--花儿香香</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/sloong/p/5826818.html#3814819">2. Re:Webpack 常见静态资源处理 - 模块加载器（Loaders）+ExtractTextPlugin插件</a></li>
+        <li class="recent_comment_body">"它将从每一个用到了require("style.css")的entry chunks文件中抽离出css到单独的output文件"这句话不对，style.css是输出文件的文件名。It moves a......</li>
+        <li class="recent_comment_author">--JiahaiHu</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/sloong/p/5826818.html#3808202">3. Re:Webpack 常见静态资源处理 - 模块加载器（Loaders）+ExtractTextPlugin插件</a></li>
+        <li class="recent_comment_body">受教了</li>
+        <li class="recent_comment_author">--TJYoung</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/sloong/p/5689162.html#3757902">4. Re:webpack 多页面支持 &amp; 公共组件单独打包</a></li>
+        <li class="recent_comment_body">给我帮助很大，牛人<br>webpack中文文档：<a href="http://www.cnblogs.com/sloong/p/5857303.html" target="_blank"></a></li>
+        <li class="recent_comment_author">--沙特551</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/sloong/p/5826818.html#3757899">5. Re:Webpack 常见静态资源处理 - 模块加载器（Loaders）+ExtractTextPlugin插件</a></li>
+        <li class="recent_comment_body">好文章~清晰透彻。<br>webpack中文文档：<a href="http://www.cnblogs.com/sloong/p/5857303.html" target="_blank"></a></li>
+        <li class="recent_comment_author">--沙特551</li>
+</ul>
+</div>
+</div>
+</div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2017 sloong
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+<div style="position: static; display: none; width: 0px; height: 0px; border: none; padding: 0px; margin: 0px;"><div id="trans-tooltip"><div id="tip-left-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-top.png&quot;);"></div><div id="tip-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-top.png&quot;) repeat-x;"></div><div id="tip-right-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-top.png&quot;);"></div><div id="tip-right" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right.png&quot;) repeat-y;"></div><div id="tip-right-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-right-bottom.png&quot;);"></div><div id="tip-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-bottom.png&quot;) repeat-x;"></div><div id="tip-left-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left-bottom.png&quot;);"></div><div id="tip-left" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-left.png&quot;);"></div><div id="trans-content"></div></div><div id="tip-arrow-bottom" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-bottom.png&quot;);"></div><div id="tip-arrow-top" style="background: url(&quot;chrome-extension://ikkbfngojljohpekonpldkamedehakni/imgs/map/tip-arrow-top.png&quot;);"></div></div></body></html>
