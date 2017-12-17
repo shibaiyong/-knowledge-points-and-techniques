@@ -1,0 +1,95 @@
+.day,.topicListFooter{
+    margin-top:15px;
+    width:760px;
+}
+.forFlow{
+    margin-top:-10px;
+}
+.postDesc{
+    line-height:2.4;
+}
+#main,#header{
+    width:1040px;
+}
+.postTitle,.postCon,.postDesc{
+    width:760px;
+}
+#blogTitle{
+    margin-left:5px;
+    top:130px;
+}
+#navigator{
+    top:140px;
+}
+#header{
+    height:310px;
+}
+.blogStats{
+    margin-right:25px;
+    margin-top:7px;
+    font-size:14px;
+    font-weight:500;
+    font-family: 微软雅黑,微软雅黑,微软雅黑,微软雅黑;
+    color:#999999;
+}
+/**/
+#topics,.entrylist{
+    width:760px; 
+    margin-top:15px;   
+    margin-right: 40px;
+}
+#myposts{
+   margin-right: 30px;
+}
+.post{
+    padding-left: 25px;
+}
+.postTitle,#topics .postTitle{
+    width:760px; 
+}
+.postBody{
+    width:760px;
+    margin-top: 10px;
+}
+
+/*公告*/
+.newsItem .catListTitle{
+    height: 21px;
+}
+.catListTitle{
+    height: 21px;
+}
+.user_info_css{
+	border-bottom:1px solid #aaaaaa;
+	font-size:13px;
+}
+
+/*日历的宽度设置*/
+#blog-calendar{
+  width:205px;
+}
+/*加背景*/
+#mainContent{
+    margin-left:20px;
+}
+#mainContent{
+    background-color: #FFFFFF;
+    border:1px solid #E2E7E6;
+    padding:0px 10px 10px 0px;
+}
+.newsItem,#blog-calendar,#leftcontentcontainer{
+    border:1px solid #E2E7E6;
+    background-color: #FFFFFF;
+}
+.catListTitle,.newsItem .catListTitle{
+    background-color: #E2E7E6;
+}
+.myposts_title,#myposts .myposts_title,.entrylistTitle, .PostListTitle,.PostListTitle{
+    margin-top: 25px;
+}
+/*子标题*/
+#blogTitle h2{
+    font-size:14px;
+    font-family: 微软雅黑,微软雅黑,微软雅黑,微软雅黑;
+    margin:10px 0 0 8px
+}
