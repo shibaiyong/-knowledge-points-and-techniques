@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://www.jianshu.com/p/686672aff949 -->
+<html><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+
+  <!-- Start of Baidu Transcode -->
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="MobileOptimized" content="width">
+  <meta name="HandheldFriendly" content="true">
+  <meta name="mobile-agent" content="format=html5;url=http://www.jianshu.com/p/686672aff949">
+  <!-- End of Baidu Transcode -->
+
+    <meta name="description" content="Sublime Text 3 编写的 HTML 文件如何在浏览器中打开？可以在 HTML 文件中右键点击Open in Browser 选项，这种方式经常出现网页打不开的情况。例如路径不允许出现中文；莫名其妙打开 Firefox 浏览器等。这里介绍使用 View In Browser 插件来实现 HTML 文件在浏览器中打开的功能。 安装 Package Control 插件 Package...">
+
+  <meta name="360-site-verification" content="604a14b53c6b871206001285921e81d8">
+  <meta property="wb:webmaster" content="294ec9de89e7fadb">
+  <meta property="qc:admins" content="104102651453316562112116375">
+  <meta property="qc:admins" content="11635613706305617">
+  <meta property="qc:admins" content="1163561616621163056375">
+  <meta name="google-site-verification" content="cV4-qkUJZR6gmFeajx_UyPe47GW9vY6cnCrYtCHYNh4">
+  <meta name="google-site-verification" content="HF7lfF8YEGs1qtCE-kPml8Z469e2RHhGajy6JPVy5XI">
+  <meta http-equiv="mobile-agent" content="format=html5; url=http://www.jianshu.com/p/686672aff949">
+
+  <!-- Apple -->
+  <meta name="apple-mobile-web-app-title" content="简书">
+
+    <!--  Meta for Smart App Banner -->
+  <meta name="apple-itunes-app" content="app-id=888237539, app-argument=jianshu://notes/13216949">
+  <!-- End -->
+
+  <!--  Meta for Twitter Card -->
+  <meta content="summary" property="twitter:card">
+  <meta content="@jianshucom" property="twitter:site">
+  <meta content="Sublime Text 3添加在浏览器中打开功能" property="twitter:title">
+  <meta content="Sublime Text 3 编写的 HTML 文件如何在浏览器中打开？可以在 HTML 文件中右键点击Open in Browser 选项，这种方式经常出现网页打不开的情况。例如路径不允许出现中文；莫名其妙打开 Firefox 浏览器等。这里介绍使用 View In Browser 插件来实现 HTML 文件在浏览器中打开的功能。 安装 Package Control 插件 Package Control 插件可以方便我们查找、安装、更新和删除 Sublime Text 使用到的插件。安装 Package Control 有两种方式：自动安装和手动安装。 自动安装 自动安装需要通过 S..." property="twitter:description">
+  <meta content="http://www.jianshu.com/p/686672aff949" property="twitter:url">
+  <!-- End -->
+
+  <!--  Meta for OpenGraph -->
+  <meta property="fb:app_id" content="865829053512461">
+  <meta property="og:site_name" content="简书">
+  <meta property="og:title" content="Sublime Text 3添加在浏览器中打开功能">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="http://www.jianshu.com/p/686672aff949">
+  <meta property="og:description" content="Sublime Text 3 编写的 HTML 文件如何在浏览器中打开？可以在 HTML 文件中右键点击Open in Browser 选项，这种方式经常出现网页打不开的情况。例如路径不允许出现...">
+  <!-- End -->
+
+  <!--  Meta for Facebook Applinks -->
+  <meta property="al:ios:url" content="jianshu://notes/13216949">
+  <meta property="al:ios:app_store_id" content="888237539">
+  <meta property="al:ios:app_name" content="简书">
+
+  <meta property="al:android:url" content="jianshu://notes/13216949">
+  <meta property="al:android:package" content="com.jianshu.haruki">
+  <meta property="al:android:app_name" content="简书">
+  <!-- End -->
+
+
+    <title>Sublime Text 3添加在浏览器中打开功能 - 简书</title>
+
+  <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="7BlKGrpKfZLwgmC1TVZNVMgNDCJG1lsEJxMOD5MMqQbH0SIquajrE+Zm/0YUVdDLJmnla5mHbH1quUMhgEfs4g==">
+
+  <link rel="stylesheet" media="all" href="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/web-8e4fd86a49b411611e61.css">
+  
+  <link rel="stylesheet" media="all" href="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/entry-a5d96d4884b6cddc11f7.css">
+
+  <link href="http://cdn2.jianshu.io/assets/favicons/favicon-03411b154a430b85d807b4366489c21122fb983a38f3d7ca926f882e6367b13e.ico" rel="icon">
+      <link rel="apple-touch-icon-precomposed" href="http://cdn2.jianshu.io/assets/apple-touch-icons/57-a6f1f1ee62ace44f6dc2f6a08575abd3c3b163288881c78dd8d75247682a4b27.png" sizes="57x57">
+      <link rel="apple-touch-icon-precomposed" href="http://cdn2.jianshu.io/assets/apple-touch-icons/72-fb9834bcfce738fd7b9c5e31363e79443e09a81a8e931170b58bc815387c1562.png" sizes="72x72">
+      <link rel="apple-touch-icon-precomposed" href="http://cdn2.jianshu.io/assets/apple-touch-icons/76-49d88e539ff2489475d603994988d871219141ecaa0b1a7a9a1914f4fe3182d6.png" sizes="76x76">
+      <link rel="apple-touch-icon-precomposed" href="http://cdn2.jianshu.io/assets/apple-touch-icons/114-24252fe693524ed3a9d0905e49bff3cbd0228f25a320aa09053c2ebb4955de97.png" sizes="114x114">
+      <link rel="apple-touch-icon-precomposed" href="http://cdn2.jianshu.io/assets/apple-touch-icons/120-1bb7371f5e87f93ce780a5f1a05ff1b176828ee0d1d130e768575918a2e05834.png" sizes="120x120">
+      <link rel="apple-touch-icon-precomposed" href="http://cdn2.jianshu.io/assets/apple-touch-icons/152-bf209460fc1c17bfd3e2b84c8e758bc11ca3e570fd411c3bbd84149b97453b99.png" sizes="152x152">
+
+  <!-- Start of 访问统计 -->
+  <script src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/push.js"></script><script src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/hm.js"></script><script async="" src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/analytics.js"></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35169517-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "//hm.baidu.com/hm.js?0c0e9d9b1e7d617b3e6842e85b9fb068";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+  <!-- End of 访问统计 -->
+<style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.main {
+  position: relative;
+  margin: 0 auto;
+  padding: 0 0 30px 0;
+  width: 620px;
+}
+.main .title {
+    padding-left: 8px;
+    border-left: 3px solid #EA6F5A;
+    line-height: 1;
+    font-size: 15px;
+}
+.main .collection-settings {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    font-size: 13px;
+    color: #A0A0A0;
+}
+.main .collection-settings span {
+      padding-left: 4px;
+}
+.main .include-collection {
+    width: 100%;
+    padding-top: 20px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+}
+.main .include-collection .item {
+      display: inline-block;
+      margin: 0 12px 12px 0;
+      min-height: 32px;
+      background-color: white;
+      border: 1px solid #DCDCDC;
+      border-radius: 4px;
+      vertical-align: top;
+      overflow: hidden;
+}
+.main .include-collection .item img {
+        width: 32px;
+        height: 32px;
+}
+.main .include-collection .item .name {
+        display: inline-block;
+        padding: 0 10px;
+        font-size: 14px;
+}
+.main .include-collection .add-collection-wrap {
+      margin: 0 12px 12px 0;
+}
+.main .include-collection .add-collection {
+      padding: 8px 12px;
+      font-size: 14px;
+      border: 1px solid #DCDCDC;
+      border-radius: 4px;
+}
+.main .include-collection .add-collection i {
+        margin-right: 4px;
+        color: #969696;
+}
+.main .recommend-note a {
+    position: relative;
+    margin: 20px 2px 0 0;
+    width: 200px;
+    height: 160px;
+    display: inline-block;
+}
+.main .recommend-note a:after {
+      content: "";
+      position: absolute;
+      width: 200px;
+      height: 160px;
+      border-radius: 0 0 4px 4px;
+      -webkit-box-shadow: inset 0px -80px 50px -22px rgba(0, 0, 0, 0.6);
+              box-shadow: inset 0px -80px 50px -22px rgba(0, 0, 0, 0.6);
+      top: 0;
+      left: 0;
+      z-index: 1;
+}
+.main .recommend-note .name {
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    right: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #ffffff;
+    z-index: 2;
+}
+.main .recommend-note .author {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    z-index: 2;
+}
+.main .recommend-note .avatar {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+.main .recommend-note .avatar img {
+      border-radius: 50%;
+}
+.main .recommend-note .author-name {
+    font-size: 12px;
+    color: #ffffff;
+    display: inline-block;
+    vertical-align: -1px;
+}
+.main .show-more {
+    margin: 0 12px 12px 0;
+    font-size: 14px;
+    color: #A0A0A0;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.pc-bind-phone-modal .modal-content, .pc-bind-phone-modal .modal-body {
+  overflow: visible;
+}
+.pc-bind-phone-modal .dropdown-menu {
+  max-height: 300px;
+  overflow: auto;
+}
+.pc-bind-phone-modal .dropdown-menu .tag {
+    background-color: #efefef;
+    color: #4A4A4A;
+    height: 28px;
+    line-height: 28px;
+    padding-left: 25px;
+    font-size: 12px;
+}
+.reader-night-mode .pc-bind-phone-modal .dropdown-menu .tag {
+  background-color: #2F2F2F;
+  color: #999999;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.tips-card-loading[data-v-f3bf5228], .tips-card[data-v-f3bf5228] {
+  width: 460px;
+  position: relative;
+  left: 0;
+  top: 0;
+  border-radius: 6px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d9d9d9;
+}
+.tips-card-loading[data-v-f3bf5228] {
+  height: 200px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+.tips-card-loading div[data-v-f3bf5228] {
+    background-color: #EAEAEA;
+}
+.tips-card-loading .avatar[data-v-f3bf5228] {
+    width: 72px !important;
+    height: 72px !important;
+    border-radius: 50%;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+}
+.tips-card-loading .name[data-v-f3bf5228] {
+    width: 120px;
+    height: 20px;
+    position: absolute;
+    left: 110px;
+    top: 31px;
+}
+.tips-card-loading .content[data-v-f3bf5228] {
+    position: absolute;
+    left: 110px;
+    top: 62px;
+    width: 238px;
+    height: 39.2px;
+    background-color: transparent;
+}
+.tips-card-loading .content .text[data-v-f3bf5228], .tips-card-loading .content .text-delay[data-v-f3bf5228] {
+      height: 14px;
+      position: absolute;
+      left: 0;
+      width: 100%;
+}
+.tips-card-loading .content .text[data-v-f3bf5228] {
+      top: 2px;
+      -webkit-animation: loading-data-v-f3bf5228 1s ease-in-out infinite;
+      animation: loading-data-v-f3bf5228 1s ease-in-out infinite;
+}
+.tips-card-loading .content .text-delay[data-v-f3bf5228] {
+      bottom: 3px;
+      -webkit-animation: loading-data-v-f3bf5228 1s ease-in-out -0.5s infinite;
+      animation: loading-data-v-f3bf5228 1s ease-in-out -0.5s infinite;
+}
+@keyframes loading-data-v-f3bf5228 {
+0% {
+    width: 60%;
+}
+50% {
+    width: 100%;
+}
+100% {
+    width: 60%;
+}
+}
+@-webkit-keyframes loading {
+0% {
+    width: 60%;
+}
+50% {
+    width: 100%;
+}
+100% {
+    width: 60%;
+}
+}
+.tips-card-loading .meta[data-v-f3bf5228] {
+    width: 30px;
+    height: 42px;
+    position: absolute;
+    bottom: 20px;
+    background-color: transparent;
+}
+.tips-card-loading .meta.meta-1[data-v-f3bf5228] {
+      left: 30px;
+}
+.tips-card-loading .meta.meta-2[data-v-f3bf5228] {
+      left: 90px;
+}
+.tips-card-loading .meta.meta-3[data-v-f3bf5228] {
+      left: 150px;
+}
+.tips-card-loading .meta .count[data-v-f3bf5228], .tips-card-loading .meta .type[data-v-f3bf5228] {
+      position: absolute;
+}
+.tips-card-loading .meta .count[data-v-f3bf5228] {
+      left: -5px;
+      top: 6px;
+      height: 18px;
+      width: 40px;
+}
+.tips-card-loading .meta .type[data-v-f3bf5228] {
+      left: 1px;
+      bottom: 2px;
+      height: 13px;
+      width: 28px;
+}
+.tips-card-loading .button[data-v-f3bf5228] {
+    position: absolute;
+    bottom: 17px;
+    width: 90px;
+    height: 40px;
+    border-radius: 40px;
+}
+.tips-card-loading .message[data-v-f3bf5228] {
+    right: 120px;
+}
+.tips-card-loading .follow[data-v-f3bf5228] {
+    right: 17px;
+}
+.tips-card[data-v-f3bf5228] {
+  z-index: 10;
+}
+.tips-card .card-content[data-v-f3bf5228] {
+    padding: 20px 20px 0 20px;
+}
+.tips-card .card-content .summary[data-v-f3bf5228] {
+      padding: 8px 0 20px 90px;
+      min-height: 92px;
+      position: relative;
+}
+.tips-card .card-content .summary .avatar[data-v-f3bf5228] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 72px;
+        height: 72px;
+        cursor: pointer;
+        border-radius: 50%;
+        background-color: #EAEAEA;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+}
+.tips-card .card-content .summary .name[data-v-f3bf5228] {
+        height: 26px;
+        margin-right: 3px;
+        margin-bottom: 8px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        -webkit-box-pack: start;
+        -webkit-justify-content: flex-start;
+            -ms-flex-pack: start;
+                justify-content: flex-start;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+}
+.tips-card .card-content .summary .name .nickname[data-v-f3bf5228] {
+          color: #333333;
+          font-size: 19px;
+          font-weight: bold;
+          overflow: hidden;
+          -o-text-overflow: ellipsis;
+             text-overflow: ellipsis;
+          white-space: nowrap;
+          cursor: pointer;
+}
+.tips-card .card-content .summary .name .sex[data-v-f3bf5228], .tips-card .card-content .summary .name .badge[data-v-f3bf5228] {
+          -webkit-flex-shrink: 0;
+              -ms-flex-negative: 0;
+                  flex-shrink: 0;
+          display: inline-block;
+}
+.tips-card .card-content .summary .name .sex[data-v-f3bf5228] {
+          font-size: 19px;
+          width: 19px;
+          margin: 0 4px;
+}
+.tips-card .card-content .summary .intro[data-v-f3bf5228] {
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+           text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        margin-bottom: 12px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #333333;
+}
+.tips-card .card-content .summary .intro.block[data-v-f3bf5228] {
+          color: #999999;
+}
+.tips-card .card-content .summary .list .item[data-v-f3bf5228] {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 13px;
+        color: #999999;
+        cursor: pointer;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+           text-overflow: ellipsis;
+        white-space: nowrap;
+}
+.tips-card .card-content .summary .list .item i[data-v-f3bf5228] {
+          margin-right: 2px;
+}
+.tips-card .card-footer[data-v-f3bf5228] {
+    border-top: 1px solid #F0F0F0;
+    padding: 15px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    overflow: hidden;
+    _zoom: 1;
+}
+.tips-card .card-footer .profile[data-v-f3bf5228] {
+      width: 198px;
+      overflow: hidden;
+      _zoom: 1;
+      float: left;
+}
+.tips-card .card-footer .profile div[data-v-f3bf5228] {
+        float: left;
+        width: 60px;
+        height: 44px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+}
+.tips-card .card-footer .profile div span[data-v-f3bf5228] {
+          display: block;
+          width: 100%;
+          text-align: center;
+}
+.tips-card .card-footer .profile div .type[data-v-f3bf5228] {
+          font-size: 13px;
+          color: #999999;
+}
+.tips-card .card-footer .profile div .count[data-v-f3bf5228] {
+          font-size: 18px;
+          color: #333333;
+}
+.tips-card .card-footer .social[data-v-f3bf5228] {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: row;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -webkit-box-pack: end;
+      -webkit-justify-content: flex-end;
+          -ms-flex-pack: end;
+              justify-content: flex-end;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      float: right;
+      overflow: hidden;
+      _zoom: 1;
+}
+.tips-card .card-footer .social .message[data-v-f3bf5228] {
+        border: 1px solid rgba(59, 194, 29, 0.7);
+        color: #42C02E;
+        margin: 0 10px 0 16px;
+        font-size: 15px;
+        padding: 8px 0;
+        width: 90px;
+        border-radius: 40px;
+        text-align: center;
+        cursor: pointer;
+        float: left;
+        -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+}
+.tips-card .card-footer .social .message[data-v-f3bf5228]:hover {
+          border: 1px solid #42C02E;
+          color: #42C02E;
+          background-color: rgba(59, 194, 29, 0.05);
+}
+.tips-card .card-footer .social .user-follow-button[data-v-f3bf5228] {
+        font-size: 15px;
+        padding: 8px 0;
+        width: 100px;
+}
+.arrow[data-v-f3bf5228] {
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  left: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+.arrow i[data-v-f3bf5228] {
+    position: absolute;
+    left: 50%;
+    margin: 0;
+    margin-left: -10px;
+    border-width: 10px;
+    border-color: transparent;
+    padding: 0;
+}
+.arrow em[data-v-f3bf5228] {
+    display: block;
+    position: absolute;
+    left: -9px;
+    border-width: 9px;
+    border-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+.arrow-type-top[data-v-f3bf5228] {
+  bottom: 1px;
+}
+.arrow-type-top i[data-v-f3bf5228] {
+    border-top-color: #d9d9d9;
+    border-style: solid dashed dashed;
+    top: 0;
+}
+.arrow-type-top em[data-v-f3bf5228] {
+    border-style: solid dashed dashed;
+    border-top-color: #ffffff;
+    top: -10px;
+}
+.arrow-type-bottom[data-v-f3bf5228] {
+  top: 1px;
+}
+.arrow-type-bottom i[data-v-f3bf5228] {
+    border-bottom-color: #d9d9d9;
+    border-style: dashed dashed solid;
+    top: -10px;
+}
+.arrow-type-bottom em[data-v-f3bf5228] {
+    border-style: dashed dashed solid;
+    border-bottom-color: #ffffff;
+    top: -8px;
+}
+.reader-night-mode .tips-card-loading[data-v-f3bf5228] {
+  background-color: #3F3F3F;
+  border-color: #2F2F2F;
+}
+.reader-night-mode .tips-card-loading .avatar[data-v-f3bf5228], .reader-night-mode .tips-card-loading .name[data-v-f3bf5228], .reader-night-mode .tips-card-loading .text[data-v-f3bf5228], .reader-night-mode .tips-card-loading .text-delay[data-v-f3bf5228], .reader-night-mode .tips-card-loading .count[data-v-f3bf5228], .reader-night-mode .tips-card-loading .type[data-v-f3bf5228], .reader-night-mode .tips-card-loading .button[data-v-f3bf5228] {
+    background-color: #545454;
+}
+.reader-night-mode .tips-card[data-v-f3bf5228] {
+  background-color: #3F3F3F;
+  border-color: #2F2F2F;
+}
+.reader-night-mode .tips-card .card-content .summary .name .nickname[data-v-f3bf5228] {
+    color: #C8C8C8;
+}
+.reader-night-mode .tips-card .card-content .summary .name .nickname[data-v-f3bf5228]:hover {
+      color: #ffffff;
+}
+.reader-night-mode .tips-card .card-content .summary .intro[data-v-f3bf5228] {
+    color: #C8C8C8;
+}
+.reader-night-mode .tips-card .card-footer[data-v-f3bf5228] {
+    border-top-color: #2F2F2F;
+}
+.reader-night-mode .tips-card .card-footer .profile div .count[data-v-f3bf5228] {
+      color: #C8C8C8;
+}
+.reader-night-mode .arrow.arrow-type-top em[data-v-f3bf5228] {
+  border-top-color: #3F3F3F;
+}
+.reader-night-mode .arrow.arrow-type-top i[data-v-f3bf5228] {
+  border-top-color: #2F2F2F;
+}
+.reader-night-mode .arrow.arrow-type-bottom em[data-v-f3bf5228] {
+  border-bottom-color: #3F3F3F;
+}
+.reader-night-mode .arrow.arrow-type-bottom i[data-v-f3bf5228] {
+  border-bottom-color: #2F2F2F;
+}
+</style><style type="text/css">
+.v-tooltip-container,
+.v-tooltip-content {
+  display: inline-block;
+}
+.v-tooltip-container {
+  position: relative;
+}
+.v-tooltip-container .v-tooltip-content {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+.v-tooltip-container .v-tooltip-wrap {
+    position: absolute;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-top {
+      bottom: 100%;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+              transform: translateX(-50%);
+      padding-bottom: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-bottom {
+      top: 100%;
+      left: 50%;
+      -webkit-transform: translateX(-50%);
+          -ms-transform: translateX(-50%);
+              transform: translateX(-50%);
+      padding-top: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-left {
+      top: 50%;
+      right: 100%;
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
+      padding-right: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-right {
+      top: 50%;
+      left: 100%;
+      -webkit-transform: translateY(-50%);
+          -ms-transform: translateY(-50%);
+              transform: translateY(-50%);
+      padding-left: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-top-start {
+      bottom: 100%;
+      left: 0;
+      padding-bottom: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-top-end {
+      bottom: 100%;
+      right: 0;
+      padding-bottom: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-bottom-start {
+      top: 100%;
+      left: 0;
+      padding-top: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-bottom-end {
+      top: 100%;
+      right: 0;
+      padding-top: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-left-start {
+      top: 0;
+      right: 100%;
+      padding-right: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-left-end {
+      bottom: 0;
+      right: 100%;
+      padding-right: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-right-start {
+      top: 0;
+      left: 100%;
+      padding-left: 10px;
+}
+.v-tooltip-container .v-tooltip-wrap.v-tooltip-wrap-right-end {
+      bottom: 0;
+      left: 100%;
+      padding-left: 10px;
+}
+</style><style type="text/css">
+@charset "UTF-8";
+/*
+ * 变量
+*/
+.recommend-note {
+  margin-bottom: 20px;
+}
+.recommend-note .meta, .recommend-note .list {
+    width: 620px;
+    margin: 0 auto;
+}
+.recommend-note .meta .title {
+    padding-left: 8px;
+    border-left: 3px solid #EA6F5A;
+    line-height: 1;
+    font-size: 15px;
+}
+.recommend-note .meta .title .more {
+      float: right;
+      font-size: 14px;
+      color: #A0A0A0;
+}
+.recommend-note .list {
+    margin-top: 20px;
+}
+.recommend-note .list .note {
+      display: block;
+      margin-bottom: 25px;
+      padding: 0 0 25px 0;
+      border-bottom: 1px solid #DDDDDD;
+}
+.recommend-note .list .note.have-img {
+        min-height: 136px;
+}
+.recommend-note .list .note .cover {
+        float: right;
+        margin: -5px 0 0 15px;
+        width: 150px;
+        height: 120px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        border-radius: 6px;
+}
+.recommend-note .list .note .title {
+        display: inherit;
+        margin-bottom: 4px;
+        font-size: 18px;
+        line-height: 27px;
+        font-weight: bold;
+        color: #333333;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+           text-overflow: ellipsis;
+        white-space: nowrap;
+}
+.recommend-note .list .note .title:hover {
+          text-decoration: underline;
+}
+.recommend-note .list .note .title:visited {
+          color: #999999;
+}
+.recommend-note .list .note .description {
+        margin-bottom: 12px;
+        font-size: 13px;
+        line-height: 23px;
+        color: #333333;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+           text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+}
+.recommend-note .list .note .author .avatar {
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        margin-right: 3px;
+        border-radius: 50%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        vertical-align: middle;
+}
+.recommend-note .list .note .author .name {
+        font-size: 13px;
+        color: #333333;
+        vertical-align: middle;
+}
+</style></head>
+
+  <body lang="zh-CN" class="reader-black-font">
+    <!-- 全局顶部导航栏 -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="width-limit">
+    <!-- 左上方 Logo -->
+    <a class="logo" href="http://www.jianshu.com/"><img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/logo-58fd04f6f0de908401aa561cda6a0688.png" alt="Logo"></a>
+
+    <!-- 右上角 -->
+      <!-- 未登录显示登录/注册/写文章 -->
+      <a class="btn write-btn" target="_blank" href="http://www.jianshu.com/writer#/">
+        <i class="iconfont ic-write"></i>写文章
+</a>      <a class="btn sign-up" href="http://www.jianshu.com/sign_up">注册</a>
+      <a class="btn log-in" href="http://www.jianshu.com/sign_in">登录</a>
+
+    <!-- 如果用户登录，显示下拉菜单 -->
+
+    <div class="style-mode"><a class="style-mode-btn"><i class="iconfont ic-navigation-mode"></i></a> <div class="popover-modal" style="left: 0px; display: none;"><div class="meta"><i class="iconfont ic-navigation-night"></i><span>夜间模式</span></div> <div class="switch day-night-group"><a class="switch-btn">开</a> <a class="switch-btn active">关</a></div> <hr> <div class="switch font-family-group"><a class="switch-btn font-song">宋体</a> <a class="switch-btn font-hei active">黑体</a></div> <div class="switch"><a class="switch-btn active">简</a> <a class="switch-btn">繁</a></div></div></div>
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="nav navbar-nav">
+            <li class="tab ">
+              <a href="http://www.jianshu.com/">
+                <span class="menu-text">首页</span><i class="iconfont ic-navigation-discover menu-icon"></i>
+</a>            </li>
+            <li class="tab ">
+              <a id="web-nav-app-download-btn" class="app-download-btn" href="http://www.jianshu.com/apps?utm_medium=desktop&utm_source=navbar-apps"><span class="menu-text">下载App</span><i class="iconfont ic-navigation-download menu-icon"></i></a>
+            </li>
+          <li class="search">
+            <form target="_blank" action="http://www.jianshu.com/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+              <input type="text" name="q" id="q" value="" autocomplete="off" placeholder="搜索" class="search-input">
+              <a class="search-btn" href="javascript:void(null)"><i class="iconfont ic-search"></i></a>
+</form>          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+    
+<div class="note">
+  <a target="_blank" href="http://www.jianshu.com/apps/download?utm_source=sbc" id="web-note-ad-fixed" style="left: 1054.5px; display: none;"><span class="close">×</span></a>
+  <div class="post">
+    <div class="article">
+        <h1 class="title">Sublime Text 3添加在浏览器中打开功能</h1>
+
+        <!-- 作者区域 -->
+        <div class="author">
+          <a class="avatar" href="http://www.jianshu.com/u/31e83a9b14f8">
+            <img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/ee230d30-dfc9-4209-b5cb-933ad48ac712.png" alt="96">
+</a>          <div class="info">
+            <span class="name"><a href="http://www.jianshu.com/u/31e83a9b14f8">GLGeek</a></span>
+            <!-- 关注用户按钮 -->
+            <a class="btn btn-success follow"><i class="iconfont ic-follow"></i><span>关注</span></a>
+            <!-- 文章数据信息 -->
+            <div class="meta">
+              <!-- 如果文章更新时间大于发布时间，那么使用 tooltip 显示更新时间 -->
+                <span class="publish-time" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="最后编辑于 2017.12.08 02:08">2017.06.07 17:12*</span>
+              <span class="wordage">字数 588</span>
+            <span class="views-count">阅读 5252</span><span class="comments-count">评论 1</span><span class="likes-count">喜欢 5</span></div>
+          </div>
+          <!-- 如果是当前作者，加入编辑按钮 -->
+        </div>
+        <!-- -->
+
+        <!-- 文章内容 -->
+        <div data-note-content="" class="show-content">
+          <p>Sublime Text 3 编写的 HTML 文件如何在浏览器中打开？可以在 HTML 文件中右键点击<br>
+<code>Open in Browser</code> 选项，这种方式经常出现网页打不开的情况。例如路径不允许出现中文；莫名其妙打开 Firefox 浏览器等。这里介绍使用 <code>View In Browser</code> 插件来实现 HTML 文件在浏览器中打开的功能。</p>
+<h4>安装 <a href="https://link.jianshu.com/?t=https://packagecontrol.io/" target="_blank" rel="nofollow">Package Control</a> 插件</h4>
+<p><a href="https://link.jianshu.com/?t=https://packagecontrol.io/" target="_blank" rel="nofollow">Package Control</a> 插件可以方便我们查找、安装、更新和删除 Sublime Text 使用到的插件。安装 Package Control 有两种方式：自动安装和手动安装。</p>
+<h5>自动安装</h5>
+<p>自动安装需要通过 Sublime Text 的控制台，使用 <code>Ctrl + \</code> <code>快捷键或者</code>View<code>-&gt;</code>Show Console<code>(</code>视图<code>-&gt;</code>显示控制台`) 菜单，打开控制器窗口，然后粘贴以下代码到窗口中：</p>
+<pre class="hljs undefined"><code>import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)
+</code></pre>
+<p>如果是 Sublime Text 2，则使用以下代码：</p>
+<pre class="hljs undefined"><code>import urllib2,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), 'wb' ).write(by) if dh == h else None; print('Error validating download (got %s instead of %s), please try manual install' % (dh, h) if dh != h else 'Please restart Sublime Text to finish installation')
+</code></pre>
+<h5>手动安装</h5>
+<ol>
+<li>打开 Sublime 菜单栏的 <code>Sublime Text</code> &gt; <code>Preferences(偏好设置)</code> &gt; <code>Browse Packages…(浏览包...)</code> 菜单，在当前目录下找到 <code>Installed Packages(已导入的包)</code> 目录。</li>
+<li>下载 <a href="https://link.jianshu.com/?t=https://packagecontrol.io/Package%20Control.sublime-package" target="_blank" rel="nofollow">Package Control.sublime-package</a> 然后拷贝到<code>Installed Packages</code>目录。</li>
+<li>重启 Sublime Text。</li>
+</ol>
+<h4>安装 View In Browser 插件</h4>
+<p><code>Package Control</code> 安装完成后，在 Sublime Text 菜单的 <code>Preferences (偏好设置)</code> 菜单里面，可以看到 <code>Package Control</code> 菜单项，点击菜单或者使用 <code>command + shift + p</code> 快捷键启动 <code>Package Control</code> 。</p>
+<div class="image-package">
+<div class="image-container" style="max-width: 700px; max-height: 484px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 67.69%;"></div>
+<div class="image-view" data-width="715" data-height="484"><img data-original-src="//upload-images.jianshu.io/upload_images/2038175-df0df1e29b03bfb4.png" data-original-width="715" data-original-height="484" data-original-format="image/png" data-original-filesize="263241" class="" src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/2038175-df0df1e29b03bfb4.png" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">插件管理工具 Package Control </div>
+</div>
+<p>在打开的窗口中，输入 <code>pci</code>，选择 <code>Package Control: Install Package</code> 选项，稍后在弹出的窗口中输入 <code>View In Browser</code>，点击安装 <code>View In Browser</code> 插件。</p>
+<div class="image-package">
+<div class="image-container" style="max-width: 595px; max-height: 254px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 42.69%;"></div>
+<div class="image-view" data-width="595" data-height="254"><img data-original-src="//upload-images.jianshu.io/upload_images/2038175-3da0326664c54d15.png" data-original-width="595" data-original-height="254" data-original-format="image/png" data-original-filesize="52079" class="" src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/2038175-3da0326664c54d15.png" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">View In Browser 插件</div>
+</div>
+<p>安装完成后，使用默认的快捷键：<br>
+Firefox浏览器：    <code>Ctrl + Alt + f</code><br>
+Chrome浏览器：  <code>Ctrl + Alt + c</code><br>
+IE浏览器：            <code>Ctrl + Alt + i</code><br>
+Safari浏览器：    <code>Ctrl + Alt + s</code><br>
+如果想要自定义快捷键的话，可以在 <code>Keybindings</code> 中配置各浏览器快捷键。</p>
+<pre class="hljs undefined"><code>{ "keys": [ "ctrl+alt+v" ], "command": "view_in_browser" },
+{ "keys": [ "f5" ], "command": "view_in_browser", "args": { "browser": "firefox" } },
+{ "keys": [ "f3" ], "command": "view_in_browser", "args": { "browser": "chrome" } },
+{ "keys": [ "ctrl+alt+i" ], "command": "view_in_browser", "args": { "browser": "iexplore" } },
+{ "keys": [ "f4" ], "command": "view_in_browser", "args": { "browser": "safari" } }
+</code></pre>
+<h4>移除插件</h4>
+<p>通过 <code>Package Control</code> 还可以已经安装的插件，使用 <code>command + shift + p</code> 调出插件管理窗口，输入 <code>pcr</code>，选择 <code>Package Control: Remove Package</code> 选项，在随后的窗口中选择想要移除的插件就可以移除了。</p>
+<div class="image-package">
+<div class="image-container" style="max-width: 558px; max-height: 477px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 85.48%;"></div>
+<div class="image-view" data-width="558" data-height="477"><img data-original-src="//upload-images.jianshu.io/upload_images/2038175-66a4f945da6e5420.png" data-original-width="558" data-original-height="477" data-original-format="image/png" data-original-filesize="257462" class="" src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/2038175-66a4f945da6e5420.png" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">Package Control 移除插件</div>
+</div>
+<div class="image-package">
+<div class="image-container" style="max-width: 420px; max-height: 228px; background-color: transparent;">
+<div class="image-container-fill" style="padding-bottom: 54.290000000000006%;"></div>
+<div class="image-view" data-width="420" data-height="228"><img data-original-src="//upload-images.jianshu.io/upload_images/2038175-03efc20e551402ce.png" data-original-width="420" data-original-height="228" data-original-format="image/png" data-original-filesize="75552" class="" src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/2038175-03efc20e551402ce.png" style="cursor: zoom-in;"></div>
+</div>
+<div class="image-caption">选择要移除的插件</div>
+</div>
+<h4>总结</h4>
+<p>通过安装 <code>Package Control</code> 插件管理工具，可以方便的管理 Sublime Text 所用到的插件。</p>
+
+        </div>
+        <!--  -->
+
+        <div class="show-foot">
+          <a class="notebook" href="http://www.jianshu.com/nb/15271890">
+            <i class="iconfont ic-search-notebook"></i>
+            <span>前端</span>
+</a>          <div class="copyright" data-toggle="tooltip" data-html="true" data-original-title="转载请联系作者获得授权，并标注“简书作者”。">
+            © 著作权归作者所有
+          </div>
+          <div class="modal-wrap" data-report-note="">
+            <a id="report-modal">举报文章</a>
+          </div>
+        </div>
+    </div>
+
+    <!-- 文章底部作者信息 -->
+      <div class="follow-detail">
+        <div class="info">
+          <a class="avatar" href="http://www.jianshu.com/u/31e83a9b14f8">
+            <img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/ee230d30-dfc9-4209-b5cb-933ad48ac712.png" alt="96">
+</a>          <a class="btn btn-success follow"><i class="iconfont ic-follow"></i><span>关注</span></a>
+          <a class="title" href="http://www.jianshu.com/u/31e83a9b14f8">GLGeek</a>
+          
+            <i class="iconfont ic-man"></i>
+        <p>写了 12082 字，被 10 人关注，获得了 17 个喜欢</p></div>
+          <div class="signature">热爱编程、热爱生活。</div>
+      </div>
+
+      <div class="support-author"><p>如果觉得文章对您有帮助，请随意打赏，您的支持是我最大的动力。</p> <div class="btn btn-pay">赞赏支持</div> <!----> <!----> <!----></div>
+
+    <div class="meta-bottom">
+      <div class="like"><div class="btn like-group"><div class="btn-like"><a href="http://www.jianshu.com/sign_in?utm_source=desktop&utm_medium=not-signed-in-like-button"><i class="iconfont ic-like"></i>喜欢</a></div> <div class="modal-wrap"><a>5</a></div></div> <!----></div>
+      <div class="share-group">
+        <a class="share-circle" data-action="weixin-share" data-toggle="tooltip" data-original-title="分享到微信">
+          <i class="iconfont ic-wechat"></i>
+        </a>
+        <a class="share-circle" data-action="weibo-share" data-toggle="tooltip" href="javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f='http://v.t.sina.com.cn/share/share.php?appkey=1881139527',u=z||d.location,p=['&url=',e(u),'&title=',e(t||d.title),'&source=',e(r),'&sourceUrl=',e(l),'&content=',c||'gb2312','&pic=',e(p||'')].join('');function%20a(){if(!window.open([f,p].join(''),'mb',['toolbar=0,status=0,resizable=1,width=440,height=430,left=',(s.width-440)/2,',top=',(s.height-430)/2].join('')))u.href=[f,p].join('');};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,'','','', '推荐 GLGeek 的文章《Sublime Text 3添加在浏览器中打开功能》（ 分享自 @简书 ）','http://www.jianshu.com/p/686672aff949?utm_campaign=maleskine&utm_content=note&utm_medium=reader_share&utm_source=weibo','页面编码gb2312|utf-8默认gb2312'));" data-original-title="分享到微博">
+          <i class="iconfont ic-weibo"></i>
+        </a>
+          <a class="share-circle" data-toggle="tooltip" href="http://cwb.assets.jianshu.io/notes/images/13216949/weibo/image_ec64be815723.jpg" target="_blank" data-original-title="下载长微博图片">
+            <i class="iconfont ic-picture"></i>
+          </a>
+        <a class="share-circle more-share" tabindex="0" data-toggle="popover" data-placement="top" data-html="true" data-trigger="focus" href="javascript:void(0);" data-content="
+          &lt;ul class=&quot;share-list&quot;&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=&#39;+e(&#39;http://www.jianshu.com/p/686672aff949?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=qzone&#39;)+&#39;&amp;title=&#39;+e(&#39;推荐 GLGeek 的文章《Sublime Text 3添加在浏览器中打开功能》&#39;),x=function(){if(!window.open(r,&#39;qzone&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-zone&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到QQ空间&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://twitter.com/share?url=&#39;+e(&#39;http://www.jianshu.com/p/686672aff949?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=twitter&#39;)+&#39;&amp;text=&#39;+e(&#39;推荐 GLGeek 的文章《Sublime Text 3添加在浏览器中打开功能》（ 分享自 @jianshucom ）&#39;)+&#39;&amp;related=&#39;+e(&#39;jianshucom&#39;),x=function(){if(!window.open(r,&#39;twitter&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-twitter&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到Twitter&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://www.facebook.com/dialog/share?app_id=483126645039390&amp;display=popup&amp;href=http://www.jianshu.com/p/686672aff949?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=facebook&#39;,x=function(){if(!window.open(r,&#39;facebook&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-facebook&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到Facebook&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://plus.google.com/share?url=&#39;+e(&#39;http://www.jianshu.com/p/686672aff949?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=google_plus&#39;),x=function(){if(!window.open(r,&#39;google_plus&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-google&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到Google+&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:&#39;&#39;,r=&#39;http://www.douban.com/recommend/?url=&#39;+e(&#39;http://www.jianshu.com/p/686672aff949?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=douban&#39;)+&#39;&amp;title=&#39;+e(&#39;Sublime Text 3添加在浏览器中打开功能&#39;)+&#39;&amp;sel=&#39;+e(s)+&#39;&amp;v=1&#39;,x=function(){if(!window.open(r,&#39;douban&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r+&#39;&amp;r=1&#39;};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-douban&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到豆瓣&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+          &lt;/ul&gt;
+        " data-original-title="" title="">更多分享</a>
+      </div>
+    </div>
+      <a id="web-note-ad-1" target="_blank" href="http://www.jianshu.com/apps/download?utm_source=nbc"><img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/web-note-ad-1-10f08e404d3887d2d45a4bc8f1831403.png" alt="Web note ad 1"></a>
+    <div><div id="comment-list" class="comment-list"><div><form class="new-comment"><a class="avatar"><img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/avatar_default-78d4d1f68984cd6d4379508dd94b4210.png"></a> <div class="sign-container"><a href="http://www.jianshu.com/sign_in?utm_source=desktop&utm_medium=not-signed-in-comment-form" class="btn btn-sign">登录</a> <span>后发表评论</span></div></form> <!----></div> <div id="normal-comment-list" class="normal-comment-list"><div><div><div class="top-title"><span>1条评论</span> <a class="author-only">只看作者</a> <a class="close-btn" style="display: none;">关闭评论</a> <div class="pull-right"><a class="active">按喜欢排序</a><a class="">按时间正序</a><a class="">按时间倒序</a></div></div></div> <!----> <!----> <div class="comments-placeholder" style="display: none;"><div class="author"><div class="avatar"></div> <div class="info"><div class="name"></div> <div class="meta"></div></div></div> <div class="text"></div> <div class="text animation-delay"></div> <div class="tool-group"><i class="iconfont ic-zan-active"></i><div class="zan"></div> <i class="iconfont ic-list-comments"></i><div class="zan"></div></div></div> <div id="comment-14026311" class="comment"><div><div class="author"><div data-v-f3bf5228="" class="v-tooltip-container" style="z-index: 0;"><div class="v-tooltip-content"><a href="http://www.jianshu.com/u/9027a76c53df" target="_blank" class="avatar"><img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/b85d8d3d9122.jpg"></a>  </div> <!----></div> <div class="info"><a href="http://www.jianshu.com/u/9027a76c53df" target="_blank" class="name">汪_旺_旺</a> <!----> <!----> <div class="meta"><span>2楼 · 2017.08.15 14:08</span></div></div></div> <div class="comment-wrap"><p>赞一个,正在找这个问题</p> <div class="tool-group"><a class=""><i class="iconfont ic-zan"></i> <span>赞</span></a> <a class=""><i class="iconfont ic-comment"></i> <span>回复</span></a> <!----> <!----></div></div></div> <div class="sub-comment-list hide"><!----> <!----></div></div></div></div> <!----> <div><!----></div></div></div>
+  </div>
+
+  <div class="side-tool"><ul><li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="回到顶部" style="display: none;"><a class="function-button"><i class="iconfont ic-backtop"></i></a></li> <!----> <!----> <li data-placement="left" data-toggle="tooltip" data-container="body" data-original-title="分享文章"><a tabindex="0" role="button" data-toggle="popover" data-placement="left" data-html="true" data-trigger="focus" href="javascript:void(0);" data-content="&lt;ul class=&#39;share-list&#39;&gt;
+                &lt;li&gt;&lt;a class=&quot;weixin-share&quot;&gt;&lt;i class=&quot;social-icon-sprite social-icon-weixin&quot;&gt;&lt;/i&gt;&lt;span&gt;分享到微信&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void((function(s,d,e,r,l,p,t,z,c){var%20f=&#39;http://v.t.sina.com.cn/share/share.php?appkey=1881139527&#39;,u=z||d.location,p=[&#39;&amp;url=&#39;,e(u),&#39;&amp;title=&#39;,e(t||d.title),&#39;&amp;source=&#39;,e(r),&#39;&amp;sourceUrl=&#39;,e(l),&#39;&amp;content=&#39;,c||&#39;gb2312&#39;,&#39;&amp;pic=&#39;,e(p||&#39;&#39;)].join(&#39;&#39;);function%20a(){if(!window.open([f,p].join(&#39;&#39;),&#39;mb&#39;,[&#39;toolbar=0,status=0,resizable=1,width=440,height=430,left=&#39;,(s.width-440)/2,&#39;,top=&#39;,(s.height-430)/2].join(&#39;&#39;)))u.href=[f,p].join(&#39;&#39;);};if(/Firefox/.test(navigator.userAgent))setTimeout(a,0);else%20a();})(screen,document,encodeURIComponent,&#39;&#39;,&#39;&#39;,&#39;&#39;, &#39;推荐 GLGeek 的文章《Sublime Text 3添加在浏览器中打开功能》（ 分享自 @简书 ）&#39;,&#39;http://www.jianshu.com/p/686672aff949?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=weibo&#39;,&#39;页面编码gb2312|utf-8默认gb2312&#39;));&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-weibo&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到微博&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=&#39;+e(&#39;http://www.jianshu.com/p/686672aff949?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=qzone&#39;)+&#39;&amp;title=&#39;+e(&#39;推荐 GLGeek 的文章《Sublime Text 3添加在浏览器中打开功能》&#39;),x=function(){if(!window.open(r,&#39;qzone&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-zone&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到QQ空间&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://twitter.com/share?url=&#39;+e(&#39;http://www.jianshu.com/p/686672aff949?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=twitter&#39;)+&#39;&amp;text=&#39;+e(&#39;推荐 GLGeek 的文章《Sublime Text 3添加在浏览器中打开功能》（ 分享自 @jianshucom ）&#39;)+&#39;&amp;related=&#39;+e(&#39;jianshucom&#39;),x=function(){if(!window.open(r,&#39;twitter&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=600,height=600&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-twitter&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到Twitter&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://www.facebook.com/dialog/share?app_id=483126645039390&amp;display=popup&amp;href=http://www.jianshu.com/p/686672aff949?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=facebook&#39;,x=function(){if(!window.open(r,&#39;facebook&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-facebook&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到Facebook&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,r=&#39;https://plus.google.com/share?url=&#39;+e(&#39;http://www.jianshu.com/p/686672aff949?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=google_plus&#39;),x=function(){if(!window.open(r,&#39;google_plus&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})();&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-google&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到Google+&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href=&quot;javascript:void(function(){var d=document,e=encodeURIComponent,s1=window.getSelection,s2=d.getSelection,s3=d.selection,s=s1?s1():s2?s2():s3?s3.createRange().text:&#39;&#39;,r=&#39;http://www.douban.com/recommend/?url=&#39;+e(&#39;http://www.jianshu.com/p/686672aff949?utm_campaign=maleskine&amp;utm_content=note&amp;utm_medium=reader_share&amp;utm_source=douban&#39;)+&#39;&amp;title=&#39;+e(&#39;Sublime Text 3添加在浏览器中打开功能&#39;)+&#39;&amp;sel=&#39;+e(s)+&#39;&amp;v=1&#39;,x=function(){if(!window.open(r,&#39;douban&#39;,&#39;toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=330&#39;))location.href=r+&#39;&amp;r=1&#39;};if(/Firefox/.test(navigator.userAgent)){setTimeout(x,0)}else{x()}})()&quot;&gt;&lt;i class=&#39;social-icon-sprite social-icon-douban&#39;&gt;&lt;/i&gt;&lt;span&gt;分享到豆瓣&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+              &lt;/ul&gt;" data-original-title="" title="" class="function-button"><i class="iconfont ic-share"></i></a> <!----></li> <!----></ul></div>
+</div>
+<div class="note-bottom">
+  <!---->
+  <div><div class="recommend-note"><div class="meta"><div class="title">
+        推荐阅读
+        <a target="_blank" href="http://www.jianshu.com/" class="more">
+           更多精彩内容<i class="iconfont ic-link"></i></a></div></div> <div class="list"><div class="note have-img"><a target="_blank" href="http://www.jianshu.com/p/f7a7d90192c0?utm_campaign=maleskine&utm_content=note&utm_medium=pc_all_hots&utm_source=recommendation" class="cover" style="background-image: url(http://upload-images.jianshu.io/upload_images/2038175-1efb469ddcb2e8ad.png?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240);"></a> <a target="_blank" href="http://www.jianshu.com/p/f7a7d90192c0?utm_campaign=maleskine&utm_content=note&utm_medium=pc_all_hots&utm_source=recommendation" class="title">HTML基础知识总结</a> <p class="description"></p> <a target="_blank" href="http://www.jianshu.com/u/31e83a9b14f8?utm_campaign=maleskine&utm_content=user&utm_medium=pc_all_hots&utm_source=recommendation" class="author"><div class="avatar" style="background-image: url(http://upload.jianshu.io/users/upload_avatars/2038175/ee230d30-dfc9-4209-b5cb-933ad48ac712.png?imageMogr2/auto-orient/strip|imageView2/1/w/24/h/24);"></div> <span class="name">GLGeek</span></a></div><div class="note"><!----> <a target="_blank" href="http://www.jianshu.com/p/be6871f0885f?utm_campaign=maleskine&utm_content=note&utm_medium=pc_all_hots&utm_source=recommendation" class="title">SQLite的数据库迁移</a> <p class="description">1. 前言 一般在应用启动之后，都会有一个初始化的过程。此外，后续应用升级，需要考虑数据库数据及时更新、数据库表字段发生变化、表数据发生变化、兼容旧版本数据库等情况，所以在应用初期就需要考虑好数据迁移工作。 2. 方案 通过接口配合本地数据库表来保证数据完整性与兼容性。在iOS端的数据库中有一个TableVersion表，用来配置需要进行数据同步的数据表信息。每次在发出数据同步请求的时候，都会以TableVersion表里面的数据作为依据，来决定哪些表需要进行表结构变更，哪些表需要进行数据更新。 2.1 TableVersion表 TableVersion表是iOS端与后台进行数据同步的...</p> <a target="_blank" href="http://www.jianshu.com/u/31e83a9b14f8?utm_campaign=maleskine&utm_content=user&utm_medium=pc_all_hots&utm_source=recommendation" class="author"><div class="avatar" style="background-image: url(http://upload.jianshu.io/users/upload_avatars/2038175/ee230d30-dfc9-4209-b5cb-933ad48ac712.png?imageMogr2/auto-orient/strip|imageView2/1/w/24/h/24);"></div> <span class="name">GLGeek</span></a></div><div class="note have-img"><a target="_blank" href="http://www.jianshu.com/p/b59b18daf6c7?utm_campaign=maleskine&utm_content=note&utm_medium=pc_all_hots&utm_source=recommendation" class="cover" style="background-image: url(http://upload-images.jianshu.io/upload_images/4800119-42bdf07e6c77e8a9.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240);"></a> <a target="_blank" href="http://www.jianshu.com/p/b59b18daf6c7?utm_campaign=maleskine&utm_content=note&utm_medium=pc_all_hots&utm_source=recommendation" class="title">父母是空巢老人，我们是空巢青年</a> <p class="description">01 前两天去上海看一个朋友，他特意邀请我去他的“新家”看看。 朋友工作两年，终于从月租一千的房子搬到了月租两千的房子。 房子是合租房，三室一厅，朋友住的是其中一个次卧，面积并不算大，十几个平米，主卧是一对情侣。 朋友的家庭条件并不算差，他家在西部省会城市，典型的中产，父母早已经在他上大学那会就为他置办了新房。 吃饭的时候我问朋友：“你爹妈就忍心让你出来花钱买罪受？” “因为我有梦想啊！” 朋友笑着调侃道。 朋友看似玩笑的话让我心头一颤： 是啊，每一个刚毕业出来的年轻人，就像自己，宁愿一个人蜗居在大城市的小单间，也不愿意回家住大洋房，可能都是因为那一句我有梦想吧！ 朋友说，我有时候挺孤单...</p> <a target="_blank" href="http://www.jianshu.com/u/d0be5ae77914?utm_campaign=maleskine&utm_content=user&utm_medium=pc_all_hots&utm_source=recommendation" class="author"><div class="avatar" style="background-image: url(http://upload.jianshu.io/users/upload_avatars/4800119/5214d79f-7464-471c-aaa0-8946c22dfd4a.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/24/h/24);"></div> <span class="name">潘城王小古</span></a></div><div class="note have-img"><a target="_blank" href="http://www.jianshu.com/p/1be79866ee15?utm_campaign=maleskine&utm_content=note&utm_medium=pc_all_hots&utm_source=recommendation" class="cover" style="background-image: url(http://upload-images.jianshu.io/upload_images/5331700-85e87d6d4c1860b0.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240);"></a> <a target="_blank" href="http://www.jianshu.com/p/1be79866ee15?utm_campaign=maleskine&utm_content=note&utm_medium=pc_all_hots&utm_source=recommendation" class="title">「我心中最赞的歌手」征文</a> <p class="description">欢迎你，这里是简书征文活动。 你偶然路过街角的小店，耳边响起你最爱听的歌。或许你虽没听过，却被它深深吸引，缘分当真如此奇妙。它牵动你的情绪，触动你的内心，直击你的灵魂。它激励你，抚慰你，为你照亮前路。 我们与歌曲的缘分亦如爱情，用一秒爱上它，却愿用一生陪伴它。 如那首我非常喜欢的歌曲《若问》中： 那些最早的歌者，却随流年飘零辗转何处去了?浮生里执着什么?是爱是恨呢?还是耳畔的歌?夜雾中的灯火? 那些最早的歌者虽已远去，但他的歌声却存留于世，它们陪伴我们成长，甚至是一生。 你最喜欢的歌手是谁？他们唱尽世间爱恨痴缠，让你体会人生百味。 你最爱听谁唱的歌？ 你为什么喜欢这首歌？ 你从小听着谁的...</p> <a target="_blank" href="http://www.jianshu.com/u/3fbc13e7f8cd?utm_campaign=maleskine&utm_content=user&utm_medium=pc_all_hots&utm_source=recommendation" class="author"><div class="avatar" style="background-image: url(http://upload.jianshu.io/users/upload_avatars/5331700/9d029a63-7abd-4ce9-8182-d2a317870a69.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/24/h/24);"></div> <span class="name">若水如意</span></a></div><div class="note have-img"><a target="_blank" href="http://www.jianshu.com/p/b931f5847aac?utm_campaign=maleskine&utm_content=note&utm_medium=pc_all_hots&utm_source=recommendation" class="cover" style="background-image: url(http://upload-images.jianshu.io/upload_images/1764055-4f48e1c4eb3a6101.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240);"></a> <a target="_blank" href="http://www.jianshu.com/p/b931f5847aac?utm_campaign=maleskine&utm_content=note&utm_medium=pc_all_hots&utm_source=recommendation" class="title">彭于晏：我就是没有才华，所以才拿命拼</a> <p class="description">随心风雨同舟大步向前走 暴雨中痛算什么 擦干眼泪带着伤去拼搏 惊涛骇浪后泪算什么 谁也挡不住我的执着。                                                             ——大张伟《奋斗》 01 他是从小出道的小童星，13岁才移民去了加拿大。 他因为奶奶生病之后，踏入娱乐圈，可不曾想之后处处碰壁。 他曾苦练演技，因为非科班出身更容易被挑毛病。 他曾因一部戏爆红，片约不断，可依旧低调前行。 他演一部戏，会一项技能。并且4国语言来回切换，但他却认为自己：没有才华，才拿命去拼。 他是为爱执着的唐钰小宝，也是励志型男彭于晏。 02 人生有千条...</p> <a target="_blank" href="http://www.jianshu.com/u/39738cacdafb?utm_campaign=maleskine&utm_content=user&utm_medium=pc_all_hots&utm_source=recommendation" class="author"><div class="avatar" style="background-image: url(http://upload.jianshu.io/users/upload_avatars/1764055/538ee216-5a42-4fc9-bbf3-ffb6f8f2bf97.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/24/h/24);"></div> <span class="name">沐天晴</span></a></div></div></div></div>
+  <!-- 相关文章 -->
+  <div class="seo-recommended-notes">
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="http://www.jianshu.com/p/72a0c0125a2b?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation">
+            <img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/1875025-549e0fee7f74833a.jpg" alt="240">
+</a>          <a class="title" target="_blank" href="http://www.jianshu.com/p/72a0c0125a2b?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation">值得收藏！神级代码编辑器 Sublime Text 全程指南</a>
+          <p class="description">原文地址http://mdsa.51cto.com/art/201507/484183_all.htm 本文系统全面的介绍了Sublime Text，旨在成为最优秀的Sublime Text中文教程。 前言（Prologue） Sublime Text是一款跨平台代码编辑器...</p>
+          <a class="author" target="_blank" href="http://www.jianshu.com/u/e551bcfea692?utm_campaign=maleskine&utm_content=user&utm_medium=seo_notes&utm_source=recommendation">
+            <div class="avatar">
+              <img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/14-0651acff782e7a18653d7530d6b27661.jpg" alt="48">
+            </div>
+            <span class="name">不负如来不负亲</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="http://www.jianshu.com/p/dca423358574?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation">
+            <img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/1366919-10ca707a53eb5daa.jpg" alt="240">
+</a>          <a class="title" target="_blank" href="http://www.jianshu.com/p/dca423358574?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation">Sublime Text 使用小结</a>
+          <p class="description">Sublime Text：一款具有代码高亮、语法提示、自动完成且反应快速的编辑器软件，不仅具有华丽的界面，还支持插件扩展机制，用她来写代码，绝对是一种享受。相比于难于上手的Vim，浮肿沉重的Eclipse，VS，即便体积轻巧迅速启动的Editplus、Notepad++，在...</p>
+          <a class="author" target="_blank" href="http://www.jianshu.com/u/6d6ae4ecb12c?utm_campaign=maleskine&utm_content=user&utm_medium=seo_notes&utm_source=recommendation">
+            <div class="avatar">
+              <img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/9-cceda3cf5072bcdd77e8ca4f21c40998.jpg" alt="48">
+            </div>
+            <span class="name">xiaotao123</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="http://www.jianshu.com/p/d0f714c7373f?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation">如何优雅地使用 Sublime Text 3</a>
+          <p class="description">作者：德淸原文地址：http://qiudeqing.com/tools/2015/05/31/sublime-text-3.html 概述 Sublime Text3下载地址：http://www.sublimetext.com/3。本文所有操作都是基于Sublime T...</p>
+          <a class="author" target="_blank" href="http://www.jianshu.com/u/da75e2609fe6?utm_campaign=maleskine&utm_content=user&utm_medium=seo_notes&utm_source=recommendation">
+            <div class="avatar">
+              <img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/a4d3b326-2a28-4631-8f96-226928156035.jpg" alt="48">
+            </div>
+            <span class="name">IT程序狮</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="http://www.jianshu.com/p/8717906d26af?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation">
+            <img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/1748774-73d5cf4f70e891d2.jpg" alt="240">
+</a>          <a class="title" target="_blank" href="http://www.jianshu.com/p/8717906d26af?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation">转载：Sublime Text 全程指南</a>
+          <p class="description">Sublime Text 全程指南 2014年 9月27日|评论 作者：Lucida 微博：@peng_gong 豆瓣：@figure9 原文链接：http://lucida.me/blog/sublime-text-complete-guide/ 摘要（Abstract）...</p>
+          <a class="author" target="_blank" href="http://www.jianshu.com/u/6dc1663f28c6?utm_campaign=maleskine&utm_content=user&utm_medium=seo_notes&utm_source=recommendation">
+            <div class="avatar">
+              <img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/ca7bf387cb70" alt="48">
+            </div>
+            <span class="name">raincoat</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="http://www.jianshu.com/p/5f73df9f1cb5?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation">
+            <img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/226183-db29f2886b73f0ab.jpg" alt="240">
+</a>          <a class="title" target="_blank" href="http://www.jianshu.com/p/5f73df9f1cb5?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation">Sublime Text 全程指南</a>
+          <p class="description">转载自：http://lucida.me/blog/sublime-text-complete-guide/ Sublime Text 全程指南 2014年 9月27日|评论 作者：Lucida 微博：@peng_gong 豆瓣：@figure9 原文链接：http://l...</p>
+          <a class="author" target="_blank" href="http://www.jianshu.com/u/2e306c40f029?utm_campaign=maleskine&utm_content=user&utm_medium=seo_notes&utm_source=recommendation">
+            <div class="avatar">
+              <img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/955d7af5f9c3.JPG" alt="48">
+            </div>
+            <span class="name">东引瓯越</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="http://www.jianshu.com/p/f3bec6d9b183?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation">破冰之年</a>
+          <p class="description">人，最大敌人是自己。 冉求曰：“非不说子之道，力不足也。”子曰：“力不足者，中道而废。今女画。”见《论语.雍也》。今女画，乃汝画地为牢，自我禁锢。 捆绑手脚，可怨别人；束缚梦想，惟恨自己。 天赋皆有，如开发，或为某领域高手。悲剧是，人活一辈子，未掘潜能，不知强项。弱势上，与...</p>
+          <a class="author" target="_blank" href="http://www.jianshu.com/u/b2ffbb57e9a4?utm_campaign=maleskine&utm_content=user&utm_medium=seo_notes&utm_source=recommendation">
+            <div class="avatar">
+              <img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/6853fea1-f5d2-4131-bf24-6a827c9f6c4e" alt="48">
+            </div>
+            <span class="name">陈茀茀</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="http://www.jianshu.com/p/391b86506007?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation">在浅淡的日子里碎碎念</a>
+          <p class="description">加班加班，早上迷蒙中醒来，第一件事看看时间，还好，7：08，我还有十几分钟的时间，立马起床洗漱，睡意被赶到荒芜人烟的角落。 起初条理并不是太清晰，大约20分钟后开始进入状态，把事情罗列清楚，分类抓重点，大体来说，自己还算满意。当然，更希望能够得到认可。 我相信，付出总会有结...</p>
+          <a class="author" target="_blank" href="http://www.jianshu.com/u/d7d6f945df8b?utm_campaign=maleskine&utm_content=user&utm_medium=seo_notes&utm_source=recommendation">
+            <div class="avatar">
+              <img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/21f1fa118de7" alt="48">
+            </div>
+            <span class="name">玉月</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="http://www.jianshu.com/p/c343c224778e?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation">
+            <img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/7851301-d95abad8729185ec.jpg" alt="240">
+</a>          <a class="title" target="_blank" href="http://www.jianshu.com/p/c343c224778e?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation">《七十七天》</a>
+          <p class="description">  上周六看完《七十七天》电影，感觉赵汉唐、江一燕只是为了衬托出西藏风景，多点人文味道，也让人感受到羌塘草原、无人区的险，自然环境的恶劣。   对于这电影，我是持文艺片的心态去观看的，可观看过程中又呈现以风景片来观看，再后来却有了种鸡汤片来观看，里面有些触动心弦的场面，让我...</p>
+          <a class="author" target="_blank" href="http://www.jianshu.com/u/e8d1813c42b5?utm_campaign=maleskine&utm_content=user&utm_medium=seo_notes&utm_source=recommendation">
+            <div class="avatar">
+              <img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/c4dfae66-fdcb-4bfd-9783-2abe57d652af.png" alt="48">
+            </div>
+            <span class="name">网路元素</span>
+</a>        </div>
+
+        <div class="note have-img">
+          <a class="cover" target="_blank" href="http://www.jianshu.com/p/0dfba3f44cac?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation">
+            <img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/1447475-ede570891c510fb3.jpeg" alt="240">
+</a>          <a class="title" target="_blank" href="http://www.jianshu.com/p/0dfba3f44cac?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation">时隔五年再看初恋这件小事</a>
+          <p class="description">  还记得高三那年，宿舍已经熄灯，和室友窝在床上用MP4看了这部纯爱青春片，就那样两人哭的一塌糊涂说过悄悄话便睡着了。梦中阿亮学长踩着七色云彩笑着牵过我的手，小小少女心。。。   如今早已离开校园，在大上海这个为了挤地铁电梯上都脚步匆匆的城市里，很难静下心去做一些事情，人心...</p>
+          <a class="author" target="_blank" href="http://www.jianshu.com/u/0905904fae94?utm_campaign=maleskine&utm_content=user&utm_medium=seo_notes&utm_source=recommendation">
+            <div class="avatar">
+              <img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/a617b0c819f8.jpeg" alt="48">
+            </div>
+            <span class="name">菲了然</span>
+</a>        </div>
+
+        <div class="note ">
+                    <a class="title" target="_blank" href="http://www.jianshu.com/p/d80f9f702f31?utm_campaign=maleskine&utm_content=note&utm_medium=seo_notes&utm_source=recommendation">中医新悟</a>
+          <p class="description">脊柱犹如传说中的不周山，链接天地，水汽上而为云，凝而为雨，下降输布大地以养万物。故脊柱弯曲受损，气不得升降而机体受到伤害，如周身疼痛，偏枯，甚则死亡。同样腰椎受损，则下肢偏瘫。“不周山”倒，“天地”浩劫。</p>
+          <a class="author" target="_blank" href="http://www.jianshu.com/u/79bd7f36cd31?utm_campaign=maleskine&utm_content=user&utm_medium=seo_notes&utm_source=recommendation">
+            <div class="avatar">
+              <img src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/5d691272518d" alt="48">
+            </div>
+            <span class="name">王九愚</span>
+</a>        </div>
+  </div>
+</div>
+
+    <script type="application/json" data-name="page-data">{"user_signed_in":false,"locale":"zh-CN","os":"windows","read_mode":"day","read_font":"font2","note_show":{"is_martin_user":false,"is_author":false,"is_following_author":false,"is_liked_note":false,"follow_state":0,"uuid":"7945c244-baf9-4a35-a129-968b5e9f6cd7"},"note":{"id":13216949,"slug":"686672aff949","user_id":2038175,"notebook_id":15271890,"commentable":true,"likes_count":5,"views_count":5252,"public_wordage":588,"comments_count":1,"total_rewards_count":0,"is_author":false,"author":{"nickname":"GLGeek","total_wordage":12082,"followers_count":10,"total_likes_count":17}}}</script>
+    
+    <script src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/babel-polyfill-e27dec85eeb94683dfc7.js" crossorigin="anonymous"></script>
+    <script src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/web-base-e5a54c12f807861a5d43.js" crossorigin="anonymous"></script>
+<script src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/web-5c2b8708cfef1be5494e.js" crossorigin="anonymous"></script>
+    
+    <script src="./Sublime Text 3添加在浏览器中打开功能 - 简书_files/entry-91ed4114a956a03ac80f.js" crossorigin="anonymous"></script>
+    <script>
+  (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+      }
+      else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+      }
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+  
+
+<!----><!----></body></html>

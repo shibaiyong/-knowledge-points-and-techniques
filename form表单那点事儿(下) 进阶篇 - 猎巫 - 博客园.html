@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://www.cnblogs.com/lewo/p/form-skill.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>form表单那点事儿(下) 进阶篇 - 猎巫 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./form表单那点事儿(下) 进阶篇 - 猎巫 - 博客园_files/blog-common.css">
+<link type="text/css" rel="stylesheet" href="./form表单那点事儿(下) 进阶篇 - 猎巫 - 博客园_files/212303.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./form表单那点事儿(下) 进阶篇 - 猎巫 - 博客园_files/bundle-BlackLowKey-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/lewo/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/lewo/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/lewo/wlwmanifest.xml">
+<script async="" src="./form表单那点事儿(下) 进阶篇 - 猎巫 - 博客园_files/analytics.js.下载"></script><script src="./form表单那点事儿(下) 进阶篇 - 猎巫 - 博客园_files/jquery.js.下载" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'lewo', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./form表单那点事儿(下) 进阶篇 - 猎巫 - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/lewo/"><img id="blogLogo" src="./form表单那点事儿(下) 进阶篇 - 猎巫 - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/lewo/"></a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/lewo/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E7%8C%8E%E5%B7%AB">联系</a></li>
+<li><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/lewo/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/lewo/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<span id="stats_post_count">随笔 - 7&nbsp; </span>
+<span id="stats_article_count">文章 - 0&nbsp; </span>
+<span id="stats-comment_count">评论 - 0</span>
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/lewo/p/form-skill.html">form表单那点事儿(下) 进阶篇</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body cnblogs-markdown"><h1 id="form表单那点事儿下-进阶篇">form表单那点事儿(下) 进阶篇</h1>
+<p>上一篇主要温习了一下form表单的属性和表单元素，这一片主要讲解用JavaScript如何操作form。</p>
+<h3 id="目录">目录：</h3>
+<h4 id="表单操作"><a href="https://www.cnblogs.com/lewo/p/form-skill.html#handle">表单操作</a></h4>
+<ul>
+<li><p><a href="https://www.cnblogs.com/lewo/p/form-skill.html#get">取值</a></p></li>
+<li><p><a href="https://www.cnblogs.com/lewo/p/form-skill.html#set">赋值</a></p></li>
+<li><p><a href="https://www.cnblogs.com/lewo/p/form-skill.html#reset">重置</a></p></li>
+<li><p><a href="https://www.cnblogs.com/lewo/p/form-skill.html#checkValidity">校验</a></p></li>
+<li><p><a href="https://www.cnblogs.com/lewo/p/form-skill.html#submit">提交</a></p></li>
+</ul>
+<h4 id="技巧"><a href="https://www.cnblogs.com/lewo/p/form-skill.html#skill">技巧</a></h4>
+<ul>
+<li><p><strong><a href="https://www.cnblogs.com/lewo/p/form-skill.html#clean">不提交空字段</a></strong></p></li>
+<li><p><strong><a href="https://www.cnblogs.com/lewo/p/form-skill.html#async">异步提交文件</a></strong></p></li>
+</ul>
+<p><a name="handle"></a></p>
+<h2 id="表单操作-1">表单操作</h2>
+<p><a name="get"></a></p>
+<h3 id="取值">取值</h3>
+<p>用JavaScript操作表单，免不了会有取值赋值操作，比如有以下表单：</p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html hljs xml">  <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">form</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">id</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">'form0'</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span>
+  
+  <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">form</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">action</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"/login"</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">method</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"post"</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">target</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"blank"</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">id</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">'form1'</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>
+  
+    <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">input</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">type</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"text"</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">name</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">'user_name'</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>  <span class="co"><span class="hljs-comment">&lt;!--field 0--&gt;</span></span>
+    <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">input</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">type</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"email"</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">name</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">'user_email'</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>  <span class="co"><span class="hljs-comment">&lt;!--field 1--&gt;</span></span>
+    <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">select</span></span></span><span class="ot"><span class="hljs-tag">  <span class="hljs-attr">name</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">'user_phone'</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>  <span class="co"><span class="hljs-comment">&lt;!--field 2--&gt;</span></span>
+      <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">option</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">value</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">'1'</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>13333333331<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span></span>
+      <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">option</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">value</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">'2'</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>13333333332<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span></span>
+      <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">option</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">value</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">'3'</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>13333333333<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span></span>
+    <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span></span>
+    <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">input</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">type</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">"text"</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">name</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">'form0_user_phone'</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">form</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">'form0'</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>  <span class="co"><span class="hljs-comment">&lt;!--field 3--&gt;</span></span>
+    <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">button</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">type</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">'submit'</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">form</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">'form0'</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>预览<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>  <span class="co"><span class="hljs-comment">&lt;!--field 4--&gt;</span></span>
+    
+    <span class="kw"><span class="hljs-tag">&lt;<span class="hljs-name">button</span></span></span><span class="ot"><span class="hljs-tag"> <span class="hljs-attr">type</span>=</span></span><span class="st"><span class="hljs-tag"><span class="hljs-string">'submit'</span></span></span><span class="kw"><span class="hljs-tag">&gt;</span></span>提交<span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span>  <span class="co"><span class="hljs-comment">&lt;!--field 5--&gt;</span></span>
+    
+  <span class="kw"><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span></code></pre></div>
+<p>用JavaScript获取表单的属性值，或者表单字段的值，可以直接通过 <code>elem.name</code> 的方式</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript hljs"><span class="at">alert</span>(<span class="va">form1</span>.<span class="at">action</span>)<span class="op">;</span> <span class="op">=&gt;</span> <span class="st"><span class="hljs-string">'/login'</span></span>
+<span class="at">alert</span>(<span class="va">form1</span>.<span class="at">method</span>)<span class="op">;</span> <span class="op">=&gt;</span> <span class="st"><span class="hljs-string">'post'</span></span>
+<span class="at">alert</span>(<span class="va">form1</span>.<span class="va">user_name</span>.<span class="at">value</span>) <span class="op">=&gt;</span> <span class="st"><span class="hljs-string">''</span></span></code></pre></div>
+<p>而要获取表单中的字段，则通过：</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript hljs">
+<span class="co"><span class="hljs-comment">// 属于本表单元素nodelist类数组，如果通过form属性指定到其他表单，不会算作本表单元素，下面获取到的元素是field 0，field 1，field 2，field 5</span></span>
+<span class="va"><span class="hljs-built_in">console</span></span>.<span class="at">log</span>(<span class="va">form1</span>.<span class="at">elements</span>)<span class="op">;</span>  <span class="op">=&gt;</span> [<span class="op"><span class="xml"><span class="hljs-tag">&lt;</span></span></span><span class="xml"><span class="hljs-tag"><span class="hljs-name">input</span></span></span><span class="op"><span class="xml"><span class="hljs-tag">&gt;</span></span></span><span class="xml">...</span><span class="op"><span class="xml">,</span></span><span class="xml">...</span><span class="op"><span class="xml">,</span></span><span class="xml">...</span><span class="op"><span class="xml"><span class="hljs-tag">&lt;</span></span></span><span class="ss"><span class="xml"><span class="hljs-tag">/<span class="hljs-name">button</span>&gt;</span>]</span> </span>
+
+<span class="ss"><span class="hljs-comment">// 属于本表单元素个数，如果通过form属性指定到其他表单，不会算作本表单元素</span></span>
+<span class="ss"><span class="hljs-built_in">console</span>.log</span><span class="sc">(</span><span class="ss">form1.length</span><span class="sc">)</span><span class="ss">;  =&gt; <span class="hljs-number">4</span> </span>
+
+<span class="ss"><span class="hljs-comment">// nodelist中下标为2的表单元素</span></span>
+<span class="ss"><span class="hljs-built_in">console</span>.log</span><span class="sc">(</span><span class="ss">form1</span><span class="sc">[<span class="hljs-number">1</span>])</span><span class="ss">;  =&gt; <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"email"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'user_email'</span>&gt;</span></span></span><span class="xml">
+
+</span><span class="ss"><span class="xml">// 表单中 name='user_name' 的元素,有同名的字段则返回一个nodelst类数组</span></span><span class="xml">
+</span><span class="ss"><span class="xml">console.log</span></span><span class="sc"><span class="xml">(</span></span><span class="ss"><span class="xml">form1</span></span><span class="sc"><span class="xml">['user_name'])</span></span><span class="ss"><span class="xml">;  =&gt; <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text"</span> <span class="hljs-attr">name</span>=<span class="hljs-string">'user_name'</span>&gt;</span> 或 nodelist</span></span><span class="xml">
+
+</span><span class="ss"><span class="xml">// 获取表单全部内容,详情见下面的 “提交” 条目</span></span><span class="xml">
+</span><span class="ss"><span class="xml">jQuery</span></span><span class="sc"><span class="xml">(</span></span><span class="ss"><span class="xml">'#form1'</span></span><span class="sc"><span class="xml">)</span></span><span class="ss"><span class="xml">.serialize</span></span><span class="sc"><span class="xml">()</span></span><span class="ss"><span class="xml">; =&gt; user_name=&amp;user_email=&amp;user_phone=13333333331</span></span><span class="xml">
+</span><span class="ss"><span class="xml">jQuery</span></span><span class="sc"><span class="xml">(</span></span><span class="ss"><span class="xml">'#form1'</span></span><span class="sc"><span class="xml">)</span></span><span class="ss"><span class="xml">.serializeArray</span></span><span class="sc"><span class="xml">()</span></span><span class="ss"><span class="xml">; =&gt; </span></span><span class="sc"><span class="xml">[]</span></span><span class="ss"><span class="xml"> 一个数组，里面是每个字段的键值对</span></span><span class="xml">
+</span><span class="ss"><span class="xml">new FormData</span></span><span class="sc"><span class="xml">(</span></span><span class="ss"><span class="xml">form1</span></span><span class="sc"><span class="xml">)</span></span><span class="ss"><span class="xml"> =&gt; 没有返回值</span></span></code></pre></div>
+<p><a name="set"></a></p>
+<h3 id="赋值">赋值</h3>
+<p>表单本身的属性可以通过JavaScript赋值，比如 <code>action</code> , <code>method</code> , <code>target</code> 等。例如</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript hljs"><span class="co"><span class="hljs-comment">// 把表单提交到 "/signIn"</span></span>
+<span class="va">form1</span>.<span class="at">action</span> <span class="op">=</span> <span class="st"><span class="hljs-string">'/signIn'</span></span><span class="op">;</span>
+
+<span class="co"><span class="hljs-comment">// 修改表单提交方式为 "GET"</span></span>
+<span class="va">form1</span>.<span class="at">method</span> <span class="op">=</span> <span class="st"><span class="hljs-string">'GET'</span></span><span class="op">;</span></code></pre></div>
+<p>而给表单元素赋值，则是通过 <code>elem.value</code> 的方式，例如</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript hljs"><span class="co"><span class="hljs-comment">// 将user_name的值设定为 "hello world"</span></span>
+<span class="va">form1</span>.<span class="va">user_name</span>.<span class="at">value</span> <span class="op">=</span> <span class="st"><span class="hljs-string">"hello world"</span></span><span class="op">;</span> 
+
+<span class="co"><span class="hljs-comment">// 选中select中值为2的option</span></span>
+<span class="va">form1</span>.<span class="va">user_phone</span>.<span class="at">value</span> <span class="op">=</span> <span class="dv"><span class="hljs-number">2</span></span><span class="op">;</span> </code></pre></div>
+<p><a name="reset"></a></p>
+<h3 id="重置">重置</h3>
+<p>可以通过html或者JavaScript的方式把表单值重置为页面初始的样子。<br>
+html方式为点击 <code>type='reset'</code> 的 <code>input</code> 或 <code>button</code>。<br>
+JavaScript的方式为 <code>form1.reset()</code> 。<br>
+如果表单中应用了第三方UI库如 <code>select2</code> ，重置后还需要手动触发表单元素的change事件，以触发第三方库更新UI。<br>
+常用的方式是：</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript hljs"><span class="va">form1</span>.<span class="at">reset</span>()<span class="op">;</span>
+<span class="at">$</span>(<span class="va">form1</span>.<span class="at">user_phone</span>).<span class="at">change</span>()<span class="op">;</span></code></pre></div>
+<p><a name="checkValidity"></a></p>
+<h3 id="校验">校验</h3>
+<h4 id="传统校验">传统校验</h4>
+<p>传统的表单校验方式是通过监听的 <code>submit</code> 事件或是表单字段的 <code>input</code> , <code>focus</code> , <code>blur</code> , <code>change</code> 事件，去触发JavaScript中指定的校验规则，来确定表单是提交还是拒绝提交。</p>
+<h4 id="html5校验">html5校验</h4>
+<p>步入html5时代之后，可以仅通过html本身完成表单提交前的校验工作。方式是给表单字段加上 <code>required</code> 和 <code>pattern</code> 属性，<br>
+<code>required</code> 是告诉浏览器这个字段需要校验，而 <code>pattern</code> 则指定一个正则表达式形式的校验规则。在表单提交时，浏览器会自动进行一系列的校验工作，没有通过校验的表单是无法提交到服务器的。<br>
+在表单提交之前，可以通过 <code>form.checkValidity()</code> 方法，这个方法会返回一个布尔值回馈整个表单是否通过了校验规则。</p>
+<blockquote>
+<p>比较知名的表单校验插件是 <a href="https://github.com/jzaefferer/jquery-validation">jquery-validation</a> 。</p>
+</blockquote>
+<p><a name="submit"></a></p>
+<h3 id="提交">提交</h3>
+<h4 id="提交规则">提交规则</h4>
+<p>提交表单时，表单拥有的字段会按照method中的指定方式提交给服务器，而表单提交的字段规则是</p>
+<table width="100%">            <thead>                <tr><th>表单元素</th>                <th>type<br></th>                <th>规则<br></th>            </tr></thead>            <tbody><tr>                <td>&lt;input&gt;<br></td>                <td>button<br></td>                <td>永远不提交<br></td>            </tr>            <tr>                <td>&lt;input&gt;</td>                <td>checkbox</td>                <td>只在勾选后提交</td>            </tr>            <tr>                <td>&lt;input&gt;</td>                <td>file</td>                <td>永远提交，即使为空值</td>            </tr>            <tr>                <td>&lt;input&gt;</td>                <td>hidden</td>                <td>永远提交，即使为空值</td>            </tr>            <tr>                <td>&lt;input&gt;</td>                <td>image</td>                <td>永远提交，即使为空值</td>            </tr>            <tr>                <td>&lt;input&gt;</td>                <td>password</td>                <td>永远提交，即使为空值</td>            </tr>            <tr>                <td>&lt;input&gt;</td>                <td>radio</td>                <td>只在勾选后提交，如果一组Radio没有任何勾选，全部不提交。</td>            </tr>            <tr>                <td>&lt;input&gt;</td>                <td>reset</td>                <td>永远不提交<br></td>            </tr>            <tr>                <td>&lt;input&gt;</td>                <td>submit</td>                <td>点击哪个按钮，则提交这个按钮的值，其他的SUBMIT按钮值都不提交。<br>如果表单的提交行为是由JavaScript脚本触发的，则不提交任何值。<br></td>            </tr>            <tr>                <td>&lt;input&gt;</td>                <td>text</td>                <td>永远提交，即使为空值</td>            </tr>            <tr>                <td>&lt;button&gt;<br></td>                <td>button<br></td>                <td>永远不提交<br></td>            </tr>            <tr>                <td>&lt;button&gt;</td>                <td>reset</td>                <td>永远不提交</td>            </tr>            <tr>                <td>&lt;button&gt;</td>                <td>submit</td>                <td>点击哪个按钮提交表单，则提交这个按钮的值。<br>如果省略TYPE，IE默认为BUTTON，火狐默认SUBMIT。</td>            </tr>            <tr>                <td>&lt;select&gt;<br></td>                <td>-<br></td>                <td>永远提交，即使为空值。</td>            </tr>            <tr>                <td>&lt;textarea&gt;<br></td>                <td>-</td>                <td>永远提交，即使为空值。</td>            </tr></tbody></table>
+<p>表格中没有提到的规则还有：</p>
+<ul>
+<li>具有disabled属性的字段不会被提交</li>
+<li>不具有name属性的字段不会被提交</li>
+<li>同名的name属性会发生覆盖，radio和checkbox除外</li>
+<li>form指向其他表单的字段，不会被本表单提交</li>
+</ul>
+<blockquote>
+<p><a href="http://www.cnblogs.com/manors/archive/2010/03/11/1683727.html">规则来源 http://www.cnblogs.com/manors/archive/2010/03/11/1683727.html</a></p>
+</blockquote>
+<h4 id="表单序列化">表单序列化</h4>
+<p>GET方法提交表单，表单字段会被encodeURIComponent转换，并在url中显示出来。而post方法提交表单，会在请求body中发送表单字段键值对。</p>
+<p>在通过JavaScript异步提交表单时，如何按照上面的规则去获取表单数据，jquery提供了 <code>serialize()</code> 和 <code>serializeArray()</code> 两个方法。使用该方法会取得和原生表单一致的提交字段。</p>
+<h4 id="表单提交事件">表单提交事件</h4>
+<p>表单提交到服务器时，会触发 <code>submit</code> 事件。也可以通过 <code>form.submit()</code> 手动提交一个表单。</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript hljs"><span class="va">form1</span>.<span class="at">onsubmit</span> <span class="op">=</span> <span class="kw"><span class="hljs-function"><span class="hljs-keyword">function</span></span></span><span class="hljs-function">(<span class="hljs-params">event</span>)</span><span class="op">{</span>
+   <span class="va">event</span>.<span class="at">preventDefault</span>()<span class="op">;</span> <span class="co"><span class="hljs-comment">// 阻止默认事件，表单将不会提交到服务器</span></span>
+   <span class="cf"><span class="hljs-keyword">if</span></span>(<span class="at">confirm</span>(<span class="st"><span class="hljs-string">'你真的要提交我吗~'</span></span>))<span class="op">{</span>
+     <span class="kw"><span class="hljs-keyword">this</span></span>.<span class="at">submit</span>()<span class="op">;</span> <span class="co"><span class="hljs-comment">// 点击确定后，表单会被提交</span></span>
+   <span class="op">}</span>
+<span class="op">}</span></code></pre></div>
+<p><a name="skill"></a></p>
+<h2 id="技巧-1">技巧</h2>
+<p><a name="clean"></a></p>
+<h3 id="不提交空字段">不提交空字段</h3>
+<p>通过上方的表单提交规则可以知道，很多时候，无论是否填写了值，在提交的时候，该字段都会被提交到服务器。而在执行条件筛选表单提交的时候，由于常用的是GET请求，浏览器地址栏中通常会出现一长串字符。<br>
+这对于有洁癖的用户来说是无法忍受的，所以需要在提交表单前做一点小动作，让值为空的字段不提交到服务器。</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript hljs"><span class="co"><span class="hljs-comment">// 本段代码使用了jquery</span></span>
+
+<span class="kw"><span class="hljs-keyword">var</span></span> form <span class="op">=</span> <span class="at">$</span>(<span class="st"><span class="hljs-string">'form'</span></span>)<span class="op">,</span>
+    fields <span class="op">=</span> <span class="va">form</span>.<span class="at">find</span>(<span class="st"><span class="hljs-string">':input'</span></span>)<span class="op">;</span>
+ 
+<span class="va">form</span>.<span class="at">on</span>(<span class="st"><span class="hljs-string">'submit'</span></span><span class="op">,</span><span class="kw"><span class="hljs-function"><span class="hljs-keyword">function</span></span></span><span class="hljs-function">(<span class="hljs-params">event</span>)</span><span class="op">{</span>
+   <span class="va">event</span>.<span class="at">preventDefault</span>()<span class="op">;</span> <span class="co"><span class="hljs-comment">// 阻止默认事件，表单将不会提交到服务器</span></span>
+   <span class="va">fields</span>.<span class="at">each</span>(<span class="kw"><span class="hljs-function"><span class="hljs-keyword">function</span></span></span><span class="hljs-function">(<span class="hljs-params"></span>)</span><span class="op">{</span>
+     <span class="cf"><span class="hljs-keyword">if</span></span>(<span class="op">!</span><span class="kw"><span class="hljs-keyword">this</span></span>.<span class="va">value</span>.<span class="at">length</span>) <span class="kw"><span class="hljs-keyword">this</span></span>.<span class="at">disabled</span> <span class="op">=</span> <span class="st"><span class="hljs-string">'disabled'</span></span><span class="op">;</span> <span class="co"><span class="hljs-comment">// 含有disabled属性的表单字段将不会被提交</span></span>
+   <span class="op">}</span>)<span class="op">;</span>
+   <span class="kw"><span class="hljs-keyword">this</span></span>.<span class="at">submit</span>()<span class="op">;</span>
+<span class="op">}</span>)</code></pre></div>
+<p><a name="async"></a></p>
+<h3 id="异步提交文件">异步提交文件</h3>
+<p>一般而言，文件提交都是同步的，因为一般的表单序列化方法，无法传输二进制的文件。而如果要实现异步上传文件的需求，主要依靠两种方式。<br>
+一种是新建一个 <code>iframe</code> ，在里面通过一个独立的form表单上传文件后，再和主frame进行通信。另一种则是通过html5的 <code>new FormData()</code> 方法,append进去一个文件，或是直接读取表单信息。<br>
+利用 <code>iframe</code> 方式提交文件的较为知名的插件是 <a href="https://github.com/malsup/form">jquery.form.js</a> 。通过 <code>new FormData()</code> 则简单了许多：</p>
+<div class="sourceCode"><pre class="sourceCode javascript"><code class="sourceCode javascript hljs"># 这是一个来自 MDN 的示例
+
+<span class="co"><span class="hljs-comment">// 原生JavaScript方式</span></span>
+<span class="kw"><span class="hljs-keyword">var</span></span> xhr <span class="op">=</span> <span class="kw"><span class="hljs-keyword">new</span></span> <span class="at">XMLHttpRequest</span>()<span class="op">;</span>
+<span class="va">xhr</span>.<span class="at">open</span>(<span class="st"><span class="hljs-string">"POST"</span></span><span class="op">,</span> <span class="va">form1</span>.<span class="at">action</span>)<span class="op">;</span>
+<span class="va">xhr</span>.<span class="at">send</span>(<span class="kw"><span class="hljs-keyword">new</span></span> <span class="at">FormData</span>(form1))<span class="op">;</span>
+
+<span class="co"><span class="hljs-comment">// 使用jquery的ajax()</span></span>
+<span class="va">$</span>.<span class="at">ajax</span>(<span class="op">{</span>
+  <span class="dt">url</span><span class="op">:</span> <span class="va">form1</span>.<span class="at">action</span><span class="op">,</span>
+  <span class="dt">type</span><span class="op">:</span> <span class="st"><span class="hljs-string">"POST"</span></span><span class="op">,</span>
+  <span class="dt">data</span><span class="op">:</span> <span class="kw"><span class="hljs-keyword">new</span></span> <span class="at">FormData</span>(form1)<span class="op">,</span>
+  <span class="dt">processData</span><span class="op">:</span> <span class="kw"><span class="hljs-literal">false</span></span><span class="op">,</span>  <span class="co"><span class="hljs-comment">// 告诉jQuery不要去处理发送的数据</span></span>
+  <span class="dt">contentType</span><span class="op">:</span> <span class="kw"><span class="hljs-literal">false</span></span>   <span class="co"><span class="hljs-comment">// 告诉jQuery不要去设置Content-Type请求头</span></span>
+<span class="op">}</span>)<span class="op">;</span></code></pre></div>
+<p>更多用法请参考 <a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/Using_FormData_Objects">MDN--使用FormData对象</a> 。</p>
+<h4 id="参考资料">参考资料</h4>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/form">MDN</a></p>
+<p><a href="https://www.w3.org/TR/html5/forms.html">w3.org</a></p>
+</div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/lewo/tag/html/">html</a>, <a href="http://www.cnblogs.com/lewo/tag/html5/">html5</a>, <a href="http://www.cnblogs.com/lewo/tag/form/">form</a>, <a href="http://www.cnblogs.com/lewo/tag/input/">input</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(5618824,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;9a8066c9-479d-e411-b908-9dcfd8948a71&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./form表单那点事儿(下) 进阶篇 - 猎巫 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./form表单那点事儿(下) 进阶篇 - 猎巫 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/lewo/" target="_blank"><img src="./form表单那点事儿(下) 进阶篇 - 猎巫 - 博客园_files/20150116212913.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/lewo/">猎巫</a><br>
+            <a href="http://home.cnblogs.com/u/lewo/followees">关注 - 18</a><br>
+            <a href="http://home.cnblogs.com/u/lewo/followers">粉丝 - 45</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;9a8066c9-479d-e411-b908-9dcfd8948a71&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(5618824,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(5618824,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/lewo/p/form-base.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/lewo/p/form-base.html" title="发布于2016-06-25 01:30">form表单那点事儿(上) 基础篇</a><br><a href="http://www.cnblogs.com/lewo/p/js-in-hybird-app.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/lewo/p/js-in-hybird-app.html" title="发布于2016-06-28 01:11">混合应用中的javascript实践</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2016-06-26 22:59</span> <a href="http://www.cnblogs.com/lewo/">猎巫</a> 阅读(<span id="post_view_count">3506</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=5618824" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/lewo/p/form-skill.html#" onclick="AddToWz(5618824);return false;">收藏</a></div>
+	</div>
+	<script src="./form表单那点事儿(下) 进阶篇 - 猎巫 - 博客园_files/highlight.min.js.下载"></script><script>markdown_highlight();</script><script type="text/javascript">var allowComments=true,cb_blogId=212303,cb_entryId=5618824,cb_blogApp=currentBlogApp,cb_blogUserGuid='9a8066c9-479d-e411-b908-9dcfd8948a71',cb_entryCreatedDate='2016/6/26 22:59:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/lewo/p/form-skill.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/lewo/p/form-skill.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="https://group.cnblogs.com/topic/78343.html" target="_blank">【福利】限时领取，H3 BPM给你发年终奖</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="http://www.gcpowertools.com.cn/products/activereports_overview.htm?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=AR&amp;utm_campaign=community" target="_blank"><img width="300" height="250" src="./form表单那点事儿(下) 进阶篇 - 猎巫 - 博客园_files/24442-20171206093739878-889349568.png" alt="AR_1206"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/586174/" target="_blank">NVIDIA禁止GeForce在数据中心运行？这回真的被“冤枉”了</a><br> ·  <a href="https://news.cnblogs.com/n/586167/" target="_blank">京东X无人超市首家社会门店开业：刷脸进、微信自动结算</a><br> ·  <a href="https://news.cnblogs.com/n/586161/" target="_blank">《绝地求生》新计划：加入更多地图 支持地图自定义</a><br> ·  <a href="https://news.cnblogs.com/n/586169/" target="_blank">请把2017年赚到的钱存好，这里有份「2018 年苹果新品发布」清单</a><br> ·  <a href="https://news.cnblogs.com/n/586172/" target="_blank">Geoffrey HintonAndrew Moore、吴恩达等总结2017 AI大事件</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/34770/" target="_blank"><img width="468" height="60" src="./form表单那点事儿(下) 进阶篇 - 猎巫 - 博客园_files/24442-20171208101900738-116140477.jpg" alt="阿里云C2-1208"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/585502/" target="_blank">步入云计算</a><br> ·  <a href="http://kb.cnblogs.com/page/531409/" target="_blank">以操作系统的角度述说线程与进程</a><br> ·  <a href="http://kb.cnblogs.com/page/141729/" target="_blank">软件测试转型之路</a><br> ·  <a href="http://kb.cnblogs.com/page/177402/" target="_blank">门内门外看招聘</a><br> ·  <a href="http://kb.cnblogs.com/page/112506/" target="_blank">大道至简，职场上做人做事做管理</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/lewo/">猎巫</a><br>园龄：<a href="https://home.cnblogs.com/u/lewo/" title="入园时间：2015-01-16">2年11个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/lewo/followers/">45</a><br>关注：<a href="https://home.cnblogs.com/u/lewo/followees/">18</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;9a8066c9-479d-e411-b908-9dcfd8948a71&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style="display:none"></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block"></div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/lewo/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/lewo/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/lewo/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/lewo/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/lewo/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_categories">
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/lewo/archive/2016/06.html">2016年6月 (7)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_scorerank" class="sidebar-block">
+<div class="catListBlogRank">
+<h3 class="catListTitle">积分与排名</h3>
+<ul>
+	<li class="liScore">
+		积分 -	14216
+	</li>
+	<li class="liRank">
+		排名 -	24006
+	</li>
+</ul>
+</div>
+
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap" style="display: none;">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"></div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/lewo/p/mock-json-server-install.html">1. 用JSON-server模拟REST API(一) 安装运行(3749)</a></li><li><a href="http://www.cnblogs.com/lewo/p/form-skill.html">2. form表单那点事儿(下) 进阶篇(3507)</a></li><li><a href="http://www.cnblogs.com/lewo/p/form-base.html">3. form表单那点事儿(上) 基础篇(2857)</a></li><li><a href="http://www.cnblogs.com/lewo/p/jquery-event.html">4. jQuery 事件用法详解(2621)</a></li><li><a href="http://www.cnblogs.com/lewo/p/mock-json-server-bind-data.html">5. 用JSON-server模拟REST API(二)  动态数据(1773)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap" style="display: none;">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/lewo/p/jquery-event.html">1. jQuery 事件用法详解(1)</a></li><li><a href="http://www.cnblogs.com/lewo/p/form-base.html">2. form表单那点事儿(上) 基础篇(1)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2018 猎巫
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+</body></html>

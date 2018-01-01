@@ -1,0 +1,1418 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0065)http://www.360doc.com/content/16/0810/01/26211242_582136091.shtml -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script charset="utf-8" src="./Git－学习笔记（常用命令集合）_files/probe.js" async="" mod_name="tanxssp-probe"></script><script type="text/javascript" charset="utf-8" async="" src="./Git－学习笔记（常用命令集合）_files/yuetu_yuansheng_filter_title.app.js"></script><script src="./Git－学习笔记（常用命令集合）_files/ex" async=""></script><script charset="utf-8" async="" src="./Git－学习笔记（常用命令集合）_files/tanxssp.js"></script><script src="./Git－学习笔记（常用命令集合）_files/hm.js"></script><script type="text/javascript" charset="gbk" id="tanx-s-mm_11220363_1101997_26568831" async="" src="./Git－学习笔记（常用命令集合）_files/ex(1)"></script>
+<script src="./Git－学习笔记（常用命令集合）_files/ca-pub-6625678643128649.js"></script><script src="./Git－学习笔记（常用命令集合）_files/hm(1).js"></script><script type="text/javascript">
+        if (window.location.toString().indexOf("shtml?") > 0) {
+            self.location = window.location.toString().replace(window.location.search.toString(), "");
+        }
+        function doccheckart(json) {
+            if (json[0].result == "1") {
+                self.location = "http://www.360doc.com/noarticle.aspx";
+            }
+        }
+    </script>
+<script src="./Git－学习笔记（常用命令集合）_files/jquery1.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+        if (navigator.userAgent.indexOf("iPhone") > 0 || navigator.userAgent.indexOf("Android") > 0 || navigator.userAgent.indexOf("iPod") > 0) {  //手机端跳转
+            var patt1 = new RegExp("[0-9]*_[0-9]*");
+            var url = patt1.exec(location.href);
+            if (url != "") {
+                self.location = "http://www.360doc.cn/article/" + url + ".html";
+            }
+        }
+    </script>
+<meta content="360doc" name="classification"><link rel="alternate" media="only screen and (max-width: 640px)" href="http://www.360doc.cn/article/26211242_582136091.html"><meta content="git,readme,txt" name="keywords"><meta content="Git－学习笔记（常用命令集合）" name="description"><meta name="mobile-agent" content="format=html5;url=http://www.360doc.cn/article/26211242_582136091.html"><meta content="Git－学习笔记（常用命令集合）$ git add git.txt baijiawei-de-mac:TestGit baijiawei$ git commit -m &quot;add git.txt&quot;[master e7a8c02] add git.txt 1 file changed, 5 insertions(+) create mode 100644 git.txt.$ git rm git.txtrm &#39;&#39;git.txt&#39;&#39;$ git commit -m &quot;delegate git.txt&quot;[master 8652eea] delegate git.txt 1 file changed, 5 deletions(-) delete mode 100644 git.txt.$ git checkout -- git.txt$ lsgit.txt readme.txt." name="360docabstract"><meta content="www.360doc.com" name="author"><title>
+Git－学习笔记（常用命令集合）
+</title>
+<script src="./Git－学习笔记（常用命令集合）_files/showarticlefollow20160329.js" type="text/javascript" charset="utf-8"></script>
+<script src="./Git－学习笔记（常用命令集合）_files/jQuery.md5.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?d86954201130d615136257dde062a503";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+<link rel="stylesheet" type="text/css" href="./Git－学习笔记（常用命令集合）_files/wzhead-cleaned.css"><link rel="stylesheet" type="text/css" href="./Git－学习笔记（常用命令集合）_files/newArticle20160509.css">
+<script type="text/javascript" language="javascript">
+        window.onerror = ignoreError;
+        function ignoreError() {
+            return true;
+        }
+    </script>
+<link href="./Git－学习笔记（常用命令集合）_files/newheader.css" rel="stylesheet" type="text/css"><link rel="preload" href="./Git－学习笔记（常用命令集合）_files/integrator.js" as="script"><script type="text/javascript" src="./Git－学习笔记（常用命令集合）_files/integrator.js"></script><script src="./Git－学习笔记（常用命令集合）_files/share.js"></script><script type="text/javascript" src="./Git－学习笔记（常用命令集合）_files/EssayforIE120425.js"></script><link href="about:blank" rel="styleSheet" type="text/css"></head>
+<body onmouseup="setDragEnd()" onclick="delAllDiv(event)">
+<span id="LayerLogin"></span>
+<div style="position: fixed; width: 100%; z-index: 1000;">
+<div class="header" style="background-color: #ffffff;">
+<div class="header_1">
+<a href="http://www.360doc.com/index.html">
+<img src="./Git－学习笔记（常用命令集合）_files/nlogo.jpg" class="f_left"></a>
+<div class="mylibrary">
+<a id="userInfoUrl" href="http://www.360doc.com/login.aspx?reurl=http://www.360doc.com/content/16/0810/01/26211242_582136091.shtml" class="a1">
+<div class="h_user">
+<img id="divuserinfonew" src="./Git－学习笔记（常用命令集合）_files/dingtu.gif"><span></span>
+</div>
+我的图书馆
+</a>
+<ul class="hm_list hm_account" style="display: none;">
+<li><a href="http://www.360doc.com/myindex.aspx">首页</a></li>
+<li><a href="http://www.360doc.com/myfiles.aspx?app=1&amp;type=3">馆藏</a></li>
+<li><a href="http://www.360doc.com/myreadroom.aspx">阅览室</a></li>
+<li><a href="http://www.360doc.com/mystudy.aspx">学习圈</a></li>
+<li><a href="http://www.360doc.com/mycontacts.aspx">通讯录</a></li>
+<li><a href="javascript:void(0);" onclick="displaylogin();">退出帐号</a></li>
+</ul>
+</div>
+<div class="headmail f_left" style="display: none;">
+<p class="h_icon1" id="newMsg"></p>
+<span class="h_border"></span>
+<ul class="hm_list" id="msgtips">
+<li id="msgicon"><a href="http://www.360doc.com/mymsg.aspx?app=2">查看信箱</a></li>
+<li id="sysmsgicon"><a href="http://www.360doc.com/mymsg.aspx?app=9">系统消息</a></li>
+<li id="sysicon"><a href="http://www.360doc.com/mymsg.aspx?app=4">官方通知</a></li>
+<li class="hm_color2" style="background-color: #f4f4f4"><a href="http://www.360doc.com/mymsg.aspx?app=6">设置</a></li>
+</ul>
+</div>
+<div class="headtalker f_left" style="display: none;">
+<p class="h_icon1" id="newDialog"></p>
+<span class="h_border"></span>
+<ul class="hm_list">
+<li id="li1chat"><a href="javascript:void(0)" onclick="initchatnew()">开始对话</a></li>
+<li id="li2chat" style="display: none;"><a href="javascript:void(0)" style="color: #141414;">有<span>11</span>人和你对话，<span onclick="initchatnew()" style="color: #4578b4">查看</span>&nbsp;<span onclick="clearinfochat()" style="color: #4578b4">忽略</span></a></li>
+<li><a href="http://www.360doc.com/mycontacts.aspx?app=8">历史对话记录</a></li>
+<li class="hm_color2" style="background-color: #f4f4f4"><a href="http://www.360doc.com/mycontacts.aspx?app=7">通知设置</a></li>
+</ul>
+</div>
+<a href="http://www.360doc.com/advice.html" target="_blank" class="head_talk f_right">留言交流</a>
+<div class="headsearch f_right">
+<div class="zcomdiv">
+<input type="text" class="headsearch_inp f_left" value="搜文章 找馆友">
+<span class="headsearch_btn f_right" id="searchlinkid"></span>
+</div>
+<div class="headsearch_select" style="display: none;">
+<p class="hs_title">请选择搜索范围</p>
+<a href="javascript:goSearch();" class="cur">含&nbsp;<span></span>&nbsp;的文章</a>
+<a href="javascript:goSearch();">昵称为&nbsp;<span></span>&nbsp;的馆友</a>
+<a href="javascript:goSearch();">兴趣为&nbsp;<span></span>&nbsp;的馆友</a>
+</div>
+</div>
+</div>
+</div>
+<div class="arti_type_shadow" style="display: block;"></div>
+</div>
+<div style="height: 68px; _height: 0px; width: 100%;"></div>
+<div class="clear360doc"></div>
+<div class="doc360article_content" style="width: 1016px;">
+<div style="height: 90px; padding-top: 13px;">
+<script async="" src="./Git－学习笔记（常用命令集合）_files/adsbygoogle.js"></script><ins class="adsbygoogle" style="display: inline-block; width: 970px; height: 90px" data-ad-client="ca-pub-6625678643128649" data-ad-slot="2709112222" data-adsbygoogle-status="done"><ins id="aswift_0_expand" style="display:inline-table;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:970px;background-color:transparent;"><ins id="aswift_0_anchor" style="display:block;border:none;height:90px;margin:0;padding:0;position:relative;visibility:visible;width:970px;background-color:transparent;"><iframe width="970" height="90" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allowfullscreen="true" onload="var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}" id="aswift_0" name="aswift_0" style="left:0;position:absolute;top:0;width:970px;height:90px;" src="./Git－学习笔记（常用命令集合）_files/saved_resource.html"></iframe></ins></ins></ins><script> (adsbygoogle = window.adsbygoogle || []).push({ }); </script>
+</div>
+<p class="clearboth"></p>
+<div class="a_left" style="width: 686px;">
+<div id="bgchange" style="width: 660px;">
+<div class="fontsize_bgcolor_controler">
+<div class="a_bgcolor">
+<img src="./Git－学习笔记（常用命令集合）_files/bgcolor.jpg">
+<div class="a_colorlist">
+<span class="a_color1" onclick="artStatistics(&#39;20-11-1&#39;);">
+<img src="./Git－学习笔记（常用命令集合）_files/yes.gif"></span>
+<span class="a_color2" onclick="artStatistics(&#39;20-11-2&#39;);">
+<img src="./Git－学习笔记（常用命令集合）_files/yes.gif"></span>
+<span class="a_color3" onclick="artStatistics(&#39;20-11-3&#39;);">
+<img src="./Git－学习笔记（常用命令集合）_files/yes.gif"></span>
+<span class="a_color4" onclick="artStatistics(&#39;20-11-4&#39;);">
+<img src="./Git－学习笔记（常用命令集合）_files/yes.gif"></span>
+<span class="a_color5" onclick="artStatistics(&#39;20-11-5&#39;);">
+<img src="./Git－学习笔记（常用命令集合）_files/yes.gif"></span>
+<span class="a_color6 cur" onclick="artStatistics(&#39;20-11-6&#39;);">
+<img src="./Git－学习笔记（常用命令集合）_files/yes.gif"></span>
+</div>
+</div>
+<div class="a_fontsize">
+<img src="./Git－学习笔记（常用命令集合）_files/fontSize.jpg">
+<div class="fschange">
+<label>
+<input type="radio" name="font_Size" id="" value="18" onclick="artStatistics(&#39;20-10-1&#39;);">大
+</label>
+&nbsp;
+<label>
+<input type="radio" name="font_Size" id="" value="16" onclick="artStatistics(&#39;20-10-2&#39;);">中
+</label>
+&nbsp;
+<label>
+<input type="radio" name="font_Size" id="" value="14" onclick="artStatistics(&#39;20-10-3&#39;);">小
+</label>
+</div>
+</div>
+</div>
+<h2 id="titiletext">Git－学习笔记（常用命令集合）</h2>
+<div class="article_data">
+<div class="article_data_left">
+2016-08-10
+<span class="a_username">&nbsp;<a href="http://www.360doc.com/userhome/26211242" id="savernickname" target="_blank" onclick="artStatistics(&#39;20-7-1&#39;);">jnstyle</a>
+</span>
+<span id="articleinfo">
+<span id="docsource" class="a_from">&nbsp;摘自&nbsp;<a href="http://www.cnblogs.com/GarveyCalvin/p/4267400.html" target="_blank" onclick="artStatistics(&#39;20-12&#39;);" title="">博客园</a></span><span id="360doc_Readnum">&nbsp;&nbsp;阅&nbsp;262&nbsp;</span><span id="360docResaveCount" style="display: none;"><span onclick="ShowSaverUser();artStatistics(&#39;20-13&#39;);" id="360doc_saverNum" style="cursor: pointer;"></span>
+<span id="360doc_saverUser">
+<div style="position: absolute; height: 305px; width: 144px; left: 0px; z-index: 2; display: none;" id="sameArtOuter">
+<div onclick="event.cancelBubble=true;" style="overflow-y: auto; height: 300px; overflow-x: hidden; z-index: 100; right: 0px; margin-top: -10px;" id="sameArt">
+</div>
+</div>
+</span>
+</span>
+</span>
+</div>
+<div id="resavelayer1" class="bdsharebuttonbox article_data_right bdshare-button-style0-16" data-bd-bind="1513502653354"><div class="zcommond"><a class="p2" href="javascript:void(0);" onclick="SaveArt();artStatistics(&#39;20-3-1&#39;);">转藏到我的图书馆</a><div class="s2 f_right" onclick="setTimeout(function(){$(&#39;.article_data_right .sharelist_new&#39;).slideToggle(0);},10);"><span onclick="artStatistics(&#39;20-8-2&#39;);"></span></div><a class="p1" href="javascript:void(0);" onclick="shareWeixin();artStatistics(&#39;20-8-5&#39;);">微信</a> <span class="s1" onclick="setTimeout(function(){$(&#39;.article_data_right .sharelist_new&#39;).slideToggle(0);},10);artStatistics(&#39;20-8-1&#39;);" onmouseover="this.style.color=&#39;#0f659c&#39;" onmouseout="this.style.color=&#39;&#39;">分享：</span></div><div class="sharelist_new" id="fenxiangLayer" style="display: none;"> <a class="slbg1" href="javascript:void(0);" data-cmd="qzone" onclick="artStatistics(&#39;20-8-7&#39;);">QQ空间</a> <a class="slbg2" href="javascript:void(0);" data-cmd="sqq" onclick="artStatistics(&#39;20-8-9&#39;);">QQ好友</a> <a class="slbg3" href="javascript:void(0);" data-cmd="tsina" onclick="artStatistics(&#39;20-8-11&#39;);">新浪微博</a><a class="slbg5" href="javascript:void(0);" onclick="showdivemail1();artStatistics(&#39;20-8-15&#39;);">推荐给朋友</a> </div><div style="position: absolute;display:none;z-index:1;left:143px;" id="fuzhitishidiv"></div></div>
+</div>
+<div id="articlecontent" class="article_container" onmousedown="newhighlight = true;" onmouseup="NewHighlight(event);">
+<table>
+<tbody>
+<tr>
+<td id="artContent">
+<div style="width: 656px; margin: 0; padding: 0; height: 0;"></div>
+<p>&nbsp;这里引用一下百度百科里<a href="http://baike.baidu.com/link?url=adAkN25ujxyFd-megsXWLHkeHYwrkT5eAEoPZXMpUnsn32X1YKb0bfiFopkqGkRw1wO8BFRL3HaLGRfcWKw03Rp2FxJNa_vo5a6AI_9mE1q">Git</a>的内容：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>Git --- The stupid content tracker, 傻瓜内容跟踪器。Linus Torvalds 是这样给我们介绍 Git 的。<br>
+Git 是用于 Linux内核开发的版本控制工具。与常用的版本控制工具 CVS, Subversion 等不同，它采用了分布式版本库的方式，不必服务器端软件支持（wingeddevil注：这得分是用什么样的服务端，使用http协议或者git协议等不太一样。并且在push和pull的时候和服务器端还是有交互的。），使源代码的发布和交流极其方便。 Git 的速度很快，这对于诸如 Linux kernel 这样的大项目来说自然很重要。 Git 最为出色的是它的合并跟踪（merge tracing）能力。</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>&nbsp;</p>
+<p>怎样安装Git这里不作介绍，请自行百度，谢谢。</p>
+<p>&nbsp;</p>
+<p><a><strong>1、初见Git</strong></a></p>
+<p><a><strong>2、实时查看修改点</strong></a></p>
+<p><a><strong>3、版本回退</strong></a></p>
+<p><a><strong>4、版本修改</strong></a></p>
+<p style="margin-left: 30px;"><a><strong>4.1、管理修改</strong></a></p>
+<p style="margin-left: 30px;"><a><strong>4.2、撤消修改</strong></a></p>
+<p style="margin-left: 30px;"><a><strong>4.3、删除文件</strong></a></p>
+<p><a><strong>5、分支管理</strong></a></p>
+<p style="margin-left: 30px;"><a><strong>5.1、创建与合并</strong></a></p>
+<p style="margin-left: 30px;"><a><strong>5.2、合并冲突</strong></a></p>
+<p style="margin-left: 30px;"><a><strong>5.3、分支管理技巧</strong></a></p>
+<p style="margin-left: 30px;"><a><strong>5.4、临时分支</strong></a></p>
+<p><a><strong>6、Git标签</strong></a></p>
+<p style="margin-left: 30px;"><strong><strong><strong><strong><strong><a>6.1、创建标签</a></strong></strong></strong></strong></strong></p>
+<p style="margin-left: 30px;"><a><strong><strong><strong><strong><strong>6.2<strong>、标签管理</strong></strong></strong></strong></strong></strong></a></p>
+<p><a><strong>7、自定义Git</strong></a></p>
+<p style="margin-left: 30px;"><a><strong><strong><strong><strong><strong>7.1、忽略特殊文件/文件夹</strong></strong></strong></strong></strong></a></p>
+<p style="margin-left: 30px;"><strong><strong><strong><strong><strong><a>7.2、创建别名</a></strong></strong></strong></strong></strong></p>
+<p>8、Git管理软件</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><a name="firstLookGit"></a>1、初见Git</strong></p>
+<p>以下例子在终端操作，我们先创建一个名为“TestGit”的文件夹：</p>
+<div>
+<pre>$ mkdir TestGit</pre>
+</div>
+<p>&nbsp;</p>
+<p><code>进入“TestGit”文件夹并使用git init</code>命令把这个目录变成Git可以管理的仓库：</p>
+<div>
+<pre>$ cd TestGit/
+$ git init</pre>
+</div>
+<p>你会看见“Initialized empty Git repository in /Users/baijiawei/Desktop/TestGit/.git/”，提示创建的是一个空的仓库。</p>
+<p>&nbsp;</p>
+<p>在当前目录下，创建文件“readme.txt”，内容为"one edit"，如下图：</p>
+<p><img src="./Git－学习笔记（常用命令集合）_files/77573585_2.png" alt="" width="365" height="229"></p>
+<p>&nbsp;</p>
+<p>另外，在终端使用ls命令，可以查看当前目录下的所有文件：</p>
+<div>
+<pre>$ ls
+readme.txt</pre>
+</div>
+<p>&nbsp;</p>
+<p>使用pwd命令可以看见当前所在的目录结构：</p>
+<div>
+<pre>$ pwd
+/Users/这个不能让你们知道/Desktop/TestGit</pre>
+</div>
+<p>&nbsp;</p>
+<p>回归正题，使用命令<code>git add命令</code>把文件添加到仓库：</p>
+<div>
+<pre>$ git add readme.txt</pre>
+</div>
+<p>执行完成后不会有任何提示，说明添加成功。</p>
+<p>&nbsp;</p>
+<p>最后使用git commit命令提交到仓库：</p>
+<div>
+<pre>$ git commit -m "first commit"
+[master (root-commit) dc09f1d] first commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 readme.txt</pre>
+</div>
+<p><code>-m后面输入的为本次提交的备注，可以是任何字符，但最好是有意义的。</code></p>
+<p>执行完命令后会告诉你这次提交的结果。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><a name="editPoint"></a>2、实时查看修改点</strong></p>
+<p>我们修改一下readme.txt的内容，如下图：</p>
+<p><img src="./Git－学习笔记（常用命令集合）_files/77573585_3.png" alt="" width="280" height="136"></p>
+<p>&nbsp;</p>
+<p><code>我们可以使用git status</code>命令查看仓库当前的状态：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git status
+On branch master
+
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+    modified:   readme.txt</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>结果告诉我们，readme.txt被修改过了，但还没有提交修改。</p>
+<p>&nbsp;</p>
+<p>使用git diff命令，查看文件具体的修改：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git diff readme.txt 
+diff --git a/readme.txt b/readme.txt
+index 4f1b13a..8794b68 100644
+--- a/readme.txt
++++ b/readme.txt
+@@ -1 +1,3 @@
+-one edit
+\ No newline at end of file
++one edit
++
++two edit
+\ No newline at end of file</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p><code>diff就是</code>difference，可以从上面的命令输出看到，我们在第三行添加了“two edit”文字。</p>
+<p>&nbsp;</p>
+<p>使用add和commit命令把修改提交到Git仓库：</p>
+<div>
+<pre>$ git add readme.txt 
+$ git commit -m "two edit"
+[master 299e07a] two edit
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+ create mode 100644 .DS_Store</pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><a name="resetVersion"></a>3、<strong>版本管理</strong></strong></p>
+<p>我们可以使用git log命令查看提交的记录：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git log
+commit 299e07a39e547e1b48f3fc657daa7e6d4ecbf6f4
+Author: GarveyCalvin &lt;1147626297@qq.com&gt;
+Date:   Sat Jan 17 17:25:17 2015 +0800
+
+    two edit
+
+commit dc09f1df94afd30bca6726e9f0d3459e358ac560
+Author: GarveyCalvin &lt;1147626297@qq.com&gt;
+Date:   Sat Jan 17 17:11:31 2015 +0800
+
+    first commit</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>从查询结果我们可以看见，我刚刚总共提交了2次到Git仓库。我们还可以看见，commit后面有一串很长的数字，那是每次提交至Git版本库都会随机生成的一串ID（哈希算法），用作版本号，后面我们会使用到。提示：每一个版本号都是随机且是不同</p>
+<p>&nbsp;</p>
+<p>我们还可以把记录内容显示压缩为一行，在后面添加参数“--pretty=oneline”：</p>
+<div>
+<pre>$ git log --pretty=oneline
+299e07a39e547e1b48f3fc657daa7e6d4ecbf6f4 two edit
+dc09f1df94afd30bca6726e9f0d3459e358ac560 first commit</pre>
+</div>
+<p>&nbsp;</p>
+<p>先来回忆一下，最后修改的readme.txt文件内容如下图所示：</p>
+<p><img src="./Git－学习笔记（常用命令集合）_files/77573585_3.png" alt="" width="280" height="136"></p>
+<p>我们把它回退一个版本，也就是只有“one edit”内容的readme.txt文件。</p>
+<p>&nbsp;</p>
+<p>使用git reset命令进行版本回退：</p>
+<div>
+<pre>$ git reset --hard HEAD^
+HEAD is now at dc09f1d first commit</pre>
+</div>
+<p>在Git中，<code>HEAD</code>表示当前版本，HEAD^表示上一个版本，HEAD^^表示再上一个版本。如果要回退更多的版本，我们可以使用HEAD~n表示。你会看见reset命令后面带着参数“--hard”，现在先不用管它用来干什么的，先用着，在后面会说到。</p>
+<p>&nbsp;</p>
+<p>我们看一下回退后的readme.txt文件内容：</p>
+<p><img src="./Git－学习笔记（常用命令集合）_files/77573585_4.png" alt="" width="431" height="265"></p>
+<p>可以看出来，我们已经回退了一个版本。</p>
+<p>&nbsp;</p>
+<p>现在使用git log命令查看一下：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git log
+commit dc09f1df94afd30bca6726e9f0d3459e358ac560
+Author: GarveyCalvin &lt;1147626297@qq.com&gt;
+Date:   Sat Jan 17 17:11:31 2015 +0800
+
+    first commit</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>从log命令查看的结果中发现，最新的那个版本已经看不到了，那我们还能回到最新的版本吗？</p>
+<p>&nbsp;</p>
+<p>方法是有的，前面我们介绍了Git的版本号，我们就是使用它来进行回到最新的版本：</p>
+<div>
+<pre>$ git reset --hard 299e07a39e54
+HEAD is now at 299e07a two edit</pre>
+</div>
+<p>我们一般不需要把一整串版本号写上去，只需要打前面的几位即可，Git会自己进行查找。但也不要只打前面1－2位，因为这样有可能找到重复的。</p>
+<p>&nbsp;</p>
+<p>我们再次查看readme.txt文件内容：</p>
+<p><img src="./Git－学习笔记（常用命令集合）_files/77573585_5.png" alt="" width="386" height="123"></p>
+<p>&nbsp;</p>
+<p>我们再使用git log来看一下提交至Git仓库的记录：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git log
+commit 299e07a39e547e1b48f3fc657daa7e6d4ecbf6f4
+Author: GarveyCalvin &lt;1147626297@qq.com&gt;
+Date:   Sat Jan 17 17:25:17 2015 +0800
+
+    two edit
+
+commit dc09f1df94afd30bca6726e9f0d3459e358ac560
+Author: GarveyCalvin &lt;1147626297@qq.com&gt;
+Date:   Sat Jan 17 17:11:31 2015 +0800
+
+    first commit</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>&nbsp;</p>
+<p>那么，如果我们当初回退了版本之后，并关闭了终端。没过一会儿，你后悔了，需要回到最新的那个版本怎么办？幸好，在Git中是可以有后悔药吃的，我们可以使用git reflog命令回到未来：</p>
+<div>
+<pre>$ git reflog
+299e07a HEAD@{0}: reset: moving to 299e07a39e54
+dc09f1d HEAD@{1}: reset: moving to HEAD^
+299e07a HEAD@{2}: commit: two edit
+dc09f1d HEAD@{3}: commit (initial): first commit</pre>
+</div>
+<p>有了版本号ID，你就可以使用回到未来了。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><a name="versionEdit"></a>4、版本修改</strong></p>
+<p><strong><a name="manageEdit"></a>4.1、管理修改</strong></p>
+<p>这里先说一下，Git有工作区和暂存区。工作区就是我们肉眼能看到的目录，暂存区存放的是修改的记录。我们前面的git add命令就是把文件添加到暂存区，git commit命令就是提交暂存区的所有修改：</p>
+<p>&nbsp;</p>
+<p>比如我们现在把readme.txt文件稍作修改，添加多一行文字，如下图所示：</p>
+<p><img src="./Git－学习笔记（常用命令集合）_files/77573585_6.png" alt="" width="400" height="202"></p>
+<p>&nbsp;</p>
+<p>使用git add命令把readme.txt文件添加到暂存区：</p>
+<div>
+<pre>$ git add readme.txt </pre>
+</div>
+<p>&nbsp;</p>
+<p>我们再修改readme.txt文件的内容为：</p>
+<p><img src="./Git－学习笔记（常用命令集合）_files/77573585_7.png" alt="" width="351" height="129"></p>
+<p>&nbsp;</p>
+<p>最后使用git commit命令将暂存区提交所有修改：</p>
+<div>
+<pre>$ git commit -m "three edit"
+[master 5308250] three edit
+ 1 file changed, 3 insertions(+), 1 deletion(-)</pre>
+</div>
+<p>&nbsp;</p>
+<p>使用git status命令查看一下Git仓库的状态：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+    modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>提示有文件修改了没添加至暂存区，为什么呢？我们刚刚不是把readme.txt文件添加到暂存区了吗？</p>
+<p>我们先回想一下刚刚添加的步骤：</p>
+<p>1.修改readme.txt文件</p>
+<p>2.把readme.txt文件添加到暂存区</p>
+<p>3.再次修改readme.txt文件</p>
+<p>4.提交到Git仓库</p>
+<p>我们是把第一次修改readme.txt文件时添加到暂存区中，因此暂存区只存放了我们的第一次修改记录，而第二次修改后我们没及时把readme.txt文件添加到暂存区，因此提交时只会把暂存区记录的第一次修改提交到Git仓库。</p>
+<p>&nbsp;</p>
+<p>不相信？我们可以使用git diff命令查看本地和最新版本里readme.txt文件的区别：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git diff readme.txt 
+diff --git a/readme.txt b/readme.txt
+index 60f01b0..f469ed7 100644
+--- a/readme.txt
++++ b/readme.txt
+@@ -2,4 +2,4 @@ one edit
+ 
+ two edit
+ 
+-three   
+\ No newline at end of file
++four   
+\ No newline at end of file</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>可见，第二次修改是没有被提交到Git仓库里的。</p>
+<p>&nbsp;</p>
+<p>如果你的当前仓库状态没有任何修改，那么仓库状态应为：</p>
+<div>
+<pre>$ git status
+On branch master
+nothing to commit, working directory clean</pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><a name="resetEdit"></a>4.2、撤消修改</strong></p>
+<p>我们把readme.txt文件修改为如下内容：</p>
+<p><strong><img src="./Git－学习笔记（常用命令集合）_files/77573585_8.png" alt="" width="358" height="142"></strong></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>我们先使用git status查看一下状态：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+    modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>有一句提示是，使用git checkout -- &lt;file&gt;撤消对工作区的修改。</p>
+<p>&nbsp;</p>
+<p>好了，我突然间不想改这个文件了，我需要复原。那么可以使用git checkout -- file撤消对工作区的修改：</p>
+<div>
+<pre>$ git checkout -- readme.txt</pre>
+</div>
+<p>&nbsp;</p>
+<p>再次打开readme.txt文件查看内容：</p>
+<p><img src="./Git－学习笔记（常用命令集合）_files/77573585_9.png" alt="" width="417" height="109"></p>
+<p>果然，readme.txt已经复原了。提示：git checkout -- &lt;file&gt;命令是把文件回到最近一次<code>git commit</code>或<code>git add</code>时的状态。</p>
+<p>&nbsp;</p>
+<p>我们再次添加一些无用的内容，并把文件添加至暂存区：</p>
+<p><img src="./Git－学习笔记（常用命令集合）_files/77573585_10.png" alt="" width="408" height="135"></p>
+<p>&nbsp;</p>
+<p>使用git status命令查看当前的状态：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git status
+On branch master
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+    modified:   readme.txt</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>有一句提示为，使用git reset HEAD &lt;file&gt;可以把该文件在暂存区的修改撤消掉。</p>
+<p>&nbsp;</p>
+<p>回到正题，刚改的内容我不想提交到Git仓库，我们可以使用git reset HEAD &lt;file&gt;把暂存区的修改撤消，把该文件的修改全部放回到工作区中：</p>
+<div>
+<pre>$ git reset HEAD readme.txt 
+Unstaged changes after reset:
+M    readme.txt</pre>
+</div>
+<p>&nbsp;</p>
+<p>现在再使用git status命令查看当前状态：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+    modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>&nbsp;<br><br></p>
+<p><strong><a name="deleteFile"></a>4.3、删除文件</strong></p>
+<p>我们先增加一个“git.txt”文件，然后把它提交上Git仓库：</p>
+<div>
+<pre>$ git add git.txt 
+baijiawei-de-mac:TestGit baijiawei$ git commit -m "add git.txt"
+[master e7a8c02] add git.txt
+ 1 file changed, 5 insertions(+)
+ create mode 100644 git.txt</pre>
+</div>
+<p>&nbsp;</p>
+<p>现在，我们把“git.txt”删除，删除后使用git status命令查看一下状态：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add/rm &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+    deleted:    git.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>git会告诉你删除了“git.txt”文件，但还没提交。</p>
+<p>&nbsp;</p>
+<p>情况一：使用git rm命令删除“git.txt”命令并提交：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git rm git.txt
+rm 'git.txt'
+$ git commit -m "delegate git.txt"
+[master 8652eea] delegate git.txt
+ 1 file changed, 5 deletions(-)
+ delete mode 100644 git.txt</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>&nbsp;</p>
+<p>情况二：删除错了文件，想要复原：</p>
+<div>
+<pre>$ git checkout -- git.txt
+$ ls
+git.txt        readme.txt</pre>
+</div>
+<p>很多时候我们修改错了文件，都可以使用git checkout命令进行复原。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><a name="managerBranch"></a>5、分支管理</strong></p>
+<p><strong><a name="createAndMerge"></a>5.1、创建与合并</strong></p>
+<p>我们现在新建test分支，并切换至test分支：</p>
+<div>
+<pre>$ git branch test
+$ git checkout test
+Switched to branch 'test'</pre>
+</div>
+<p>或：</p>
+<div>
+<pre>$ git checkout -b test
+Switched to a new branch 'test'</pre>
+</div>
+<p>使用git checkout命令加上-b参数，表示新建并切换至分支。</p>
+<p>&nbsp;</p>
+<p>使用git branch命令查看所有分支：</p>
+<div>
+<pre>$ git branch
+  master
+* test</pre>
+</div>
+<p>其中*号后面的就是当前所在分支。</p>
+<p>&nbsp;</p>
+<p>这个分支可以正常使用了，我们修改一下readme.txt的内容：</p>
+<p><img src="./Git－学习笔记（常用命令集合）_files/77573585_11.png" alt="" width="416" height="146"></p>
+<p>然后提交：</p>
+<div>
+<pre>$ git add readme.txt 
+$ git commit -m "add New Num"
+[test 6f9e769] add New Num
+ 1 file changed, 3 insertions(+), 1 deletion(-)</pre>
+</div>
+<p>&nbsp;</p>
+<p>我们现在切换到master分支：</p>
+<div>
+<pre>$ git checkout master
+Switched to branch 'master'</pre>
+</div>
+<p>&nbsp;</p>
+<p>再看一下readme.txt文件：</p>
+<p><img src="./Git－学习笔记（常用命令集合）_files/77573585_12.png" alt="" width="408" height="177"></p>
+<p>刚刚新增的一行内容已经不见了，因为我们刚刚提交的是test分支，master分支是没有提交的。</p>
+<p>&nbsp;</p>
+<p>我们现在把它们合并一下：</p>
+<div>
+<pre>$ git merge test
+Updating c684781..6f9e769
+Fast-forward
+ readme.txt | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)</pre>
+</div>
+<p>显示快速合并，因为不存在冲突，因此直接合并就可以了，后面会说到发生冲突时的情况。</p>
+<p>&nbsp;</p>
+<p>合并后我们再看一下readme.txt文件：</p>
+<p><img src="./Git－学习笔记（常用命令集合）_files/77573585_13.png" alt="" width="447" height="156"></p>
+<p>内容已经合并完成了。</p>
+<p>&nbsp;</p>
+<p>我们现在可以把test分支删除：</p>
+<div>
+<pre>$ git branch -d test
+Deleted branch test (was 6f9e769).</pre>
+</div>
+<p>在git branch命令后面加上-d参数，表示删除分支。</p>
+<p>&nbsp;</p>
+<p>我们使用git branch命令查看所有分支：</p>
+<div>
+<pre>$ git branch
+* master</pre>
+</div>
+<p>现在就只剩下master这个分支了。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><a name="finishMerge"></a>5.2、合并冲突</strong></p>
+<p>往往进行合并时都不会那么顺心，往往会发生冲突。</p>
+<p>我们现在创建branchTest分支：</p>
+<div>
+<pre>$ git checkout -b branchTest
+Switched to a new branch 'branchTest'</pre>
+</div>
+<p>&nbsp;</p>
+<p>修改readme.txt文件：</p>
+<p><img src="./Git－学习笔记（常用命令集合）_files/77573585_14.png" alt="" width="426" height="128"></p>
+<p>&nbsp;</p>
+<p>在branchTest分支上提交：</p>
+<div>
+<pre>$ git add readme.txt
+$ git commit -m "I like here"
+[branchTest f1dc9cb] I like here
+ 1 file changed, 1 insertion(+), 1 deletion(-)</pre>
+</div>
+<p>&nbsp;</p>
+<p>切换至master分支：</p>
+<div>
+<pre>$ git checkout master
+Switched to branch 'master'</pre>
+</div>
+<p>&nbsp;</p>
+<p>修改readme.txt文件：</p>
+<p><img src="./Git－学习笔记（常用命令集合）_files/77573585_15.png" alt="" width="451" height="150"></p>
+<p>&nbsp;</p>
+<p>然后在master分支提交：</p>
+<div>
+<pre>$ git add readme.txt 
+$ git commit -m "I don't like here"
+[master 87ef579] I don't like here
+ 1 file changed, 1 insertion(+), 1 deletion(-)</pre>
+</div>
+<p>&nbsp;</p>
+<p>我们尝试一下使用git merge合并分支：</p>
+<div>
+<pre>$ git merge branchTest
+Auto-merging readme.txt
+CONFLICT (content): Merge conflict in readme.txt
+Automatic merge failed; fix conflicts and then commit the result.</pre>
+</div>
+<p>果然，Git提示我们有错误发生（冲突）。它自己不能完成合并，我们需要手动解决冲突。</p>
+<p>&nbsp;</p>
+<p>我们也可以使用git status命令查看冲突的文件：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add &lt;file&gt;..." to mark resolution)
+
+    both modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>&nbsp;</p>
+<p>我们查看readme.txt文件：</p>
+<p><img src="./Git－学习笔记（常用命令集合）_files/77573585_16.png" alt="" width="394" height="171"></p>
+<p>Git用&lt;&lt;&lt;&lt;&lt;&lt;&lt;、=======、&gt;&gt;&gt;&gt;&gt;&gt;&gt;表示不同分支的内容。</p>
+<p>&nbsp;</p>
+<p>我们把readme.txt文件内容改成如下图所示：</p>
+<p><img src="./Git－学习笔记（常用命令集合）_files/77573585_17.png" alt="" width="409" height="144"></p>
+<p>&nbsp;</p>
+<p>提交修改：</p>
+<div>
+<pre>$ git add readme.txt 
+$ git commit -m "finish merge"
+[master 1bb3712] finish merge</pre>
+</div>
+<p>&nbsp;</p>
+<p>我们可以使用git log命令查看分支的合并情况：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git log --graph
+*   commit 1bb37128048d172cfe928fff96f68578b7c6f933
+|\  Merge: 87ef579 f1dc9cb
+| | Author: GarveyCalvin &lt;1147626297@qq.com&gt;
+| | Date:   Sun Jan 18 23:28:12 2015 +0800
+| | 
+| |     finish merge
+| |   
+| * commit f1dc9cb9e2f387b35fe323b67bf6d49eeae00ea8
+| | Author: GarveyCalvin &lt;1147626297@qq.com&gt;
+| | Date:   Sun Jan 18 23:16:09 2015 +0800
+| | 
+| |     I like here
+| |   
+* | commit 87ef57980131541f82216b7359ca7beb50c65010
+|/  Author: GarveyCalvin &lt;1147626297@qq.com&gt;
+|   Date:   Sun Jan 18 23:19:25 2015 +0800
+|   
+|       I don't like here
+|  
+* commit 6f9e769ac382f77001b29bd8b2d3b92054390c3e
+| Author: GarveyCalvin &lt;1147626297@qq.com&gt;
+| Date:   Sun Jan 18 22:55:52 2015 +0800
+| </pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>使用--graph参数可以查看分支的合并图。大家是否觉得显示的内容太多了？你们可以尝试在后面添加--pretty=oneline --abbrev-commit参数，添加后再查看，你会发现结果简洁了许多。</p>
+<p>&nbsp;</p>
+<p>现在我们可以删除branchTest分支了：</p>
+<div>
+<pre>$ git branch -d branchTest
+Deleted branch branchTest (was f1dc9cb).</pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><a name="managerBranchSkill"></a>5.3、分支管理技巧</strong></p>
+<p>在合并分支时，如果Git能够快速合并（Fast-forward），那么它会直接执行合并（merge）操作。但是，使用它来进行合并（merge），合并（merge）并删除分支后，会丢失分支信息，这样不利于我们日后查看。</p>
+<p>因此，我们一般会禁用快速合并（Fast-forward）功能，Git会在合并（merge）时提交一个新的Commit，这样，我们就能从历史上看到分支的信息。</p>
+<p>Git merge命令后加上--no-ff就是禁用快速合并（Fast-forward）功能。</p>
+<p>&nbsp;</p>
+<p>我们先建立并切换到一个新分支test：</p>
+<div>
+<pre>$ git checkout -b test
+Switched to a new branch 'test'</pre>
+</div>
+<p>&nbsp;</p>
+<p>修改并提交readme.txt文件：</p>
+<div>
+<pre>$ git add readme.txt 
+$ git commit -m "hello world"
+[test 4a06fc6] hello world
+ 1 file changed, 2 insertions(+)</pre>
+</div>
+<p>&nbsp;</p>
+<p>提交完后切换回master分支：</p>
+<div>
+<pre>$ git checkout master
+Switched to branch 'master'</pre>
+</div>
+<p>&nbsp;</p>
+<p>合并test分支：</p>
+<div>
+<pre>$ git merge --no-ff -m "merge test" test
+Merge made by the 'recursive' strategy.
+ readme.txt | 2 ++
+ 1 file changed, 2 insertions(+)</pre>
+</div>
+<p>--no-ff参数表示禁用快速合并（Fast-forward），因为这次是合并并提交，因此需要加上-m参数备注分支。</p>
+<p>&nbsp;</p>
+<p>合并后查看日志记录：</p>
+<div>
+<pre>$ git log --graph --pretty=oneline --abbrev-commit
+*   2b7a3a0 merge test now
+|\  
+| * 561f8b3 edit readme
+|/  </pre>
+</div>
+<p>通过禁用快速合并（Fast-forward），我们可以从日志里清晰看到曾经做过合并。这是快速合并所做不到的。</p>
+<p>&nbsp;</p>
+<p>为了更清晰地展现两者间的区别，我刚刚又做了一个快速合并（Fast-forward）的操作：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git log --graph --pretty=oneline --abbrev-commit
+* 6e84f57 error
+*   2b7a3a0 merge test now
+|\  
+| * 561f8b3 edit readme
+|/  </pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>从历史上我们可以看到，如果是直接使用快速合并（Fast-forward），我们在历史上就只能看到分支提交的Commit，但并不知道是从test分支上合并的; 但如果使用--no-ff参数禁用快速合并（Fast-forward），那么我们就能从历史上清晰看到是与哪个分支合并。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><a name="momentBranch"></a>5.4、临时分支</strong></p>
+<p>有时候，我们想要创建一个临时分支，用来修复一些紧急问题或者是突如其来的任务变更，这些谁也说不准。</p>
+<p>&nbsp;</p>
+<p>在你工作没完成的时候，突然测试人员走过来跟你说，有一个很紧急的BUG需要修复。这时候你不得不抛下目前的工作去完成他指派给你的BUG，但是，你手头上还有工作没完成，只完成了一部分：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+    modified:   readme.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>&nbsp;</p>
+<p>那么，这个时候我们可以使用git stash命令，把当前工作区的内容存储起来，日后继续工作的时候可以把它恢复：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git stash
+Saved working directory and index state WIP on master: 6e84f57 error
+HEAD is now at 6e84f57 error
+$ git status
+On branch master
+nothing to commit, working directory clean</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>&nbsp;</p>
+<p>使用git status验证工作区是否是干净的：</p>
+<div>
+<pre>$ git status
+On branch master
+nothing to commit, working directory clean</pre>
+</div>
+<p>从结果看出工作区是干净的。</p>
+<p>&nbsp;</p>
+<p>比如现在我们要修复一个BUG，它的ID为4293－1，我们先创建并切换到新分支：</p>
+<div>
+<pre>$ git checkout -b bug-4293-1
+Switched to a new branch 'bug-4293-1'</pre>
+</div>
+<p>&nbsp;</p>
+<p>假设我们已经完成了BUG修复，提交到Git：</p>
+<div>
+<pre>$ git add readme.txt 
+$ git commit -m "fix bug"
+[bug-4293-1 d82ca8f] fix bug
+ 1 file changed, 1 insertion(+), 1 deletion(-)</pre>
+</div>
+<p>&nbsp;</p>
+<p>切换到master分支，合并bug-4293-1分支，最后删除bug-4293-1分支：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git checkout master
+Switched to branch 'master'
+$ git merge --no-ff -m "merge fix bug" bug-4293-1
+Merge made by the 'recursive' strategy.
+ readme.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git branch -D bug-4293-1
+Deleted branch bug-4293-1 (was d82ca8f).</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>&nbsp;</p>
+<p>那么该回到之前的工作区上工作了，我们可以使用git stash list查看存储的工作区列表：</p>
+<div>
+<pre>$ git stash list
+stash@{0}: WIP on master: 6e84f57 error</pre>
+</div>
+<p>&nbsp;</p>
+<p>使用git stash apply恢复：</p>
+<div>
+<pre>$ git stash apply
+Auto-merging readme.txt
+CONFLICT (content): Merge conflict in readme.txt</pre>
+</div>
+<p>现在，工作区的文件已经全部恢复了。</p>
+<p>&nbsp;</p>
+<p>最后把存储的工作区删除掉：</p>
+<div>
+<pre>$ git stash drop stash@{0}
+Dropped stash@{0} (783bdbe7bc4cfff89709dd273fd7b469a9041277)</pre>
+</div>
+<p>现在已经把存储的工作区给删除了。现在恢复和删除是分两步的操作，我们还可以把它们合并为一步，也就是恢复并且删除，我们可以使用git stash pop命令。</p>
+<p>&nbsp;</p>
+<p>现在使用git stash list命令已经查看不到有存储的工作区了：</p>
+<div>
+<pre>$ git stash list</pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><a name="managerTag"></a>6、Git标签</strong></p>
+<p><strong><a name="createTag"></a>6.1、创建标签&nbsp;</strong></p>
+<p>使用git tag &lt;name&gt;命令打标签：</p>
+<div>
+<pre>$ git tag v1.0.0</pre>
+</div>
+<p>&nbsp;</p>
+<p>使用git tag命令可以查看所有标签：</p>
+<div>
+<pre>$ git tag
+v1.0.0</pre>
+</div>
+<p>&nbsp;</p>
+<p>使用git tag show &lt;name&gt;命令可以查看标签信息：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git show v1.0.0
+commit 9e53375e4a84bde213aa2a8d5c77adc251ca1503
+Author: GarveyCalvin &lt;1147626297@qq.com&gt;
+Date:   Tue Jan 20 11:16:58 2015 +0800
+
+    formal
+...</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>&nbsp;</p>
+<p>如果是已提交但忘记打标签的情况下，可以找到当时提交的ID，然后针对ID打标签：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git log --pretty=oneline 
+7d5e44602cd32284782ea401dd8c2481fc12ca94 add tag
+9e53375e4a84bde213aa2a8d5c77adc251ca1503 formal
+ce809c52cb944e679f099ddf2d07e92469a25d53 merge fix bug
+d82ca8f16ee7237bdafede1cc709a2d520137c18 fix bug
+6e84f5775b0df132f4a737d7281eb0900d1de878 error
+2b7a3a07c991a6a5ed4a28bc863d5211336ad96e merge test now
+561f8b385bd03e8294fba643289c105de6ffc3df edit readme
+ec1ffe29f87da4304abf964e7629dc671c3a59b1 test
+87ef57980131541f82216b7359ca7beb50c65010 I don't like here
+6f9e769ac382f77001b29bd8b2d3b92054390c3e add New Num
+c6847813d853e7e70739a55df487407314b7ee30 three edit new
+5308250b75470b5754eca360d43a03c74820d4de three edit
+299e07a39e547e1b48f3fc657daa7e6d4ecbf6f4 two edit
+dc09f1df94afd30bca6726e9f0d3459e358ac560 first commit</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>&nbsp;</p>
+<p>比如在merge test now提交的那一次打标签，对应的ID是“2b7a3a07c”：</p>
+<div>
+<pre>$ git tag v0.1.0 2b7a3a07c</pre>
+</div>
+<p>&nbsp;</p>
+<p>使用git tag看一下当前所有的标签：</p>
+<div>
+<pre>$ git tag
+v0.1.0
+v1.0.0</pre>
+</div>
+<p>可以看到我们刚刚新打的标签v0.1.0。</p>
+<p>&nbsp;</p>
+<p>再查询v0.0.1标签的信息：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git show v0.1.0
+commit 2b7a3a07c991a6a5ed4a28bc863d5211336ad96e
+Merge: ec1ffe2 561f8b3
+Author: GarveyCalvin &lt;1147626297@qq.com&gt;
+Date:   Mon Jan 19 10:21:26 2015 +0800
+
+    merge test now</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>可以看到，标签已经打在了merge test now这次提交上。</p>
+<p>&nbsp;</p>
+<p>我们还可以创建有说明的标签，用<code>-a表示</code>标签名称，<code>-m表示</code>说明文字：</p>
+<div>
+<pre>$ git tag -a v2.0.0 -m "formal v2.0.0"</pre>
+</div>
+<p>&nbsp;</p>
+<p>查看标签的信息：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git show v2.0.0
+tag v2.0.0
+Tagger: GarveyCalvin &lt;1147626297@qq.com&gt;
+Date:   Tue Jan 20 11:38:10 2015 +0800
+
+formal v2.0.0
+
+commit d5161f9ba613100455a010a3afc312d32a99b68b
+Author: GarveyCalvin &lt;1147626297@qq.com&gt;
+Date:   Tue Jan 20 11:37:28 2015 +0800
+
+    detail tag
+...</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>可以看到我们刚刚写的说明“formal v2.0.0”。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><a name="newManagerTag"></a>6.2、标签管理</strong></p>
+<p>使用git tag -d命令删除标签：&nbsp;</p>
+<div>
+<pre>$ git tag -d v1.0.0
+Deleted tag 'v1.0.0' (was 9e53375)</pre>
+</div>
+<p>&nbsp;</p>
+<p>使用git push origin &lt;tagName&gt;推送至远程仓库：</p>
+<div>
+<pre>$ git push origin v1.0.0
+Total 0 (delta 0), reused 0 (delta 0)
+To https://git.oschina.net/GarveyCalvin/testProject.git
+ * [new tag]         v1.0.0 -&gt; v1.0.0</pre>
+</div>
+<p>&nbsp;</p>
+<p>使用git push origin --tags把所有未推送的标签推送到远程仓库：</p>
+<div>
+<pre>$ git push origin --tags
+Total 0 (delta 0), reused 0 (delta 0)
+To https://git.oschina.net/GarveyCalvin/testProject.git
+ * [new tag]         v0.0.1 -&gt; v0.0.1
+ * [new tag]         v0.1.0 -&gt; v0.1.0</pre>
+</div>
+<p>&nbsp;</p>
+<p>如果已经推送到远程仓库，现在想要删除的话，首先从本地移除对应的tag：</p>
+<div>
+<pre>$ git tag -d v0.0.1
+Deleted tag 'v0.0.1' (was bc2cb64)</pre>
+</div>
+<p>&nbsp;</p>
+<p>然后在git puh origin命令后面加上:refs/tags/&lt;tag name&gt;删除：</p>
+<div>
+<pre>$ git push origin :refs/tags/v0.0.1
+To https://git.oschina.net/GarveyCalvin/testProject.git
+ - [deleted]         v0.0.1</pre>
+</div>
+<p>除了这种方法，你也可以自行到远程仓库网站把Tag删除。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><a name="customGit"></a>7、自定义Git</strong></p>
+<p><strong><a name="gitignore"></a>7.1、忽略特殊文件/文件夹</strong></p>
+<p>在有些时候，我们的Git项目里会有一些特殊的文件，可能是系统自生成的文件，在你每次提交的时候都会提示你有文件改动了，提示你添加这些文件。这样是不是很烦人？因此我们需要忽略这类文件。</p>
+<p>&nbsp;</p>
+<p>比如在Mac系统里，每个文件夹都会生成一个".DS_Store"的隐藏文件，用来存放文件夹的排序等信息，这些文件也会在查看git status时出现，并且它们出现的次数非常多，令人感觉非常烦。你是否有疑惑为什么你看了这篇博文这么久，都没有看到过这些提示，那是因为我没截全部的提示：）。好了，下面就教大家怎样去忽略它。</p>
+<p>&nbsp;</p>
+<p>我们需要在Git工作区的根目录下创建.gitignore文件，在这之前我们先创建一些需要忽略的文件夹：</p>
+<p><img src="./Git－学习笔记（常用命令集合）_files/77573585_18.png" alt="" width="274" height="88"></p>
+<p>以上这些文件和文件夹都是需要Git去忽略掉的。</p>
+<p>&nbsp;</p>
+<p>我们先使用git status查看一下状态：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+
+    .DS_Store
+    bad/
+    ignore/
+    other/
+
+nothing added to commit but untracked files present (use "git add" to track)</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>没自定义忽略的文件/文件夹前，会把所有改动过的文件/文件夹进行提示。</p>
+<p>如果你们没看见有文件夹显示，那是因为你的文件夹下没有文件/文件夹，Git自动会忽略空目录。解决方法很简单，只要在文件夹下添加文件就可以了。</p>
+<p>&nbsp;</p>
+<p>现在我们可以创建.gitignore文件了，文件内容如下所示：</p>
+<div>
+<pre># remark
+*.DS_Store
+ignore<br>other<br>bad</pre>
+</div>
+<p>有#号的那一行都是备注，并没有实质作用。</p>
+<p>*.忽略后缀名为……的文件</p>
+<p>ignore、other、bad为忽略的文件夹</p>
+<p>&nbsp;</p>
+<p>注意，要把.gitignore文件放到版本库里：</p>
+<div>
+<pre>$ git add .gitignore</pre>
+</div>
+<p>&nbsp;</p>
+<p>现在我们再使用git status查看一下状态：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+    new file:   .gitignore</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>现在就只能查询到.gitignore文件了，其它需要忽略的文件/文件夹已经被忽略掉。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong><a name="createTypedef"></a>7.2 创建别名</strong></p>
+<p>我们可以像开发那样，自己定义一个关键字类型。</p>
+<p>我们查看状态时，一般都是使用git status，如果你想简化成git st，那么：</p>
+<div>
+<div><div><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td><div>1</div></td><td><div><div><code>$ git config --global alias.st status</code></div></div></td></tr></tbody></table></div></div>
+</div>
+<p>--global参数表示全局定义，也就是说定义了之后，在当前电脑下的所有Git仓库都通用。如果不想定义为全局，那么把--global参数去掉即可。</p>
+<p>&nbsp;</p>
+<p>以后就可以直接使用git st命令查看状态了：</p>
+<div><div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div>
+<pre>$ git st
+On branch master
+Your branch is up-to-date with 'origin/master'.
+
+Changes to be committed:
+  (use "git reset HEAD &lt;file&gt;..." to unstage)
+
+    new file:   .gitignore</pre>
+<div><a title="复制代码"><img src="./Git－学习笔记（常用命令集合）_files/77573585_1.gif" alt="复制代码"></a></div></div>
+<p>&nbsp;</p>
+<p>前面我们想要简化git log显示内容时，是否需要输入一大串字符(git log --pretty=oneline --abbrev-commit)？现在我们可以为它创建别名进行简化输入了，并且显示更加强大：</p>
+<div>
+<pre>git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset' --abbrev-commit"</pre>
+</div>
+<p>代码片段转自：http://blog.csdn.net/n289950578/article/details/24465663</p>
+<p>&nbsp;</p>
+<p>效果如下：</p>
+<p><img src="./Git－学习笔记（常用命令集合）_files/77573585_19.png" alt="" width="514" height="75"></p>
+<p>&nbsp;</p>
+<p>全局的Git配置文件在用户主目录（Macintosh HD ? Users ? 你的用户名）下的隐藏文件.gitconfig中：</p>
+<p><img src="./Git－学习笔记（常用命令集合）_files/77573585_20.png" alt="" width="549" height="148"></p>
+<p>当我们想要取消别名时，只需要把对应的别名行删除即可。如果是定义非全局的Git配置文件，那么它在当前项目的根目录下的.git隐藏文件夹下的config文件。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><strong>8、Git管理软件</strong></p>
+<p>建立大家使用SourceTree管理Git库，功能强大，界面友好，使用简单，这里就不多作介绍了。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>博文作者：GarveyCalvin</p>
+<p>博文出处：<a href="http://www.cnblogs.com/GarveyCalvin/" target="_blank">http://www.cnblogs.com/GarveyCalvin/</a></p>
+<p>本文版权归作者和博客园共有，欢迎转载，但须保留此段声明，并给出原文链接，谢谢合作！</p>
+<p>&nbsp;</p>
+</td>
+<script>
+                                    var html = document.getElementById("artContent").innerHTML;
+                                    document.getElementById("artContent").innerHTML = html;
+
+                                </script>
+</tr>
+</tbody>
+</table>
+<div id="viewerPlaceHolder" style="width: 717px; height: 700px; display: none; margin: 0 auto;">
+</div>
+</div>
+<table>
+<tbody>
+<tr>
+<td>
+<ul></ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div></div>
+<span></span>
+<a></a>
+<p style="margin: 0; padding: 0;"></p>
+<p class="clearboth"></p>
+<div id="divreward" style="display: none;"></div>
+<div class="bdsharebuttonbox bottombtn bdshare-button-style0-16" data-bd-bind="1513502653354">
+<div class="zcommond" style="overflow: visible;">
+<a href="javascript:void(0);" class="btn_collect" onclick="SaveArt();artStatistics(&#39;20-3-2&#39;);">转藏到我的图书馆</a>
+<a id="flowimg3" href="javascript:void(0);" class="btn_good" onclick="Showflowerlayer(&#39;sendedLayer1&#39;);">献花（<span id="articleflowernum">0</span>）
+<span id="flowernumadd" style="display: none;">+1</span>
+</a>
+<span class="span1 f_left" onclick="setTimeout(function(){$(&#39;.bottombtn .sharelist_new&#39;).slideToggle(0);},10);artStatistics(&#39;20-8-3&#39;);" onmouseover="this.style.color=&#39;#0f659c&#39;" onmouseout="this.style.color=&#39;&#39;">分享：</span>
+<a class="sharewx f_left" href="javascript:void(0);" onclick="shareWeixin();artStatistics(&#39;20-8-6&#39;);">微信</a>
+<div class="s2 f_left" onclick="setTimeout(function(){$(&#39;.bottombtn .sharelist_new&#39;).slideToggle(0);},10);artStatistics(&#39;20-8-4&#39;);"><span></span></div>
+</div>
+<div class="sharelist_new" id="fenxiangLayer2" style="display: none;">
+<a class="slbg1" href="javascript:void(0);" data-cmd="qzone" onclick="artStatistics(&#39;20-8-8&#39;);">QQ空间</a>
+<a class="slbg2" href="javascript:void(0);" data-cmd="sqq" onclick="artStatistics(&#39;20-8-10&#39;);">QQ好友</a>
+<a class="slbg3" href="javascript:void(0);" data-cmd="tsina" onclick="artStatistics(&#39;20-8-12&#39;);">新浪微博</a>
+<a class="slbg5" href="javascript:void(0);" onclick="showdivemail1();artStatistics(&#39;20-8-16&#39;);">推荐给朋友</a>
+</div>
+</div>
+<div class="bottom_controler">
+<p class="bottom_cleft">
+来自：
+<span class="a_username" style="width: auto;">
+<a href="http://www.360doc.com/userhome/26211242" id="savernickname2" target="_blank" onclick="artStatistics(&#39;20-7-2&#39;);">jnstyle</a>
+</span>
+&gt;
+<span id="cname" class="a_from"><a href="http://www.360doc.com/userhome.aspx?userid=26211242&amp;cid=18" target="_blank" onclick="artStatistics(&quot;20-6&quot;);">《编程工具》</a></span>
+</p>
+<div class="bottom_cright">
+<a href="https://www.baidu.com/s?wd=git+readme+txt&amp;tn=SE_hldp01010_6r0gix1f" target="_blank" class="a1" onclick="artStatistics(&#39;20-19&#39;);">以文找文</a>
+&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="javascript:void(0);" class="a2" onclick="showAlertLayer1();artStatistics(&#39;20-18&#39;);">举报</a>
+</div>
+</div>
+<div class="prev_next">
+<p id="lastart" class="p1" style="display: block;"> 上一篇：<a onclick="artStatistics(&quot;20-9-5&quot;);" href="http://www.360doc.com/content/16/0808/17/26211242_581728012.shtml" target="_blank">Mac下如何配置OSChina SSH公钥及配置SourceTree</a></p>
+<p id="nextart" class="p2">
+</p>
+</div>
+</div>
+<p class="clearboth"></p>
+<div style="width: 676px; float: left;">
+<div class="str_border" style="border: none; position: relative; z-index: 2;">
+<strong>猜你喜欢</strong>
+</div>
+<ul class="youlike" style="margin-top: -18px; position: relative; z-index: 1;">
+<div style="width: 676px; height: 280px; border: 0;" id="divyoulikead"><iframe id="youlikead" style="width: 676px; height: 280px; border: 0;" frameborder="0" scrolling="no" src="./Git－学习笔记（常用命令集合）_files/adbaiduyoulike.html"></iframe></div>
+</ul>
+<div class="zcommond" style="padding: 10px 0 5px;">
+<div class="bottom_article f_left">
+<div class="str_border">
+<strong>类似文章</strong>
+<a href="http://www.360doc.com/relevant/582136091_more.shtml" target="_blank" class="a_more f_right" onclick="artStatistics(&quot;20-9-8&quot;);">更多</a>
+</div>
+<ul class="barticle_list">
+<li><span><a href="http://www.360doc.com/content/11/1113/16/1016783_164032774.shtml" target="_blank" onclick="artStatistics(&quot;20-9-7&quot;);">笔记《版本控制之道--使用Git》</a></span></li>
+<li><span><a href="http://www.360doc.com/content/12/0608/18/10058718_216905243.shtml" target="_blank" onclick="artStatistics(&quot;20-9-7&quot;);">GIT版本配置管理</a></span></li>
+<li><span><a href="http://www.360doc.com/content/13/1104/19/9171956_326619518.shtml" target="_blank" onclick="artStatistics(&quot;20-9-7&quot;);">Git详解之二 Git基础</a></span></li>
+<li><span><a href="http://www.360doc.com/content/15/0319/21/11400509_456528010.shtml" target="_blank" onclick="artStatistics(&quot;20-9-7&quot;);">基本的git命令</a></span></li>
+<li><span><a href="http://www.360doc.com/content/16/0629/18/3242454_571715677.shtml" target="_blank" onclick="artStatistics(&quot;20-9-7&quot;);">30分钟git命令入门到放弃 | w3cTrain</a></span></li>
+<li><span><a href="http://www.360doc.com/content/15/1125/20/26657790_515794174.shtml" target="_blank" onclick="artStatistics(&quot;20-9-7&quot;);">Git历险记(5)：Git里的分支与合并(2)</a></span></li>
+<li><span><a href="http://www.360doc.com/content/13/0606/23/12594123_291143653.shtml" target="_blank" onclick="artStatistics(&quot;20-9-7&quot;);">(转载)Git Commands</a></span></li>
+<li><span><a href="http://www.360doc.com/content/14/0511/06/7385274_376560273.shtml" target="_blank" onclick="artStatistics(&quot;20-9-7&quot;);">GitHub常用命令</a></span></li>
+</ul>
+</div>
+<div class="bottom_article f_right">
+<div class="str_border">
+<strong>精选文章</strong>
+</div>
+<ul class="barticle_list">
+<li><span><a onclick="artStatistics(&#39;20-9-9&#39;);" href="http://www.360doc.com/content/13/0814/18/4666759_307018949.shtml" target="_blank">名师培养之“道”</a></span></li>
+<li><span><a onclick="artStatistics(&#39;20-9-9&#39;);" href="http://www.360doc.com/content/13/0107/17/1630322_258696536.shtml" target="_blank">视频精选：这些视频最近老好玩了</a></span></li>
+<li><span><a onclick="artStatistics(&#39;20-9-9&#39;);" href="http://www.360doc.com/content/12/1014/07/5356189_241325972.shtml" target="_blank">绝妙的营销点子900例</a></span></li>
+<li><span><a onclick="artStatistics(&#39;20-9-9&#39;);" href="http://www.360doc.com/content/12/1129/01/1430145_250792699.shtml" target="_blank">古琴悠悠如天籁 高山流水觅知</a></span></li>
+<li><span><a onclick="artStatistics(&#39;20-9-9&#39;);" href="http://www.360doc.com/content/13/0825/23/552772_309791230.shtml" target="_blank">令人销魂的天籁之音（珍藏版）⑥（30首）【影视音乐】</a></span></li>
+<li><span><a onclick="artStatistics(&#39;20-9-9&#39;);" href="http://www.360doc.com/content/13/0709/16/6987213_298622184.shtml" target="_blank">计算机硬件知识及故障维修大全(珍藏版)</a></span></li>
+<li><span><a onclick="artStatistics(&#39;20-9-9&#39;);" href="http://www.360doc.com/content/13/0905/19/6085160_312354621.shtml" target="_blank">你还敢说这些技巧都懂吗？</a></span></li>
+<li><span><a onclick="artStatistics(&#39;20-9-9&#39;);" href="http://www.360doc.com/content/13/1114/15/6085160_329059977.shtml" target="_blank">三高神方运脾逐湿汤</a></span></li>
+</ul>
+</div>
+</div>
+<div id="divunderad"><iframe id="underZcommondAd" style="width: 676px; height: 100px;" frameborder="0" scrolling="no" src="./Git－学习笔记（常用命令集合）_files/underad.html"></iframe></div>
+<div id="ReflectionPart"><div style="margin: 0px 0px;"><div class="plbox" style="height:auto;"><div style="padding-left:6px;margin-top:10px;padding-bottom:14px;"><div style="height: 23px;font-size:16px;font-weight:bold;" class="titwx">发表评论</div><div class="deluwx" style="margin-top:10px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;请&nbsp;<span><a onclick="ReflectionLoginform();artStatistics(&#39;20-4-1&#39;);" href="javascript:void(0);">登录</a></span>&nbsp;或者&nbsp;<span><a onclick="InsertLogData(4);artStatistics(&#39;20-4-2&#39;);" href="http://www.360doc.com/register.aspx?refer=53&amp;reurl=showweb/0/0/54400091122.aspx" target="_blank">注册</a></span>&nbsp;后再进行评论</div><div class="rt360" style="height: 26px;margin:-22px 170px 0 0;_display:inline;"><span class="dsfwz">社交帐号登录：</span><a class="dsftb sf1" href="javascript:void(0);" onclick="ArtLoginTypeID=13;toSNSLogin(&#39;smb&#39;);artStatistics(&#39;20-4-3&#39;);_hmt.push([&#39;_trackEvent&#39;,&#39;loginsina&#39;,&#39;clicknum&#39;,&#39;wenzhangyeremark&#39;]);" title="新浪微博"></a><a class="dsftb sf2 " onclick="ArtLoginTypeID=13;toSNSLogin(&#39;qq&#39;);artStatistics(&#39;20-4-4&#39;);_hmt.push([&#39;_trackEvent&#39;,&#39;loginqq&#39;,&#39;clicknum&#39;,&#39;wenzhangyeremark&#39;]); " href="javascript:void(0);" title="腾讯QQ"></a><a class="dsftb sf3" href="javascript:void(0);" onclick="ArtLoginTypeID=13;toSNSLogin(&#39;wx&#39;);artStatistics(&#39;20-4-5&#39;);_hmt.push([&#39;_trackEvent&#39;,&#39;loginrenren&#39;,&#39;clicknum&#39;,&#39;wenzhangyeremark&#39;]);" title="微信"></a></div></div></div></div></div>
+<div style="padding-top: 15px; padding-left: 15px;" id="Reflction"><div id="360docRefTN" class="wenzhang_bt" style="display:none;"></div><div id="360docRefCT"></div><div id="360docRefPB" style="display: none;"></div></div>
+</div>
+</div>
+<div class="a_right">
+<div class="user_info">
+<div class="user_photo f_left">
+<p class="user_photopic">
+<a href="http://www.360doc.com/userhome/26211242" id="userphotourl" target="_blank" onclick="artStatistics(&#39;20-7-4&#39;);">
+<img src="./Git－学习笔记（常用命令集合）_files/001.gif" id="userphoto" width="58" height="58">
+</a>
+</p>
+<a href="javascript:void(0);" onclick="docTalk();artStatistics(&#39;20-15&#39;);" class="user_talk" title="与TA对话"></a>
+</div>
+<div class="user_data f_right">
+<div class="user_data_name">
+<a href="http://www.360doc.com/userhome/26211242" id="nickname" target="_blank" onclick="artStatistics(&#39;20-7-3&#39;);">jnstyle</a>
+<img src="./Git－学习笔记（常用命令集合）_files/user_name_tag.gif" alt="图书馆">
+</div>
+<p id="userdegree"><img src="./Git－学习笔记（常用命令集合）_files/userstar1.gif"><img src="./Git－学习笔记（常用命令集合）_files/userstar1.gif"><img src="./Git－学习笔记（常用命令集合）_files/userstar1.gif"><img src="./Git－学习笔记（常用命令集合）_files/userstar3.gif"><img src="./Git－学习笔记（常用命令集合）_files/userstar3.gif"></p>
+<div class="user_data_num">
+<a id="spanfollowstatus" class="gz_no"></a>
+<script type="text/javascript">isfollow(26211242);</script>
+<span id="follownum">23</span>&nbsp;&nbsp;&nbsp;&nbsp;
+<span>馆藏</span>&nbsp;<span id="artnum">1001</span>
+</div>
+</div>
+</div>
+<div class="his_her"><ul class="his_her_type"><li class="f_left curone">TA的最新馆藏</li></ul><div class="his_her_div" style="height:190px;"><ul class="his_her_list"><li><div><span></span><a href="http://www.360doc.com/content/17/1210/16/26211242_711829159.shtml" target="_blank" onclick="artStatistics(&#39;20-9-3&#39;);">2016马云创业语录，马云最激励人心的句子</a></div><div><span></span><a href="http://www.360doc.com/content/17/1110/22/26211242_702776728.shtml" target="_blank" onclick="artStatistics(&#39;20-9-3&#39;);">希鸥网李志磊：创业是建立社会存在感的重要途径</a></div><div><span></span><a href="http://www.360doc.com/content/17/1104/02/26211242_700722912.shtml" target="_blank" onclick="artStatistics(&#39;20-9-3&#39;);">Android Canvas drawText实现中文垂直居中</a></div><div><span></span><a href="http://www.360doc.com/content/17/1028/04/26211242_698724581.shtml" target="_blank" onclick="artStatistics(&#39;20-9-3&#39;);">Xtecher | 【重磅榜单】2016中国最具投资价值人工智能项目Top 100</a></div><div><span></span><a href="http://www.360doc.com/content/17/1028/00/26211242_698712965.shtml" target="_blank" onclick="artStatistics(&#39;20-9-3&#39;);">霍金的轮椅 才是当今科技的巅峰(组图)</a></div><div><span></span><a href="http://www.360doc.com/content/17/1026/21/26211242_698407962.shtml" target="_blank" onclick="artStatistics(&#39;20-9-3&#39;);">深入情景，感知用户</a></div></li></ul></div></div>
+<div class="clear360doc" style="padding-top: 10px; height: 260px;">
+<div id="divifartad1">
+<script>
+            var strow = document.body.offsetWidth;
+            var strsw = document.body.scrollWidth;
+            var strsc = window.screen.width;
+
+            function aliad1() {
+                document.write('<a style="display:none!important" id="tanx-a-mm_11220363_1101997_10218757"></a>');
+                tanx_s = document.createElement("script");
+                tanx_s.type = "text/javascript";
+                tanx_s.charset = "gbk";
+                tanx_s.id = "tanx-s-mm_11220363_1101997_10218757";
+                tanx_s.async = true;
+                tanx_s.src = "http://p.tanx.com/ex?i=mm_11220363_1101997_10218757";
+                tanx_h = document.getElementsByTagName("head")[0];
+                if (tanx_h) tanx_h.insertBefore(tanx_s, tanx_h.firstChild);
+            }
+
+            function aliad2() {
+                document.write('<a style="display:none!important" id="tanx-a-mm_11220363_1101997_26568831"></a>');
+                tanx_s = document.createElement("script");
+                tanx_s.type = "text/javascript";
+                tanx_s.charset = "gbk";
+                tanx_s.id = "tanx-s-mm_11220363_1101997_26568831";
+                tanx_s.async = true;
+                tanx_s.src = "http://p.tanx.com/ex?i=mm_11220363_1101997_26568831";
+                tanx_h = document.getElementsByTagName("head")[0];
+                if (tanx_h) tanx_h.insertBefore(tanx_s, tanx_h.firstChild);
+            }
+
+
+            if (strsc <= 1024) {
+                aliad1();
+            }
+            else {
+                //300宽
+                aliad2();
+            }
+        </script><ins style="display:inline-block;padding:0;margin:0;width:300px;height:250px;*zoom:1;*display:inline; position:relative;" id="tanxssp-outer-conmm_11220363_1101997_26568831"><div id="tanxssp_con_mm_11220363_1101997_26568831" style="overflow:hidden;display:inline-block;position:relative;width:300px;height:250px;*display:inline;*zoom:1;font:12px/1.5 tahoma,&#39;Hiragino Sans GB&#39;,&#39;microsoft yahei&#39;,sans-serif;"><iframe id="tanxssp-outer-iframemm_11220363_1101997_26568831" style="width: 300px; height: 250px;" border="0" frameborder="0" scrolling="no" marginwidth="0" allowtransparency="true" marginheight="0" src="./Git－学习笔记（常用命令集合）_files/saved_resource(1).html"></iframe><a style="display:none !important;" id="tanx_frameanchor_mm_11220363_1101997_26568831" data-mid="17534123"></a><a id="iconmm_11220363_1101997_26568831" title="我也要申请橱窗推广" target="_blank" href="http://pro.taobao.com/index.htm?spm=a2320.7388781.1998051528.5.JOvNkN" style="overflow:hidden;width:15px;height:13px;right:20px;bottom:0px;display:block;position:absolute;cursor:pointer;z-index:250;">   <span id="icon_smallmm_11220363_1101997_26568831" style="border-right:2px solid #FBE008;float:none;width:13px;display:block;height:13px;box-sizing:content-box"><img src="./Git－学习笔记（常用命令集合）_files/TB1DmcoJXXXXXavXpXXXXXXXXXX-26-26.png" border="0" style="width:13px;height:13px;margin:auto;display:block;"></span>   <span id="icon_bigmm_11220363_1101997_26568831" style="float:none;width:60px;height:13px;display: none;"><img src="./Git－学习笔记（常用命令集合）_files/TB1Lt7aJXXXXXcjXVXXXXXXXXXX-117-26.png" style="width:60px;height:13px;margin:auto;display:block;" border="0/"></span></a><a id="sxmm_11220363_1101997_26568831" href="javascript:;" style="width:20px;height:13px;right:0px;bottom:0px;display:block;position:absolute;cursor:pointer;z-index:250;margin:0;">   <span id="sx1mm_11220363_1101997_26568831" style="float:none;width:20px;display:block;height:13px;"><img src="./Git－学习笔记（常用命令集合）_files/TB1tWvVJFXXXXc_aXXXXXXXXXXX-40-26.png" style="width:20px;height:13px;margin:auto;display:block;min-height:13px;" border="0/"></span><div id="sxtipmm_11220363_1101997_26568831" style="display:none;position:absolute;left:-38px;bottom:13px;"><img src="./Git－学习笔记（常用命令集合）_files/TB1upAiJXXXXXa5aXXXXXXXXXXX-116-30.png" style="width:58px;height:15px;margin:auto;display:block;min-height:15px;" border="0"></div></a></div></ins><a style="display:none!important" id="tanx-a-mm_11220363_1101997_26568831"></a>
+</div>
+<div style="height: 10px;">
+</div>
+</div>
+<div class="his_her" id="recommendArt" style="margin-top: 5px;">
+<div class="str_border" style="margin: 0;">
+<span style="font-size: 14px; float: left;">喜欢该文的人也喜欢</span>
+<a style="float: right;" class="a_more" onclick="artStatistics(&#39;20-9-4&#39;);" href="http://www.360doc.com/readroom.html" target="_blank">更多</a>
+</div>
+<div class="his_her_div" style="height: 264px;">
+<ul class="his_her_list">
+<li id="recommendArtLists"><div><span></span><a href="http://www.360doc.com/content/17/0921/10/8510298_688878156.shtml" target="_blank" onclick="artStatistics(&#39;20-9-1&#39;);">拍马屁和顺口溜。</a></div><div><span></span><a href="http://www.360doc.com/content/17/0521/04/35804869_655886357.shtml" target="_blank" onclick="artStatistics(&#39;20-9-1&#39;);">【打麻将必胜绝技珍藏版】实用技术贴</a></div><div><span></span><a href="http://www.360doc.com/content/17/0625/05/153935_666454968.shtml" target="_blank" onclick="artStatistics(&#39;20-9-1&#39;);">打死都不要外传的国画教程技巧！</a></div><div><span></span><a href="http://www.360doc.com/content/17/0817/10/28672832_679840940.shtml" target="_blank" onclick="artStatistics(&#39;20-9-1&#39;);">女人夜里可以静静读一读想一下的经典句子</a></div><div><span></span><a href="http://www.360doc.com/content/17/0925/04/31456442_690080502.shtml" target="_blank" onclick="artStatistics(&#39;20-9-1&#39;);">开心搞笑十条：晚上和小姨子一起加班，为什么你身上有她香水味？</a></div><div><span></span><a href="http://www.360doc.com/content/17/0805/11/4663795_676816506.shtml" target="_blank" onclick="artStatistics(&#39;20-9-1&#39;);">世界上最大的两个姓，愣是出不了皇帝，传说一个和笔画有关一个和神有关</a></div><div><span></span><a href="http://www.360doc.com/content/17/0626/09/20714567_666592304.shtml" target="_blank" onclick="artStatistics(&#39;20-9-1&#39;);">国际禁毒日 | 鸦片的中国简史</a></div><div><span></span><a href="http://www.360doc.com/content/17/0818/12/27518214_680128324.shtml" target="_blank" onclick="artStatistics(&#39;20-9-1&#39;);">国医大师说：水中一勺它，气血双补，男性吃壮如牛，女性吃美如花。</a></div><div><span></span><a href="http://www.360doc.com/content/17/1115/11/43201783_704002757.shtml" target="_blank" onclick="artStatistics(&#39;20-9-1&#39;);">来自热销重庆小面店家的配方，解密火热的秘密</a></div></li>
+</ul>
+</div>
+</div>
+<div class="clear360doc" style="padding-top: 10px;" id="divifartad2"><iframe id="ifartad2" height="250" width="300px" frameborder="0" scrolling="no" src="./Git－学习笔记（常用命令集合）_files/ad2_300.html"></iframe></div>
+<br>
+<div id="divifartrightsogou"><iframe id="ifartrightsogou" height="190" width="300px" frameborder="0" scrolling="no" src="./Git－学习笔记（常用命令集合）_files/artrightadsogou300.html"></iframe></div>
+<div class="clear360doc" id="divad5" style="padding-top: 11px; zoom: 1; width: 300px; position: fixed; top: 80px; left: 819.5px;">
+<div id="divad4" style="">
+<div id="divifartad"><iframe id="ifartad" height="250px" width="300px" frameborder="0" scrolling="no" src="./Git－学习笔记（常用命令集合）_files/ad4_300.html"></iframe></div>
+<div class="ggwz">
+<a href="javascript:void(0);" onclick="closead(2);">关闭</a>
+</div>
+<div style="height: 13px;">
+</div>
+</div>
+<div style="clear: both;" id="divad6">
+<div id="adfloatbaidu"><iframe id="ifartadfloadbaidu" height="250px" width="250px" frameborder="0" scrolling="no" src="./Git－学习笔记（常用命令集合）_files/ad5.html" style="width: 250px; margin: 0px auto;"></iframe></div>
+<div class="ggwz" style="left: 25px;">
+<a href="javascript:void(0);" onclick="closead(3);">关闭</a>
+</div>
+<div style="height: 13px;">
+</div>
+</div>
+<div style="height: 75px;">
+</div>
+</div>
+</div>
+</div>
+<p class="clearboth"></p>
+<input type="hidden" id="artid" value="582136091">
+<input type="hidden" id="docarttitle" value="Git%ef%bc%8d%e5%ad%a6%e4%b9%a0%e7%ac%94%e8%ae%b0%ef%bc%88%e5%b8%b8%e7%94%a8%e5%91%bd%e4%bb%a4%e9%9b%86%e5%90%88%ef%bc%89">
+<input type="hidden" id="firstartid" value="582136091">
+<input type="hidden" id="firstuid" value="26211242">
+<input type="hidden" id="firstarturl" value="http://www.360doc.com/content/16/0810/01/26211242_582136091.shtml">
+<input type="hidden" id="subclassid" value="-1">
+<input type="hidden" id="recommendart1" value="326619518">
+<input type="hidden" id="recommendart2" value="-1">
+<input type="hidden" id="isowner" value="False">
+<input type="hidden" id="original" value="0">
+<input type="hidden" id="artreadroomid" value="0">
+<script src="./Git－学习笔记（常用命令集合）_files/sha1.js" type="text/javascript"></script>
+<script src="./Git－学习笔记（常用命令集合）_files/addStatistics.js" type="text/javascript"></script>
+<script src="./Git－学习笔记（常用命令集合）_files/showarticle.js" type="text/javascript" charset="utf-8"></script>
+<script>GerLookingUserInfo(1,26211242,1,0,'-1',-1,10,0);OutputSource('http://www.cnblogs.com/GarveyCalvin/p/4267400.html','博客园');OutputLastNextArt('Mac%e4%b8%8b%e5%a6%82%e4%bd%95%e9%85%8d%e7%bd%aeOSChina+SSH%e5%85%ac%e9%92%a5%e5%8f%8a%e9%85%8d%e7%bd%aeSourceTree','http://www.360doc.com/content/16/0808/17/26211242_581728012.shtml',0);</script>
+<script type="text/javascript" src="./Git－学习笔记（常用命令集合）_files/newheader.js"></script>
+<script src="./Git－学习笔记（常用命令集合）_files/getstatusv2.ashx" type="text/javascript" charset="utf-8" async="async"></script>
+<script type="text/javascript">
+        var baiduImagePlus = {
+            noLogo: true,
+            unionId: 'u2617463',
+            maxMiniAdCount: 0,
+            formList: [{ formId: 10 }]
+        };
+    </script>
+<script type="text/javascript" src="./Git－学习笔记（常用命令集合）_files/i.js"></script>
+
+
+<div style="position: absolute; border: 0px; margin: 0px; padding: 0px; height: 0px; overflow: visible; text-align: left; z-index: 999; top: 2022px; left: 118px; width: 365px;" baidu_imageplus_sensitive_judge="true"><style type="text/css" media="screen">.baiduimageplus-yuetu-box{position:fixed;width:100%;height:100%;top:0;left:0;bottom:0;right:0;font-family:'Microsoft YaHei';line-height:normal;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;display:none;z-index:2147483647}.yuetu-float-layer-arrow{float:none;margin:0;padding:0;border:0;overflow:hidden;position:static;display:block;visibility:visible;text-align:left;background:transparent;-webkit-box-sizing:content-box;box-sizing:content-box;position:absolute;height:70px;width:40px;top:0;left:0;background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full.png);_background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_png8.png);background-repeat:no-repeat;background-position:-2px -124px;z-index:888}.yuetu-float-layer-arrow:hover{background-position:-44px -124px;cursor:pointer}
+.yuetu-float-layer-arrow:active{background-position:-86px -124px;cursor:pointer}.yuetu-float-layer-salon{float:none;margin:0;padding:0;border:0;overflow:hidden;position:static;display:block;visibility:visible;text-align:left;background:transparent;position:fixed;top:0;left:0;bottom:0;right:0;filter:progid:dximagetransform.microsoft.gradient(startColorstr='#661F1F1F',endColorstr='#661F1F1F');background-color:rgba(31,31,31,0.4);font-family:Microsoft YaHei;z-index:2147483647;line-height:normal;box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box}.yuetu-float-layer-salon div{float:none;margin:0;padding:0;border:0;overflow:hidden;position:static;display:block;visibility:visible;text-align:left;background:transparent;-webkit-box-sizing:content-box;box-sizing:content-box;font-family:Microsoft YaHei;line-height:normal}
+.yuetu-float-layer-salon a,.yuetu-float-layer-salon img,.yuetu-float-layer-salon span{float:none;margin:0;padding:0;border:0;overflow:visible;position:static;display:inline;visibility:visible;text-align:left;background:transparent;-webkit-box-sizing:content-box;box-sizing:content-box;font-family:Microsoft YaHei;line-height:normal}.yuetu-float-layer-salon .yfls-container{position:fixed;height:600px;width:1080px;top:0;left:0;background-color:#fff}.yuetu-float-layer-salon .yfls-container .yfls-hr{width:100%;height:1px;position:absolute;background-color:#e0e0e0;z-index:3;display:none}.yuetu-float-layer-salon .yfls-container .yfls-hr-header{top:43px;left:0}.yuetu-float-layer-salon .yfls-container .yfls-hr-footer{left:0;bottom:40px}.yuetu-float-layer-salon .yfls-container .yfls-bodyer{position:absolute;top:0;left:0;background-color:white;z-index:2}
+.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-title{position:absolute;top:15px;left:15px;height:20px;width:960px;font-size:16px;color:#434343;font-weight:bold}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-title .yfls-img-num-idx{color:#e30a20;font-weight:bolder}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-title .yfls-img-title-text strong{font-weight:normal}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer{position:absolute;top:50px;left:0;border-right:1px solid #e0e0e0;-moz-user-select:none;-webkit-user-select:none;user-select:none}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgup-btn{position:absolute;height:100px;width:50px;top:225px;left:0;background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);_background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);background-position:-116px -90px;background-repeat:no-repeat;-moz-user-select:none;-webkit-user-select:none;user-select:none}
+.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgup-btn:hover{background-position:-174px -90px;cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgdn-btn{position:absolute;height:100px;width:50px;top:225px;right:0;background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);_background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);background-position:-56px -90px;background-repeat:no-repeat;-moz-user-select:none;-webkit-user-select:none;user-select:none}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgdn-btn:hover{background-position:2px -90px;cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-bodyer-img-hide{display:none}
+.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer>img:hover{cursor:url(http://ecmb.bdimg.com/public03/yuetu_left_cur_0715.cur),auto}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-img-wrapper{position:absolute;z-index:1;left:60px;overflow:hidden}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-img-wrapper .yfls-img-item-iframe{position:relative;left:0}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-img-wrapper .yfls-img-item-img,.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-img-wrapper .yfls-img-item-realIframe{float:left}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgup-arrow{position:absolute;z-index:3;background-color:#000;filter:alpha(opacity=0);background-color:rgba(0,0,0,0)}
+.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgup-arrow:hover{cursor:url(http://ecmb.bdimg.com/public03/yuetu_left_cur_0715.cur),auto}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgdn-arrow{position:absolute;z-index:3;background-color:#000;filter:alpha(opacity=0);background-color:rgba(0,0,0,0)}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgdn-arrow:hover{cursor:url(http://ecmb.bdimg.com/public03/yuetu_right_cur_0715.cur),auto}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-footer{font-size:11px;color:#c9c9c9;position:absolute;width:80%;width:inherit;bottom:15px;text-align:right}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-footer .yfls-img-footer-url{margin-right:5%}
+.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-footer .yfls-img-footer-url a{text-decoration:none;color:#c9c9c9!important;color:inherit}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer{background-color:white;z-index:1;position:absolute}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-fast-click-shell{position:absolute;z-index:1;background-color:#000;filter:alpha(opacity=0);background-color:rgba(0,0,0,0)}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-title{position:absolute;top:15px;left:50px;height:30px;font-size:14px;border-bottom:8px #f64c4c solid}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-title .yfls-tail-title-hot-recommend{font-size:20px;font-weight:bold;color:#515151}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-title-re{position:absolute;top:0;right:52px;width:145px;height:50px;z-index:2;background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);background-repeat:no-repeat;background-position:-155px -200px}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-title-re:hover{background-position:0 -200px;cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer{position:absolute;top:55px;left:35px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item{position:absolute;height:256px;width:200px;background-color:#FFF;border:2px solid #e5e5e5;box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item:hover{border:2px solid #f64c4c}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item img{height:200px;width:200px;border:0}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-flash-a{position:absolute;height:200px;width:200px;top:0;left:0;opacity:0;filter:alpha(opacity=0);background:#FFF;overflow:hidden}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-title{white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow:hidden;margin-top:4px;text-align:center}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-title .yfls-ad-item-title-a{text-decoration:none;color:#000;font-size:16px;font-weight:bold}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-title .yfls-ad-item-title-a:hover{color:#f64c4c}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-url{white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow:hidden;margin-top:2px;text-align:center}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-url .yfls-ad-item-url-a{text-decoration:none;color:#868686;font-size:12px;font-weight:bold}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-url .yfls-ad-item-url-a:hover{text-decoration:underline}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer{position:absolute;left:0;bottom:0}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-native-title{height:35px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-native-title>div{position:absolute;left:50px;top:0;font-size:18px;color:#515151;font-weight:bold}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-native-replace{background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);background-position:0 -60px;background-repeat:no-repeat;width:110px;height:25px;position:absolute;top:0;right:35px}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-native-replace:hover{cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad{position:absolute;left:0;bottom:0;height:135px;overflow:visible}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container{position:absolute;left:35px;right:35px;top:0;height:135px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item{position:absolute;height:135px;width:148px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-img{width:144px;height:104px;border:2px solid #e5e5e5;cursor:pointer}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-img:hover{border:2px solid #f64c4c}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-img:hover .yfls-tail-ad-item-img-hover{text-decoration:none;display:block;position:absolute;top:2px;left:2px;width:144px;height:104px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-img .yfls-tail-ad-item-img-hover{display:none;position:absolute;top:2px;left:2px;width:144px;height:104px;background-color:rgba(246,76,76,0.85);filter:progid:dximagetransform.microsoft.gradient(startColorstr='#D9F64C4C',endColorstr='#D9F64C4C');cursor:pointer}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-img .yfls-tail-ad-item-img-hover>div{position:absolute;top:35px;left:19px;height:30px;width:102px;border:2px solid #fff;font-weight:bold;line-height:30px;text-align:center;color:#fff}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-info{text-align:center;font-size:12px;color:#333;margin-top:4px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-info a{color:#333;text-decoration:none;cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-info a:hover{color:#f64c4c}
+.yuetu-float-layer-salon .yfls-container .yfls-logo{position:absolute;right:0;bottom:0;margin:0 2px 2px 0;height:14px;width:13px;background:url(http://ecmb.bdimg.com/public03/yuetu_logo.png) no-repeat left top;background-position:0 -20px;z-index:3}.yuetu-float-layer-salon .yfls-container .yfls-logo:hover{background-position:0 -35px}.yuetu-float-layer-salon .yfls-container .imageplus-ad-logo{background:url(http://ecma.bdimg.com/public03/imageplus/logo.png) no-repeat;background-position:0 0;width:34px;height:16px;position:absolute;left:0;bottom:0;z-index:1}.yuetu-float-layer-salon .yfls-container .imageplus-paw-logo{background:url(http://ecma.bdimg.com/public03/imageplus/logo.png) no-repeat;background-position:0 -17px;width:16px;height:16px;position:absolute;right:0;bottom:0;z-index:1}.yuetu-float-layer-salon .yfls-container .yfls-close-btn{position:absolute;top:0;right:0;height:50px;width:50px;z-index:3;background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);background-repeat:no-repeat;background-position:0 0}
+.yuetu-float-layer-salon .yfls-container .yfls-close-btn:hover{background-position:-60px 0;cursor:pointer}.yuetu-float-layer-salon-hide{height:0}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer-yuansheng{display:none}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-title-re-pv{position:absolute;top:0;right:162px;width:50px;height:50px;z-index:2;background-image:url(http://ecmb.bdimg.com/public03/yuetu_close_btn_pv_1015.png);background-repeat:no-repeat;background-position:0 -44px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-title-re-pv:hover{background-position:0 -97px;cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng{position:absolute;left:0;bottom:0;top:53px;right:0}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-native-replace{display:none}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad{position:absolute;left:0;top:0;overflow:visible}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container{position:absolute;left:0;right:0;top:0;overflow:visible}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item{position:absolute;height:180px;width:210px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-img{width:206px;height:146px;border:2px solid #e5e5e5;cursor:pointer}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-info{text-align:center;font-size:18px;color:#333;padding:2px;border:2px solid #e5e5e5;border-top:0}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-info a{color:#333;text-decoration:none;cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-info a:hover{color:#f64c4c}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item:hover .yfls-tail-ad-item-img,.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item:hover .yfls-tail-ad-item-info{border-color:#f64c4c}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item:hover .yfls-tail-ad-item-img{border-bottom:2px solid #e5e5e5}.yuetu-float-layer-salon .yfls-container .yfls-close-btn-pv{position:absolute;top:0;right:0;height:50px;width:160px;z-index:3;background-image:url(http://ecmb.bdimg.com/public03/yuetu_close_btn_pv_1015.png);background-repeat:no-repeat;background-position:-51px -44px}.yuetu-float-layer-salon .yfls-container .yfls-close-btn-pv:hover{background-position:-51px -97px;cursor:pointer}</style><div id="f21ac82b21eeb7322631b6aa94e17f4516sm4sg" style="margin: 0px; padding: 0px; border: none; overflow: visible; text-align: left;"><div class="yuetu-float-layer yuetu-float-layer-arrow" style="height: 70px; width: 40px; top: 79px; left: 323px; position: absolute;" id="w-9efbmf"></div><div class="baiduimageplus-yuetu-box" id="w-ts3bqq-baiduimageplus-yuetu-box" style="height: 637px; width: 1223px;">
+<div id="w-ts3bqq-widget-isolated-host" style="width:100%;height:100%;overflow:hidden;box-sizing:content-box;position:static;display:block;padding:0;margin:0;border:none;"></div>
+</div></div></div><div baidu_imageplus_sensitive_judge="true" style="position: absolute; border: 0px; margin: 0px; padding: 0px; height: 0px; overflow: visible; text-align: left; z-index: 999; top: 5691px; left: 118px; width: 431px;"><style type="text/css" media="screen">.baiduimageplus-yuetu-box{position:fixed;width:100%;height:100%;top:0;left:0;bottom:0;right:0;font-family:'Microsoft YaHei';line-height:normal;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;display:none;z-index:2147483647}.yuetu-float-layer-arrow{float:none;margin:0;padding:0;border:0;overflow:hidden;position:static;display:block;visibility:visible;text-align:left;background:transparent;-webkit-box-sizing:content-box;box-sizing:content-box;position:absolute;height:70px;width:40px;top:0;left:0;background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full.png);_background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_png8.png);background-repeat:no-repeat;background-position:-2px -124px;z-index:888}.yuetu-float-layer-arrow:hover{background-position:-44px -124px;cursor:pointer}
+.yuetu-float-layer-arrow:active{background-position:-86px -124px;cursor:pointer}.yuetu-float-layer-salon{float:none;margin:0;padding:0;border:0;overflow:hidden;position:static;display:block;visibility:visible;text-align:left;background:transparent;position:fixed;top:0;left:0;bottom:0;right:0;filter:progid:dximagetransform.microsoft.gradient(startColorstr='#661F1F1F',endColorstr='#661F1F1F');background-color:rgba(31,31,31,0.4);font-family:Microsoft YaHei;z-index:2147483647;line-height:normal;box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box}.yuetu-float-layer-salon div{float:none;margin:0;padding:0;border:0;overflow:hidden;position:static;display:block;visibility:visible;text-align:left;background:transparent;-webkit-box-sizing:content-box;box-sizing:content-box;font-family:Microsoft YaHei;line-height:normal}
+.yuetu-float-layer-salon a,.yuetu-float-layer-salon img,.yuetu-float-layer-salon span{float:none;margin:0;padding:0;border:0;overflow:visible;position:static;display:inline;visibility:visible;text-align:left;background:transparent;-webkit-box-sizing:content-box;box-sizing:content-box;font-family:Microsoft YaHei;line-height:normal}.yuetu-float-layer-salon .yfls-container{position:fixed;height:600px;width:1080px;top:0;left:0;background-color:#fff}.yuetu-float-layer-salon .yfls-container .yfls-hr{width:100%;height:1px;position:absolute;background-color:#e0e0e0;z-index:3;display:none}.yuetu-float-layer-salon .yfls-container .yfls-hr-header{top:43px;left:0}.yuetu-float-layer-salon .yfls-container .yfls-hr-footer{left:0;bottom:40px}.yuetu-float-layer-salon .yfls-container .yfls-bodyer{position:absolute;top:0;left:0;background-color:white;z-index:2}
+.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-title{position:absolute;top:15px;left:15px;height:20px;width:960px;font-size:16px;color:#434343;font-weight:bold}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-title .yfls-img-num-idx{color:#e30a20;font-weight:bolder}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-title .yfls-img-title-text strong{font-weight:normal}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer{position:absolute;top:50px;left:0;border-right:1px solid #e0e0e0;-moz-user-select:none;-webkit-user-select:none;user-select:none}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgup-btn{position:absolute;height:100px;width:50px;top:225px;left:0;background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);_background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);background-position:-116px -90px;background-repeat:no-repeat;-moz-user-select:none;-webkit-user-select:none;user-select:none}
+.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgup-btn:hover{background-position:-174px -90px;cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgdn-btn{position:absolute;height:100px;width:50px;top:225px;right:0;background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);_background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);background-position:-56px -90px;background-repeat:no-repeat;-moz-user-select:none;-webkit-user-select:none;user-select:none}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgdn-btn:hover{background-position:2px -90px;cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-bodyer-img-hide{display:none}
+.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer>img:hover{cursor:url(http://ecmb.bdimg.com/public03/yuetu_left_cur_0715.cur),auto}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-img-wrapper{position:absolute;z-index:1;left:60px;overflow:hidden}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-img-wrapper .yfls-img-item-iframe{position:relative;left:0}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-img-wrapper .yfls-img-item-img,.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-img-wrapper .yfls-img-item-realIframe{float:left}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgup-arrow{position:absolute;z-index:3;background-color:#000;filter:alpha(opacity=0);background-color:rgba(0,0,0,0)}
+.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgup-arrow:hover{cursor:url(http://ecmb.bdimg.com/public03/yuetu_left_cur_0715.cur),auto}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgdn-arrow{position:absolute;z-index:3;background-color:#000;filter:alpha(opacity=0);background-color:rgba(0,0,0,0)}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgdn-arrow:hover{cursor:url(http://ecmb.bdimg.com/public03/yuetu_right_cur_0715.cur),auto}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-footer{font-size:11px;color:#c9c9c9;position:absolute;width:80%;width:inherit;bottom:15px;text-align:right}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-footer .yfls-img-footer-url{margin-right:5%}
+.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-footer .yfls-img-footer-url a{text-decoration:none;color:#c9c9c9!important;color:inherit}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer{background-color:white;z-index:1;position:absolute}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-fast-click-shell{position:absolute;z-index:1;background-color:#000;filter:alpha(opacity=0);background-color:rgba(0,0,0,0)}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-title{position:absolute;top:15px;left:50px;height:30px;font-size:14px;border-bottom:8px #f64c4c solid}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-title .yfls-tail-title-hot-recommend{font-size:20px;font-weight:bold;color:#515151}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-title-re{position:absolute;top:0;right:52px;width:145px;height:50px;z-index:2;background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);background-repeat:no-repeat;background-position:-155px -200px}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-title-re:hover{background-position:0 -200px;cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer{position:absolute;top:55px;left:35px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item{position:absolute;height:256px;width:200px;background-color:#FFF;border:2px solid #e5e5e5;box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item:hover{border:2px solid #f64c4c}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item img{height:200px;width:200px;border:0}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-flash-a{position:absolute;height:200px;width:200px;top:0;left:0;opacity:0;filter:alpha(opacity=0);background:#FFF;overflow:hidden}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-title{white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow:hidden;margin-top:4px;text-align:center}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-title .yfls-ad-item-title-a{text-decoration:none;color:#000;font-size:16px;font-weight:bold}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-title .yfls-ad-item-title-a:hover{color:#f64c4c}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-url{white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow:hidden;margin-top:2px;text-align:center}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-url .yfls-ad-item-url-a{text-decoration:none;color:#868686;font-size:12px;font-weight:bold}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-url .yfls-ad-item-url-a:hover{text-decoration:underline}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer{position:absolute;left:0;bottom:0}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-native-title{height:35px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-native-title>div{position:absolute;left:50px;top:0;font-size:18px;color:#515151;font-weight:bold}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-native-replace{background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);background-position:0 -60px;background-repeat:no-repeat;width:110px;height:25px;position:absolute;top:0;right:35px}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-native-replace:hover{cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad{position:absolute;left:0;bottom:0;height:135px;overflow:visible}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container{position:absolute;left:35px;right:35px;top:0;height:135px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item{position:absolute;height:135px;width:148px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-img{width:144px;height:104px;border:2px solid #e5e5e5;cursor:pointer}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-img:hover{border:2px solid #f64c4c}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-img:hover .yfls-tail-ad-item-img-hover{text-decoration:none;display:block;position:absolute;top:2px;left:2px;width:144px;height:104px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-img .yfls-tail-ad-item-img-hover{display:none;position:absolute;top:2px;left:2px;width:144px;height:104px;background-color:rgba(246,76,76,0.85);filter:progid:dximagetransform.microsoft.gradient(startColorstr='#D9F64C4C',endColorstr='#D9F64C4C');cursor:pointer}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-img .yfls-tail-ad-item-img-hover>div{position:absolute;top:35px;left:19px;height:30px;width:102px;border:2px solid #fff;font-weight:bold;line-height:30px;text-align:center;color:#fff}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-info{text-align:center;font-size:12px;color:#333;margin-top:4px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-info a{color:#333;text-decoration:none;cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-info a:hover{color:#f64c4c}
+.yuetu-float-layer-salon .yfls-container .yfls-logo{position:absolute;right:0;bottom:0;margin:0 2px 2px 0;height:14px;width:13px;background:url(http://ecmb.bdimg.com/public03/yuetu_logo.png) no-repeat left top;background-position:0 -20px;z-index:3}.yuetu-float-layer-salon .yfls-container .yfls-logo:hover{background-position:0 -35px}.yuetu-float-layer-salon .yfls-container .imageplus-ad-logo{background:url(http://ecma.bdimg.com/public03/imageplus/logo.png) no-repeat;background-position:0 0;width:34px;height:16px;position:absolute;left:0;bottom:0;z-index:1}.yuetu-float-layer-salon .yfls-container .imageplus-paw-logo{background:url(http://ecma.bdimg.com/public03/imageplus/logo.png) no-repeat;background-position:0 -17px;width:16px;height:16px;position:absolute;right:0;bottom:0;z-index:1}.yuetu-float-layer-salon .yfls-container .yfls-close-btn{position:absolute;top:0;right:0;height:50px;width:50px;z-index:3;background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);background-repeat:no-repeat;background-position:0 0}
+.yuetu-float-layer-salon .yfls-container .yfls-close-btn:hover{background-position:-60px 0;cursor:pointer}.yuetu-float-layer-salon-hide{height:0}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer-yuansheng{display:none}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-title-re-pv{position:absolute;top:0;right:162px;width:50px;height:50px;z-index:2;background-image:url(http://ecmb.bdimg.com/public03/yuetu_close_btn_pv_1015.png);background-repeat:no-repeat;background-position:0 -44px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-title-re-pv:hover{background-position:0 -97px;cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng{position:absolute;left:0;bottom:0;top:53px;right:0}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-native-replace{display:none}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad{position:absolute;left:0;top:0;overflow:visible}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container{position:absolute;left:0;right:0;top:0;overflow:visible}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item{position:absolute;height:180px;width:210px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-img{width:206px;height:146px;border:2px solid #e5e5e5;cursor:pointer}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-info{text-align:center;font-size:18px;color:#333;padding:2px;border:2px solid #e5e5e5;border-top:0}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-info a{color:#333;text-decoration:none;cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-info a:hover{color:#f64c4c}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item:hover .yfls-tail-ad-item-img,.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item:hover .yfls-tail-ad-item-info{border-color:#f64c4c}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item:hover .yfls-tail-ad-item-img{border-bottom:2px solid #e5e5e5}.yuetu-float-layer-salon .yfls-container .yfls-close-btn-pv{position:absolute;top:0;right:0;height:50px;width:160px;z-index:3;background-image:url(http://ecmb.bdimg.com/public03/yuetu_close_btn_pv_1015.png);background-repeat:no-repeat;background-position:-51px -44px}.yuetu-float-layer-salon .yfls-container .yfls-close-btn-pv:hover{background-position:-51px -97px;cursor:pointer}</style><div id="f21ac82b21eeb7322631b6aa94e17f452feaiew" style="margin: 0px; padding: 0px; border: none; overflow: visible; text-align: left;"><div class="yuetu-float-layer yuetu-float-layer-arrow" style="height: 70px; width: 40px; top: 97px; left: 389px; position: absolute;" id="w-s8ryfi"></div><div class="baiduimageplus-yuetu-box" id="w-wzgwyr-baiduimageplus-yuetu-box" style="height: 637px; width: 1223px;">
+<div id="w-wzgwyr-widget-isolated-host" style="width:100%;height:100%;overflow:hidden;box-sizing:content-box;position:static;display:block;padding:0;margin:0;border:none;"></div>
+</div></div></div><div baidu_imageplus_sensitive_judge="true" style="position: absolute; border: 0px; margin: 0px; padding: 0px; height: 0px; overflow: visible; text-align: left; z-index: 999; top: 7839px; left: 118px; width: 400px;"><style type="text/css" media="screen">.baiduimageplus-yuetu-box{position:fixed;width:100%;height:100%;top:0;left:0;bottom:0;right:0;font-family:'Microsoft YaHei';line-height:normal;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;display:none;z-index:2147483647}.yuetu-float-layer-arrow{float:none;margin:0;padding:0;border:0;overflow:hidden;position:static;display:block;visibility:visible;text-align:left;background:transparent;-webkit-box-sizing:content-box;box-sizing:content-box;position:absolute;height:70px;width:40px;top:0;left:0;background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full.png);_background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_png8.png);background-repeat:no-repeat;background-position:-2px -124px;z-index:888}.yuetu-float-layer-arrow:hover{background-position:-44px -124px;cursor:pointer}
+.yuetu-float-layer-arrow:active{background-position:-86px -124px;cursor:pointer}.yuetu-float-layer-salon{float:none;margin:0;padding:0;border:0;overflow:hidden;position:static;display:block;visibility:visible;text-align:left;background:transparent;position:fixed;top:0;left:0;bottom:0;right:0;filter:progid:dximagetransform.microsoft.gradient(startColorstr='#661F1F1F',endColorstr='#661F1F1F');background-color:rgba(31,31,31,0.4);font-family:Microsoft YaHei;z-index:2147483647;line-height:normal;box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box}.yuetu-float-layer-salon div{float:none;margin:0;padding:0;border:0;overflow:hidden;position:static;display:block;visibility:visible;text-align:left;background:transparent;-webkit-box-sizing:content-box;box-sizing:content-box;font-family:Microsoft YaHei;line-height:normal}
+.yuetu-float-layer-salon a,.yuetu-float-layer-salon img,.yuetu-float-layer-salon span{float:none;margin:0;padding:0;border:0;overflow:visible;position:static;display:inline;visibility:visible;text-align:left;background:transparent;-webkit-box-sizing:content-box;box-sizing:content-box;font-family:Microsoft YaHei;line-height:normal}.yuetu-float-layer-salon .yfls-container{position:fixed;height:600px;width:1080px;top:0;left:0;background-color:#fff}.yuetu-float-layer-salon .yfls-container .yfls-hr{width:100%;height:1px;position:absolute;background-color:#e0e0e0;z-index:3;display:none}.yuetu-float-layer-salon .yfls-container .yfls-hr-header{top:43px;left:0}.yuetu-float-layer-salon .yfls-container .yfls-hr-footer{left:0;bottom:40px}.yuetu-float-layer-salon .yfls-container .yfls-bodyer{position:absolute;top:0;left:0;background-color:white;z-index:2}
+.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-title{position:absolute;top:15px;left:15px;height:20px;width:960px;font-size:16px;color:#434343;font-weight:bold}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-title .yfls-img-num-idx{color:#e30a20;font-weight:bolder}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-title .yfls-img-title-text strong{font-weight:normal}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer{position:absolute;top:50px;left:0;border-right:1px solid #e0e0e0;-moz-user-select:none;-webkit-user-select:none;user-select:none}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgup-btn{position:absolute;height:100px;width:50px;top:225px;left:0;background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);_background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);background-position:-116px -90px;background-repeat:no-repeat;-moz-user-select:none;-webkit-user-select:none;user-select:none}
+.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgup-btn:hover{background-position:-174px -90px;cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgdn-btn{position:absolute;height:100px;width:50px;top:225px;right:0;background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);_background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);background-position:-56px -90px;background-repeat:no-repeat;-moz-user-select:none;-webkit-user-select:none;user-select:none}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgdn-btn:hover{background-position:2px -90px;cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-bodyer-img-hide{display:none}
+.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer>img:hover{cursor:url(http://ecmb.bdimg.com/public03/yuetu_left_cur_0715.cur),auto}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-img-wrapper{position:absolute;z-index:1;left:60px;overflow:hidden}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-img-wrapper .yfls-img-item-iframe{position:relative;left:0}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-img-wrapper .yfls-img-item-img,.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-img-wrapper .yfls-img-item-realIframe{float:left}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgup-arrow{position:absolute;z-index:3;background-color:#000;filter:alpha(opacity=0);background-color:rgba(0,0,0,0)}
+.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgup-arrow:hover{cursor:url(http://ecmb.bdimg.com/public03/yuetu_left_cur_0715.cur),auto}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgdn-arrow{position:absolute;z-index:3;background-color:#000;filter:alpha(opacity=0);background-color:rgba(0,0,0,0)}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-bodyer .yfls-pgdn-arrow:hover{cursor:url(http://ecmb.bdimg.com/public03/yuetu_right_cur_0715.cur),auto}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-footer{font-size:11px;color:#c9c9c9;position:absolute;width:80%;width:inherit;bottom:15px;text-align:right}.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-footer .yfls-img-footer-url{margin-right:5%}
+.yuetu-float-layer-salon .yfls-container .yfls-bodyer .yfls-img-footer .yfls-img-footer-url a{text-decoration:none;color:#c9c9c9!important;color:inherit}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer{background-color:white;z-index:1;position:absolute}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-fast-click-shell{position:absolute;z-index:1;background-color:#000;filter:alpha(opacity=0);background-color:rgba(0,0,0,0)}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-title{position:absolute;top:15px;left:50px;height:30px;font-size:14px;border-bottom:8px #f64c4c solid}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-title .yfls-tail-title-hot-recommend{font-size:20px;font-weight:bold;color:#515151}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-title-re{position:absolute;top:0;right:52px;width:145px;height:50px;z-index:2;background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);background-repeat:no-repeat;background-position:-155px -200px}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-title-re:hover{background-position:0 -200px;cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer{position:absolute;top:55px;left:35px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item{position:absolute;height:256px;width:200px;background-color:#FFF;border:2px solid #e5e5e5;box-sizing:content-box;-moz-box-sizing:content-box;-webkit-box-sizing:content-box}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item:hover{border:2px solid #f64c4c}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item img{height:200px;width:200px;border:0}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-flash-a{position:absolute;height:200px;width:200px;top:0;left:0;opacity:0;filter:alpha(opacity=0);background:#FFF;overflow:hidden}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-title{white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow:hidden;margin-top:4px;text-align:center}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-title .yfls-ad-item-title-a{text-decoration:none;color:#000;font-size:16px;font-weight:bold}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-title .yfls-ad-item-title-a:hover{color:#f64c4c}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-url{white-space:nowrap;text-overflow:ellipsis;-o-text-overflow:ellipsis;overflow:hidden;margin-top:2px;text-align:center}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-url .yfls-ad-item-url-a{text-decoration:none;color:#868686;font-size:12px;font-weight:bold}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer .yfls-ad-item .yfls-ad-item-url .yfls-ad-item-url-a:hover{text-decoration:underline}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer{position:absolute;left:0;bottom:0}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-native-title{height:35px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-native-title>div{position:absolute;left:50px;top:0;font-size:18px;color:#515151;font-weight:bold}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-native-replace{background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);background-position:0 -60px;background-repeat:no-repeat;width:110px;height:25px;position:absolute;top:0;right:35px}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-native-replace:hover{cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad{position:absolute;left:0;bottom:0;height:135px;overflow:visible}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container{position:absolute;left:35px;right:35px;top:0;height:135px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item{position:absolute;height:135px;width:148px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-img{width:144px;height:104px;border:2px solid #e5e5e5;cursor:pointer}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-img:hover{border:2px solid #f64c4c}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-img:hover .yfls-tail-ad-item-img-hover{text-decoration:none;display:block;position:absolute;top:2px;left:2px;width:144px;height:104px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-img .yfls-tail-ad-item-img-hover{display:none;position:absolute;top:2px;left:2px;width:144px;height:104px;background-color:rgba(246,76,76,0.85);filter:progid:dximagetransform.microsoft.gradient(startColorstr='#D9F64C4C',endColorstr='#D9F64C4C');cursor:pointer}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-img .yfls-tail-ad-item-img-hover>div{position:absolute;top:35px;left:19px;height:30px;width:102px;border:2px solid #fff;font-weight:bold;line-height:30px;text-align:center;color:#fff}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-info{text-align:center;font-size:12px;color:#333;margin-top:4px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-info a{color:#333;text-decoration:none;cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-info a:hover{color:#f64c4c}
+.yuetu-float-layer-salon .yfls-container .yfls-logo{position:absolute;right:0;bottom:0;margin:0 2px 2px 0;height:14px;width:13px;background:url(http://ecmb.bdimg.com/public03/yuetu_logo.png) no-repeat left top;background-position:0 -20px;z-index:3}.yuetu-float-layer-salon .yfls-container .yfls-logo:hover{background-position:0 -35px}.yuetu-float-layer-salon .yfls-container .imageplus-ad-logo{background:url(http://ecma.bdimg.com/public03/imageplus/logo.png) no-repeat;background-position:0 0;width:34px;height:16px;position:absolute;left:0;bottom:0;z-index:1}.yuetu-float-layer-salon .yfls-container .imageplus-paw-logo{background:url(http://ecma.bdimg.com/public03/imageplus/logo.png) no-repeat;background-position:0 -17px;width:16px;height:16px;position:absolute;right:0;bottom:0;z-index:1}.yuetu-float-layer-salon .yfls-container .yfls-close-btn{position:absolute;top:0;right:0;height:50px;width:50px;z-index:3;background-image:url(http://ecmb.bdimg.com/public03/yuetu_btn_full_0715.png);background-repeat:no-repeat;background-position:0 0}
+.yuetu-float-layer-salon .yfls-container .yfls-close-btn:hover{background-position:-60px 0;cursor:pointer}.yuetu-float-layer-salon-hide{height:0}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-gx-bodyer-yuansheng{display:none}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-title-re-pv{position:absolute;top:0;right:162px;width:50px;height:50px;z-index:2;background-image:url(http://ecmb.bdimg.com/public03/yuetu_close_btn_pv_1015.png);background-repeat:no-repeat;background-position:0 -44px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-title-re-pv:hover{background-position:0 -97px;cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng{position:absolute;left:0;bottom:0;top:53px;right:0}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-native-replace{display:none}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad{position:absolute;left:0;top:0;overflow:visible}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container{position:absolute;left:0;right:0;top:0;overflow:visible}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item{position:absolute;height:180px;width:210px}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-img{width:206px;height:146px;border:2px solid #e5e5e5;cursor:pointer}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-info{text-align:center;font-size:18px;color:#333;padding:2px;border:2px solid #e5e5e5;border-top:0}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-info a{color:#333;text-decoration:none;cursor:pointer}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item .yfls-tail-ad-item-info a:hover{color:#f64c4c}.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item:hover .yfls-tail-ad-item-img,.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item:hover .yfls-tail-ad-item-info{border-color:#f64c4c}
+.yuetu-float-layer-salon .yfls-container .yfls-tail-bodyer .yfls-tail-native-bodyer-yuansheng .yfls-tail-ad .yfls-tail-ad-container .yfls-tail-ad-item:hover .yfls-tail-ad-item-img{border-bottom:2px solid #e5e5e5}.yuetu-float-layer-salon .yfls-container .yfls-close-btn-pv{position:absolute;top:0;right:0;height:50px;width:160px;z-index:3;background-image:url(http://ecmb.bdimg.com/public03/yuetu_close_btn_pv_1015.png);background-repeat:no-repeat;background-position:-51px -44px}.yuetu-float-layer-salon .yfls-container .yfls-close-btn-pv:hover{background-position:-51px -97px;cursor:pointer}</style><div id="f21ac82b21eeb7322631b6aa94e17f453g9serp" style="margin: 0px; padding: 0px; border: none; overflow: visible; text-align: left;"><div class="yuetu-float-layer yuetu-float-layer-arrow" style="height: 70px; width: 40px; top: 66px; left: 358px; position: absolute;" id="w-fdenx8"></div><div class="baiduimageplus-yuetu-box" id="w-qp7w18-baiduimageplus-yuetu-box" style="height: 637px; width: 1223px;">
+<div id="w-qp7w18-widget-isolated-host" style="width:100%;height:100%;overflow:hidden;box-sizing:content-box;position:static;display:block;padding:0;margin:0;border:none;"></div>
+</div></div></div><div id="goTop2" style="left: 1139.5px;"><div id="goTop"><a href="http://www.360doc.com/content/16/0810/01/26211242_582136091.shtml#" id="go_top" onclick="artStatistics(&#39;20-20&#39;);"></a></div><div id="goTop1"><a href="javascript:void(0);" id="go_top1"></a></div><div></div></div></body></html>

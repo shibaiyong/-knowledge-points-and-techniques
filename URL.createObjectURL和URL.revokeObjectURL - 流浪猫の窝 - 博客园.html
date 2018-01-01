@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://www.cnblogs.com/liulangmao/p/4262565.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>URL.createObjectURL和URL.revokeObjectURL - 流浪猫の窝 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./URL.createObjectURL和URL.revokeObjectURL - 流浪猫の窝 - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./URL.createObjectURL和URL.revokeObjectURL - 流浪猫の窝 - 博客园_files/bundle-darkgreentrip.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./URL.createObjectURL和URL.revokeObjectURL - 流浪猫の窝 - 博客园_files/bundle-darkgreentrip-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/liulangmao/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/liulangmao/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/liulangmao/wlwmanifest.xml">
+<script async="" src="./URL.createObjectURL和URL.revokeObjectURL - 流浪猫の窝 - 博客园_files/analytics.js.下载"></script><script type="text/javascript" src="./URL.createObjectURL和URL.revokeObjectURL - 流浪猫の窝 - 博客园_files/encoder.js.下载"></script><script src="./URL.createObjectURL和URL.revokeObjectURL - 流浪猫の窝 - 博客园_files/jquery.js.下载" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'liulangmao', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./URL.createObjectURL和URL.revokeObjectURL - 流浪猫の窝 - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="home">
+<div id="header">
+	<div id="blogTitle">
+	<a id="lnkBlogLogo" href="http://www.cnblogs.com/liulangmao/"><img id="blogLogo" src="./URL.createObjectURL和URL.revokeObjectURL - 流浪猫の窝 - 博客园_files/logo.gif" alt="返回主页"></a>			
+		
+<!--done-->
+<h1><a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/liulangmao/">流浪猫の窝</a></h1>
+<h2></h2>
+
+
+
+		
+	</div><!--end: blogTitle 博客的标题和副标题 -->
+	<div id="navigator">
+		
+<ul id="navList">
+<li><a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a></li>
+<li><a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/liulangmao/">首页</a></li>
+<li><a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a></li>
+<li><a id="blog_nav_contact" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E6%B5%81%E6%B5%AA%E7%8C%AB%E3%81%AE%E7%AA%9D">联系</a></li>
+<li><a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/liulangmao/rss">订阅</a>
+<!--<a id="blog_nav_rss_image" class="aHeaderXML" href="http://www.cnblogs.com/liulangmao/rss"><img src="//www.cnblogs.com/images/xml.gif" alt="订阅" /></a>--></li>
+<li><a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a></li>
+</ul>
+		<div class="blogStats">
+			
+			<div id="blog_stats">
+<span id="stats_post_count">随笔 - 120&nbsp; </span>
+<span id="stats_article_count">文章 - 0&nbsp; </span>
+<span id="stats-comment_count">评论 - 93</span>
+</div>
+			
+		</div><!--end: blogStats -->
+	</div><!--end: navigator 博客导航栏 -->
+</div><!--end: header 头部 -->
+
+<div id="main">
+	<div id="mainContent">
+	<div class="forFlow">
+		
+<div id="post_detail">
+<!--done-->
+<div id="topics">
+	<div class="post">
+		<h1 class="postTitle">
+			<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/liulangmao/p/4262565.html">URL.createObjectURL和URL.revokeObjectURL</a>
+		</h1>
+		<div class="clear"></div>
+		<div class="postBody">
+			<div id="cnblogs_post_body" class="blogpost-body"><div style="background: #C0DCC0; padding: 30px;">
+<p><span style="color: #888888; font-family: &#39;Microsoft YaHei&#39;; font-size: 16px;"><strong>一.URL.createObjectURL</strong></span>&nbsp;</p>
+<p><span style="color: #888888; font-family: &#39;Microsoft YaHei&#39;; font-size: 14px;">URL.createObjectURL()方法会根据传入的参数创建一个指向该参数对象的URL. 这个URL的生命仅存在于它被创建的这个文档里. 新的对象URL指向执行的File对象或者是Blob对象.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #3366ff; font-family: &#39;Microsoft YaHei&#39;; font-size: 14px;">语法:&nbsp;</span></p>
+<div class="cnblogs_code">
+<pre>objectURL = URL.createObjectURL(<span style="color: #339966;">blob || file</span>);</pre>
+</div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; color: #3366ff;">参数:</span></p>
+<p><span style="color: #808080; font-family: &#39;Microsoft YaHei&#39;;">File对象或者Blob对象</span></p>
+<p><span style="color: #808080; font-family: &#39;Microsoft YaHei&#39;;">这里大概说下File对象和Blob对象:</span></p>
+<p><span style="color: #808080; font-family: &#39;Microsoft YaHei&#39;;">File对象,就是一个文件,比如我用input type="file"标签来上传文件,那么里面的每个文件都是一个File对象.</span></p>
+<p><span style="color: #808080; font-family: &#39;Microsoft YaHei&#39;;">Blob对象,就是二进制数据,比如通过new Blob()创建的对象就是Blob对象.又比如,在XMLHttpRequest里,如果指定responseType为blob,那么得到的返回值也是一个blob对象.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #3366ff; font-family: &#39;Microsoft YaHei&#39;;">注意点:</span></p>
+<p><span style="color: #808080; font-family: &#39;Microsoft YaHei&#39;;">每次调用createObjectURL的时候,一个新的URL对象就被创建了.即使你已经为同一个文件创建过一个URL. 如果你不再需要这个对象,要释放它,需要使用URL.revokeObjectURL()方法. 当页面被关闭,浏览器会自动释放它,但是为了最佳性能和内存使用,当确保不再用得到它的时候,就应该释放它.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #888888; font-family: &#39;Microsoft YaHei&#39;;"><strong>二.URL.revokeObjectURL</strong></span></p>
+<p><span style="color: #888888; font-family: &#39;Microsoft YaHei&#39;;">URL.revokeObjectURL()方法会释放一个通过URL.createObjectURL()创建的对象URL. 当你要已经用过了这个对象URL,然后要让浏览器知道这个URL已经不再需要指向对应的文件的时候,就需要调用这个方法.</span></p>
+<p><span style="color: #888888; font-family: &#39;Microsoft YaHei&#39;;">具体的意思就是说,一个对象URL,使用这个url是可以访问到指定的文件的,但是我可能只需要访问一次,一旦已经访问到了,这个对象URL就不再需要了,就被释放掉,被释放掉以后,这个对象URL就不再指向指定的文件了.</span></p>
+<p><span style="color: #888888; font-family: &#39;Microsoft YaHei&#39;;">比如一张图片,我创建了一个对象URL,然后通过这个对象URL,我页面里加载了这张图.既然已经被加载,并且不需要再次加载这张图,那我就把这个对象URL释放,然后这个URL就不再指向这张图了.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #3366ff; font-family: &#39;Microsoft YaHei&#39;;">语法:</span></p>
+<div class="cnblogs_code">
+<pre>window.URL.revokeObjectURL(<span style="color: #339966;">objectURL</span>);</pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="color: #3366ff; font-family: &#39;Microsoft YaHei&#39;;">参数:</span></p>
+<p><span style="color: #808080; font-family: &#39;Microsoft YaHei&#39;;">objectURL 是一个通过URL.createObjectURL()方法创建的对象URL.</span></p>
+<p><em>&nbsp;</em></p>
+<p><span style="color: #3366ff; font-family: &#39;Microsoft YaHei&#39;;">这两个方法不支持低版本浏览器.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #808080; font-family: &#39;Microsoft YaHei&#39;;">最后,给个综合栗子:</span></p>
+<p><span style="color: #808080; font-family: &#39;Microsoft YaHei&#39;;">通过ajax获取一张图片,显示在页面里.</span></p>
+<p><span style="color: #808080; font-family: &#39;Microsoft YaHei&#39;;">html:</span>&nbsp;</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">button </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="getPic"</span><span style="color: #0000ff;">&gt;</span>获取图片的Blob数据<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">button</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">body</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>&nbsp;</p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; color: #888888;">js:</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./URL.createObjectURL和URL.revokeObjectURL - 流浪猫の窝 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">获取图片Blob数据</span>
+      document.getElementById('getPic').onclick = <span style="color: #0000ff;">function</span><span style="color: #000000;">(e){
+        $.ajax({
+          type:</span>'GET'<span style="color: #000000;">,
+          url:</span>'img.png'<span style="color: #000000;">,
+          <span style="background-color: #ffff99;">resDataType:</span></span><span style="background-color: #ffff99;">'blob'</span><span style="color: #000000;"><span style="background-color: #ffff99;">,</span>
+          imgType:</span>'png'<span style="color: #000000;">,
+          success:</span><span style="color: #0000ff;">function</span><span style="color: #000000;">(resText,resXML){
+            </span><span style="color: #0000ff;">var</span> img = document.createElement('img'<span style="color: #000000;">);
+            </span><span style="color: #0000ff;">var</span> objectUrl =<span style="color: #000000;"><span style="background-color: #ffff99;"> window.URL.createObjectURL</span>(resText);
+            img.src </span>=<span style="color: #000000;"> objectUrl;
+            img.onload </span>= <span style="color: #0000ff;">function</span><span style="color: #000000;">(){
+              <span style="background-color: #ffff99;">window.URL.revokeObjectURL</span>(objectUrl);
+            };
+            document.body.appendChild(img);
+          },
+          fail:</span><span style="color: #0000ff;">function</span><span style="color: #000000;">(err){
+            console.log(err)
+          }
+        });
+        e.preventDefault();
+      }</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./URL.createObjectURL和URL.revokeObjectURL - 流浪猫の窝 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="color: #888888; font-family: &#39;Microsoft YaHei&#39;;">指定返回的数据格式为blob二进制数据.</span></p>
+<p><span style="color: #888888; font-family: &#39;Microsoft YaHei&#39;;">通过返回的图片二进制数据来创建一个对象URL.</span></p>
+<p><span style="color: #888888; font-family: &#39;Microsoft YaHei&#39;;">当图片加载完成后释放对象URL.</span></p>
+<p>&nbsp;</p>
+<p><span style="color: #888888; font-family: &#39;Microsoft YaHei&#39;;">ajax.js:</span></p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./URL.createObjectURL和URL.revokeObjectURL - 流浪猫の窝 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">var</span> $=<span style="color: #000000;">{};
+$.ajax </span>= <span style="color: #0000ff;">function</span><span style="color: #000000;">(options){
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">1.获取参数</span>
+    <span style="color: #0000ff;">var</span> type = options.type.toUpperCase() || 'GET'<span style="color: #000000;">;
+    </span><span style="color: #0000ff;">var</span> resDataType = options.resDataType || 'string'<span style="color: #000000;">;
+    </span><span style="color: #0000ff;">var</span> reqDataType = options.reqDataType || 'string'<span style="color: #000000;">;
+    </span><span style="color: #0000ff;">var</span> url =<span style="color: #000000;"> options.url;
+    </span><span style="color: #0000ff;">var</span> data =<span style="color: #000000;"> options.data;
+    </span><span style="color: #0000ff;">var</span> success =<span style="color: #000000;"> options.success;
+    </span><span style="color: #0000ff;">var</span> fail =<span style="color: #000000;"> options.fail;
+    </span><span style="color: #0000ff;">var</span> progress =<span style="color: #000000;"> options.progress;
+    </span><span style="color: #0000ff;">var</span> imgType = options.imgType || 'jpg'<span style="color: #000000;">;
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">2.获取xhr对象</span>
+    <span style="color: #0000ff;">var</span> xhr =<span style="color: #000000;"> $.getXhr();
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">3.建立连接</span>
+<span style="color: #000000;">    xhr.open(type,url);
+    </span><span style="color: #008000;">/*</span><span style="color: #008000;">指定返回数据的格式需要在发送请求之前</span><span style="color: #008000;">*/</span>
+    <span style="background-color: #ffff99;"><span style="color: #0000ff;">if</span>(resDataType==='blob'<span style="color: #000000;">){
+        xhr.responseType </span>= 'blob'<span style="color: #000000;">;
+    }
+
+</span></span><span style="color: #008000;">//</span><span style="color: #008000;">4.发送请求</span>
+    <span style="color: #0000ff;">if</span>(type==='GET'<span style="color: #000000;">){
+        xhr.send(</span><span style="color: #0000ff;">null</span><span style="color: #000000;">)
+    }
+    </span><span style="color: #0000ff;">else</span> <span style="color: #0000ff;">if</span>(type==='POST'<span style="color: #000000;">) {
+        </span><span style="color: #0000ff;">if</span><span style="color: #000000;">(progress){
+            xhr.upload.onprogress </span>=<span style="color: #000000;"> progress;
+        }
+        </span><span style="color: #0000ff;">if</span>(reqDataType==='json'<span style="color: #000000;">){
+            xhr.setRequestHeader(</span>'Content-Type','application/json;charset=UTF-8'<span style="color: #000000;">);
+            data </span>= JSON.stringify(data);  <span style="color: #008000;">//</span><span style="color: #008000;">只能发送字符串格式的json,不能直接发送json</span>
+<span style="color: #000000;">        }
+        </span><span style="color: #0000ff;">if</span>(reqDataType==='string'<span style="color: #000000;">){
+            xhr.setRequestHeader(</span>'Content-Type','application/x-www-form-urlencoded'<span style="color: #000000;">);
+        }
+        xhr.send(data);
+    }
+
+    </span><span style="color: #008000;">//</span><span style="color: #008000;">5.接收数据</span>
+    xhr.onreadystatechange = <span style="color: #0000ff;">function</span><span style="color: #000000;">(){
+        </span><span style="color: #0000ff;">if</span>(<span style="color: #0000ff;">this</span>.readyState===4 &amp;&amp; (<span style="color: #0000ff;">this</span>.status&gt;=200 &amp;&amp; <span style="color: #0000ff;">this</span>.status&lt;300<span style="color: #000000;">)){
+            </span><span style="color: #0000ff;">var</span><span style="color: #000000;"> res;
+            </span><span style="color: #0000ff;">if</span>(resDataType==='json'<span style="color: #000000;">){
+                res </span>= JSON.parse(<span style="color: #0000ff;">this</span><span style="color: #000000;">.responseText);
+                success.call(</span><span style="color: #0000ff;">this</span>,res,<span style="color: #0000ff;">this</span><span style="color: #000000;">.responseXML)
+            }
+            </span><span style="background-color: #ffff99;"><span style="color: #0000ff;">if</span>(resDataType==='blob'<span style="color: #000000;">){
+                res </span>= <span style="color: #0000ff;">new</span> Blob([<span style="color: #0000ff;">this</span>.response],{type:'image/'+<span style="color: #000000;">imgType});
+                success.call(</span><span style="color: #0000ff;">this</span></span><span style="color: #000000;"><span style="background-color: #ffff99;">,res)
+            }</span>
+
+        }
+    };
+};</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./URL.createObjectURL和URL.revokeObjectURL - 流浪猫の窝 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; color: #888888;">指定响应的格式是二进制数据.</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; color: #888888;">使用xhr.response来获取响应的二进制数据,而不是xhr.responseText. 当定义了xhr.responseType='blob'以后,xhr就没有responseText属性了.</span></p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; color: #888888;">这里虽然使用new Blob(),但其实不用它,直接返回xhr.response,一样是正确的.</span></p>
+<p>&nbsp;</p>
+<p><span style="font-family: &#39;Microsoft YaHei&#39;; color: #808080;">参考原文: <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL.revokeObjectURL%20" target="_blank">https://developer.mozilla.org/en-US/docs/Web/API/URL.revokeObjectURL&nbsp;</a></span></p>
+<p>&nbsp;</p>
+<pre class="syntaxbox"></pre>
+<p>&nbsp;</p>
+</div></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/liulangmao/tag/%E5%89%8D%E7%AB%AF/">前端</a>, <a href="http://www.cnblogs.com/liulangmao/tag/javascript/">javascript</a>, <a href="http://www.cnblogs.com/liulangmao/tag/ajax/">ajax</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(4262565,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;a811de47-c155-e311-8d02-90b11c0b17d6&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./URL.createObjectURL和URL.revokeObjectURL - 流浪猫の窝 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./URL.createObjectURL和URL.revokeObjectURL - 流浪猫の窝 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/liulangmao/" target="_blank"><img src="./URL.createObjectURL和URL.revokeObjectURL - 流浪猫の窝 - 博客园_files/20131125190815.png" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/liulangmao/">流浪猫の窝</a><br>
+            <a href="http://home.cnblogs.com/u/liulangmao/followees">关注 - 4</a><br>
+            <a href="http://home.cnblogs.com/u/liulangmao/followers">粉丝 - 174</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;a811de47-c155-e311-8d02-90b11c0b17d6&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(4262565,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">1</span>
+    </div>
+    <div class="buryit" onclick="votePost(4262565,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/liulangmao/p/4218327.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/liulangmao/p/4218327.html" title="发布于2015-01-12 14:30">javascript的toString深入探究</a><br><a href="http://www.cnblogs.com/liulangmao/p/4309444.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/liulangmao/p/4309444.html" title="发布于2015-03-02 18:09">HTML5-WebSocket技术学习(1)</a><br></div>
+</div>
+
+
+		</div>
+		<div class="postDesc">posted @ <span id="post-date">2015-02-02 14:17</span> <a href="http://www.cnblogs.com/liulangmao/">流浪猫の窝</a> 阅读(<span id="post_view_count">6446</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=4262565" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/liulangmao/p/4262565.html#" onclick="AddToWz(4262565);return false;">收藏</a></div>
+	</div>
+	<script type="text/javascript">var allowComments=true,cb_blogId=169862,cb_entryId=4262565,cb_blogApp=currentBlogApp,cb_blogUserGuid='a811de47-c155-e311-8d02-90b11c0b17d6',cb_entryCreatedDate='2015/2/2 14:17:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+	
+</div><!--end: topics 文章、评论容器-->
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/liulangmao/p/4262565.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/liulangmao/p/4262565.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="https://group.cnblogs.com/topic/78343.html" target="_blank">【福利】限时领取，H3 BPM给你发年终奖</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="http://www.gcpowertools.com.cn/products/activereports_overview.htm?utm_source=cnblogs&amp;utm_medium=blogpage&amp;utm_term=bottom&amp;utm_content=AR&amp;utm_campaign=community" target="_blank"><img width="300" height="250" src="./URL.createObjectURL和URL.revokeObjectURL - 流浪猫の窝 - 博客园_files/24442-20171206093739878-889349568.png" alt="AR_1206"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/586174/" target="_blank">NVIDIA禁止GeForce在数据中心运行？这回真的被“冤枉”了</a><br> ·  <a href="https://news.cnblogs.com/n/586167/" target="_blank">京东X无人超市首家社会门店开业：刷脸进、微信自动结算</a><br> ·  <a href="https://news.cnblogs.com/n/586161/" target="_blank">《绝地求生》新计划：加入更多地图 支持地图自定义</a><br> ·  <a href="https://news.cnblogs.com/n/586169/" target="_blank">请把2017年赚到的钱存好，这里有份「2018 年苹果新品发布」清单</a><br> ·  <a href="https://news.cnblogs.com/n/586172/" target="_blank">Geoffrey HintonAndrew Moore、吴恩达等总结2017 AI大事件</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/34770/" target="_blank"><img width="468" height="60" src="./URL.createObjectURL和URL.revokeObjectURL - 流浪猫の窝 - 博客园_files/24442-20171208101900738-116140477.jpg" alt="阿里云C2-1208"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/585502/" target="_blank">步入云计算</a><br> ·  <a href="http://kb.cnblogs.com/page/531409/" target="_blank">以操作系统的角度述说线程与进程</a><br> ·  <a href="http://kb.cnblogs.com/page/141729/" target="_blank">软件测试转型之路</a><br> ·  <a href="http://kb.cnblogs.com/page/177402/" target="_blank">门内门外看招聘</a><br> ·  <a href="http://kb.cnblogs.com/page/112506/" target="_blank">大道至简，职场上做人做事做管理</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	</div><!--end: forFlow -->
+	</div><!--end: mainContent 主体内容容器-->
+
+	<div id="sideBar">
+		<div id="sideBarMain">
+			
+<!--done-->
+<div class="newsItem">
+<h3 class="catListTitle">公告</h3>
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/liulangmao/">流浪猫の窝</a><br>园龄：<a href="https://home.cnblogs.com/u/liulangmao/" title="入园时间：2013-11-25">4年1个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/liulangmao/followers/">174</a><br>关注：<a href="https://home.cnblogs.com/u/liulangmao/followees/">4</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;a811de47-c155-e311-8d02-90b11c0b17d6&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2017/12/01&#39;);return false;">&lt;</a></td><td align="center">2018年1月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/02/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">31</td><td class="CalTodayDay" align="center">1</td><td align="center">2</td><td align="center">3</td><td align="center">4</td><td align="center">5</td><td class="CalWeekendDay" align="center">6</td></tr><tr><td class="CalWeekendDay" align="center">7</td><td align="center">8</td><td align="center">9</td><td align="center">10</td><td align="center">11</td><td align="center">12</td><td class="CalWeekendDay" align="center">13</td></tr><tr><td class="CalWeekendDay" align="center">14</td><td align="center">15</td><td align="center">16</td><td align="center">17</td><td align="center">18</td><td align="center">19</td><td class="CalWeekendDay" align="center">20</td></tr><tr><td class="CalWeekendDay" align="center">21</td><td align="center">22</td><td align="center">23</td><td align="center">24</td><td align="center">25</td><td align="center">26</td><td class="CalWeekendDay" align="center">27</td></tr><tr><td class="CalWeekendDay" align="center">28</td><td align="center">29</td><td align="center">30</td><td align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td></tr><tr><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td><td class="CalOtherMonthDay" align="center">9</td><td class="CalOtherMonthDay" align="center">10</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script>
+			
+			<div id="leftcontentcontainer">
+				<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<div class="catListLink">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/liulangmao/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/liulangmao/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/liulangmao/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/liulangmao/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/liulangmao/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+<ul>
+
+</ul>
+</div>
+</div></div><div id="sidebar_toptags" class="sidebar-block">
+<div class="catListTag">
+<h3 class="catListTitle">我的标签</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/liulangmao/tag/%E5%89%8D%E7%AB%AF/">前端</a>(93)</li><li><a href="http://www.cnblogs.com/liulangmao/tag/mvc/">mvc</a>(80)</li><li><a href="http://www.cnblogs.com/liulangmao/tag/angular/">angular</a>(77)</li><li><a href="http://www.cnblogs.com/liulangmao/tag/javascript/">javascript</a>(18)</li><li><a href="http://www.cnblogs.com/liulangmao/tag/nodejs/">nodejs</a>(8)</li><li><a href="http://www.cnblogs.com/liulangmao/tag/jquery/">jquery</a>(7)</li><li><a href="http://www.cnblogs.com/liulangmao/tag/%E5%AE%89%E8%A3%85/">安装</a>(3)</li><li><a href="http://www.cnblogs.com/liulangmao/tag/%E7%BB%A7%E6%89%BF/">继承</a>(3)</li><li><a href="http://www.cnblogs.com/liulangmao/tag/%E8%BD%AF%E4%BB%B6/">软件</a>(3)</li><li><a href="http://www.cnblogs.com/liulangmao/tag/%E5%8E%9F%E5%9E%8B/">原型</a>(3)</li><li><a href="http://www.cnblogs.com/liulangmao/tag/">更多</a></li>
+</ul>
+</div></div><div id="sidebar_categories">
+<div id="sidebar_postcategory" class="catListPostCategory sidebar-block">
+<h3 class="catListTitle">随笔分类</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_0_Link_0" href="http://www.cnblogs.com/liulangmao/category/625051.html">angular(77)</a> </li>
+
+</ul>
+
+</div>
+
+<div id="sidebar_postarchive" class="catListPostArchive sidebar-block">
+<h3 class="catListTitle">随笔档案</h3>
+
+<ul>
+
+<li><a id="CatList_LinkList_1_Link_0" href="http://www.cnblogs.com/liulangmao/archive/2015/12.html">2015年12月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_1" href="http://www.cnblogs.com/liulangmao/archive/2015/10.html">2015年10月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_2" href="http://www.cnblogs.com/liulangmao/archive/2015/09.html">2015年9月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_3" href="http://www.cnblogs.com/liulangmao/archive/2015/07.html">2015年7月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_4" href="http://www.cnblogs.com/liulangmao/archive/2015/06.html">2015年6月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_5" href="http://www.cnblogs.com/liulangmao/archive/2015/05.html">2015年5月 (8)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_6" href="http://www.cnblogs.com/liulangmao/archive/2015/03.html">2015年3月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_7" href="http://www.cnblogs.com/liulangmao/archive/2015/02.html">2015年2月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_8" href="http://www.cnblogs.com/liulangmao/archive/2015/01.html">2015年1月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_9" href="http://www.cnblogs.com/liulangmao/archive/2014/12.html">2014年12月 (4)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_10" href="http://www.cnblogs.com/liulangmao/archive/2014/11.html">2014年11月 (8)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_11" href="http://www.cnblogs.com/liulangmao/archive/2014/10.html">2014年10月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_12" href="http://www.cnblogs.com/liulangmao/archive/2014/09.html">2014年9月 (12)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_13" href="http://www.cnblogs.com/liulangmao/archive/2014/08.html">2014年8月 (8)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_14" href="http://www.cnblogs.com/liulangmao/archive/2014/07.html">2014年7月 (11)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_15" href="http://www.cnblogs.com/liulangmao/archive/2014/06.html">2014年6月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_16" href="http://www.cnblogs.com/liulangmao/archive/2014/05.html">2014年5月 (28)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_17" href="http://www.cnblogs.com/liulangmao/archive/2014/04.html">2014年4月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_18" href="http://www.cnblogs.com/liulangmao/archive/2014/03.html">2014年3月 (2)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_19" href="http://www.cnblogs.com/liulangmao/archive/2014/02.html">2014年2月 (3)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_20" href="http://www.cnblogs.com/liulangmao/archive/2014/01.html">2014年1月 (1)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_21" href="http://www.cnblogs.com/liulangmao/archive/2013/12.html">2013年12月 (5)</a> </li>
+
+<li><a id="CatList_LinkList_1_Link_22" href="http://www.cnblogs.com/liulangmao/archive/2013/11.html">2013年11月 (8)</a> </li>
+
+</ul>
+
+</div>
+
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap">
+<div class="catListComment">
+<h3 class="catListTitle">最新评论</h3>
+
+	<div id="RecentCommentsBlock"><ul>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/liulangmao/p/4323064.html#3857305">1. Re:使用hexo搭建github.io博客(一)</a></li>
+        <li class="recent_comment_body">@黄土地上的黑石头没有任何办法,只能重新开一个github...</li>
+        <li class="recent_comment_author">--流浪猫の窝</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/liulangmao/p/4323064.html#3818143">2. Re:使用hexo搭建github.io博客(一)</a></li>
+        <li class="recent_comment_body">我的github用户名就是有大写字母怎么办</li>
+        <li class="recent_comment_author">--黄土地上的黑石头</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/liulangmao/p/4067131.html#3815738">3. Re:angular学习笔记(三十一)-$location(1)</a></li>
+        <li class="recent_comment_body">很清楚,赞一个！</li>
+        <li class="recent_comment_author">--WentingC</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/liulangmao/p/4901665.html#3807686">4. Re:nodejs里的module.exports和exports的关系</a></li>
+        <li class="recent_comment_body">通俗易懂</li>
+        <li class="recent_comment_author">--履霜坚冰_至</li>
+        <li class="recent_comment_title"><a href="http://www.cnblogs.com/liulangmao/p/4067131.html#3766294">5. Re:angular学习笔记(三十一)-$location(1)</a></li>
+        <li class="recent_comment_body">写得很细致，谢谢提供</li>
+        <li class="recent_comment_author">--甄嬛甄嬛</li>
+</ul>
+</div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">阅读排行榜</h3>
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/liulangmao/p/4526126.html">1. angularjs之$timeout指令(38888)</a></li><li><a href="http://www.cnblogs.com/liulangmao/p/3864954.html">2. angular学习笔记(二十一)-$http.get(20194)</a></li><li><a href="http://www.cnblogs.com/liulangmao/p/4552339.html">3. node-glob学习(15231)</a></li><li><a href="http://www.cnblogs.com/liulangmao/p/4524078.html">4. angularjs: ng-select和ng-options(14223)</a></li><li><a href="http://www.cnblogs.com/liulangmao/p/3878425.html">5. angular学习笔记(二十四)-$http(2)-设置http请求头(12717)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap">
+<div class="catListFeedback">
+<h3 class="catListTitle">评论排行榜</h3>
+	<div id="TopFeedbackPostsBlock"><ul><li><a href="http://www.cnblogs.com/liulangmao/p/3755354.html">1. angular学习笔记(二十)-表单验证(10)</a></li><li><a href="http://www.cnblogs.com/liulangmao/p/3700919.html">2. angular学习笔记(一)-入门案例(7)</a></li><li><a href="http://www.cnblogs.com/liulangmao/p/4323064.html">3. 使用hexo搭建github.io博客(一)(7)</a></li><li><a href="http://www.cnblogs.com/liulangmao/p/3979887.html">4. angular学习笔记(三十)-指令(5)-link(6)</a></li><li><a href="http://www.cnblogs.com/liulangmao/p/4524078.html">5. angularjs: ng-select和ng-options(5)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<div class="catListView">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/liulangmao/p/3727808.html">1. angular学习笔记(十五)-module里的'服务'(6)</a></li><li><a href="http://www.cnblogs.com/liulangmao/p/3700919.html">2. angular学习笔记(一)-入门案例(4)</a></li><li><a href="http://www.cnblogs.com/liulangmao/p/4026370.html">3. angular内置过滤器-filter(3)</a></li><li><a href="http://www.cnblogs.com/liulangmao/p/4078246.html">4. angular五种服务详解(3)</a></li><li><a href="http://www.cnblogs.com/liulangmao/p/3755354.html">5. angular学习笔记(二十)-表单验证(3)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script>
+			</div>
+			
+		</div><!--end: sideBarMain -->
+	</div><!--end: sideBar 侧边栏容器 -->
+	<div class="clear"></div>
+	</div><!--end: main -->
+	<div class="clear"></div>
+	<div id="footer">
+		
+<!--done-->
+Copyright ©2018 流浪猫の窝
+	</div><!--end: footer -->
+</div><!--end: home 自定义的最大容器 -->
+
+
+</body></html>
