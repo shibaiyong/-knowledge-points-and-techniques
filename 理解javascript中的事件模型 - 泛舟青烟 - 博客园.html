@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://www.cnblogs.com/jyybeam/p/5794932.html -->
+<html lang="zh-cn"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>理解javascript中的事件模型 - 泛舟青烟 - 博客园</title>
+<link type="text/css" rel="stylesheet" href="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/blog-common.css">
+<link id="MainCss" type="text/css" rel="stylesheet" href="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/bundle-rivercast.css">
+<link id="mobile-style" media="only screen and (max-width: 767px)" type="text/css" rel="stylesheet" href="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/bundle-rivercast-mobile.css">
+<link title="RSS" type="application/rss+xml" rel="alternate" href="http://www.cnblogs.com/jyybeam/rss">
+<link title="RSD" type="application/rsd+xml" rel="EditURI" href="http://www.cnblogs.com/jyybeam/rsd.xml">
+<link type="application/wlwmanifest+xml" rel="wlwmanifest" href="http://www.cnblogs.com/jyybeam/wlwmanifest.xml">
+<script async="" src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/analytics.js.下载"></script><script type="text/javascript" src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/encoder.js.下载"></script><script src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/jquery.js.下载" type="text/javascript"></script>  
+<script type="text/javascript">var currentBlogApp = 'jyybeam', cb_enable_mathjax=false;var isLogined=false;</script>
+<script src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/blog-common.js.下载" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+
+<!--done-->
+<div id="centerbody" align="center">
+<div id="header">
+	
+<!--done-->
+<div class="header">
+	<div class="headerText">
+		<a id="Header1_HeaderTitle" class="headermaintitle" href="http://www.cnblogs.com/jyybeam/"><h1 style="font-size: 50px; text-align: center; font-family: &#39;隶书&#39;;">泛舟青烟</h1></a><br>
+		
+	</div>
+</div>
+
+</div>
+<div id="main">
+<div id="mytopmenu">
+	
+	<div id="mylinks">
+<!--done-->
+<a id="blog_nav_sitehome" class="menu" href="http://www.cnblogs.com/">博客园</a>&nbsp;&nbsp;&nbsp;
+<a id="blog_nav_myhome" class="menu" href="http://www.cnblogs.com/jyybeam/">首页</a>&nbsp;&nbsp;&nbsp;
+<a id="blog_nav_newpost" class="menu" rel="nofollow" href="https://i.cnblogs.com/EditPosts.aspx?opt=1">新随笔</a>&nbsp;&nbsp;&nbsp;
+<a id="blog_nav_contact" accesskey="9" class="menu" rel="nofollow" href="https://msg.cnblogs.com/send/%E6%B3%9B%E8%88%9F%E9%9D%92%E7%83%9F">联系</a>&nbsp;&nbsp;&nbsp;
+<a id="blog_nav_rss" class="menu" href="http://www.cnblogs.com/jyybeam/rss">订阅</a><a id="blog_nav_rss_image" href="http://www.cnblogs.com/jyybeam/rss"><img src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/xml.gif" alt="订阅"></a>&nbsp;&nbsp;&nbsp;
+<a id="blog_nav_admin" class="menu" rel="nofollow" href="https://i.cnblogs.com/">管理</a>
+</div>
+		<div id="mystats">
+			<div id="blog_stats">
+<!--done-->
+<div class="blogStats">
+posts - 42,&nbsp;
+comments - 0,&nbsp;
+trackbacks - 0
+
+</div></div></div>
+	
+</div>
+<div id="centercontent">
+	
+<div id="post_detail">
+<!--done-->
+<div class="post">
+	<div class="postTitle">
+		<a id="cb_post_title_url" class="postTitle2" href="http://www.cnblogs.com/jyybeam/p/5794932.html">理解javascript中的事件模型</a>
+	</div>
+	<div id="cnblogs_post_body" class="blogpost-body"><p>　　javascript中有两种事件模型：DOM0，DOM2。而对于这两种的时间模型，我一直不是非常的清楚，现在通过网上查阅资料终于明白了一些。</p>
+<p>　　</p>
+<p>　<strong>　一. &nbsp;DOM0级事件模型</strong></p>
+<p><strong>　　</strong>DOM0级事件模型是早期的事件模型，所有的浏览器都是支持的，而且其实现也是比较简单。代码如下：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">p </span><span style="color: #ff0000;">id </span><span style="color: #0000ff;">= 'click'</span><span style="color: #0000ff;">&gt;</span>click me<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">p</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span><span style="background-color: #f5f5f5; color: #000000;">
+    document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">click</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">).onclick </span><span style="background-color: #f5f5f5; color: #000000;">=</span> <span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(event){
+        alert(event.target</span><span style="background-color: #f5f5f5; color: #000000;">);
+    }
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>　　这种事件模型就是直接在dom对象上注册事件名称，这段代码就是在p标签上注册了一个onclick事件，在这个事件函数内部输出点击的目标。而解除事件则更加简单，就是将null复制给事件函数，如下：</p>
+<div class="cnblogs_code">
+<pre>document.getElementById('click'_).onclick = null;</pre>
+</div>
+<p>　　由此我们可以知道dom0中，一个dom对象只能注册一个同类型的函数，因为注册多个同类型的函数的话，就会发生覆盖，之前注册的函数就会无效。</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #000000;">var click = document.getElementById('click');
+click.onclick = function(){
+    alert('you click the first function');
+};
+click.onclick = function(){
+    alert('you click the second function')
+}</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>　　在这段代码中，我们为dom对象注册了两个onclick函数，但是结果是只执行了第二个注册的函数，前面所注册的函数被覆盖了。</p>
+<p>&nbsp;</p>
+<p>　　<strong>二. &nbsp; DOM2级事件模型</strong></p>
+<p><strong>　　1. &nbsp;事件捕获和事件冒泡（capture,bubble)</strong></p>
+<p><strong>　　</strong>首先，IE8及以下是不支持这种事件模型的。事件捕获和事件冒泡的机制如下图：</p>
+<p><img src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/1009080-20160822102414776-1327353898.png" alt=""></p>
+<p>　　如上图所示，123代表事件捕获，4567代表事件冒泡。首先我们使用下面的代码：</p>
+<div class="cnblogs_code">
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id </span><span style="color: #0000ff;">= 'outer' </span><span style="color: #ff0000;">style </span><span style="color: #0000ff;">= 'margin: </span><span style="color: #ff0000;">100px 0 0 100px; width: 200px;height: 200px; background: red;'</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="inner"</span><span style="color: #ff0000;"> style </span><span style="color: #0000ff;">= 'margin-left:20px; </span><span style="color: #ff0000;">width: 50px;height:50px; background: green;'</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span></pre>
+</div>
+<p>　　假设我们点击了ID为inner的div，那么此时的事件流程就是，首先执行捕获阶段：document-html-body-div(outer)。然后执行冒泡阶段：div(inner)-div(outer)-body-html-document。</p>
+<p>　　<strong>2. &nbsp; DOM2级的注册事件和解除事件</strong></p>
+<p>　　在DOM2级中使用addEventListener和removeEventListener来注册和解除事件（IE8及之前版本不支持）。这种函数较之之前的方法好处是一个dom对象可以注册多个相同类型的事件，不会发生事件的覆盖，会依次的执行各个事件函数。</p>
+<p>　　addEventListener('事件名称','事件回调','捕获/冒泡')。示例如下：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id </span><span style="color: #0000ff;">= 'outer' </span><span style="color: #ff0000;">style </span><span style="color: #0000ff;">= 'margin: </span><span style="color: #ff0000;">100px 0 0 100px; width: 200px;height: 200px; background: red;'</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="inner"</span><span style="color: #ff0000;"> style </span><span style="color: #0000ff;">= 'margin-left:20px; </span><span style="color: #ff0000;">width: 50px;height:50px; background: green;'</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+    <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> click </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">inner</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">);
+    click.addEventListener(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">click</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(){
+        alert(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">click one</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">);
+    },</span><span style="background-color: #f5f5f5; color: #0000ff;">false</span><span style="background-color: #f5f5f5; color: #000000;">);
+    click.addEventListener(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">click</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(){
+        alert(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">click two</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">);
+    },</span><span style="background-color: #f5f5f5; color: #0000ff;">false</span><span style="background-color: #f5f5f5; color: #000000;">);
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>　　首先我们要知道addEventListenr的第一个参数是事件名称，与DOM0级不同的是没有”on“，另外第三个参数代表捕获还是冒泡，true代表捕获事件，false代表冒泡事件。</p>
+<p>　　而在这段代码中，我们为inner的div注册了两个click事件函数，结果是浏览器会依次执行这两个函数。</p>
+<p>　　下面我们演示如何使用事件流的发生机制。</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id </span><span style="color: #0000ff;">= 'outer' </span><span style="color: #ff0000;">style </span><span style="color: #0000ff;">= 'margin: </span><span style="color: #ff0000;">100px 0 0 100px; width: 200px;height: 200px; background: red;'</span><span style="color: #0000ff;">&gt;</span>
+    <span style="color: #0000ff;">&lt;</span><span style="color: #800000;">div </span><span style="color: #ff0000;">id</span><span style="color: #0000ff;">="inner"</span><span style="color: #ff0000;"> style </span><span style="color: #0000ff;">= 'margin-left:20px; </span><span style="color: #ff0000;">width: 50px;height:50px; background: green;'</span><span style="color: #0000ff;">&gt;&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">div</span><span style="color: #0000ff;">&gt;</span>
+<span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+    <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> click </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">inner</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">);
+    </span><span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> clickouter </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">outer</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">);
+    click.addEventListener(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">click</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(){
+        alert(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">inner show</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">);
+    },</span><span style="background-color: #f5f5f5; color: #0000ff;">true</span><span style="background-color: #f5f5f5; color: #000000;">);
+    clickouter.addEventListener(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">click</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(){
+        alert(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">outer show</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">);
+    },</span><span style="background-color: #f5f5f5; color: #0000ff;">true</span><span style="background-color: #f5f5f5; color: #000000;">);
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>　　这段代码，我们使用了捕获事件，由于inner是嵌套在outer中的，所以我们知道当使用捕获的时候outer是应该首先捕获到这个事件的，其次inner才能捕获到这个事件。那么结果就是outer首先执行，其次是inner执行。</p>
+<p>　　那么我把outer的执行时机改为冒泡的阶段呢？</p>
+<div class="cnblogs_code">
+<pre><span style="color: #000000;">alickouter.addEventListener('click',function(){
+  alert('outer show');  
+},false);</span></pre>
+</div>
+<p>　　这种情况下，就是先执行inner后执行outer了。同理我们把二者的事件执行时机都改为冒泡阶段的话，依旧是先执行inner后执行outer。那么还有个问题，就是如果我们把inner注册两个click事件，一个是在捕获阶段，另一个是在冒泡阶段，也就是说把addEventListenter的第三个参数分别设置为false和true，那么执行的顺序又是怎样的呢。</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+    <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> click </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">inner</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">);
+    </span><span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> clickouter </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">outer</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">);
+    click.addEventListener(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">click</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(){
+        alert(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">capture show</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">);
+    },</span><span style="background-color: #f5f5f5; color: #0000ff;">true</span><span style="background-color: #f5f5f5; color: #000000;">);
+    click.addEventListener(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">click</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(){
+        alert(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">bubble show</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">);
+    },</span><span style="background-color: #f5f5f5; color: #0000ff;">false</span><span style="background-color: #f5f5f5; color: #000000;">);
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>　　这种情况下首先这些的是capture show，其次是bubble show。但是这种结果是与注册的顺序有关系的，先注册就先执行。因为我们在看事件捕获和事件冒泡示意图，发现最后具体的dom对象是只有一个的。</p>
+<p>　　那么 如果我们给outer和inner都注册了click事件但是我不希望outer执行怎么办呢？这个时候我们就需要用到stopPropagation函数了，这个函数是用来阻止冒泡，言下之意是让事件不再继续冒泡下去，这样接下来注册同样类型事件的dom对象就不会执行了。比如在自制下拉框的时候，我们点击浏览器的其他位置，我们需要下拉框的options隐藏，这时我们就要用到stopPropagation了。如下：</p>
+<div class="cnblogs_code"><div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div>
+<pre><span style="color: #0000ff;">&lt;</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span>
+    <span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> click </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">inner</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">);
+    </span><span style="background-color: #f5f5f5; color: #0000ff;">var</span><span style="background-color: #f5f5f5; color: #000000;"> clickouter </span><span style="background-color: #f5f5f5; color: #000000;">=</span><span style="background-color: #f5f5f5; color: #000000;"> document.getElementById(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">outer</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">);
+    click.addEventListener(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">click</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(event){
+        alert(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">inner show</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">);
+        event.stopPropagation();
+    },</span><span style="background-color: #f5f5f5; color: #0000ff;">false</span><span style="background-color: #f5f5f5; color: #000000;">);
+    clickouter.addEventListener(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">click</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">,</span><span style="background-color: #f5f5f5; color: #0000ff;">function</span><span style="background-color: #f5f5f5; color: #000000;">(){
+        alert(</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">outer show</span><span style="background-color: #f5f5f5; color: #000000;">'</span><span style="background-color: #f5f5f5; color: #000000;">);
+    },</span><span style="background-color: #f5f5f5; color: #0000ff;">false</span><span style="background-color: #f5f5f5; color: #000000;">);
+</span><span style="color: #0000ff;">&lt;/</span><span style="color: #800000;">script</span><span style="color: #0000ff;">&gt;</span></pre>
+<div class="cnblogs_code_toolbar"><span class="cnblogs_code_copy"><a href="javascript:void(0);" onclick="copyCnblogsCode(this)" title="复制代码"><img src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/copycode.gif" alt="复制代码"></a></span></div></div>
+<p>　　正常的情况下，我们在不添加stopPropagation函数时，首先应该执行inner，然后执行outer，但是当我们在inner的事件函数中添加了stopPropagation函数之后，执行完inner的事件函数之后，就不会在执行outer的事件函数了，也可以理解为事件冒泡到inner之后就消失了，因此也就不会在执行接下来的事件函数了。</p>
+<p>　　由于事件捕获阶段没有可以阻止事件的函数，所以一般都是设置为事件冒泡。</p></div><div id="MySignature"></div>
+<div class="clear"></div>
+<div id="blog_post_info_block">
+<div id="BlogPostCategory"></div>
+<div id="EntryTag">标签: <a href="http://www.cnblogs.com/jyybeam/tag/javascript/">javascript</a></div>
+<div id="blog_post_info"><div id="green_channel">
+        <a href="javascript:void(0);" id="green_channel_digg" onclick="DiggIt(5794932,cb_blogId,1);green_channel_success(this,&#39;谢谢推荐！&#39;);">好文要顶</a>
+            <a id="green_channel_follow" onclick="follow(&#39;62111e5a-9b62-e611-9fc1-ac853d9f53cc&#39;);" href="javascript:void(0);">关注我</a>
+    <a id="green_channel_favorite" onclick="AddToWz(cb_entryId);return false;" href="javascript:void(0);">收藏该文</a>
+    <a id="green_channel_weibo" href="javascript:void(0);" title="分享至新浪微博" onclick="ShareToTsina()"><img src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/icon_weibo_24.png" alt=""></a>
+    <a id="green_channel_wechat" href="javascript:void(0);" title="分享至微信" onclick="shareOnWechat()"><img src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/wechat.png" alt=""></a>
+</div>
+<div id="author_profile">
+    <div id="author_profile_info" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/jyybeam/" target="_blank"><img src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/sample_face.gif" class="author_avatar" alt=""></a>
+        <div id="author_profile_detail" class="author_profile_info">
+            <a href="http://home.cnblogs.com/u/jyybeam/">泛舟青烟</a><br>
+            <a href="http://home.cnblogs.com/u/jyybeam/followees">关注 - 2</a><br>
+            <a href="http://home.cnblogs.com/u/jyybeam/followers">粉丝 - 5</a>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div id="author_profile_honor"></div>
+    <div id="author_profile_follow">
+                <a href="javascript:void(0);" onclick="follow(&#39;62111e5a-9b62-e611-9fc1-ac853d9f53cc&#39;);return false;">+加关注</a>
+    </div>
+</div>
+<div id="div_digg">
+    <div class="diggit" onclick="votePost(5794932,&#39;Digg&#39;)">
+        <span class="diggnum" id="digg_count">0</span>
+    </div>
+    <div class="buryit" onclick="votePost(5794932,&#39;Bury&#39;)">
+        <span class="burynum" id="bury_count">0</span>
+    </div>
+    <div class="clear"></div>
+    <div class="diggword" id="digg_tips">
+    </div>
+</div>
+</div>
+<div class="clear"></div>
+<div id="post_next_prev"><a href="http://www.cnblogs.com/jyybeam/p/5784454.html" class="p_n_p_prefix">« </a> 上一篇：<a href="http://www.cnblogs.com/jyybeam/p/5784454.html" title="发布于2016-08-18 16:34">wrap(),wrapAll(),wrapInner()的区别</a><br><a href="http://www.cnblogs.com/jyybeam/p/5798785.html" class="p_n_p_prefix">» </a> 下一篇：<a href="http://www.cnblogs.com/jyybeam/p/5798785.html" title="发布于2016-08-23 12:07">nodejs常用命令</a><br></div>
+</div>
+
+
+	<div class="postDesc">posted on <span id="post-date">2016-08-22 11:26</span> <a href="http://www.cnblogs.com/jyybeam/">泛舟青烟</a> 阅读(<span id="post_view_count">4517</span>) 评论(<span id="post_comment_count">0</span>)  <a href="https://i.cnblogs.com/EditPosts.aspx?postid=5794932" rel="nofollow">编辑</a> <a href="https://www.cnblogs.com/jyybeam/p/5794932.html#" onclick="AddToWz(5794932);return false;">收藏</a></div>
+</div>
+<script type="text/javascript">var allowComments=true,cb_blogId=299690,cb_entryId=5794932,cb_blogApp=currentBlogApp,cb_blogUserGuid='62111e5a-9b62-e611-9fc1-ac853d9f53cc',cb_entryCreatedDate='2016/8/22 11:26:00';loadViewCount(cb_entryId);var cb_postType=1;</script>
+
+</div><a name="!comments"></a><div id="blog-comments-placeholder"></div><script type="text/javascript">var commentManager = new blogCommentManager();commentManager.renderComments(0);</script>
+<div id="comment_form" class="commentform">
+<a name="commentform"></a>
+<div id="divCommentShow"></div>
+<div id="comment_nav"><span id="span_refresh_tips"></span><a href="javascript:void(0);" onclick="return RefreshCommentList();" id="lnk_RefreshComments" runat="server" clientidmode="Static">刷新评论</a><a href="https://www.cnblogs.com/jyybeam/p/5794932.html#" onclick="return RefreshPage();">刷新页面</a><a href="https://www.cnblogs.com/jyybeam/p/5794932.html#top">返回顶部</a></div>
+<div id="comment_form_container"><div class="login_tips">注册用户登录后才能发表评论，请 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return login(&#39;commentform&#39;);">登录</a> 或 <a rel="nofollow" href="javascript:void(0);" class="underline" onclick="return register();">注册</a>，<a href="http://www.cnblogs.com/">访问</a>网站首页。</div></div>
+<div class="ad_text_commentbox" id="ad_text_under_commentbox"></div>
+<div id="ad_t2"><a href="http://www.ucancode.com/index.htm" target="_blank">【推荐】超50万VC++源码: 大型工控、组态\仿真、建模CAD源码2018！</a><br><a href="https://cloud.tencent.com/developer/support-plan?fromSource=gwzcw.710852.710852.710852" target="_blank">【推荐】加入腾讯云自媒体扶持计划，免费领取域名&amp;服务器</a><br><a href="https://group.cnblogs.com/topic/78343.html" target="_blank">【福利】限时领取，H3 BPM给你发年终奖</a><br></div>
+<div id="opt_under_post"></div>
+<div id="cnblogs_c1" class="c_ad_block"><a href="http://www.h3bpm.net/" target="_blank"><img width="300" height="250" src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/24442-20171226125601900-422637433.jpg" alt="h3bpm 活动"></a></div>
+<div id="under_post_news"><div class="itnews c_ad_block"><b>最新IT新闻</b>:<br> ·  <a href="https://news.cnblogs.com/n/586587/" target="_blank">Outlook.com迎来重新设计后的日历，切换至Beta版即可体验</a><br> ·  <a href="https://news.cnblogs.com/n/586586/" target="_blank">一键自动检修CPU漏洞 360安全卫士首发免疫工具</a><br> ·  <a href="https://news.cnblogs.com/n/586584/" target="_blank">贾跃亭减持酷派18%股权亏12亿 频繁套现难解债务危机</a><br> ·  <a href="https://news.cnblogs.com/n/586585/" target="_blank">西部数据My Cloud私有云被曝存在远程访问后门</a><br> ·  <a href="https://news.cnblogs.com/n/586583/" target="_blank">树莓派基金会：我们全系产品对Meltdown和Spectre漏洞免疫</a><br>» <a href="http://news.cnblogs.com/" title="IT新闻" target="_blank">更多新闻...</a></div></div>
+<div id="cnblogs_c2" class="c_ad_block"><a href="http://click.aliyun.com/m/34770/" target="_blank"><img width="468" height="60" src="./理解javascript中的事件模型 - 泛舟青烟 - 博客园_files/24442-20171208101900738-116140477.jpg" alt="阿里云C2-1208"></a></div>
+<div id="under_post_kb"><div class="itnews c_ad_block" id="kb_block"><b>最新知识库文章</b>:<br><div id="kb_recent"> ·  <a href="http://kb.cnblogs.com/page/585502/" target="_blank">步入云计算</a><br> ·  <a href="http://kb.cnblogs.com/page/531409/" target="_blank">以操作系统的角度述说线程与进程</a><br> ·  <a href="http://kb.cnblogs.com/page/141729/" target="_blank">软件测试转型之路</a><br> ·  <a href="http://kb.cnblogs.com/page/177402/" target="_blank">门内门外看招聘</a><br> ·  <a href="http://kb.cnblogs.com/page/112506/" target="_blank">大道至简，职场上做人做事做管理</a><br></div>» <a href="http://kb.cnblogs.com/" target="_blank">更多知识库文章...</a></div></div>
+<div id="HistoryToday" class="c_ad_block"></div>
+<script type="text/javascript">
+    fixPostBody();
+    setTimeout(function () { incrementViewCount(cb_entryId); }, 50);
+    deliverAdT2();
+    deliverAdC1();
+    deliverAdC2();    
+    loadNewsAndKb();
+    loadBlogSignature();
+    LoadPostInfoBlock(cb_blogId, cb_entryId, cb_blogApp, cb_blogUserGuid);
+    GetPrevNextPost(cb_entryId, cb_blogId, cb_entryCreatedDate, cb_postType);
+    loadOptUnderPost();
+    GetHistoryToday(cb_blogId, cb_blogApp, cb_entryCreatedDate);   
+</script>
+</div>
+
+
+	
+<!--done-->
+<div class="footer">
+	
+	Copyright ©2018  泛舟青烟 Powered By: <a href="http://www.cnblogs.com/">博客园</a> 模板提供：<a href="http://blog.hjenglish.com/">沪江博客</a>
+</div>
+</div>
+
+<div id="leftcontent">
+	
+		<div id="leftcontentcontainer">
+			<div id="blog-calendar" style=""><table id="blogCalendar" class="Cal" cellspacing="0" cellpadding="0" title="Calendar">
+	<tbody><tr><td colspan="7"><table class="CalTitle" cellspacing="0">
+		<tbody><tr><td class="CalNextPrev"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2017/12/01&#39;);return false;">&lt;</a></td><td align="center">2018年1月</td><td class="CalNextPrev" align="right"><a href="javascript:void(0);" onclick="loadBlogCalendar(&#39;2018/02/01&#39;);return false;">&gt;</a></td></tr>
+	</tbody></table></td></tr><tr><th class="CalDayHeader" align="center" abbr="日" scope="col">日</th><th class="CalDayHeader" align="center" abbr="一" scope="col">一</th><th class="CalDayHeader" align="center" abbr="二" scope="col">二</th><th class="CalDayHeader" align="center" abbr="三" scope="col">三</th><th class="CalDayHeader" align="center" abbr="四" scope="col">四</th><th class="CalDayHeader" align="center" abbr="五" scope="col">五</th><th class="CalDayHeader" align="center" abbr="六" scope="col">六</th></tr><tr><td class="CalOtherMonthDay" align="center">31</td><td align="center">1</td><td align="center">2</td><td align="center">3</td><td align="center">4</td><td align="center">5</td><td class="CalTodayDay" align="center">6</td></tr><tr><td class="CalWeekendDay" align="center">7</td><td align="center">8</td><td align="center">9</td><td align="center">10</td><td align="center">11</td><td align="center">12</td><td class="CalWeekendDay" align="center">13</td></tr><tr><td class="CalWeekendDay" align="center">14</td><td align="center">15</td><td align="center">16</td><td align="center">17</td><td align="center">18</td><td align="center">19</td><td class="CalWeekendDay" align="center">20</td></tr><tr><td class="CalWeekendDay" align="center">21</td><td align="center">22</td><td align="center">23</td><td align="center">24</td><td align="center">25</td><td align="center">26</td><td class="CalWeekendDay" align="center">27</td></tr><tr><td class="CalWeekendDay" align="center">28</td><td align="center">29</td><td align="center">30</td><td align="center">31</td><td class="CalOtherMonthDay" align="center">1</td><td class="CalOtherMonthDay" align="center">2</td><td class="CalOtherMonthDay" align="center">3</td></tr><tr><td class="CalOtherMonthDay" align="center">4</td><td class="CalOtherMonthDay" align="center">5</td><td class="CalOtherMonthDay" align="center">6</td><td class="CalOtherMonthDay" align="center">7</td><td class="CalOtherMonthDay" align="center">8</td><td class="CalOtherMonthDay" align="center">9</td><td class="CalOtherMonthDay" align="center">10</td></tr>
+</tbody></table></div><script type="text/javascript">loadBlogDefaultCalendar();</script><br>
+			
+<!--done-->
+<div class="newsItem">
+	<div id="blog-news"><div id="profile_block">昵称：<a href="https://home.cnblogs.com/u/jyybeam/">泛舟青烟</a><br>园龄：<a href="https://home.cnblogs.com/u/jyybeam/" title="入园时间：2016-08-15">1年4个月</a><br>粉丝：<a href="https://home.cnblogs.com/u/jyybeam/followers/">5</a><br>关注：<a href="https://home.cnblogs.com/u/jyybeam/followees/">2</a><div id="p_b_follow"><a href="javascript:void(0);" onclick="follow(&#39;62111e5a-9b62-e611-9fc1-ac853d9f53cc&#39;)">+加关注</a></div></div></div><script type="text/javascript">loadBlogNews();</script>
+</div>
+
+			<div id="blog-sidecolumn"><div id="sidebar_search" class="sidebar-block">
+<div id="sidebar_search" class="mySearch">
+<h3 class="catListTitle">搜索</h3>
+<div id="sidebar_search_box">
+<div id="widget_my_zzk" class="div_my_zzk"><input type="text" id="q" onkeydown="return zzk_go_enter(event);" class="input_my_zzk">&nbsp;<input onclick="zzk_go()" type="button" value="找找看" id="btnZzk" class="btn_my_zzk"></div>
+<div id="widget_my_google" class="div_my_zzk"><input type="text" name="google_q" id="google_q" onkeydown="return google_go_enter(event)" class="input_my_zzk">&nbsp;<input onclick="google_go()" type="button" value="谷歌搜索" class="btn_my_zzk"></div>
+</div>
+</div>
+
+</div><div id="sidebar_shortcut" class="sidebar-block">
+<h3 class="catListTitle">常用链接</h3>
+<ul>
+<li><a href="http://www.cnblogs.com/jyybeam/p/" title="我的博客的随笔列表">我的随笔</a></li><li><a href="http://www.cnblogs.com/jyybeam/MyComments.html" title="我发表过的评论列表">我的评论</a></li><li><a href="http://www.cnblogs.com/jyybeam/OtherPosts.html" title="我评论过的随笔列表">我的参与</a></li><li><a href="http://www.cnblogs.com/jyybeam/RecentComments.html" title="我的博客的评论列表">最新评论</a></li><li><a href="http://www.cnblogs.com/jyybeam/tag/" title="我的博客的标签列表">我的标签</a></li>
+</ul>
+<div id="itemListLin_con" style="display:none;">
+
+</div></div><div id="sidebar_toptags" class="sidebar-block">
+<h3 class="catListTitle">我的标签</h3>
+<div id="MyTag">
+<ul>
+<li><a href="http://www.cnblogs.com/jyybeam/tag/javascript/">javascript</a>(10)</li><li><a href="http://www.cnblogs.com/jyybeam/tag/jquery/">jquery</a>(5)</li><li><a href="http://www.cnblogs.com/jyybeam/tag/html/">html</a>(5)</li><li><a href="http://www.cnblogs.com/jyybeam/tag/angularjs/">angularjs</a>(4)</li><li><a href="http://www.cnblogs.com/jyybeam/tag/nodejs/">nodejs</a>(3)</li><li><a href="http://www.cnblogs.com/jyybeam/tag/php/">php</a>(2)</li><li><a href="http://www.cnblogs.com/jyybeam/tag/css/">css</a>(2)</li><li><a href="http://www.cnblogs.com/jyybeam/tag/mongodb/">mongodb</a>(2)</li><li><a href="http://www.cnblogs.com/jyybeam/tag/%E6%9C%AA%E8%A7%A3%E5%86%B3/">未解决</a>(1)</li>
+</ul>
+</div></div><div id="sidebar_categories">
+<!--done-->
+
+		<h1 class="catListTitle">随笔档案</h1>
+		
+				<ul class="catList">
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_0" class="listitem" href="http://www.cnblogs.com/jyybeam/archive/2017/06.html">2017年6月 (3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_1" class="listitem" href="http://www.cnblogs.com/jyybeam/archive/2017/05.html">2017年5月 (2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_2" class="listitem" href="http://www.cnblogs.com/jyybeam/archive/2017/04.html">2017年4月 (6)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_3" class="listitem" href="http://www.cnblogs.com/jyybeam/archive/2017/03.html">2017年3月 (3)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_4" class="listitem" href="http://www.cnblogs.com/jyybeam/archive/2017/01.html">2017年1月 (2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_5" class="listitem" href="http://www.cnblogs.com/jyybeam/archive/2016/12.html">2016年12月 (2)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_6" class="listitem" href="http://www.cnblogs.com/jyybeam/archive/2016/11.html">2016年11月 (6)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_7" class="listitem" href="http://www.cnblogs.com/jyybeam/archive/2016/10.html">2016年10月 (4)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_8" class="listitem" href="http://www.cnblogs.com/jyybeam/archive/2016/09.html">2016年9月 (1)</a></li>
+			
+				<li class="catListItem"> <a id="CatList_LinkList_0_Link_9" class="listitem" href="http://www.cnblogs.com/jyybeam/archive/2016/08.html">2016年8月 (13)</a></li>
+			
+				</ul>
+			
+	
+</div><div id="sidebar_recentcomments" class="sidebar-block"><div id="recent_comments_wrap" style="display: none;">
+<h3 class="catListTitle">最新评论</h3>
+<div class="RecentComment" id="RecentComments">
+	<div id="RecentCommentsBlock"></div>
+</div>
+</div></div><div id="sidebar_topviewedposts" class="sidebar-block"><div id="topview_posts_wrap">
+<h3 class="catListTitle">阅读排行榜</h3>
+<div class="RecentComment" id="TopViewPosts"> 
+	<div id="TopViewPostsBlock"><ul><li><a href="http://www.cnblogs.com/jyybeam/p/6122346.html">1. angular使用post、get向后台传参的问题(7601)</a></li><li><a href="http://www.cnblogs.com/jyybeam/p/5794932.html">2. 理解javascript中的事件模型(4517)</a></li><li><a href="http://www.cnblogs.com/jyybeam/p/6564453.html">3. CSS单行文本溢出显示省略号(2857)</a></li><li><a href="http://www.cnblogs.com/jyybeam/p/6074619.html">4. text-align:justify的使用(1664)</a></li><li><a href="http://www.cnblogs.com/jyybeam/p/6084493.html">5. H5中的拖拽事件(1653)</a></li></ul></div>
+</div>
+</div></div><div id="sidebar_topcommentedposts" class="sidebar-block"><div id="topfeedback_posts_wrap" style="display: none;">
+<h3 class="catListTitle">评论排行榜</h3>
+<div class="RecentComment" id="TopCommentsPosts">
+	<div id="TopFeedbackPostsBlock"></div>
+</div></div></div><div id="sidebar_topdiggedposts" class="sidebar-block"><div id="topdigg_posts_wrap">
+<h3 class="catListTitle">推荐排行榜</h3>
+<div class="RecentComment">
+	<div id="TopDiggPostsBlock"><ul><li><a href="http://www.cnblogs.com/jyybeam/p/5776667.html">1. 理解浏览器的重绘与回流（repaint&amp;&amp;reflow）(1)</a></li><li><a href="http://www.cnblogs.com/jyybeam/p/6122346.html">2. angular使用post、get向后台传参的问题(1)</a></li></ul></div>
+</div></div></div></div><script type="text/javascript">loadBlogSideColumn();</script></div>
+	
+</div>
+
+</div>
+
+</div>
+
+
+
+</body></html>
